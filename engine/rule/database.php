@@ -24,7 +24,7 @@ $dbPassword = '';
  * 
  * Database name
  */
-$dbName = 'dbs_nadha_laundry';
+$dbName = 'dbs_nadha_resto';
 /**
  * 
  * Database driver

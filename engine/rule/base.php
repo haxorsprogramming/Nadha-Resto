@@ -11,17 +11,17 @@
 * cth : localhost/uinsuWf atau http://haxorsprogramming.id
 * apabila di upload di hosting, perhatikan http/https nya, karena akan berpengaruh
 */
-$homeBase = 'http://localhost/Nadha-Laundry/';
+$homeBase = 'http://localhost/Nadha-Resto/';
 
 /**
 * Site name (nama situs web)
 */
-$siteName = 'Uinsu Web Framework';
+$siteName = 'Nadha Resto';
 
 /**
 * Author (Pengembang / pemilik website)
 */
-$author = '';
+$author = 'NadhaMedia';
 
 //main route,not index
 $mainRoute = 'login';
