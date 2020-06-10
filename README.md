@@ -2,3 +2,5 @@
 
 # Nadha-Resto
 Aplikasi manajemen restoran by NadhaMedia
+
+<h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
