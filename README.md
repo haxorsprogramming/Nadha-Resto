@@ -5,4 +5,11 @@
 # Nadha-Resto
 Aplikasi manajemen restoran by NadhaMedia
 
+<hr/>
+
+<b>Fitur</b>
+<ul>
+<li>Manajemen Pesanan</li>
+</ul>
+
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
