@@ -4,6 +4,8 @@
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
 
+![PHP Composer](https://github.com/haxorsprogramming/Nadha-Resto/workflows/PHP%20Composer/badge.svg)
+
 <hr/>
 <br/><br/>
 <b>Teknologi yang digunakan</b>
