@@ -1,5 +1,5 @@
 <p align='center'>
-<img src='https://github.com/haxorsprogramming/All-Project/blob/master/nadha_produk/nadha_resto.png?raw=true' width='500px'>
+<img src='https://github.com/haxorsprogramming/Haxors-Contributors/blob/master/haxors_project/nadha_resto.png?raw=true' width='500px'>
 </p>
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
@@ -39,3 +39,7 @@
 </ul>
 
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
+
+<p align='justify'>
+Ingin berkontribusi untuk pengembangan club programming ini? bantu kami melalui donasi lewat saweria di <h2><a href='https://saweria.co/donate/haxorsprogramming'>Saweria Haxorsprogramming</a></h2>sedikit banyaknya donasi dapat memberi kontribusi yang positif bagi perkembangan club ini. Terima kasih, salam koding .. ^_^
+</p>
