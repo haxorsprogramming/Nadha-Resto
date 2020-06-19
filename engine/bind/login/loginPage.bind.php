@@ -4,7 +4,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1", shrink-to-fit="no">
-  <title>Nadha Restaurant</title>
+  <title><?=SITENAME; ?></title>
   <!-- base:css -->
   <link rel="stylesheet" href="<?=STYLEBASE; ?>/login/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=STYLEBASE; ?>/login/vendors/base/vendor.bundle.base.css">
@@ -49,7 +49,7 @@
                   </div>
                   <div class="mt-2">
                   <div style='padding-top:12px;'>
-                      <h5 class="font-weight-light">2020 &copy; <a href='http://nadha.id' target='new'>NadhaMedia</a></h5>
+                      <h5 class="font-weight-light">2020 &copy; <a href='http://haxors.or.id' target='new'><?=AUTHOR; ?></a></h5>
                     </div>
                 </div>
                 </div>

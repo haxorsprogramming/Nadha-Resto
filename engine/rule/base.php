@@ -11,7 +11,7 @@ $homeBase = 'http://localhost/Nadha-Resto/';
 /**
 * Site name (nama situs web)
 */
-$siteName = 'Nadha-Resto';
+$siteName = 'Nadha Resto - Aplikasi Manajemen Restoran';
 
 /**
 * Author (Pengembang / pemilik website)
