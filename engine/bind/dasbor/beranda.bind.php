@@ -68,7 +68,7 @@
     </div>
   </div>
   </div>
-<!-- Card layanan / service terlaris  -->
+<!-- Card layanan / menu terlaris  -->
   <div class='row'>
   <div class="col-lg-6 col-md-6 col-12">
               <div class="card">
@@ -94,7 +94,7 @@
                 </div>
               </div>
         </div>
-        <!-- Pelanggan teraktif -->
+        <!-- Transaksi terakhir -->
         <div class="col-lg-6 col-md-6 col-12">
         <div class="card">
                 <div class="card-header">

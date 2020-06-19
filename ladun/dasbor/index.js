@@ -1,14 +1,6 @@
 //inisialisasi variabel lokal
 const beranda = 'dasbor/beranda';
-const produkService = 'produkService';
-const pelanggan = 'pelanggan';
-const settingUser = 'settingUser';
-const laporan = 'laporan';
-const levelUser = 'levelUser';
-const kartuLaundry = 'kartuLaundry';
-const laundryRoom = 'laundryRoom';
-const detailCucian = 'laundryRoom/detailCucian';
-const dataTransaksi = 'dataTransaksi';
+const menu = 'menu';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -38,13 +30,17 @@ var divMenu = new Vue({
   el: '#divMenu',
   data: {},
   methods: {
-    berandaAct: function() {
+    berandaAct : function() {
       renderMenu(beranda);
       divJudul.judulForm = "Beranda";
+    },
+    menuAtc : function() {
+      renderMenu(menu);
+      divJudul.judulForm = "Menu Restoran";
     }
   }
 });
-
+ 
 function renderMenu(halaman) {
   $('#divUtama').html("Memuat ...");
   $('#divUtama').load(halaman);

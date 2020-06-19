@@ -6,7 +6,7 @@
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-newspaper"></i> <span>Data Master</span></a>
     <ul class="dropdown-menu">
-      <li><a class="nav-link" href="#!" v-on:click=''>Menu</a></li>
+      <li><a class="nav-link" href="#!" v-on:click='menuAtc'>Menu</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Pelanggan</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Promo</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Pesan Broadcast</a></li>
@@ -31,4 +31,4 @@
   </li>
   <li><a class="nav-link" id='btnBantuan' href='#!' v-on:click=''><i class="fas fa-info-circle"></i> <span>Bantuan</span></a></li>
   <li><a class="nav-link" id='btnLogOut' href="<?= HOMEBASE; ?>dasbor/logOut"><i class="fas fa-sign-out-alt"></i> <span>LogOut</span></a></li>
-</ul> 
+</ul>  

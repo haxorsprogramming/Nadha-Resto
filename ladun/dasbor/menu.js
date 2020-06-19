@@ -1,0 +1,1 @@
+$('#tblMenu').DataTable();

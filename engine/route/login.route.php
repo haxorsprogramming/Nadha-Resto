@@ -9,11 +9,11 @@ class login extends Route{
 
     public function prosesLogin()
     {
-        $user = $this -> inp('username');
-        $password = $this -> inp('password');
-        $passHash = md5($password);
-        $waktu = $this -> waktu();
-        $data['jlh'] = $this -> state('loginData') -> cekUser($user, $passHash);
+        $user           = $this -> inp('username');
+        $password       = $this -> inp('password');
+        $passHash       = md5($password);
+        $waktu          = $this -> waktu();
+        $data['jlh']    = $this -> state('loginData') -> cekUser($user, $passHash);
         if($data['jlh'] > 0){
             $this -> setses('userSes',$user);
             $this -> state('loginData') -> updateLogin($waktu, $user);
