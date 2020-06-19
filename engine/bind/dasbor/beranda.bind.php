@@ -1,4 +1,5 @@
-<div class="container" id='divBeranda'>
+<div id='divBeranda'>
+<div class="container">
 <!-- Statistik Bar -->
 <div class='row'>
     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -9,7 +10,7 @@
         <div class="card-wrap">
           <div class="card-header">
       <h3 id='capTotalUji'></h3>
-            <h4>Cucian</h4>
+            <h4>Pengunjung</h4>
           </div>
           <div class="card-body">
 
@@ -40,8 +41,8 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-        <h3 id='capTotalGejala'>70%</h3>
-            <h4>Profit Bulanan</h4>
+        <h3 id='capTotalGejala'>%</h3>
+            <h4>Rasio Kunjungan</h4>
           </div>
           <div class="card-body">
 
@@ -72,58 +73,41 @@
   <div class="col-lg-6 col-md-6 col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4>Layanan / Service Terlaris</h4>
+                  <h4>Menu Terlaris</h4>
                   <div class="card-header-action">
                     <a href="#" class="btn btn-primary">Semua</a>
                   </div>
                 </div>
                 <div class="card-body">
-                  <div class="mb-4">
-                    <div class="text-small float-right font-weight-bold text-muted">2,100</div>
-                    <div class="font-weight-bold mb-1">Cuci Kering</div>
-                    <div class="progress" data-height="3" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" data-width="80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                    </div>
-                  </div>
-                  <div class="mb-4">
-                    <div class="text-small float-right font-weight-bold text-muted">2,100</div>
-                    <div class="font-weight-bold mb-1">Cuci Bersih & Rapi</div>
-                    <div class="progress" data-height="3" style="height: 3px;">
-                      <div class="progress-bar" role="progressbar" data-width="80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                    </div>
-                  </div>
+                <ul class="list-unstyled list-unstyled-border">
+                    <li class="media" v-for='mv in menuFavorit'>
+                      <img class="mr-3" width="220" style="border-radius:6px;" :src="'<?=STYLEBASE; ?>/dasbor/img/menu/'+mv.pic" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right text-primary">Detail</div>
+                        <div class="media-title">Nasi Goreng</div>
+                        <span class="text-small text-muted">
+                          Nasi goreng spesial dengan bumbu tradisional
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-
-
         </div>
         <!-- Pelanggan teraktif -->
         <div class="col-lg-6 col-md-6 col-12">
         <div class="card">
                 <div class="card-header">
-                  <h4 class="d-inline">Pelanggan Teraktif</h4>
+                  <h4 class="d-inline">Transaksi terakhir</h4>
                   <div class="card-header-action">
                     <a href="#" class="btn btn-primary">Semua</a>
                   </div>
                 </div>
                 <div class="card-body">
-                  <ul class="list-unstyled list-unstyled-border">
-                    <li class="media">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="cbx-1">
-                        <label class="custom-control-label" for="cbx-1"></label>
-                      </div>
-                      <img class="mr-3 rounded-circle" width="50" src="<?=STYLEBASE; ?>/dasbor/img/avatar-1.png" alt="avatar">
-                      <div class="media-body">
-                        <div class="badge badge-pill badge-primary mb-1 float-right">Silver</div>
-                        <h6 class="media-title"><a href="#">Hasnah Nur Ardita</a></h6>
-                        <div class="text-small text-muted">109 Total Cuci <div class="bullet"></div> <span class="text-primary">108 Point</span></div>
-                      </div>
-                    </li>
-
-                  </ul>
+                
                 </div>
               </div>
         </div>
+</div>
 </div>
 <script src="<?=STYLEBASE; ?>/dasbor/beranda.js"></script>

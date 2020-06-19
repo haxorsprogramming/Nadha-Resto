@@ -28,7 +28,7 @@
  <body style="font-family: 'Nunito Sans';">
    <div id="app">
      <div class="main-wrapper">
-       <div class="navbar-bg"  style='background-color:#34495e;'></div>
+       <div class="navbar-bg"  style='background-color:#2c3e50;'></div>
        <nav class="navbar navbar-expand-lg main-navbar">
          <form class="form-inline mr-auto">
            <ul class="navbar-nav mr-3">
@@ -70,7 +70,7 @@
        <div class="main-content">
          <section class="section">
            <div class="section-header">
-             <h1 id='capUtama'> Nadha Laundry - {{judulForm}}</h1>
+             <h1 id='capUtama'> Nadha Resto - {{judulForm}}</h1>
 
            </div>
            
