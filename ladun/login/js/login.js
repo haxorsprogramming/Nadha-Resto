@@ -1,9 +1,11 @@
-const urlLoginProses = "login/prosesLogin";
+const urlLoginProses = document.getElementById('txtHomebase').value+"login/prosesLogin";
 const awalLogin = true;
 
 $(document).ready(function(){
   document.getElementById("txtUsername").focus();
 });
+
+console.log(urlLoginProses);
 
 var loginForm = new Vue({
   el: "#login-app",
@@ -24,7 +26,7 @@ var loginForm = new Vue({
             if (obj.jlh > 0) {
               suksesLogin();
             } else {
-              gagalLogin();
+              gagalLogin(); 
             }
           }
         );
@@ -41,7 +43,7 @@ function suksesLogin() {
     timeout: 1000,
     pauseOnHover: false,
     onClosed: function() {
-      window.location.assign("dasbor");
+      window.location.assign('dasbor');
     }
   });
 }

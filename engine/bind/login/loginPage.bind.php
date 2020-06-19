@@ -8,6 +8,7 @@
   <!-- base:css -->
   <link rel="stylesheet" href="<?=STYLEBASE; ?>/login/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=STYLEBASE; ?>/login/vendors/base/vendor.bundle.base.css">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&family=Nunito:wght@600&display=swap" rel="stylesheet">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -17,10 +18,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
-  
 </head>
 
-<body>
+<body style="font-family: 'Nunito', sans-serif;">
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="main-panel">
@@ -30,6 +30,7 @@
               <div class="auth-form-light text-left py-5 px-4 px-sm-5" id='login-app'>
                 <div class="brand-logo" style='text-align:center;'>
                   <img src="<?=STYLEBASE; ?>/login/images/nadha_resto.png" alt="logo" style='width:200px; '>
+                  <h4 style="font-weight:bold;">Aplikasi Manajemen Restoran</h4>
                 </div>
                 <div style='text-align:center;'>
                 <h6 class="font-weight-light">Harap masuk untuk melanjutkan.</h6>
@@ -50,7 +51,8 @@
                   <div class="mt-2">
                   <div style='padding-top:12px;'>
                       <h5 class="font-weight-light">2020 &copy; <a href='http://haxors.or.id' target='new'><?=AUTHOR; ?></a></h5>
-                    </div>
+                  </div>
+                  <input type="hidden" value="<?=HOMEBASE; ?>" id='txtHomebase'>
                 </div>
                 </div>
               </div>

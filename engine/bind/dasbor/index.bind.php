@@ -3,7 +3,7 @@
  <head>
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <title>Nadha Laundry - Dashboard</title>
+   <title><?=SITENAME; ?></title>
    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    <!-- General CSS Files -->
    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
  <body style="font-family: 'Nunito Sans';">
    <div id="app">
      <div class="main-wrapper">
-       <div class="navbar-bg"  style='background-color:#0ab59e;'></div>
+       <div class="navbar-bg"  style='background-color:#34495e;'></div>
        <nav class="navbar navbar-expand-lg main-navbar">
          <form class="form-inline mr-auto">
            <ul class="navbar-nav mr-3">
@@ -54,7 +54,7 @@
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
               <a href="#!" style='height:30px;'>
-              <img src='<?=STYLEBASE; ?>/dasbor/img/nadha_laundry.jpg' style="width: 100px;">
+              <img src='<?=STYLEBASE; ?>/login/images/nadha_resto.png' style="width: 100px;">
               </a>
             </div>
             <div class="sidebar-brand sidebar-brand-sm">

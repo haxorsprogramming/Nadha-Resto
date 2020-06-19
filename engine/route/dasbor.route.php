@@ -10,8 +10,7 @@ class Dasbor extends Route{
 
     public function index()
     {     
-        $this -> cekUserLogin('userSes');
-        $this -> bind('/dasbor/index');
+        $this -> bind('/dasbor/index');   
     }
 
     public function beranda()

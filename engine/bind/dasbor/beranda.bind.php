@@ -8,7 +8,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-      <h3 id='capTotalUji'>{{jlhCucian}}</h3>
+      <h3 id='capTotalUji'></h3>
             <h4>Cucian</h4>
           </div>
           <div class="card-body">
@@ -24,7 +24,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-          <h3 id='capTotalGejala'>{{jlhPelanggan}}</h3>
+          <h3 id='capTotalGejala'></h3>
             <h4>Pelanggan</h4>
           </div>
           <div class="card-body">

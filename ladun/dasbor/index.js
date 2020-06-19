@@ -41,32 +41,6 @@ var divMenu = new Vue({
     berandaAct: function() {
       renderMenu(beranda);
       divJudul.judulForm = "Beranda";
-    },
-    kartuLaundryAtc : function(){
-      renderMenu(kartuLaundry);
-      divJudul.judulForm = "Kartu Laundry";
-    },
-    laundryRoomAtc : function(){
-      renderMenu(laundryRoom);
-      divJudul.judulForm = "Laundry Room";
-    },
-    pelangganAtc: function() {
-      renderMenu(pelanggan);
-      divJudul.judulForm = "Data Pelanggan";
-    },
-    levelUserAtc : function() {
-      renderMenu(levelUser);
-      divJudul.judulForm = "Level User";
-    },
-    produkServiceAtc : function()
-    {
-      renderMenu(produkService);
-      divJudul.judulForm = "Produk & Service";
-    },
-    dataTransaksiAtc : function()
-    {
-      renderMenu(dataTransaksi);
-      divJudul.judulForm = "Data Transaksi";
     }
   }
 });
