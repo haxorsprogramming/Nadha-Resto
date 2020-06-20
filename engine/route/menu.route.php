@@ -2,15 +2,17 @@
 
 class menu extends Route{
 
-    public function __construct()
-    {
-        $this -> st = new state;
-    }
+    private $sn = 'menuData';
 
     public function index()
     {
-        $this -> bind('/dasbor/menu/menu');
+        $data['menu'] = $this -> state($this -> sn) -> getMenu(); 
+        $this -> bind('/dasbor/menu/menu', $data);
     }
 
-    
+    public function tambahMenu()
+    {
+        $this -> bind('/dasbor/menu/formTambahMenu');
+    }
+
 }
