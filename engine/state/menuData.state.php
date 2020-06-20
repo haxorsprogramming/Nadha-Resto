@@ -15,4 +15,10 @@ class menuData{
         return $this -> st -> queryAll();
     }
 
+    public function getKategori()
+    {
+        $this -> st -> query("SELECT * FROM tbl_kategori;");
+        return $this -> st -> queryAll();
+    }
+
 }

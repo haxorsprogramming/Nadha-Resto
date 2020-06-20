@@ -43,11 +43,6 @@ class Route{
       return $hasil;
     }
 
-    //fungsi upload
-    public function upload($path)
-    {
-        
-    }
     //ambil data post
     public function inp($id)
     {
@@ -75,6 +70,17 @@ class Route{
     {
       $bex = explode(".", $id);
       return $bex[1];
+    }
+    //fungsi untuk ambil size file 
+    public function getSizeFile($id)
+    {
+      return $_FILES[$id]['size'];
+    }
+    //fungsi untuk upload file 
+    public function uploadFile($source, $destination)
+    {
+      if(move_uploaded_file($source, $destination)){      
+      }
     }
     //fungsi untuk membuat session
     public function setses($id, $val)
