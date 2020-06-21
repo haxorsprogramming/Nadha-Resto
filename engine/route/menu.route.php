@@ -29,7 +29,9 @@ class menu extends Route{
             if($sizeFile > 2044070){
                 $data['status'] = 'error_size_file';
             }else{
-                move_uploaded_file($_FILES['txtFoto']['tmp_name'], $destination);
+                if(move_uploaded_file($sourcePath, $destination)){ 
+            
+                }
                 $data['status'] = 'success';
             }
         }else{
