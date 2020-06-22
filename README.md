@@ -30,13 +30,17 @@
 <li>Manajemen Pesanan</li>
 <li>Manajemen Pelanggan</li>
 <li>Manajemen Meja</li>
-<li>Manejemen Operator(Kasir, waiters, dapur)</li>
+<li>Manejemen Operator(Kasir, waiters, dapur) & Shift Pegawai</li>
 <li>Manejemen Pembayaran</li>
-<li>Manajemen Pemasukan/Pengeluaran Restoran</li>
+<li>Manajemen Bahan Baku</li>
 <li>Manajemen Promo & Diskon</li>
 <li>Manajemen Pembukuan Restoran</li>
-<li>Manajemen Laporan Keuangan Restoran</li>
 </ul>
+<br/>
+<b>Development Team</b>
+<li> Hasnah Nur Ardita : Project Manager & Front End Development</li>
+<li> Aditia Darma Nst : Backend Development</li>
+<li> Muhammad Rizky : Microservice</li>
 
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
 

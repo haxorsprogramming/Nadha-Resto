@@ -38,7 +38,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                     <label>Harga</label>
-                    <input type="number" class="form-control" name='txtHarga' id='txtHarga'>
+                    <input type="text" class="form-control" name='txtHarga' id='txtHarga'>
                 </div>
                 <div class="form-group">
                     <label>Satuan</label>

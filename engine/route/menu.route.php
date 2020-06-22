@@ -25,13 +25,6 @@ class menu extends Route{
         $tipeFile = $this -> getTypeFile($namaFile);
         $sizeFile = $this -> getSizeFile('txtFoto');
         //data operation
-        // let foto = document.getElementById('txtFoto').value;
-        // let nama = document.getElementById('txtNama').value;
-        // let kategori = document.getElementById('txtKategori').value;
-        // let deks = document.getElementById('txtDeks').value;
-        // let harga = document.getElementById('txtHarga').value;
-        // let satuan = document.getElementById('txtSatuan').value;
-
         $kdMenu = $this -> rnint(8);
         $nama = $this -> inp('txtNama');
         $deks = $this -> inp('txtDeks');
@@ -39,6 +32,8 @@ class menu extends Route{
         $satuan = $this -> inp('txtSatuan');
         $kategori = $this -> inp('txtKategori');
         $picName = $kdMenu.".".$tipeFile;
+
+        $hargaClear = str_replace(".", "", $harga);
 
         $destination = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
 
@@ -48,7 +43,7 @@ class menu extends Route{
             }else{
                 $data['status'] = 'success';
                 $this -> uploadFile($sourcePath, $destination);
-                $this -> state('menuData') -> prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $harga, $picName);
+                $this -> state('menuData') -> prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $hargaClear, $picName);
             }
         }else{
             $data['status'] = 'error_tipe_file';
