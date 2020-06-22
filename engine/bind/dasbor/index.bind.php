@@ -106,6 +106,7 @@
      <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/datatables.min.js"></script>
      <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/iziToast.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
    <!-- Template JS File -->
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/scripts.js"></script>
 

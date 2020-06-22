@@ -4,11 +4,11 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                     <label>Nama Menu</label>
-                    <input type="text" class="form-control" id='txtNama'>
+                    <input type="text" class="form-control" id='txtNama' name='txtNama'>
                 </div>
                 <div class="form-group">
                     <label>Kategori</label>
-                    <select class="form-control" id='txtKategori'>
+                    <select class="form-control" id='txtKategori' name='txtKategori'>
                         <?php foreach($data['kategori'] as $kategori) : ?>
                         <option><?=$kategori['nama']; ?></option>
                         <?php endforeach; ?>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label>Deks</label>
-                    <textarea class="form-control" placeholder="Deksripsi menu" style="resize: none;"></textarea>
+                    <textarea class="form-control" placeholder="Deksripsi menu" id='txtDeks' name="txtDeks" style="resize: none;"></textarea>
                 </div>
                 <div style='font-size:12px;'>
                     <ul>
@@ -38,11 +38,11 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                     <label>Harga</label>
-                    <input type="number" class="form-control" id='txtHarga'>
+                    <input type="number" class="form-control" name='txtHarga' id='txtHarga'>
                 </div>
                 <div class="form-group">
                     <label>Satuan</label>
-                    <select class="form-control" id='txtSatuan'>
+                    <select class="form-control" id='txtSatuan' name='txtSatuan'>
                         <option value='porsi'>porsi</option>
                         <option value='paket'>paket</option>
                         <option value='pcs'>pcs</option>
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="form-group">
-
+ 
         </div>
     </form>
 </div>

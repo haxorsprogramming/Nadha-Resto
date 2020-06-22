@@ -23,7 +23,7 @@ var loginForm = new Vue({
           { username: this.userInput, password: this.passwordInput },
           function(data) {
             let obj = JSON.parse(data);
-            if (obj.jlh > 0) {
+            if (obj.status_login === 'sukses') {
               suksesLogin();
             } else {
               gagalLogin(); 

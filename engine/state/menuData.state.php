@@ -21,4 +21,11 @@ class menuData{
         return $this -> st -> queryAll();
     }
 
+    public function prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $harga, $picName)
+    {
+        $query = "INSERT INTO tbl_menu VALUES(null, '$kdMenu', '$nama', '$deks','$kategori','$satuan','$harga','$picName','1');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

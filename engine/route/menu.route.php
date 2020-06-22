@@ -18,26 +18,43 @@ class menu extends Route{
 
     public function prosesTambahMenu()
     {
+        //about img operation
         $sourcePath = $this -> getTempFile('txtFoto');
+        $tipeGambar = array('png', 'jpg', 'jpeg');
         $namaFile = $this -> getNameFile('txtFoto');
         $tipeFile = $this -> getTypeFile($namaFile);
         $sizeFile = $this -> getSizeFile('txtFoto');
-        $namaPic = $this -> rnstr(8);
-        $destination = '/ladun/'.$namaPic.".".$tipeFile;
+        //data operation
+        // let foto = document.getElementById('txtFoto').value;
+        // let nama = document.getElementById('txtNama').value;
+        // let kategori = document.getElementById('txtKategori').value;
+        // let deks = document.getElementById('txtDeks').value;
+        // let harga = document.getElementById('txtHarga').value;
+        // let satuan = document.getElementById('txtSatuan').value;
 
-        if($tipeFile === 'jpg' || $tipeFile === 'png' || $tipeFile === 'jpeg'){
+        $kdMenu = $this -> rnint(8);
+        $nama = $this -> inp('txtNama');
+        $deks = $this -> inp('txtDeks');
+        $harga = $this -> inp('txtHarga');
+        $satuan = $this -> inp('txtSatuan');
+        $kategori = $this -> inp('txtKategori');
+        $picName = $kdMenu.".".$tipeFile;
+
+        $destination = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
+
+        if(in_array($tipeFile, $tipeGambar)){
             if($sizeFile > 2044070){
                 $data['status'] = 'error_size_file';
             }else{
-                if(move_uploaded_file($sourcePath, $destination)){ 
-            
-                }
                 $data['status'] = 'success';
+                $this -> uploadFile($sourcePath, $destination);
+                $this -> state('menuData') -> prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $harga, $picName);
             }
         }else{
             $data['status'] = 'error_tipe_file';
         }
-        $data['sumber'] = $sourcePath;
+
+        $data['sumber'] = $destination;
         $this -> toJson($data);
     }
 

@@ -19,7 +19,7 @@
         <td><?=$menu['kategori']; ?> / <?=$menu['satuan']; ?></td>
         <td><?=$menu['deks']; ?></td>
         <td>Rp. <?=number_format($menu['harga']); ?></td>
-        <td><?=$menu['total_dipesan']; ?></td>
+        <td></td>
         <td>
             <a href='#!' class="btn btn-primary btn-icon icon-left">Detail</a>
         </td>
@@ -30,4 +30,4 @@
 </div>
 </div>
   
-<script src="<?=STYLEBASE; ?>/dasbor/menu.js"></script>
+<script src="<?=STYLEBASE; ?>/dasbor/menu.js"></script> 
