@@ -42,7 +42,22 @@ class Route{
       $hasil  = substr($acak, 0, $length);
       return $hasil;
     }
-
+    //hash password 
+    public function hashPassword($pass)
+    {
+      return password_hash($pass, PASSWORD_DEFAULT);
+    }
+    //verify password 
+    public function verifPassword($pass_1, $pass_2)
+    {
+        //pass 1 = string awal
+        //pass 2 = string hash
+        if (password_verify($pass_1, $pass_2)) {
+          return true;
+        } else {
+          return false;
+        }
+    }
     //ambil data post
     public function inp($id)
     {
