@@ -18,22 +18,29 @@ var loginForm = new Vue({
       if (this.userInput === "" || this.passwordInput === "") {
         isiField();
       } else {
-        $.post(
-          urlLoginProses,
-          { username: this.userInput, password: this.passwordInput },
-          function(data) {
-            let obj = JSON.parse(data);
+        let xhr = new XMLHttpRequest();
+        let params = "username="+this.userInput+"&password="+this.passwordInput;
+        xhr.open('POST', urlLoginProses, true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function(){
+          let obj = JSON.parse(this.responseText);
+          console.log(obj);
             if (obj.status_login === 'sukses') {
               suksesLogin();
             } else {
               gagalLogin(); 
             }
-          }
-        );
+        }
+
+        xhr.send(params);
+               
       }
     }
   }
 });
+
+// let data = { username : }
 
 function suksesLogin() {
   iziToast.info({
