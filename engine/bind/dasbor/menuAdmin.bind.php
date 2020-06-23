@@ -8,6 +8,7 @@
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" v-on:click='menuAtc'>Menu</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Pelanggan</a></li>
+      <li><a class="nav-link" href="#!" v-on:click=''>Meja</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Promo</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Pesan Broadcast</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Mitra</a></li>
@@ -15,7 +16,7 @@
   </li>
   <li><a class="nav-link " href="#!" v-on:click=''><i class="fas fa-receipt"></i> <span>Data Transaksi</span></a></li>
   <li class="dropdown">
-    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-pepper-hot"></i> <span>Bahan Baku</span></a>
+    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cookie"></i> <span>Bahan Baku</span></a>
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" v-on:click=''>Data Bahan Baku</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Pembelian Bahan</a></li>

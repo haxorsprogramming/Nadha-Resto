@@ -265,22 +265,21 @@ class Route{
     public function kirimEmail($nama,$penerima,$judul,$isi,$emailHost,$passwordHost)
     {
         $mail = new PHPMailer(false);  
-        // Passing `true` enables exceptions
         try {
             //Server settings
-            $mail->SMTPDebug  = 0;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPDebug  = 0;                                  // Enable verbose debug output
+            $mail->isSMTP();                                        // Set mailer to use SMTP
+            $mail->Host       = 'smtp.gmail.com';                   // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                               // Enable SMTP authentication
-            $mail->Username   = $emailHost;                 // SMTP username
-            $mail->Password   = $passwordHost;                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
+            $mail->Username   = $emailHost;                         // SMTP username
+            $mail->Password   = $passwordHost;                      // SMTP password
+            $mail->SMTPSecure = 'tls';                              // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 587;                                      // TCP port to connect to
             //Recipients
             $mail->setFrom($emailHost, 'Haxors Uinsu');
-            $mail->addAddress($penerima, $nama);     // Add a recipient
+            $mail->addAddress($penerima, $nama);                    // Add a recipient
             //Content
-            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->isHTML(true);                                    // Set email format to HTML
             $mail->Subject = $judul;
             $mail->Body    = $isi;
             $mail->AltBody = $isi;
@@ -323,12 +322,35 @@ class Route{
         $data = preg_replace('#</*(?:applet|b(?:ase|gsound|link)|embed|frame(?:set)?|i(?:frame|layer)|l(?:ayer|ink)|meta|object|s(?:cript|tyle)|title|xml)[^>]*+>#i', '', $data);
     }
     while ($old_data !== $data);
-
     // we are done...
     return $data;
     }
     //send notifikasi cucian selesai
-  public function cucianSelesaiNotif($message, $phone_no, $apiKey){
+    public function cucianSelesaiNotif($message, $phone_no, $apiKey){
+        $message = preg_replace( "/(\n)/", "<ENTER>", $message );
+        $message = preg_replace( "/(\r)/", "<ENTER>", $message );
+        
+        $phone_no = preg_replace( "/(\n)/", ",", $phone_no );
+        $phone_no = preg_replace( "/(\r)/", "", $phone_no );
+        
+        $data = array("phone_no" => $phone_no, "key" => $apiKey, "message" => $message);
+        $data_string = json_encode($data);
+        $ch = curl_init('http://116.203.92.59/api/send_message');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_VERBOSE, 0);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($data_string))
+        );
+        $result = curl_exec($ch);
+    }
+
+    public function broadcastPesan($message, $phone_no, $apiKey)
+    {
       $message = preg_replace( "/(\n)/", "<ENTER>", $message );
       $message = preg_replace( "/(\r)/", "<ENTER>", $message );
       
@@ -349,31 +371,7 @@ class Route{
       'Content-Length: ' . strlen($data_string))
       );
       $result = curl_exec($ch);
-  }
-
-  public function broadcastPesan($message, $phone_no, $apiKey)
-  {
-    $message = preg_replace( "/(\n)/", "<ENTER>", $message );
-    $message = preg_replace( "/(\r)/", "<ENTER>", $message );
-    
-    $phone_no = preg_replace( "/(\n)/", ",", $phone_no );
-    $phone_no = preg_replace( "/(\r)/", "", $phone_no );
-    
-    $data = array("phone_no" => $phone_no, "key" => $apiKey, "message" => $message);
-    $data_string = json_encode($data);
-    $ch = curl_init('http://116.203.92.59/api/send_message');
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_VERBOSE, 0);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen($data_string))
-    );
-    $result = curl_exec($ch);
-  }
+    }
 
 
 }

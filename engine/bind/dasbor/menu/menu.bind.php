@@ -19,7 +19,7 @@
         <td><?=$menu['kategori']; ?> / <?=$menu['satuan']; ?></td>
         <td><?=$menu['deks']; ?></td>
         <td>Rp. <?=number_format($menu['harga']); ?></td>
-        <td></td>
+        <td><?=$menu['total_dipesan']; ?></td>
         <td>
             <a href='#!' class="btn btn-primary btn-icon icon-left">Detail</a>
         </td>
