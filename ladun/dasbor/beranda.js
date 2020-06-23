@@ -2,8 +2,8 @@ var divBeranda = new Vue({
     el : '#divBeranda',
     data : {
         menuFavorit : [
-            {judul : 'Ayam Penyet', pic : 'ayam_penyet.jpg', deks : 'Ayam penyet bumbu super pedes'},
-            {judul : 'Nasi Goreng', pic : 'nasi_goreng.jpg', deks : 'Nasi goreng spesial dengan bumbu tradisional'}
+            {judul : 'Ayam Penyet', pic : '08128922.jpg', deks : 'Ayam penyet bumbu super pedes'},
+            {judul : 'Nasi Goreng', pic : '08128922.jpg', deks : 'Nasi goreng spesial dengan bumbu tradisional'}
         ]
     }
 });
