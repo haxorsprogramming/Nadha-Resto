@@ -7,7 +7,7 @@
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-newspaper"></i> <span>Data Master</span></a>
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" v-on:click='menuAtc'>Menu</a></li>
-      <li><a class="nav-link" href="#!" v-on:click=''>Pelanggan</a></li>
+      <li><a class="nav-link" href="#!" v-on:click='pelangganAtc'>Pelanggan</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Meja</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Promo</a></li>
       <li><a class="nav-link" href='#!' v-on:click=''>Pesan Broadcast</a></li>

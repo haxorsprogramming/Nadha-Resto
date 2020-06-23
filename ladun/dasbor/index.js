@@ -1,7 +1,7 @@
 //inisialisasi variabel lokal
 const beranda = 'dasbor/beranda';
 const menu = 'menu';
-
+const pelanggan = 'pelanggan';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
@@ -37,6 +37,10 @@ var divMenu = new Vue({
     menuAtc : function() {
       renderMenu(menu);
       divJudul.judulForm = "Menu Restoran";
+    },
+    pelangganAtc : function() {
+      renderMenu(pelanggan);
+      divJudul.judulForm = "Daftar Pelanggan";
     }
   }
 });
