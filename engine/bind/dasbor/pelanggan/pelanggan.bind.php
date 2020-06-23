@@ -23,7 +23,7 @@
                     <td><?=$pelanggan['no_hp']; ?></td>
                     <td><?=$pelanggan['last_visit']; ?></td>
                     <td></td>
-                    <td></td>
+                    <td><a href='#!' class="btn btn-sm btn-primary btn-icon icon-left" v-on:click='detailAtc("<?=$pelanggan['id_pelanggan']; ?>")'><i class='fas fa-info-circle'></i> Detail</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -55,7 +55,7 @@
             <div>
                 <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan'><i class='fas fa-save'></i>Simpan</a>
                 &nbsp;&nbsp;
-                <a href='#!' class="btn btn-lg btn-info btn-icon icon-left"><i class='fas fa-i-cursor'></i> Clear</a>
+                <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearForm'><i class='fas fa-i-cursor'></i> Clear</a>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">

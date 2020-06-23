@@ -15,4 +15,11 @@ class pelangganData{
         return $this -> st -> queryAll();
     }
 
+    public function tambahPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $visit)
+    {
+        $query = "INSERT INTO tbl_pelanggan VALUES(null, '$idPelanggan','$nama','$alamat','$hp','$email','$visit');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

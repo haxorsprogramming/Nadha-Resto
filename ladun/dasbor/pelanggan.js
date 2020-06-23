@@ -15,6 +15,10 @@ var divPelanggan = new Vue({
         {
             renderMenu(pelanggan);
             divJudul.judulForm = "Daftar Pelanggan";
+        },
+        detailAtc : function(kdPelanggan)
+        {
+            //event to detail pelanggan
         }
     }
 });
@@ -40,7 +44,7 @@ var divFormTambahPelanggan = new Vue({
             if(this.nama === '' || this.alamat === '' || this.hp === '' || this.email === ''){
                 isiField();
             }else{
-                
+                prosesTambahPelanggan();
             }
         }
     }
@@ -61,6 +65,27 @@ document.getElementById('btnSimpan').addEventListener("click", function(){
     divFormTambahPelanggan.prosesTambahPelanggan();
 });
 
+document.getElementById('btnClearForm').addEventListener("click", function(){
+    clearForm();
+});
+
+function prosesTambahPelanggan()
+{
+    const nama = divFormTambahPelanggan.nama;
+    const alamat = divFormTambahPelanggan.alamat;
+    const email = divFormTambahPelanggan.email;
+    const hp = divFormTambahPelanggan.hp;
+
+    $.post('pelanggan/prosesTambahPelanggan', {'nama': nama, 'alamat':alamat, 'email':email, 'hp':hp}, function(data){
+       let obj = JSON.parse(data);
+       if(obj.status === 'sukses'){
+        messageSukses();   
+       }else{
+        messageGagal();
+       }
+    });
+}
+
 function isiField()
 {
     Swal.fire({
@@ -68,4 +93,33 @@ function isiField()
         title : 'Isi field!!',
         text : 'Harap isi semua field.'
     });
+}
+
+function messageSukses()
+{
+    Swal.fire({
+        icon : 'success',
+        title : 'Sukses',
+        text : 'Berhasil menambahkan pelanggan baru'
+    });
+    renderMenu(pelanggan);
+    divJudul.judulForm = "Daftar Pelanggan";
+}
+
+function messageGagal()
+{
+    Swal.fire({
+        icon : 'error',
+        title : 'Gagal',
+        text : 'Gagal menambahkan pelanggan baru'
+    });
+}
+
+function clearForm()
+{
+    document.getElementById('txtNama').value = '';
+    document.getElementById('txtAlamat').value = '';
+    document.getElementById('txtEmail').value = '';
+    document.getElementById('txtHp').value = '';
+    document.getElementById('txtNama').focus();
 }
