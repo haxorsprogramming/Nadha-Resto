@@ -27,6 +27,7 @@
 <b>Fitur</b>
 <ul>
 <li>Monitoring Aktivitas Restoran</li>
+<li>Sistem Pemesanan Mandiri (Lewat front end)</li>
 <li>Manajemen Pesanan</li>
 <li>Manajemen Pelanggan</li>
 <li>Manajemen Meja</li>

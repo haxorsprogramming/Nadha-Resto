@@ -21,7 +21,7 @@ $author = 'Haxorsprogramming';
 /**
 * Default route
 */
-$mainRoute = 'login';
+$mainRoute = 'home';
 
 /**
 * Path to  style asset (css, js, dll)
