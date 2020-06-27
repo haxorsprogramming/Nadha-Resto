@@ -45,6 +45,9 @@
 
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
 
+Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang di kembangan oleh haxorsprogramming
+<h3>https://t.me/haxorsupdate</h3>
+
 <p align='justify'>
 Ingin berkontribusi untuk pengembangan club programming ini? bantu kami melalui donasi lewat saweria di <h2><a href='https://saweria.co/donate/haxorsprogramming'>Saweria Haxorsprogramming</a></h2>sedikit banyaknya donasi dapat memberi kontribusi yang positif bagi perkembangan club ini. Terima kasih, salam koding .. ^_^
 </p>
