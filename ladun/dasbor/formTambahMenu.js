@@ -15,7 +15,7 @@ var divFormTambahMenu = new Vue({
             let satuan = document.getElementById('txtSatuan').value;
 
             if(foto === '' || nama === '' || kategori === '' || deks === '' || harga === '' || satuan === ''){
-                isiField();
+                pesanUmum('warning', 'Isi field!!', 'Harap isi semua field!!');
             }else{
                 $("#frmUpload").submit();
             }
@@ -60,32 +60,15 @@ $("#frmUpload").on('submit', function(e){
 
         },
         success: function(data){
-            // let obj = JSON.parse(data);
-            // console.log(data); 
-            // // sukses();
-            // if(data.status === 'error_tipe_file'){
-            //     errorTipeFile();
-            // }else{
-            //     if(data.status === 'error_size_file'){
-            //         errorSizeFile();
-            //     }else{
-            //         if(data.status === 'nama_menu_exist'){
-            //             namaSudahAda();
-            //         }else{
-            //             sukses();
-            //         }
-            //     }
-            // }
-            //change to switch 
             switch(data.status){
                 case 'error_tipe_file':
-                    errorTipeFile();
+                    pesanUmum('error', 'Error tipe file', 'Tipe file yang diperbolehkan JPG, PNG');
                     break;
                 case 'error_size_file':
-                    errorSizeFile();
+                    pesanUmum('error', 'Error size file', 'Ukuran foto yang diperbolehkan maksimal 2Mb');
                     break;
                 case 'nama_menu_exist':
-                    namaSudahAda();
+                    pesanUmum('error', 'Error menu name', 'Nama menu sudah digunakan, silahkan ganti');
                     break;
                 case 'success':
                     sukses()
@@ -96,45 +79,17 @@ $("#frmUpload").on('submit', function(e){
     });
 });
 
+function pesanUmum(icon, title, text){
+    Swal.fire({
+        icon : icon,
+        title : title,
+        text
+    });
+}
+
 function sembunyikanFotoContoh()
 {
     $('#divGambarContoh').hide();
-}
-
-function errorTipeFile()
-{
-    Swal.fire({
-        icon : 'error',
-        title : 'Error tipe file',
-        text : 'Tipe file yang diperbolehkan JPG, PNG'
-    });
-}
-
-function errorSizeFile()
-{
-    Swal.fire({
-        icon : 'error',
-        title : 'Error size file',
-        text : 'Maksimal ukuran foto yang diperbolehkan 2Mb'
-    });
-}
-
-function namaSudahAda()
-{
-    Swal.fire({
-        icon : 'error',
-        title : 'Error nama menu',
-        text : 'Nama menu sudah dipakai/ada'
-    });
-}
-
-function isiField()
-{
-    Swal.fire({
-        'icon' : 'warning',
-        'title' : 'Isi field',
-        'text' : 'Harap isi semua field'
-    });
 }
 
 function sukses()
