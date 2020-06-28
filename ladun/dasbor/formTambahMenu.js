@@ -30,6 +30,10 @@ var divFormTambahMenu = new Vue({
         {
             renderMenu(menu);
             divJudul.judulForm = "Menu Restoran";
+        },
+        clearFormAtc : function()
+        {
+            clearForm();
         }
     }
 });
@@ -39,8 +43,6 @@ $('#divGambarContoh').hide();
 var rupiah = document.getElementById('txtHarga');
 
 rupiah.addEventListener('keyup', function(e){
-    // tambahkan 'Rp.' pada saat form di ketik
-    // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
     rupiah.value = formatRupiah(this.value);
 });
 
@@ -48,17 +50,19 @@ $("#frmUpload").on('submit', function(e){
     e.preventDefault();
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/Nadha-Resto/menu/prosesTambahMenu',
+        url: 'menu/prosesTambahMenu',
         data: new FormData(this),
         dataType: 'json',
         contentType: false,
         cache: false,
-        processData:false,
+        processData: false,
         beforeSend: function(){
 
         },
-        success: function(data){ 
-            sukses();
+        success: function(data){
+            // let obj = JSON.parse(data);
+            console.log(data); 
+            // sukses();
         }
     });
 });
@@ -86,6 +90,15 @@ function sukses()
     });
     renderMenu(menu);
     divJudul.judulForm = "Menu Restoran";
+}
+
+function clearForm()
+{
+    document.getElementById("txtFoto").value = '';
+    document.getElementById("txtNama").value = '';
+    document.getElementById("txtDeks").value = '';
+    document.getElementById("txtHarga").value = '';
+    document.getElementById('txtNama').focus();
 }
 
 function formatRupiah(angka, prefix){

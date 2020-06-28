@@ -29,7 +29,7 @@
                 <a href='#!' id='btnSimpan' class="btn btn-lg btn-primary btn-icon icon-left" v-on:click='prosesAtc'><i
                         class='fas fa-save'></i> Simpan</a>
                 &nbsp;&nbsp;
-                <a href='#!' id='btnClear' class="btn btn-lg btn-warning btn-icon icon-left" v-on:click=''><i
+                <a href='#!' id='btnClear' class="btn btn-lg btn-warning btn-icon icon-left" v-on:click='clearFormAtc'><i
                         class='fas fa-clipboard-check'></i> Clear form</a>
                 &nbsp;&nbsp;
                 <a href='#!' id='btnKembali' class="btn btn-lg btn-success btn-icon icon-left" v-on:click='kembaliAtc'><i

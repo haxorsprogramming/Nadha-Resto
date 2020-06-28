@@ -23,7 +23,7 @@ class menu extends Route{
         $tipeGambar = array('png', 'jpg', 'jpeg');
         $namaFile = $this -> getNameFile('txtFoto');
         $tipeFile = $this -> getTypeFile($namaFile);
-        $sizeFile = $this -> getSizeFile('txtFoto');
+        $sizeFile = $_FILES['txtFoto']['size'];
         //data operation
         $kdMenu = $this -> rnint(8);
         $nama = $this -> inp('txtNama');
@@ -34,23 +34,23 @@ class menu extends Route{
         $picName = $kdMenu.".".$tipeFile;
 
         $hargaClear = str_replace(".", "", $harga);
-
         $destination = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
 
         if(in_array($tipeFile, $tipeGambar)){
-            if($sizeFile > 2044070){
-                $data['status'] = 'error_size_file';
-            }else{
+
+            if($_FILES['txtFoto']['size'] < 2044070){
                 $data['status'] = 'success';
                 $this -> uploadFile($sourcePath, $destination);
                 $this -> state('menuData') -> prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $hargaClear, $picName);
+            }else{
+                $data['status'] = 'error_size_file';
             }
+
         }else{
             $data['status'] = 'error_tipe_file';
         }
-
-        $data['sumber'] = $destination;
+        $data['def_res'] = $sizeFile;
         $this -> toJson($data);
     }
-
+ 
 }
