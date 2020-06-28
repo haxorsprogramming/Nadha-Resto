@@ -36,20 +36,25 @@ class menu extends Route{
         $hargaClear = str_replace(".", "", $harga);
         $destination = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
 
-        if(in_array($tipeFile, $tipeGambar)){
-
-            if($_FILES['txtFoto']['size'] < 2044070){
-                $data['status'] = 'success';
-                $this -> uploadFile($sourcePath, $destination);
-                $this -> state('menuData') -> prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $hargaClear, $picName);
-            }else{
-                $data['status'] = 'error_size_file';
-            }
-
+        //cek apakah nama makanan sudah ada
+        $jlhNama = $this -> state($this -> sn) -> cariNamaMakanan($nama);
+        if($jlhNama > 0){
+            $data['status'] = 'nama_menu_exist';
         }else{
-            $data['status'] = 'error_tipe_file';
+            if(in_array($tipeFile, $tipeGambar)){
+
+                if($sizeFile < 2000){
+                    $data['status'] = 'error_size_file'; 
+                }else{
+                    $data['status'] = 'success';
+                    $this -> uploadFile($sourcePath, $destination);
+                    $this -> state('menuData') -> prosesTambahMenu($kdMenu, $nama, $deks, $kategori, $satuan, $hargaClear, $picName);
+                }
+            }else{
+                $data['status'] = 'error_tipe_file';
+            }
         }
-        $data['def_res'] = $sizeFile;
+        $data['def_res'] = $jlhNama;
         $this -> toJson($data);
     }
  

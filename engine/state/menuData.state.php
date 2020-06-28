@@ -28,4 +28,10 @@ class menuData{
         $this -> st -> queryRun();
     }
 
+    public function cariNamaMakanan($nama)
+    {
+        $this -> st -> query("SELECT id FROM tbl_menu WHERE nama='$nama';");
+        return $this -> st -> numRow();
+    }
+
 }

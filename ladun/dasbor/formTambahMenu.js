@@ -61,8 +61,37 @@ $("#frmUpload").on('submit', function(e){
         },
         success: function(data){
             // let obj = JSON.parse(data);
-            console.log(data); 
-            // sukses();
+            // console.log(data); 
+            // // sukses();
+            // if(data.status === 'error_tipe_file'){
+            //     errorTipeFile();
+            // }else{
+            //     if(data.status === 'error_size_file'){
+            //         errorSizeFile();
+            //     }else{
+            //         if(data.status === 'nama_menu_exist'){
+            //             namaSudahAda();
+            //         }else{
+            //             sukses();
+            //         }
+            //     }
+            // }
+            //change to switch 
+            switch(data.status){
+                case 'error_tipe_file':
+                    errorTipeFile();
+                    break;
+                case 'error_size_file':
+                    errorSizeFile();
+                    break;
+                case 'nama_menu_exist':
+                    namaSudahAda();
+                    break;
+                case 'success':
+                    sukses()
+                    break;
+                default :
+            }
         }
     });
 });
@@ -70,6 +99,33 @@ $("#frmUpload").on('submit', function(e){
 function sembunyikanFotoContoh()
 {
     $('#divGambarContoh').hide();
+}
+
+function errorTipeFile()
+{
+    Swal.fire({
+        icon : 'error',
+        title : 'Error tipe file',
+        text : 'Tipe file yang diperbolehkan JPG, PNG'
+    });
+}
+
+function errorSizeFile()
+{
+    Swal.fire({
+        icon : 'error',
+        title : 'Error size file',
+        text : 'Maksimal ukuran foto yang diperbolehkan 2Mb'
+    });
+}
+
+function namaSudahAda()
+{
+    Swal.fire({
+        icon : 'error',
+        title : 'Error nama menu',
+        text : 'Nama menu sudah dipakai/ada'
+    });
 }
 
 function isiField()

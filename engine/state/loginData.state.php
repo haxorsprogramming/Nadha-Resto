@@ -9,12 +9,6 @@ class loginData{
         $this -> st = new state;
     }
 
-    public function cekUser($user, $passHash)
-    {
-        $this -> st -> query("SELECT id FROM tbl_user WHERE username='$user' AND password='$passHash';");
-        return $this -> st -> numRow();
-    }
-
     public function getPassword($username)
     {
         $this -> st -> query("SELECT password FROM tbl_user WHERE username='$username';");
