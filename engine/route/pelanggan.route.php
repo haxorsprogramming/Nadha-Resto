@@ -18,8 +18,14 @@ class pelanggan extends Route{
       $hp             = $this -> inp('hp');
       $visit          = $this -> waktu();
       $idPelanggan    = $this -> rnint(8);
-      $this -> state($this -> sn) -> tambahPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $visit);
-      $data['status'] = 'sukses';
+      //cek apakah ada nomor handphone & nama yang sama
+      $jlhPelanggan = $this -> state($this -> sn) -> getNamaHandphone($nama, $hp);
+      if($jlhPelanggan > 0){
+        $data['status'] = 'error';
+      }else{
+        $this -> state($this -> sn) -> tambahPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $visit);
+        $data['status'] = 'sukses';
+      }
       $this -> toJson($data);
     }
 

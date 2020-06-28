@@ -22,4 +22,10 @@ class pelangganData{
         $this -> st -> queryRun();
     }
 
+    public function getNamaHandphone($nama, $hp)
+    {
+        $this -> st -> query("SELECT id FROM tbl_pelanggan WHERE nama='$nama' AND no_hp='$hp';");
+        return $this -> st -> numRow();
+    }
+
 }

@@ -22,8 +22,7 @@ var divPelanggan = new Vue({
         }
     }
 });
-
-
+ 
 var divFormTambahPelanggan = new Vue({
     el : '#divFormTambahPelanggan',
     data : {
@@ -31,7 +30,7 @@ var divFormTambahPelanggan = new Vue({
             {teks : 'Data pelanggan yang lengkap akan meningkatkan akurasi statistik data restoran'},
             {teks : 'Nomor hp pelanggan disarankan juga nomor whatsapp yang bersangkutan'},
             {teks : 'Nomor hp, email disarankan valid agar dapat digunakan untuk mengirimkan promosi, pengumuman, dll'},
-            {teks : 'Email akan menjadi id pelanggan, maka dari itu tidak boleh ada email yg sama antar pelanggan'},
+            {teks : 'Nama & nomor hp akan menjadi id pelanggan, maka dari itu tidak boleh ada nama & nomor handphone yg sama antar pelanggan'},
         ],
         nama : '',
         alamat : '',
@@ -42,7 +41,7 @@ var divFormTambahPelanggan = new Vue({
         prosesTambahPelanggan : function() 
         {
             if(this.nama === '' || this.alamat === '' || this.hp === '' || this.email === ''){
-                isiField();
+                pesanUmum('warning', 'Isi field!!', 'Harap isi semua field!!');
             }else{
                 prosesTambahPelanggan();
             }
@@ -75,44 +74,32 @@ function prosesTambahPelanggan()
     const alamat = divFormTambahPelanggan.alamat;
     const email = divFormTambahPelanggan.email;
     const hp = divFormTambahPelanggan.hp;
-
+    $('#btnSimpan').addClass('disabled');
     $.post('pelanggan/prosesTambahPelanggan', {'nama': nama, 'alamat':alamat, 'email':email, 'hp':hp}, function(data){
        let obj = JSON.parse(data);
        if(obj.status === 'sukses'){
-        messageSukses();   
+        messageSukses();
+        $('#btnSimpan').removeClass('disabled');
        }else{
-        messageGagal();
+        pesanUmum('error', 'Gagal', 'Gagal menambahkan pelanggan baru, periksa apakah pelanggan sudah terdaftar!!');  
        }
     });
 }
 
-function isiField()
+function pesanUmum(icon, title, text)
 {
     Swal.fire({
-        icon : 'warning',
-        title : 'Isi field!!',
-        text : 'Harap isi semua field.'
+        icon : icon,
+        title : title,
+        text : text
     });
 }
 
 function messageSukses()
 {
-    Swal.fire({
-        icon : 'success',
-        title : 'Sukses',
-        text : 'Berhasil menambahkan pelanggan baru'
-    });
+    pesanUmum('success', 'Sukses', 'Berhasil menambahkan pelanggan baru');  
     renderMenu(pelanggan);
     divJudul.judulForm = "Daftar Pelanggan";
-}
-
-function messageGagal()
-{
-    Swal.fire({
-        icon : 'error',
-        title : 'Gagal',
-        text : 'Gagal menambahkan pelanggan baru'
-    });
 }
 
 function clearForm()

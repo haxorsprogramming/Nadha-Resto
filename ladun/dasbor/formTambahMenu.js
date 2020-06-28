@@ -57,18 +57,21 @@ $("#frmUpload").on('submit', function(e){
         cache: false,
         processData: false,
         beforeSend: function(){
-
+            blurButton()
         },
         success: function(data){
             switch(data.status){
                 case 'error_tipe_file':
                     pesanUmum('error', 'Error tipe file', 'Tipe file yang diperbolehkan JPG, PNG');
+                    activeButton();
                     break;
                 case 'error_size_file':
                     pesanUmum('error', 'Error size file', 'Ukuran foto yang diperbolehkan maksimal 2Mb');
+                    activeButton();
                     break;
                 case 'nama_menu_exist':
                     pesanUmum('error', 'Error menu name', 'Nama menu sudah digunakan, silahkan ganti');
+                    activeButton();
                     break;
                 case 'success':
                     sukses()
@@ -79,11 +82,25 @@ $("#frmUpload").on('submit', function(e){
     });
 });
 
+function blurButton()
+{
+    $('#btnSimpan').addClass('disabled');
+    $('#btnClear').addClass('disabled');
+    $('#btnKembali').addClass('disabled');
+}
+
+function activeButton()
+{
+    $('#btnSimpan').removeClass('disabled');
+    $('#btnClear').removeClass('disabled');
+    $('#btnKembali').removeClass('disabled');
+}
+
 function pesanUmum(icon, title, text){
     Swal.fire({
         icon : icon,
         title : title,
-        text
+        text : text
     });
 }
 
