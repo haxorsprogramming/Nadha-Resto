@@ -25,6 +25,11 @@ var divFormTambahMenu = new Vue({
         {
             $('#divGambarContoh').show();
             setTimeout(sembunyikanFotoContoh, 3500);
+        },
+        kembaliAtc : function()
+        {
+            renderMenu(menu);
+            divJudul.judulForm = "Menu Restoran";
         }
     }
 });

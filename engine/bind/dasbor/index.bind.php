@@ -22,7 +22,8 @@
   <link rel="stylesheet" href="<?=STYLEBASE; ?>/dasbor/stisla/css/style.css">
   <link rel="stylesheet" href="<?=STYLEBASE; ?>/dasbor/stisla/css/components.css">
   <script src="https://www.gstatic.com/charts/loader.js"></script>
-
+  <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+  <link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css'/>
  </head>
 
  <body style="font-family: 'Nunito Sans';">

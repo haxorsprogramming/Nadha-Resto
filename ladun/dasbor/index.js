@@ -5,6 +5,7 @@ const pelanggan = 'pelanggan';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
+NProgress.configure({ showSpinner: false });
 
 // fungsi pertama kali dijalankan
 renderMenu(beranda);
@@ -31,7 +32,7 @@ var divMenu = new Vue({
   data: {},
   methods: {
     berandaAct : function() {
-      renderMenu(beranda);
+      renderMenu(beranda); 
       divJudul.judulForm = "Beranda";
     },
     menuAtc : function() {
@@ -46,6 +47,8 @@ var divMenu = new Vue({
 });
  
 function renderMenu(halaman) {
-  $('#divUtama').html("Memuat ...");
+  NProgress.start();
+  $('#divUtama').html("");
   $('#divUtama').load(halaman);
+  NProgress.done();
 }

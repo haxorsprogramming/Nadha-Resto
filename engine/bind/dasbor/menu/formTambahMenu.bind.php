@@ -32,7 +32,7 @@
                 <a href='#!' id='btnClear' class="btn btn-lg btn-warning btn-icon icon-left" v-on:click=''><i
                         class='fas fa-clipboard-check'></i> Clear form</a>
                 &nbsp;&nbsp;
-                <a href='#!' id='btnKembali' class="btn btn-lg btn-success btn-icon icon-left" v-on:click=''><i
+                <a href='#!' id='btnKembali' class="btn btn-lg btn-success btn-icon icon-left" v-on:click='kembaliAtc'><i
                         class='fas fa-reply'></i> Kembali</a>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
