@@ -9,7 +9,7 @@ class home extends Route{
 
     public function selfservice()
     {
-        echo "Self";
+        $this -> bind('/home/selfService');
     }
 
 }
