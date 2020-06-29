@@ -23,7 +23,7 @@
                     <td><?=$dm['deks']; ?></td>
                     <td><?=$dm['status']; ?></td>
                     <td><?=$dm['last_visit']; ?></td>
-                    <td><a href='#!' class="btn btn-primary">Detail</a></td>
+                    <td><a href='#!' class="btn btn-primary btn-sm btn-icon icon-left"><i class='fas fa-info-circle'></i> Detail</a></td>
                 </tr>
                <?php endforeach; ?>
             </tbody>

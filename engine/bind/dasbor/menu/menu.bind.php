@@ -21,7 +21,7 @@
         <td>Rp. <?=number_format($menu['harga']); ?></td>
         <td><?=$menu['total_dipesan']; ?></td>
         <td>
-            <a href='#!' class="btn btn-primary btn-icon icon-left">Detail</a>
+            <a href='#!' class="btn btn-primary btn-icon icon-left btn-sm"><i class='fas fa-info-circle'></i> Detail</a>
         </td>
     </tr>
 <?php endforeach; ?>
