@@ -2,6 +2,8 @@
 
 class login extends Route{
 
+    private $sn = 'loginData';
+
     public function index()
     {       
         $this -> bind('/login/loginPage');
@@ -14,12 +16,12 @@ class login extends Route{
         $passHash       = md5($password);
         $waktu          = $this -> waktu();
         //get data password from database & verif
-        $userPasswordDb = $this -> state('loginData') -> getPassword($user);
+        $userPasswordDb = $this -> state($this -> sn) -> getPassword($user);
         $checkPassword  = $this -> verifPassword($password, $userPasswordDb);
 
-        if($checkPassword == true){
-            $this -> setses('userSes',$user);
-            $this -> state('loginData') -> updateLogin($waktu, $user);
+        if($checkPassword = true){
+            $this -> setses('userSes', $user);
+            $this -> state($this -> sn) -> updateLogin($waktu, $user);
             $data['status_login'] = 'sukses';
         }else{
             $data['status_login'] = 'gagal';

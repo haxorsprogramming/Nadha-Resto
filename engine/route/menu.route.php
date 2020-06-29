@@ -19,30 +19,31 @@ class menu extends Route{
     public function prosesTambahMenu()
     {
         //about img operation
-        $sourcePath = $this -> getTempFile('txtFoto');
-        $tipeGambar = array('png', 'jpg', 'jpeg');
-        $namaFile = $this -> getNameFile('txtFoto');
-        $tipeFile = $this -> getTypeFile($namaFile);
-        $sizeFile = $_FILES['txtFoto']['size'];
+        $sourcePath     = $this -> getTempFile('txtFoto');
+        $tipeGambar     = array('png', 'jpg', 'jpeg');
+        $namaFile       = $this -> getNameFile('txtFoto');
+        $tipeFile       = $this -> getTypeFile($namaFile);
+        $sizeFile       = $_FILES['txtFoto']['size'];
         //data operation
-        $kdMenu = $this -> rnint(8);
-        $nama = $this -> inp('txtNama');
-        $deks = $this -> inp('txtDeks');
-        $harga = $this -> inp('txtHarga');
-        $satuan = $this -> inp('txtSatuan');
-        $kategori = $this -> inp('txtKategori');
-        $picName = $kdMenu.".".$tipeFile;
-
-        $hargaClear = str_replace(".", "", $harga);
-        $destination = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
-
+        $kdMenu         = $this -> rnint(8);
+        $nama           = $this -> inp('txtNama');
+        $deks           = $this -> inp('txtDeks');
+        $harga          = $this -> inp('txtHarga');
+        $satuan         = $this -> inp('txtSatuan');
+        $kategori       = $this -> inp('txtKategori');
+        $picName        = $kdMenu.".".$tipeFile;
+        //remove (.) in text harga input
+        $hargaClear         = str_replace(".", "", $harga);
+        //set upload folder
+        $destination    = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
         //cek apakah nama makanan sudah ada
-        $jlhNama = $this -> state($this -> sn) -> cariNamaMakanan($nama);
+        $jlhNama        = $this -> state($this -> sn) -> cariNamaMakanan($nama);
         if($jlhNama > 0){
             $data['status'] = 'nama_menu_exist';
         }else{
+            //cek tipe file
             if(in_array($tipeFile, $tipeGambar)){
-
+                //cek ukuran file
                 if($sizeFile < 2000){
                     $data['status'] = 'error_size_file'; 
                 }else{
@@ -54,7 +55,6 @@ class menu extends Route{
                 $data['status'] = 'error_tipe_file';
             }
         }
-        $data['def_res'] = $jlhNama;
         $this -> toJson($data);
     }
  

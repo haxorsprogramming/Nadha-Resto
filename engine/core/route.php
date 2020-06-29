@@ -1,7 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set("Asia/Jakarta");
-
 //import library php mailer (untuk mengirimkan email)
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -10,17 +9,17 @@ require_once 'lib/phpmailer/library/Exception.php';
 require_once 'lib/phpmailer/library/OAuth.php';
 require_once 'lib/phpmailer/library/POP3.php';
 require_once 'lib/phpmailer/library/SMTP.php';
-
 //import library aws (untuk kebutuhan serverless)
 require 'lib/aws-master/src/Aws.php';
+//import library firebase (coming soon)
 
 class Route{
-
+    //fungsi bind (memasukkan view ke dalam controller)
     public function bind($blade, $data = [])
     {
         require_once 'engine/bind/'.$blade.'.bind.php';
     }
-
+    //fungsi state (memasukkan model ke dalam controller)
     public function state($state)
     {
         require_once 'engine/state/'.$state.'.state.php';
@@ -122,9 +121,9 @@ class Route{
     public function emck($email)
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          echo("true");
+          return true;
         } else {
-          echo("false");
+          return false;
         }
     }
     //fungsi untuk cek sesi
@@ -176,20 +175,20 @@ class Route{
       $tahun = date('Y');
       return cal_days_in_month(CAL_GREGORIAN,$bulan,2019);
     }
-
+    //array bulan normal
     public function getListBulanInt()
     {
       $dataList = ['01','02','03','04','05','06','07','08','09','10','11','12'];
       return $dataList;
     }
-
+    //fungsi untuk merubah desimal angka ke tanggal
     public function getTanggalBedaDigit($tanggal)
     {
       $dataList = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34'];
       $dataSend = $dataList[$tanggal];
       return $dataSend;
     }
-
+    //conversi bulan angka ke huruf
     public function bulanIndo($bulan)
     {
       switch ($bulan){
@@ -231,7 +230,7 @@ class Route{
         break;
       }
     }
-
+    //konversi bulan huruf ke angka
     public function bulanToInt($bulan)
     {
       switch ($bulan){
@@ -261,7 +260,7 @@ class Route{
           return '12';
       }
     }
-
+    //fungsi kirim email
     public function kirimEmail($nama,$penerima,$judul,$isi,$emailHost,$passwordHost)
     {
         $mail = new PHPMailer(false);  
@@ -290,7 +289,7 @@ class Route{
           return 'error';
         }
     }
-    //xss filter data
+    //fungsi xss filter data
     public function xss_filter($data)
     {
     // Fix &entity\n;
@@ -348,7 +347,7 @@ class Route{
         );
         $result = curl_exec($ch);
     }
-
+    //fungsi broadcast pesan
     public function broadcastPesan($message, $phone_no, $apiKey)
     {
       $message = preg_replace( "/(\n)/", "<ENTER>", $message );
@@ -372,6 +371,5 @@ class Route{
       );
       $result = curl_exec($ch);
     }
-
 
 }
