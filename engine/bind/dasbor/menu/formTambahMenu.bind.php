@@ -1,5 +1,8 @@
 <div id='divFormTambahMenu'>
     <form enctype="multipart/form-data" id='frmUpload'>
+    <div>
+        <a href='#!' class="btn btn-primary btn-icon icon-left" id='btnKembali' v-on:click='kembaliAtc'><i class='fas fa-reply'></i> Kembali</a>
+    </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
@@ -29,11 +32,9 @@
                 <a href='#!' id='btnSimpan' class="btn btn-lg btn-primary btn-icon icon-left" v-on:click='prosesAtc'><i
                         class='fas fa-save'></i> Simpan</a>
                 &nbsp;&nbsp;
-                <a href='#!' id='btnClear' class="btn btn-lg btn-warning btn-icon icon-left" v-on:click='clearFormAtc'><i
-                        class='fas fa-clipboard-check'></i> Clear form</a>
+                <a href='#!' id='btnClear' class="btn btn-lg btn-info btn-icon icon-left" v-on:click='clearFormAtc'><i
+                        class='fas fa-i-cursor'></i> Clear form</a>
                 &nbsp;&nbsp;
-                <a href='#!' id='btnKembali' class="btn btn-lg btn-success btn-icon icon-left" v-on:click='kembaliAtc'><i
-                        class='fas fa-reply'></i> Kembali</a>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">

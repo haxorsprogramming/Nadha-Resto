@@ -1,6 +1,7 @@
 <div id='divMeja'>
+<div id='divDataMeja'>
     <div style='margin-bottom:15px;'>
-        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click=''>
+        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click='tambahMejaAtc'>
             <i class="fas fa-plus-circle"></i> Tambah Meja
         </a>
     </div>
@@ -28,5 +29,40 @@
             </tbody>
         </table>
     </div>
+</div>
+<div id='divTambahMeja'>
+<div>
+        <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='kembaliAtc'><i class='fas fa-reply'></i> Kembali</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="form-group">
+                <label>Nama Meja</label>
+                <input type="text" class="form-control" id='txtNamaMeja'>
+            </div>
+            <div class="form-group">
+                <label>Deks</label>
+                <input type="text" class="form-control" id='txtDeks'>
+            </div>
+            <div>
+                <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan'><i class='fas fa-save'></i>Simpan</a>
+                &nbsp;&nbsp;
+                <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearForm'><i class='fas fa-i-cursor'></i> Clear</a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                <h4 class="card-title">Tentang manajemen meja</h4>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 <script src="<?=STYLEBASE; ?>/dasbor/meja.js"></script> 
