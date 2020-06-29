@@ -16,7 +16,22 @@ var divPromo = new Vue({
         },
         prosesTambah : function()
         {
-            pesanUmumApp('success', 'test pesan', 'coba tes pesan');
+            this.namaPromo = document.getElementById('txtNamaPromo').value;
+            this.deks = document.getElementById('txtDeks').value;
+            this.tipe = document.getElementById('txtTipe').value;
+            this.nilai = document.getElementById('txtNilai').value;
+            this.kuota = document.getElementById('txtKuota').value;
+            
+            if(this.namaPromo === '' || this.deks === '' || this.tipe === '' || this.nilai === '' || this.kuota === ''){
+                pesanUmumApp('warning', 'Isi field...', 'Harap isi semua field!!!');
+            }else{
+                prosesTambah();
+            }
+        },
+        kembaliAtc : function()
+        {
+            renderMenu(promo);
+            divJudul.judulForm = "Promo";
         }
     }
 });
@@ -24,3 +39,24 @@ var divPromo = new Vue({
 //inisialisasi
 $('#divTambahPromo').hide();
 $('#tblPromo').dataTable();
+
+function prosesTambah()
+{
+    let namaPromo = divPromo.namaPromo;
+    let deks = divPromo.deks;
+    let tipe = divPromo.tipe;
+    let nilai = divPromo.nilai;
+    let kuota = divPromo.kuota;
+    let dataSend = {'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota}
+
+    $.post('promo/tambahPromo', dataSend, function(data){
+        let obj = JSON.parse(data);
+        if(obj.status === 'error_nama_promo'){
+            pesanUmumApp('error', 'Error nama promo', 'Nama promo sudah digunakan!!');
+        }else{
+            pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan promo..');
+            divPromo.kembaliAtc();
+        }
+    });
+
+}

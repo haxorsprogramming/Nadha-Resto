@@ -15,9 +15,17 @@ class promoData{
         return $this -> st -> queryAll();
     }
 
-    public function tambahPromo()
+    public function cekNamaPromo($namaPromo)
     {
-        
+        $this -> st -> query("SELECT id FROM tbl_promo WHERE nama='$namaPromo';");
+        return $this -> st -> numRow();
+    }
+
+    public function tambahPromo($kdPromo, $namaPromo, $deks, $tipe, $nilai, $kuota)
+    {
+         $query = "INSERT INTO tbl_promo VALUES(null, '$kdPromo', '$namaPromo', '$deks', '$tipe', '$nilai', 'aktif', '$kuota');";
+         $this -> st -> query($query);
+         $this -> st -> queryRun();
     }
 
 }
