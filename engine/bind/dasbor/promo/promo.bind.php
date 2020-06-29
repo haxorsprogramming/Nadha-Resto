@@ -19,7 +19,7 @@
             <tbody>
                 <?php foreach($data['promo'] as $dp) : ?>
                     <tr>
-                        <td><?=$dp['nama']; ?></td>
+                        <td><a href='#!'><strong><?=$dp['nama']; ?></strong></a></td>
                         <td><?=$dp['deks']; ?></td>
                         <td><?=$dp['tipe']; ?> / <?=$dp['value']; ?></td>
                         <td><?=$dp['status']; ?> / <?=$dp['kuota']; ?></td>
