@@ -15,4 +15,9 @@ class promoData{
         return $this -> st -> queryAll();
     }
 
+    public function tambahPromo()
+    {
+        
+    }
+
 }

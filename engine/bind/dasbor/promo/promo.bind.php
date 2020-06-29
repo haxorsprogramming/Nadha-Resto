@@ -1,7 +1,7 @@
 <div id='divPromo'>
 <div id='divDataPromo'>
     <div style='margin-bottom:15px;'>
-        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click=''>
+        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click='tambahPromoAtc'>
             <i class="fas fa-plus-circle"></i> Tambah Promo
         </a>
     </div>
@@ -30,19 +30,30 @@
         </table>
     </div>
 </div>
-<div id='divTambaPromo'>
+<div id='divTambahPromo'>
 <div>
         <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click=''><i class='fas fa-reply'></i> Kembali</a>
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
             <div class="form-group">
-                <label>Nama Meja</label>
-                <input type="text" class="form-control" id='txtNamaMeja'>
+                <label>Nama Promo</label>
+                <input type="text" class="form-control" id='txtNamaPromo'>
             </div>
             <div class="form-group">
-                <label>Deks</label>
+                <label>deks</label>
                 <input type="text" class="form-control" id='txtDeks'>
+            </div>
+            <div class="form-group">
+                <label>Tipe</label>
+                <select class="form-control" id='txtTipe'>
+                    <option value="persen">Persen (%)</option>
+                    <option value="total_harga">Total harga (Rp.)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nilai</label>
+                <input type="number" class="form-control" id='txtNilai'>
             </div>
             <div>
                 <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan'><i class='fas fa-save'></i>Simpan</a>
@@ -53,7 +64,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
             <div class="card card-primary">
                 <div class="card-header">
-                <h4 class="card-title">Tentang manajemen meja</h4>
+                <h4 class="card-title">Tentang manajemen promo</h4>
                 </div>
                 <div class="card-body">
                     <ul>

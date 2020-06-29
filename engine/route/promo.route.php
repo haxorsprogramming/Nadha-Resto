@@ -10,4 +10,9 @@ class promo extends Route{
         $this -> bind('dasbor/promo/promo', $data);
     }
 
+    public function tambahPromo()
+    {
+        
+    }
+
 }

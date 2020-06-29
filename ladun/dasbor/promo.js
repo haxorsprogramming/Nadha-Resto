@@ -4,10 +4,14 @@ var divPromo = new Vue({
 
     },
     methods : {
-
+        tambahPromoAtc : function()
+        {
+            $('#divDataPromo').hide();
+            $('#divTambahPromo').show();
+        }
     }
 });
 
 //inisialisasi
-$('#divTambaPromo').hide();
+$('#divTambahPromo').hide();
 $('#tblPromo').dataTable();
