@@ -41,7 +41,7 @@ var divFormTambahPelanggan = new Vue({
         prosesTambahPelanggan : function() 
         {
             if(this.nama === '' || this.alamat === '' || this.hp === '' || this.email === ''){
-                pesanUmum('warning', 'Isi field!!', 'Harap isi semua field!!');
+                pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
             }else{
                 prosesTambahPelanggan();
             }
@@ -81,23 +81,14 @@ function prosesTambahPelanggan()
         messageSukses();
         $('#btnSimpan').removeClass('disabled');
        }else{
-        pesanUmum('error', 'Gagal', 'Gagal menambahkan pelanggan baru, periksa apakah pelanggan sudah terdaftar!!');  
+        pesanUmumApp('error', 'Gagal', 'Gagal menambahkan pelanggan baru, periksa apakah pelanggan sudah terdaftar!!');  
        }
-    });
-}
-
-function pesanUmum(icon, title, text)
-{
-    Swal.fire({
-        icon : icon,
-        title : title,
-        text : text
     });
 }
 
 function messageSukses()
 {
-    pesanUmum('success', 'Sukses', 'Berhasil menambahkan pelanggan baru');  
+    pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan pelanggan baru');  
     renderMenu(pelanggan);
     divJudul.judulForm = "Daftar Pelanggan";
 }

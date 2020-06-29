@@ -15,7 +15,7 @@ var divFormTambahMenu = new Vue({
             let satuan = document.getElementById('txtSatuan').value;
 
             if(foto === '' || nama === '' || kategori === '' || deks === '' || harga === '' || satuan === ''){
-                pesanUmum('warning', 'Isi field!!', 'Harap isi semua field!!');
+                pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
             }else{
                 $("#frmUpload").submit();
             }
@@ -61,15 +61,15 @@ $("#frmUpload").on('submit', function(e){
         success: function(data){
             switch(data.status){
                 case 'error_tipe_file':
-                    pesanUmum('error', 'Error tipe file', 'Tipe file yang diperbolehkan JPG, PNG');
+                    pesanUmumApp('error', 'Error tipe file', 'Tipe file yang diperbolehkan JPG, PNG');
                     activeButton();
                     break;
                 case 'error_size_file':
-                    pesanUmum('error', 'Error size file', 'Ukuran foto yang diperbolehkan maksimal 2Mb');
+                    pesanUmumApp('error', 'Error size file', 'Ukuran foto yang diperbolehkan maksimal 2Mb');
                     activeButton();
                     break;
                 case 'nama_menu_exist':
-                    pesanUmum('error', 'Error menu name', 'Nama menu sudah digunakan, silahkan ganti');
+                    pesanUmumApp('error', 'Error menu name', 'Nama menu sudah digunakan, silahkan ganti');
                     activeButton();
                     break;
                 case 'success':
@@ -95,14 +95,6 @@ function activeButton()
     $('#btnKembali').removeClass('disabled');
 }
 
-function pesanUmum(icon, title, text){
-    Swal.fire({
-        icon : icon,
-        title : title,
-        text : text
-    });
-}
-
 function sembunyikanFotoContoh()
 {
     $('#divGambarContoh').hide();
@@ -110,11 +102,7 @@ function sembunyikanFotoContoh()
 
 function sukses()
 {
-    Swal.fire({
-        'icon' : 'success',
-        'title' : 'Sukses',
-        'text' : 'Berhasil menambahkan menu baru'
-    });
+    pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan menu baru');
     renderMenu(menu);
     divJudul.judulForm = "Menu Restoran";
 }

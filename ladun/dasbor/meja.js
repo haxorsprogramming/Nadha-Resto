@@ -22,7 +22,7 @@ var divMeja = new Vue({
            this.namaMeja = document.getElementById('txtNamaMeja').value;
            this.deks = document.getElementById('txtDeks').value;
            if(this.namaMeja === '' || this.deks === ''){
-               pesanUmum('error', 'Isi field!!', 'Harap isi semua field!!');
+            pesanUmumApp('error', 'Isi field!!', 'Harap isi semua field!!');
            }else{
                prosesSimpan();
            }
@@ -46,18 +46,10 @@ function prosesSimpan()
     $.post('meja/prosesTambahMeja', dataSend,  function(data){
         let obj = JSON.parse(data);
         if(obj.status === 'meja_name_error'){
-            pesanUmum('error', 'Error !!', 'Nama meja sudah digunakan!!');
+            pesanUmumApp('error', 'Error !!', 'Nama meja sudah digunakan!!');
         }else{
-            pesanUmum('success', 'sukses', 'Berhasil menambahkan meja');
+            pesanUmumApp('success', 'sukses', 'Berhasil menambahkan meja');
             divMeja.kembaliAtc();
         }
-    });
-}
-
-function pesanUmum(icon, title, text){
-    Swal.fire({
-        icon : icon,
-        title : title,
-        text : text
     });
 }

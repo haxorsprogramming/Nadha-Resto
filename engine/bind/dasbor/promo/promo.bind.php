@@ -41,7 +41,7 @@
                 <input type="text" class="form-control" id='txtNamaPromo'>
             </div>
             <div class="form-group">
-                <label>deks</label>
+                <label>Deksripsi Promo</label>
                 <input type="text" class="form-control" id='txtDeks'>
             </div>
             <div class="form-group">
@@ -55,8 +55,12 @@
                 <label>Nilai</label>
                 <input type="number" class="form-control" id='txtNilai'>
             </div>
+            <div class="form-group">
+                <label>Kuota</label>
+                <input type="number" class="form-control" id='txtKuota'>
+            </div>
             <div>
-                <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan'><i class='fas fa-save'></i>Simpan</a>
+                <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan' v-on:click='prosesTambah'><i class='fas fa-save'></i>Simpan</a>
                 &nbsp;&nbsp;
                 <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearForm'><i class='fas fa-i-cursor'></i> Clear</a>
             </div>

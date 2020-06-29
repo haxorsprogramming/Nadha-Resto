@@ -62,3 +62,12 @@ function renderMenu(halaman) {
   $('#divUtama').load(halaman);
   NProgress.done();
 }
+
+function pesanUmumApp(icon, title, text)
+{
+  Swal.fire({
+    icon : icon,
+    title : title,
+    text : text
+  });
+}
