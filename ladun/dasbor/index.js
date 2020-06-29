@@ -3,6 +3,7 @@ const beranda = 'dasbor/beranda';
 const menu = 'menu';
 const pelanggan = 'pelanggan';
 const meja = 'meja';
+const promo = 'promo';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
@@ -47,6 +48,10 @@ var divMenu = new Vue({
     mejaAtc : function() {
       renderMenu(meja);
       divJudul.judulForm = "List Meja";
+    },
+    promoAtc : function() {
+      renderMenu(promo);
+      divJudul.judulForm = "Promo";
     }
   }
 });
