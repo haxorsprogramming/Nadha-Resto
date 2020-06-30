@@ -55,8 +55,23 @@ var divMenu = new Vue({
       divJudul.judulForm = "Promo";
     },
     pesananAtc : function() {
-      renderMenu(pesanan);
-      divJudul.judulForm = "Pesanan Baru"
+      Swal.fire({
+        title: 'Pilih tipe pesanan',
+        text: "Silahkan pilih tipe pesanan..",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#0984e3',
+        cancelButtonColor: '#00cec9',
+        confirmButtonText: 'Makan ditempat (dine in)',
+        cancelButtonText : 'Bawa pulang (take home)'
+      }).then((result) => {
+        if (result.value) {
+          renderMenu(pesanan);
+          divJudul.judulForm = 'Pesanan baru dine in (makan di tempat)'
+        }else{
+          window.alert("ke route take home");
+        }
+      })
     }
   }
 });

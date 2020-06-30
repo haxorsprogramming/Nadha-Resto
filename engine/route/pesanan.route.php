@@ -2,11 +2,12 @@
 
 class pesanan extends Route{
 
-    private $sn = 'promoData';
+    private $sn = 'pesananData';
 
     public function index()
     {
-        $this -> bind('dasbor/pesanan/pesanan');
+        $data['meja'] = $this -> state($this -> sn) -> getDataMeja();
+        $this -> bind('dasbor/pesanan/pesanan', $data);
     }
 
 }
