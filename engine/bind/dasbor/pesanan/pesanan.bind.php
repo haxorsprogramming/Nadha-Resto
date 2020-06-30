@@ -88,18 +88,29 @@
                     <h4>Pilih Menu</h4>
                 </div>
                 <div class="card-body">
+                    <div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select class="form-control" id='txtKategori' onchange="setMenuKategori()">
+                        <option value="none">--- Pilih kategori menu ---</option>
+                            <?php foreach($data['kategori'] as $dk) : ?>
+                                <option value="<?=$dk['id']; ?>"><?=$dk['nama']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    </div>
                     <div class="row">
                     <ul class="list-unstyled list-unstyled-border">
-                    <?php foreach($data['menu'] as $dm) : ?>
-                    <li class="media">
-                      <img class="mr-3" width="150" src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$dm['pic']; ?>">
+                    
+                    <li class="media" v-for='dm in dataMenu'>
+                      <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
                       <div class="media-body">
                         <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i></a></div>
-                        <div class="media-title"><?=$dm['nama']; ?></div>
-                        <span class="text-small text-muted"><?=$dm['deks']; ?></span>
+                        <div class="media-title">{{dm.nama}}</div>
+                        <span class="text-small text-muted">{{dm.deks}}</span>
                       </div>
                     </li>
-                    <?php endforeach; ?>
+                  
                     </ul>
                     </div>
                 </div>

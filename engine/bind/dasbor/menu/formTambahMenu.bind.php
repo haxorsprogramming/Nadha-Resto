@@ -12,8 +12,9 @@
                 <div class="form-group">
                     <label>Kategori</label>
                     <select class="form-control" id='txtKategori' name='txtKategori'>
+                       
                         <?php foreach($data['kategori'] as $kategori) : ?>
-                        <option><?=$kategori['nama']; ?></option>
+                        <option value="<?=$kategori['id']; ?>"><?=$kategori['nama']; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

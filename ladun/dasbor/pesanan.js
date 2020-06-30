@@ -42,6 +42,37 @@ var divPesananDineIn = new Vue({
     }
 });
 
+var divMenuCheckout = new Vue({
+    el : '#divMenuCheckout',
+    data : {
+        kategoriMenu : '',
+        dataMenu : []
+    },
+    methods : {
+        getMenuAtc : function()
+        {
+            $.post('pesanan/getMenuKategori', {'kdMenu':this.kategoriMenu}, function(data){
+                let obj = JSON.parse(data);
+                let menu = obj.menu;
+                let pic = 'ladun/dasbor/img/menu/';
+                let jlhMenu = divMenuCheckout.dataMenu.length;
+                var i;
+                for(i = 0; i < jlhMenu; i++){
+                    divMenuCheckout.dataMenu.splice(0,1);
+                }
+                menu.forEach(renderMenu);
+
+                function renderMenu(item, index)
+                {
+                    divMenuCheckout.dataMenu.push({
+                       nama : menu[index].nama, pic : menu[index].pic, deks : menu[index].deks, kdMenu : menu[index].kd_menu 
+                    });
+                }
+
+            });
+        }
+    }
+});
 
 //inisialisasi 
 $('#divPesananDineIn').hide();
@@ -54,6 +85,12 @@ document.getElementById('btnDineIn').addEventListener('click', function(){
     $('#btnPilihPesanan').hide();
 });
 
+
+function setMenuKategori()
+{
+    divMenuCheckout.kategoriMenu = document.getElementById('txtKategori').value;
+    divMenuCheckout.getMenuAtc();
+}
 
 function setPelanggan()
 {

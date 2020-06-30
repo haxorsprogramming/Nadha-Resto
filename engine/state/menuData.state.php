@@ -17,7 +17,7 @@ class menuData{
 
     public function getKategori()
     {
-        $this -> st -> query("SELECT * FROM tbl_kategori;");
+        $this -> st -> query("SELECT * FROM tbl_kategori_menu;");
         return $this -> st -> queryAll();
     }
 
