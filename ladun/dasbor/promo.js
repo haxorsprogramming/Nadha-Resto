@@ -5,7 +5,12 @@ var divPromo = new Vue({
         deks : '',
         tipe : '',
         nilai : '',
-        kuota : ''
+        kuota : '',
+        manajemenPromo : [
+            {teks : 'Promo digunakan untuk menarik pelanggan'},
+            {teks : 'Gunakan regex {promo_code}, dalam broadcast pesan untuk menampilkan detail promo'},
+            {teks : ''}
+        ]
     },
     methods : {
         tambahPromoAtc : function()

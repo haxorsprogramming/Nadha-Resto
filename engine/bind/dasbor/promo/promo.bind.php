@@ -72,7 +72,7 @@
                 </div>
                 <div class="card-body">
                     <ul>
-                        
+                        <li v-for='mp in manajemenPromo'>{{mp.teks}}</li>
                     </ul>
                 </div>
             </div>
