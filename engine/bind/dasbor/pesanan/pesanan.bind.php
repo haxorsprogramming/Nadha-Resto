@@ -80,4 +80,40 @@
 <div id='divPesananTakeHome'>
 
 </div>
+<div id='divMenuCheckout'>
+<div class='row'>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="card card card-primary">
+                <div class="card-header">
+                    <h4>Pilih Menu</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                    <ul class="list-unstyled list-unstyled-border">
+                    <?php foreach($data['menu'] as $dm) : ?>
+                    <li class="media">
+                      <img class="mr-3" width="150" src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$dm['pic']; ?>">
+                      <div class="media-body">
+                        <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i></a></div>
+                        <div class="media-title"><?=$dm['nama']; ?></div>
+                        <span class="text-small text-muted"><?=$dm['deks']; ?></span>
+                      </div>
+                    </li>
+                    <?php endforeach; ?>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="card card card-primary">
+                <div class="card-header">
+                    <h4>Detail Pesanan & Checkout</h4>
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+</div>
+</div>
 <script src="<?=STYLEBASE; ?>/dasbor/pesanan.js"></script>

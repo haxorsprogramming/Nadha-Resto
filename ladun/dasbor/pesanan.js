@@ -30,7 +30,9 @@ var divPesananDineIn = new Vue({
                     pesanUmumApp('warning', 'Pilih pelanggan', 'Harap pilih pelanggan!!');
                 }else{
                     if(this.jlhTamu > 0){
-                        window.alert("Next broo");
+                        divPilihPesanan.cap = 'Pilih menu & checkout';
+                        $('#divMenuCheckout').show();
+                        $('#divPesananDineIn').hide();
                     }else{
                         pesanUmumApp('warning', 'Jumlah tamu', 'Harap masukkan jumlah tamu ..');
                     }
@@ -43,6 +45,7 @@ var divPesananDineIn = new Vue({
 
 //inisialisasi 
 $('#divPesananDineIn').hide();
+$('#divMenuCheckout').hide();
 $(".select2").select2();
 
 document.getElementById('btnDineIn').addEventListener('click', function(){
@@ -56,5 +59,6 @@ function setPelanggan()
 {
    let kdPelanggan = document.getElementById('txtPelanggan').value;
    divPesananDineIn.kdPelanggan = kdPelanggan;
+   document.getElementById('txtJlhTamu').focus();
 }
 

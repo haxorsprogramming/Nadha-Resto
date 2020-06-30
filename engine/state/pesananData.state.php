@@ -21,4 +21,10 @@ class pesananData{
         return $this -> st -> queryAll();
     }
 
+    public function getDataMenu()
+    {
+        $this -> st -> query("SELECT * FROM tbl_menu;");
+        return $this -> st -> queryAll();
+    }
+
 }
