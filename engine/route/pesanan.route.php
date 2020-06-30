@@ -29,7 +29,20 @@ class pesanan extends Route{
         $operator = $this -> getses('userSes');
         $this -> state($this -> sn) -> buatPesanan($kdPesanan, $kdPelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator);
         $data['status'] = 'sukses';
+        $data['kdPesanan'] = $kdPesanan; 
         $this -> toJson($data);
+    }
+
+    public function updateTempPesanan()
+    {
+        // 'kdmenu':dtm[index].kdmenu, 'kdPesanan':kdPesanan, 'hargaAt':dtm[index].harga, 'qt':dtm[index].qt, 'total':dtm[index].total
+        $kdMenu = $this -> inp('kdMenu');
+        $kdPesanan = $this -> inp('kdPesanan');
+        $hargaAt = $this -> inp('hargaAt');
+        $qt = $this -> inp('qt');
+        $total = $this -> inp('total');
+        $kdTemp = $this -> rnstr(20);
+        $this -> state($this -> sn) -> updateTempPesanan($kdTemp, $kdMenu, $kdPesanan, $hargaAt, $qt, $total);
     }
 
 }

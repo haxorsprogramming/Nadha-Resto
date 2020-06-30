@@ -100,7 +100,7 @@ var divMenuCheckout = new Vue({
                 let hargaBaru = parseInt(hargaLama) + parseInt(harga);
                 divMenuCheckout.menuDipilih[letakIndex].total = hargaBaru;
                 divMenuCheckout.menuDipilih[letakIndex].qt = qtBaru;
-                console.log(divMenuCheckout.menuDipilih[letakIndex].qt);
+                // console.log(divMenuCheckout.menuDipilih[letakIndex].qt);
             }else{
                 arrMenu.push(kdMenu);
                 divMenuCheckout.menuDipilih.push({
@@ -126,19 +126,32 @@ var divMenuCheckout = new Vue({
             }else{
 
             }
-            console.log(arrMenu);
+            // console.log(arrMenu);
         },
         bayarAtc : function()
         {
-            let dataSend = {'pelanggan': this.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': this.jlhTamu}
-            $.post('pesanan/buatPesanan', dataSend, function(data){
-                let obj = JSON.parse(data);
-                if(obj.status === 'sukses'){
-                    pesanUmumApp('success', 'next', 'ke proses selanjutnya');
-                }else{
-
-                }
-            });
+            if(this.totalHarga < 1){
+                pesanUmumApp('warning', 'Pilih item', 'Belum ada item dipilih..');
+            }else{
+                let dataSend = {'pelanggan': this.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': this.jlhTamu}
+                $.post('pesanan/buatPesanan', dataSend, function(data){
+                    let obj = JSON.parse(data);
+                    if(obj.status === 'sukses'){
+                        let kdPesanan = obj.kdPesanan;
+                        //save to data temp pesanan
+                        let dtm = divMenuCheckout.menuDipilih;
+                        dtm.forEach(sendTempPesanan);
+                        function sendTempPesanan(item, index){
+                            let dataSend = {'kdmenu':dtm[index].menu, 'kdPesanan':kdPesanan, 'hargaAt':dtm[index].harga, 'qt':dtm[index].qt, 'total':dtm[index].total}
+                            $.post('pesanan/updateTempPesanan', dataSend, function(data){
+                                renderMenu('pembayaran/formPembayaran/'+kdPesanan);
+                            });
+                        }
+                    }else{
+                        
+                    }
+                });
+            }
         }
     }
 });
