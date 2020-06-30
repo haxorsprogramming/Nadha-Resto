@@ -19,6 +19,23 @@ var divPesananDineIn = new Vue({
         {
            this.mejaDipilihCap = nama;
            this.mejaDipilihId = id;
+        },
+        pilihMenuAtc : function()
+        {
+            this.jlhTamu = document.getElementById('txtJlhTamu').value;
+            if(this.mejaDipilihId === ''){
+                pesanUmumApp('warning', 'Pilih meja', 'Harap pilih meja!!');
+            }else{
+                if(this.kdPelanggan === '' || this.kdPelanggan === 'none'){
+                    pesanUmumApp('warning', 'Pilih pelanggan', 'Harap pilih pelanggan!!');
+                }else{
+                    if(this.jlhTamu > 0){
+                        window.alert("Next broo");
+                    }else{
+                        pesanUmumApp('warning', 'Jumlah tamu', 'Harap masukkan jumlah tamu ..');
+                    }
+                }
+            }
         }
     }
 });

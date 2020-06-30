@@ -67,15 +67,14 @@
                     </div>
                     <div class="form-group">
                         <label>Jumlah Tamu</label>
-                        <input type="number" class="form-control" id='txtTamu'>
+                        <input type="number" class="form-control" id='txtJlhTamu'>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div style="text-align: center;">
-        <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left"><i class='fas fa-chevron-circle-right'></i> Next
-            (Pilih menu)</a>
+        <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" v-on:click='pilihMenuAtc'><i class='fas fa-chevron-circle-right'></i>Next (Pilih menu)</a>
     </div>
 </div>
 <div id='divPesananTakeHome'>
