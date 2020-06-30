@@ -52,7 +52,8 @@ var divMenuCheckout = new Vue({
         dataMenu : [],
         menuDipilih : [],
         pelanggan : '',
-        jlhTamu : ''
+        jlhTamu : '',
+        totalHarga : 0
     },
     methods : {
         getMenuAtc : function()
@@ -71,29 +72,55 @@ var divMenuCheckout = new Vue({
                 function renderMenu(item, index)
                 {
                     divMenuCheckout.dataMenu.push({
-                       nama : menu[index].nama, pic : menu[index].pic, deks : menu[index].deks, kdMenu : menu[index].kd_menu 
+                       nama : menu[index].nama, pic : menu[index].pic, deks : menu[index].deks, kdMenu : menu[index].kd_menu, harga : menu[index].harga
                     });
                 }
 
             });
         },
-        tambahItem : function(kdMenu, nama)
+        tambahItem : function(kdMenu, nama, harga)
         {
-            console.log(nama);
+            // console.log(nama);
             let cekSlug = arrMenu.includes(kdMenu);
             let letakIndex = arrMenu.indexOf(kdMenu);
+            let tHargaAwal = this.totalHarga;
+            this.totalHarga = parseInt(tHargaAwal) + parseInt(harga);
             // console.log(letakIndex);
             if(cekSlug === true){
-                let totalLama = divMenuCheckout.menuDipilih[letakIndex].total;
-                let totalbaru = totalLama + 1;
-                divMenuCheckout.menuDipilih[letakIndex].total = totalbaru;
-                console.log(divMenuCheckout.menuDipilih[letakIndex].total);
+                let qtLama = divMenuCheckout.menuDipilih[letakIndex].qt;
+                let qtBaru = qtLama + 1;
+                let hargaLama = divMenuCheckout.menuDipilih[letakIndex].total;
+                let hargaBaru = parseInt(hargaLama) + parseInt(harga);
+                divMenuCheckout.menuDipilih[letakIndex].total = hargaBaru;
+                divMenuCheckout.menuDipilih[letakIndex].qt = qtBaru;
+                console.log(divMenuCheckout.menuDipilih[letakIndex].qt);
             }else{
                 arrMenu.push(kdMenu);
                 divMenuCheckout.menuDipilih.push({
-                    menu : kdMenu, namaMenu:nama ,total : 1
+                    menu : kdMenu, namaMenu:nama, qt : 1, harga : harga, total : harga
                 });
             } 
+        },
+        hapusItem : function(kdMenu)
+        {
+            //cari harga total harga per item dulu bang
+            let cekArray = arrMenu.includes(kdMenu);
+            // console.log(cekArray);
+            if(cekArray === true){
+            let li = arrMenu.indexOf(kdMenu);
+            let qtUp = divMenuCheckout.menuDipilih[li].qt;
+            let hargaItem = divMenuCheckout.menuDipilih[li].harga;
+            let tPerItem = parseInt(qtUp) * parseInt(hargaItem);
+            let tHargaUp = divMenuCheckout.menuDipilih[li].total; 
+
+            divMenuCheckout.menuDipilih[li].total = 0;
+            let hAwal = this.totalHarga;
+            this.totalHarga = parseInt(hAwal) - parseInt(tPerItem);
+            divMenuCheckout.menuDipilih.splice(li, 1);
+            }else{
+
+            }
+            
         }
     }
 });
@@ -122,5 +149,5 @@ function setPelanggan()
    let bp = bahanPelanggan.split("-");
    divPesananDineIn.kdPelanggan = bp[0];
    divPesananDineIn.namaPelanggan = bp[1];
-   console.log(bp);
+//    console.log(bp);
 }

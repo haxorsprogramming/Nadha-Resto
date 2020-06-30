@@ -31,7 +31,7 @@
                                 $sb = 'disabled';
                             }
                         ?>
-                        <div class="col text-center">
+                        <div class="col text-center" style="margin-top: 15px;">
                             <img src="<?=STYLEBASE; ?>/dasbor/img/<?=$pic; ?>" style="width: 80px;">
                             <div class="mt-2 font-weight-bold"><?=$dm['nama']; ?></div>
                             <div class="text-muted text-small"><span class="text-primary"></span> <?=$capStatus; ?>
@@ -105,7 +105,10 @@
                     <li class="media" v-for='dm in dataMenu'>
                       <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
                       <div class="media-body">
-                        <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama)'><i class="fas fa-plus-circle"></i></a></div>
+                        <div class="float-right text-primary">
+                            <a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama, dm.harga)'><i class="fas fa-plus-circle"></i></a>
+                            <a href='#!' class="btn btn-sm btn-warning" v-on:click='hapusItem(dm.kdMenu)'><i class="fas fa-trash-alt"></i></a>
+                        </div>
                         <div class="media-title">{{dm.nama}}</div>
                         <span class="text-small text-muted">{{dm.deks}}</span>
                       </div>
@@ -146,9 +149,14 @@
                         </tr>
                         <tr v-for='mp in menuDipilih'>
                             <td><strong>{{mp.namaMenu}}</strong></td>
-                            <td></td>
-                            <td>{{mp.total}}</td>
-                            <td></td>
+                            <td>Rp. {{ Number(mp.harga).toLocaleString() }}</td>
+                            <td>{{mp.qt}}</td>
+                            <td>Rp. {{ Number(mp.total).toLocaleString() }}</td>
+                        </tr>
+                        <tr>
+                            <tr>
+                                <td colspan="3"><strong style="font-size: 25px;">Total</strong></td><td>Rp. {{ Number(totalHarga).toLocaleString() }}</td>
+                            </tr>
                         </tr>
                     </table>
                     </div>
