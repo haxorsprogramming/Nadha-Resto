@@ -61,7 +61,7 @@
                             <option value="none" default>-- Pilih pelanggan --</option>
                             <?php foreach($data['pelanggan'] as $dp) :
                             ?>
-                            <option value="<?=$dp['id_pelanggan']; ?>"><?=$dp['nama']; ?></option>
+                            <option value="<?=$dp['id_pelanggan']; ?>-<?=$dp['nama']; ?>"><?=$dp['nama']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -105,7 +105,7 @@
                     <li class="media" v-for='dm in dataMenu'>
                       <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
                       <div class="media-body">
-                        <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu)'><i class="fas fa-plus-circle"></i></a></div>
+                        <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama)'><i class="fas fa-plus-circle"></i></a></div>
                         <div class="media-title">{{dm.nama}}</div>
                         <span class="text-small text-muted">{{dm.deks}}</span>
                       </div>
@@ -122,16 +122,37 @@
                     <h4>Detail Pesanan & Checkout</h4>
                 </div>
                 <div class="card-body">
+                    <div style="margin-bottom: 12px;">
+                       <table>
+                           <tr>
+                               <th><code>Nomor Pesanan</code></th><th><code>: Nomor Pesanan</code></th>
+                           </tr>
+                           <tr>
+                               <th><code>Nama Pelanggan</code></th><th><code>: {{pelanggan}}</code></th>
+                           </tr>
+                           <tr>
+                               <th><code>Jumlah Tamu</code></th><th><code>: {{jlhTamu}}</code></th>
+                           </tr>
+                       </table>
+                    </div>
                     <div class="row">
                     Daftar Item : 
                     <table class="table">
+                        <tr>
+                            <th>Menu</th>
+                            <th>Harga (@)</th>
+                            <th>Qt</th>
+                            <th>Total</th>
+                        </tr>
                         <tr v-for='mp in menuDipilih'>
-                            <td>{{mp.menu}}</td>
+                            <td><strong>{{mp.namaMenu}}</strong></td>
+                            <td></td>
                             <td>{{mp.total}}</td>
+                            <td></td>
                         </tr>
                     </table>
                     </div>
-                   
+                    
                 </div>
             </div>
         </div>

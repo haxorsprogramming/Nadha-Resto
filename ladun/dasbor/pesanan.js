@@ -23,6 +23,7 @@ var divPesananDineIn = new Vue({
         pilihMenuAtc : function()
         {
             this.jlhTamu = document.getElementById('txtJlhTamu').value;
+            divMenuCheckout.jlhTamu = this.jlhTamu;
             if(this.mejaDipilihId === ''){
                 pesanUmumApp('warning', 'Pilih meja', 'Harap pilih meja!!');
             }else{
@@ -31,6 +32,7 @@ var divPesananDineIn = new Vue({
                 }else{
                     if(this.jlhTamu > 0){
                         divPilihPesanan.cap = 'Pilih menu & checkout';
+                        divMenuCheckout.pelanggan = this.namaPelanggan;
                         $('#divMenuCheckout').show();
                         $('#divPesananDineIn').hide();
                     }else{
@@ -48,7 +50,9 @@ var divMenuCheckout = new Vue({
     data : {
         kategoriMenu : '',
         dataMenu : [],
-        menuDipilih : []
+        menuDipilih : [],
+        pelanggan : '',
+        jlhTamu : ''
     },
     methods : {
         getMenuAtc : function()
@@ -73,15 +77,21 @@ var divMenuCheckout = new Vue({
 
             });
         },
-        tambahItem : function(kdMenu)
+        tambahItem : function(kdMenu, nama)
         {
+            console.log(nama);
             let cekSlug = arrMenu.includes(kdMenu);
+            let letakIndex = arrMenu.indexOf(kdMenu);
+            // console.log(letakIndex);
             if(cekSlug === true){
-                
+                let totalLama = divMenuCheckout.menuDipilih[letakIndex].total;
+                let totalbaru = totalLama + 1;
+                divMenuCheckout.menuDipilih[letakIndex].total = totalbaru;
+                console.log(divMenuCheckout.menuDipilih[letakIndex].total);
             }else{
                 arrMenu.push(kdMenu);
                 divMenuCheckout.menuDipilih.push({
-                    menu : kdMenu, total : 0
+                    menu : kdMenu, namaMenu:nama ,total : 1
                 });
             } 
         }
@@ -108,8 +118,9 @@ function setMenuKategori()
 
 function setPelanggan()
 {
-   let kdPelanggan = document.getElementById('txtPelanggan').value;
-   divPesananDineIn.kdPelanggan = kdPelanggan;
-   document.getElementById('txtJlhTamu').focus();
+   let bahanPelanggan = document.getElementById('txtPelanggan').value;
+   let bp = bahanPelanggan.split("-");
+   divPesananDineIn.kdPelanggan = bp[0];
+   divPesananDineIn.namaPelanggan = bp[1];
+   console.log(bp);
 }
-
