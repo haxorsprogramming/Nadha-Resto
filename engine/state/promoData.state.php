@@ -21,9 +21,9 @@ class promoData{
         return $this -> st -> numRow();
     }
 
-    public function tambahPromo($kdPromo, $namaPromo, $deks, $tipe, $nilai, $kuota)
+    public function tambahPromo($kdPromo, $namaPromo, $deks, $tipe, $nilai, $kuota, $tanggalExpired)
     {
-         $query = "INSERT INTO tbl_promo VALUES(null, '$kdPromo', '$namaPromo', '$deks', '$tipe', '$nilai', 'aktif', '$kuota');";
+         $query = "INSERT INTO tbl_promo VALUES(null, '$kdPromo', '$namaPromo', '$deks', '$tipe', '$nilai', 'aktif', '$kuota', '$tanggalExpired');";
          $this -> st -> query($query);
          $this -> st -> queryRun();
     }

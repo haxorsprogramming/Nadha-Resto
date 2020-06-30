@@ -19,10 +19,11 @@ class promo extends Route{
         $tipe = $_POST['tipe'];
         $nilai = $_POST['nilai'];
         $kuota = $_POST['kuota'];
+        $tanggalExpired = $_POST['tanggalExpired'];
         //cek apakah nama promo sudah ada 
         $cekNama = $this -> state($this -> sn) -> cekNamaPromo($namaPromo);
         if($cekNama < 1){
-             $this -> state($this -> sn) -> tambahPromo($kdPromo, $namaPromo, $deks, $tipe, $nilai, $kuota);
+             $this -> state($this -> sn) -> tambahPromo($kdPromo, $namaPromo, $deks, $tipe, $nilai, $kuota, $tanggalExpired);
             $data['status'] = 'sukses';
         }else{
             $data['status'] = 'error_nama_promo';

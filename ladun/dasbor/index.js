@@ -4,6 +4,7 @@ const menu = 'menu';
 const pelanggan = 'pelanggan';
 const meja = 'meja';
 const promo = 'promo';
+const pesanan = 'pesanan';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
@@ -52,6 +53,10 @@ var divMenu = new Vue({
     promoAtc : function() {
       renderMenu(promo);
       divJudul.judulForm = "Promo";
+    },
+    pesananAtc : function() {
+      renderMenu(pesanan);
+      divJudul.judulForm = "Pesanan Baru"
     }
   }
 });

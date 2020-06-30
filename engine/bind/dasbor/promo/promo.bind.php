@@ -11,18 +11,29 @@
                 <tr>
                     <th>Promo</th>
                     <th>Deks</th>
-                    <th>Tipe / Nilai</th>
+                    <th>Nilai</th>
                     <th>Status / Kuota</th>
+                    <th>Expired</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($data['promo'] as $dp) : ?>
+                <?php foreach($data['promo'] as $dp) : 
+                    $tipe = $dp['tipe'];
+                    $nilai = $dp['value'];
+
+                    if($tipe == 'persen'){
+                        $capTipe = $nilai."%";
+                    }else{
+                        $capTipe = "Rp. ".number_format($nilai);
+                    }
+                ?>
                     <tr>
                         <td><a href='#!'><strong><?=$dp['nama']; ?></strong></a></td>
                         <td><?=$dp['deks']; ?></td>
-                        <td><?=$dp['tipe']; ?> / <?=$dp['value']; ?></td>
+                        <td><?=$capTipe; ?></td>
                         <td><?=$dp['status']; ?> / <?=$dp['kuota']; ?></td>
+                        <td><?=$dp['tanggal_expired']; ?></td>
                         <td><a href='#!' class="btn btn-primary btn-sm btn-icon ico-left"><i class='fas fa-info-circle'></i> Detail</a></td>
                     </tr>
                 <?php endforeach; ?>
@@ -58,6 +69,10 @@
             <div class="form-group">
                 <label>Kuota</label>
                 <input type="number" class="form-control" id='txtKuota'>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Expired</label>
+                <input type="date" class="form-control" id='txtTanggalExpired'>
             </div>
             <div>
                 <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan' v-on:click='prosesTambah'><i class='fas fa-save'></i>Simpan</a>

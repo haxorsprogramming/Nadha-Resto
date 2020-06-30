@@ -6,10 +6,11 @@ var divPromo = new Vue({
         tipe : '',
         nilai : '',
         kuota : '',
+        tanggalExpired : '',
         manajemenPromo : [
             {teks : 'Promo digunakan untuk menarik pelanggan'},
             {teks : 'Gunakan regex {promo_code}, dalam broadcast pesan untuk menampilkan detail promo'},
-            {teks : ''}
+            {teks : 'Promo akan nonaktif apabila telah memasuki tanggal akhir/kuota habis'}
         ]
     },
     methods : {
@@ -26,8 +27,8 @@ var divPromo = new Vue({
             this.tipe = document.getElementById('txtTipe').value;
             this.nilai = document.getElementById('txtNilai').value;
             this.kuota = document.getElementById('txtKuota').value;
-            
-            if(this.namaPromo === '' || this.deks === '' || this.tipe === '' || this.nilai === '' || this.kuota === ''){
+            this.tanggalExpired = document.getElementById('txtTanggalExpired').value;
+            if(this.namaPromo === '' || this.deks === '' || this.tipe === '' || this.nilai === '' || this.kuota === '' || this.tanggalExpired === ''){
                 pesanUmumApp('warning', 'Isi field...', 'Harap isi semua field!!!');
             }else{
                 prosesTambah();
@@ -52,7 +53,8 @@ function prosesTambah()
     let tipe = divPromo.tipe;
     let nilai = divPromo.nilai;
     let kuota = divPromo.kuota;
-    let dataSend = {'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota}
+    let tanggalExpired = divPromo.tanggalExpired;
+    let dataSend = {'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota, 'tanggalExpired':tanggalExpired}
 
     $.post('promo/tambahPromo', dataSend, function(data){
         let obj = JSON.parse(data);
