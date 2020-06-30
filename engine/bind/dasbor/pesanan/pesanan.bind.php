@@ -1,9 +1,15 @@
 <div id='divPilihPesanan' style="text-align: center;">
-    <h3>Pilih tipe pesanan</h3>
-    <a href="#!" class="btn btn-lg btn-primary btn-icon icon-left" id='btnDineIn'><i class='fas fa-utensils'></i> Makan
-        di tempat (Dine in)</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#!" class="btn btn-lg btn-primary btn-icon icon-left" id='btnTakeHome'><i class='fas fa-shopping-bag'></i>
-        Bawa Pulang (Take home)</a>
+    <h3>{{cap}}</h3>
+    <div id='btnPilihPesanan'>
+        <a href="#!" class="btn btn-lg btn-primary btn-icon icon-left" id='btnDineIn'>
+            <i class='fas fa-utensils'></i>
+            Makan di tempat (Dine in)
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#!" class="btn btn-lg btn-primary btn-icon icon-left" id='btnTakeHome'>
+            <i class='fas fa-shopping-bag'></i>
+            Bawa Pulang (Take home)
+        </a>
+    </div>
 </div>
 <div id="divPesananDineIn">
     <div class='row'>
@@ -30,10 +36,15 @@
                             <div class="mt-2 font-weight-bold"><?=$dm['nama']; ?></div>
                             <div class="text-muted text-small"><span class="text-primary"></span> <?=$capStatus; ?>
                             </div>
-                            <a href='#!' class="btn btn-sm btn-primary btn-icon icon-left <?=$sb; ?>"><i
-                                    class='fas fa-sign-in-alt'></i> Pilih</a>
+                            <a href='#!' class="btn btn-sm btn-primary btn-icon icon-left <?=$sb; ?>" v-on:click="mejaDipilihAtc('<?=$dm['nama'];?>', '<?=$dm['kd_meja']; ?>')">
+                                <i class='fas fa-sign-in-alt'></i>
+                                Pilih
+                            </a>
                         </div>
                         <?php endforeach; ?>
+                    </div>
+                    <div class="container" style="margin-top:12px;">
+                        <h5>Meja Dipilih : {{mejaDipilihCap}}</h5>
                     </div>
                 </div>
             </div>
@@ -45,12 +56,12 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Nama Pelanggan</label><br/>
-                        <select class="form-control select2" id='txtPelanggan' style="width: 100%;">
+                        <label>Nama Pelanggan</label><br />
+                        <select class="form-control select2" id='txtPelanggan' onchange="setPelanggan()" style="width: 100%;">
                             <option value="none" default>-- Pilih pelanggan --</option>
                             <?php foreach($data['pelanggan'] as $dp) :
                             ?>
-                                <option value="<?=$dp['id_pelanggan']; ?>"><?=$dp['nama']; ?></option>
+                            <option value="<?=$dp['id_pelanggan']; ?>"><?=$dp['nama']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
