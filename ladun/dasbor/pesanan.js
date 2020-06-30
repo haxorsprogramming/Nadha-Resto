@@ -36,6 +36,7 @@ var divPesananDineIn = new Vue({
                         divMenuCheckout.mejaCap = this.mejaDipilihCap;
                         divPilihPesanan.cap = 'Pilih menu & checkout';
                         divMenuCheckout.pelanggan = this.namaPelanggan;
+                        divMenuCheckout.kdPelanggan = this.kdPelanggan;
                         $('#divMenuCheckout').show();
                         $('#divPesananDineIn').hide();
                     }else{
@@ -55,6 +56,7 @@ var divMenuCheckout = new Vue({
         dataMenu : [],
         menuDipilih : [],
         pelanggan : '',
+        kdPelanggan : '',
         jlhTamu : '',
         mejaId : '',
         mejaCap : '',
@@ -125,6 +127,18 @@ var divMenuCheckout = new Vue({
 
             }
             console.log(arrMenu);
+        },
+        bayarAtc : function()
+        {
+            let dataSend = {'pelanggan': this.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': this.jlhTamu}
+            $.post('pesanan/buatPesanan', dataSend, function(data){
+                let obj = JSON.parse(data);
+                if(obj.status === 'sukses'){
+                    pesanUmumApp('success', 'next', 'ke proses selanjutnya');
+                }else{
+
+                }
+            });
         }
     }
 });

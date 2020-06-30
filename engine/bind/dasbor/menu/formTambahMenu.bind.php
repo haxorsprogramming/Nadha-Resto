@@ -3,7 +3,7 @@
     <div>
         <a href='#!' class="btn btn-primary btn-icon icon-left" id='btnKembali' v-on:click='kembaliAtc'><i class='fas fa-reply'></i> Kembali</a>
     </div>
-        <div class="row">
+        <div class="row" style="margin-top: 15px;">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                     <label>Nama Menu</label>

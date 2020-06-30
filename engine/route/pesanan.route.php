@@ -19,4 +19,17 @@ class pesanan extends Route{
         $this -> toJson($data);
     }
 
+    public function buatPesanan()
+    {
+        $kdPelanggan = $this -> inp('pelanggan');
+        $tipe = $this -> inp('tipe');
+        $jlhTamu = $this -> inp('jlhTamu');
+        $kdPesanan = $this -> rnstr(15);
+        $waktuMasuk = $this -> waktu();
+        $operator = $this -> getses('userSes');
+        $this -> state($this -> sn) -> buatPesanan($kdPesanan, $kdPelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }
