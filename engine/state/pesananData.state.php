@@ -15,4 +15,10 @@ class pesananData{
         return $this -> st ->  queryAll();
     }
 
+    public function getDataPelanggan()
+    {
+        $this -> st -> query("SELECT * FROM tbl_pelanggan;");
+        return $this -> st -> queryAll();
+    }
+
 }
