@@ -136,6 +136,9 @@
                            <tr>
                                <th><code>Jumlah Tamu</code></th><th><code>: {{jlhTamu}}</code></th>
                            </tr>
+                           <tr>
+                                <th><code>Meja</code></th><th><code>: {{mejaCap}}</code></th>
+                           </tr>
                        </table>
                     </div>
                     <div class="row">
@@ -159,6 +162,10 @@
                             </tr>
                         </tr>
                     </table>
+                    <div>
+                        <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-check-circle'></i> Bayar sekarang</a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-share-square'></i> Bayar nanti</a>
+                    </div>
                     </div>
                     
                 </div>

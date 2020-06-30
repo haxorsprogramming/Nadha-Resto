@@ -24,6 +24,7 @@ var divPesananDineIn = new Vue({
         {
             this.jlhTamu = document.getElementById('txtJlhTamu').value;
             divMenuCheckout.jlhTamu = this.jlhTamu;
+            // divMenuCheckout.meja = this.mejaDipilihCap
             if(this.mejaDipilihId === ''){
                 pesanUmumApp('warning', 'Pilih meja', 'Harap pilih meja!!');
             }else{
@@ -31,6 +32,8 @@ var divPesananDineIn = new Vue({
                     pesanUmumApp('warning', 'Pilih pelanggan', 'Harap pilih pelanggan!!');
                 }else{
                     if(this.jlhTamu > 0){
+                        divMenuCheckout.mejaId = this.mejaDipilihId;
+                        divMenuCheckout.mejaCap = this.mejaDipilihCap;
                         divPilihPesanan.cap = 'Pilih menu & checkout';
                         divMenuCheckout.pelanggan = this.namaPelanggan;
                         $('#divMenuCheckout').show();
@@ -53,6 +56,8 @@ var divMenuCheckout = new Vue({
         menuDipilih : [],
         pelanggan : '',
         jlhTamu : '',
+        mejaId : '',
+        mejaCap : '',
         totalHarga : 0
     },
     methods : {
@@ -99,28 +104,27 @@ var divMenuCheckout = new Vue({
                 divMenuCheckout.menuDipilih.push({
                     menu : kdMenu, namaMenu:nama, qt : 1, harga : harga, total : harga
                 });
-            } 
+            }
+            console.log(divMenuCheckout.menuDipilih); 
         },
         hapusItem : function(kdMenu)
         {
-            //cari harga total harga per item dulu bang
             let cekArray = arrMenu.includes(kdMenu);
-            // console.log(cekArray);
             if(cekArray === true){
-            let li = arrMenu.indexOf(kdMenu);
-            let qtUp = divMenuCheckout.menuDipilih[li].qt;
-            let hargaItem = divMenuCheckout.menuDipilih[li].harga;
-            let tPerItem = parseInt(qtUp) * parseInt(hargaItem);
-            let tHargaUp = divMenuCheckout.menuDipilih[li].total; 
-
-            divMenuCheckout.menuDipilih[li].total = 0;
-            let hAwal = this.totalHarga;
-            this.totalHarga = parseInt(hAwal) - parseInt(tPerItem);
-            divMenuCheckout.menuDipilih.splice(li, 1);
+                let li = arrMenu.indexOf(kdMenu);
+                let qtUp = divMenuCheckout.menuDipilih[li].qt;
+                let hargaItem = divMenuCheckout.menuDipilih[li].harga;
+                let tPerItem = parseInt(qtUp) * parseInt(hargaItem);
+                let tHargaUp = divMenuCheckout.menuDipilih[li].total;
+                divMenuCheckout.menuDipilih[li].total = 0;
+                let hAwal = this.totalHarga;
+                this.totalHarga = parseInt(hAwal) - parseInt(tPerItem);
+                arrMenu.splice(li, 1);
+                divMenuCheckout.menuDipilih.splice(li, 1);
             }else{
 
             }
-            
+            console.log(arrMenu);
         }
     }
 });
