@@ -41,12 +41,14 @@ var divPesananDineIn = new Vue({
         }
     }
 });
-
+//vue objek menu checkout 
+var arrMenu = [];
 var divMenuCheckout = new Vue({
     el : '#divMenuCheckout',
     data : {
         kategoriMenu : '',
-        dataMenu : []
+        dataMenu : [],
+        menuDipilih : []
     },
     methods : {
         getMenuAtc : function()
@@ -70,6 +72,18 @@ var divMenuCheckout = new Vue({
                 }
 
             });
+        },
+        tambahItem : function(kdMenu)
+        {
+            let cekSlug = arrMenu.includes(kdMenu);
+            if(cekSlug === true){
+                
+            }else{
+                arrMenu.push(kdMenu);
+                divMenuCheckout.menuDipilih.push({
+                    menu : kdMenu, total : 0
+                });
+            } 
         }
     }
 });

@@ -105,7 +105,7 @@
                     <li class="media" v-for='dm in dataMenu'>
                       <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
                       <div class="media-body">
-                        <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i></a></div>
+                        <div class="float-right text-primary"><a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu)'><i class="fas fa-plus-circle"></i></a></div>
                         <div class="media-title">{{dm.nama}}</div>
                         <span class="text-small text-muted">{{dm.deks}}</span>
                       </div>
@@ -122,6 +122,16 @@
                     <h4>Detail Pesanan & Checkout</h4>
                 </div>
                 <div class="card-body">
+                    <div class="row">
+                    Daftar Item : 
+                    <table class="table">
+                        <tr v-for='mp in menuDipilih'>
+                            <td>{{mp.menu}}</td>
+                            <td>{{mp.total}}</td>
+                        </tr>
+                    </table>
+                    </div>
+                   
                 </div>
             </div>
         </div>
