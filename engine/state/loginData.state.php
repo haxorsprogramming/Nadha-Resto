@@ -9,6 +9,13 @@ class loginData{
         $this -> st = new state;
     }
 
+    public function getLogo()
+    {
+        $this -> st -> query("SELECT value FROM tbl_setting WHERE kd_setting='logo_resto';");
+        $q = $this -> st -> querySingle();
+        return $q['value'];
+    }
+
     public function getPassword($username)
     {
         $this -> st -> query("SELECT password FROM tbl_user WHERE username='$username';");

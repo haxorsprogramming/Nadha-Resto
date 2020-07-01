@@ -30,7 +30,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left py-5 px-4 px-sm-5" id='login-app'>
                 <div class="brand-logo" style='text-align:center;'>
-                  <img src="<?=STYLEBASE; ?>/login/images/nadha_resto.png" alt="logo" style='width:200px; '>
+                  <img src="<?=STYLEBASE; ?>/<?=$data['pic']; ?>" alt="logo" style='width:200px; '>
                   <h4 style="font-weight:bold;">Aplikasi Manajemen Restoran</h4>
                 </div>
                 <div style='text-align:center;'>

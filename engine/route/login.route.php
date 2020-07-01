@@ -5,8 +5,9 @@ class login extends Route{
     private $sn = 'loginData';
 
     public function index()
-    {       
-        $this -> bind('/login/loginPage');
+    {   
+        $data['pic'] = $this -> state($this -> sn) -> getLogo();    
+        $this -> bind('/login/loginPage', $data);
     }
 
     public function prosesLogin()
