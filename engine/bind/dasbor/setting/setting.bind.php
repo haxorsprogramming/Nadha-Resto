@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id='divSetting'>
     <div class="col-12 col-sm-6 col-lg-6">
         <div class="card">
             <div class="card-header">
@@ -30,47 +30,59 @@
                             <input type="text" class="form-control" id='txtNamaResto' disabled>
                         </div>
                         <div class="form-group">
-                            <label>Alamat Restoran</label>
-                            <input type="text" class="form-control" id='txtAlamatResto'>
+                            <label>Alamat Restoran </label><small> Pisahkan daerah dengan koma (,). Cth Kec. Pariaman, Kab. Pariaman, Sumatera Barat</small>
+                            <input type="text" class="form-control" id='txtAlamatResto' disabled>
                         </div>
                         <div class="form-group">
                             <label>Nama Owner</label>
-                            <input type="text" class="form-control" id='txtNamaOwnser'>
+                            <input type="text" class="form-control" id='txtNamaOwnser' disabled>
                         </div>
                         <div class="form-group">
                             <label>Nomor Handphone Restoran</label>
-                            <input type="text" class="form-control" id='txtHpRestoran'>
+                            <input type="text" class="form-control" id='txtHpRestoran' disabled>
                         </div>
                         <div class="form-group">
                             <label>Email Restoran</label>
-                            <input type="text" class="form-control" id='txtEmailRestoran'>
+                            <input type="text" class="form-control" id='txtEmailRestoran' disabled>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="form-group">
                             <label>Email Host </label><small>(Alamat email untuk pengiriman notifikasi ke
                                 pelanggan)</small>
-                            <input type="text" class="form-control" id='txtEmailHost'>
+                            <input type="text" class="form-control" id='txtEmailHost' disabled>
                         </div>
                         <div class="form-group">
                             <label>Password Email Host </label><small>(Password akun email untuk pengiriman notifikasi ke
                                 pelanggan)</small>
-                            <input type="text" class="form-control" id='txtPasswordEmailHost'>
+                            <input type="text" class="form-control" id='txtPasswordEmailHost' disabled>
                         </div>
                         <div class="form-group">
                             <label>API Key Waresponder </label><small>(API Key dari wa responder untuk aktifkan notifikasi via whatsapp)</small>
-                            <input type="text" class="form-control" id='txtApiKey'>
+                            <input type="text" class="form-control" id='txtApiKey' disabled>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
+                    <div class="form-group">
+                            <label>Tahun pembukuan awal</label>
+                            <input type="text" class="form-control" id='txtPembukuanAwal' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Saldo Awal</label>
+                            <input type="text" class="form-control" id='txtSaldoAwal' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Pajak (pph & ppn)</label>
+                            <input type="text" class="form-control" id='txtPajak' disabled>
+                        </div>
+                        
                     </div>
                     <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
-
+                    Lainnya
                     </div>
                 </div>
                 <div>
-                    <a href='#!' class="btn btn-lg btn-primary">Simpan</a>
+                    <a href='#!' class="btn btn-lg btn-primary">{{btnCap}}</a>
                 </div>
             </div>
         </div>
