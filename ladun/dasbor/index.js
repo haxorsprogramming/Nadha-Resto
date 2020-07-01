@@ -75,7 +75,7 @@ var divMenu = new Vue({
     pengaturanUmumAtc : function()
     {
       renderMenu(pengaturanUmum);
-      divJudul.judulForm = "Pengaturan Laundry";
+      divJudul.judulForm = "Pengaturan Resto";
     }
   }
 });

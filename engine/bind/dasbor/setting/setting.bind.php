@@ -36,47 +36,51 @@
                         </div>
                         <div class="form-group">
                             <label>Nama Owner</label>
-                            <input type="text" class="form-control" id='txtNamaOwnser' disabled>
+                            <input type="text" class="form-control" id='txtNamaOwnser' v-model='namaOwner' disabled>
                         </div>
                         <div class="form-group">
                             <label>Nomor Handphone Restoran</label>
-                            <input type="text" class="form-control" id='txtHpRestoran' disabled>
+                            <input type="text" class="form-control" id='txtHpRestoran' v-model='nomorHandphone' disabled>
                         </div>
                         <div class="form-group">
                             <label>Email Restoran</label>
-                            <input type="text" class="form-control" id='txtEmailRestoran' disabled>
+                            <input type="text" class="form-control" id='txtEmailRestoran' v-model='emailResto' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Logo Resto</label>
+                            <input type="file" class="form-control" id='txtLogoResto' disabled>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="form-group">
                             <label>Email Host </label><small>(Alamat email untuk pengiriman notifikasi ke
                                 pelanggan)</small>
-                            <input type="text" class="form-control" id='txtEmailHost' disabled>
+                            <input type="text" class="form-control" id='txtEmailHost' v-model='emailHost' disabled>
                         </div>
                         <div class="form-group">
                             <label>Password Email Host </label><small>(Password akun email untuk pengiriman notifikasi
                                 ke
                                 pelanggan)</small>
-                            <input type="text" class="form-control" id='txtPasswordEmailHost' disabled>
+                            <input type="text" class="form-control" id='txtPasswordEmailHost' v-model='emailHostPassword' disabled>
                         </div>
                         <div class="form-group">
                             <label>API Key Waresponder </label><small>(API Key dari wa responder untuk aktifkan
                                 notifikasi via whatsapp)</small>
-                            <input type="text" class="form-control" id='txtApiKey' disabled>
+                            <input type="text" class="form-control" id='txtApiKey' v-model='apiWaResponder' disabled>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <div class="form-group">
                             <label>Tahun pembukuan awal</label>
-                            <input type="text" class="form-control" id='txtPembukuanAwal' disabled>
+                            <input type="text" class="form-control" id='txtPembukuanAwal' v-model='awalPembukuan' disabled>
                         </div>
                         <div class="form-group">
                             <label>Saldo Awal</label>
-                            <input type="text" class="form-control" id='txtSaldoAwal' disabled>
+                            <input type="text" class="form-control" id='txtSaldoAwal' v-model='saldoAwal' disabled>
                         </div>
                         <div class="form-group">
                             <label>Pajak (pph & ppn)</label>
-                            <input type="text" class="form-control" id='txtPajak' disabled>
+                            <input type="text" class="form-control" id='txtPajak' v-model='tax' disabled>
                         </div>
 
                     </div>
@@ -90,15 +94,15 @@
                         </div>
                         <div class="form-group">
                             <label>Alamat IP Printer (Kasir)</label>
-                            <input type="text" class="form-control" id='txtIpPrinter' disabled>
+                            <input type="text" class="form-control" id='txtIpPrinter' v-model='ipAddressPrintKasir' disabled>
                         </div>
                         <div class="form-group">
                             <label>Alamat IP Printer (Dapur)</label>
-                            <input type="text" class="form-control" id='txtIpDapur' disabled>
+                            <input type="text" class="form-control" id='txtIpDapur' v-model='ipAddressPrintKichen' disabled>
                         </div>
                         <div class="form-group">
                             <label>Alamat IP Printer (Other)</label>
-                            <input type="text" class="form-control" id='txtIpOther' disabled>
+                            <input type="text" class="form-control" id='txtIpOther' v-model='ipAddressPrintOther' disabled>
                         </div>
                     </div>
                 </div>

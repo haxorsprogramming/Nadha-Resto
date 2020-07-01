@@ -4,7 +4,22 @@ var divSetting = new Vue({
         btnCap : 'Edit',
         btnClass  : 'far fa-edit',
         namaResto : '',
-        alamatResto : ''
+        alamatResto : '',
+        namaOwner : '',
+        tax : '',
+        ipAddressPrintKasir : '',
+        ipAddressPrintKichen : '',
+        ipAddressPrintOther : '',
+        logoResto : '',
+        emailResto : '',
+        awalPembukuan : '',
+        apiWaResponder : '',
+        saldoAwal : '',
+        nomorHandphone : '',
+        koneksiPrinter : '',
+        emailHost : '',
+        emailHostPassword : ''       
+
     },
     methods : {
         updateAtc : function()
@@ -27,4 +42,18 @@ $.post('setting/getDataRestoran', function(data){
     let obj = JSON.parse(data);
     divSetting.namaResto = obj.namaResto;
     divSetting.alamatResto = obj.alamatResto;
+    divSetting.namaOwner = obj.namaOwner;
+    divSetting.tax = obj.tax;
+    divSetting.ipAddressPrintKasir = obj.ipAddressPrintKasir,
+    divSetting.ipAddressPrintKichen = obj.ipAddressPrintKichen,
+    divSetting.ipAddressPrintOther = obj.ipAddressPrintOther,
+    divSetting.logoResto = obj.logoResto,
+    divSetting.emailResto = obj.emailResto,
+    divSetting.awalPembukuan = obj.awalPembukuan,
+    divSetting.apiWaResponder = obj.apiWaResponder,
+    divSetting.saldoAwal = obj.saldoAwal,
+    divSetting.nomorHandphone = obj.nomorHandphone,
+    divSetting.koneksiPrinter = obj.koneksiPrinter,
+    divSetting.emailHost = obj.emailHost,
+    divSetting.emailHostPassword = obj.emailHostPassword
 });
