@@ -1,8 +1,9 @@
 <ul class="sidebar-menu" style='margin-top:20px;'>
   <!-- <li class="menu-header">Menu</li> -->
   <li><a class="nav-link btnDashboard" href="#!" v-on:click='berandaAct'><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-  <li><a class="nav-link btnKartuLaundry" href="#!" v-on:click=''><i class="fas fa-clipboard"></i> <span>Monitoring Restoran</span></a></li>
-  <li><a class="nav-link btnLaundryRoom" href="#!" v-on:click='pesananAtc'><i class="fas fa-concierge-bell"></i> <span>Pesanan Baru</span></a></li>
+  <li><a class="nav-link btnKartuLaundry" href="#!" v-on:click=''><i class="far fa-newspaper"></i> <span>Monitoring Restoran</span></a></li>
+  <li><a class="nav-link btnLaundryRoom" href="#!" v-on:click='pesananBaruAtc'><i class="fas fa-concierge-bell"></i> <span>Pesanan Baru</span></a></li>
+  <li><a class="nav-link btnKartuLaundry" href="#!" v-on:click='pesananAtc'><i class="fas fa-clipboard"></i> <span>Daftar Pesanan Pesanan</span></a></li>
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-newspaper"></i> <span>Data Master</span></a>
     <ul class="dropdown-menu">

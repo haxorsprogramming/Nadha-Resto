@@ -11,7 +11,8 @@ class pembayaran extends Route{
 
     public function formPembayaran($kdPesanan)
     {
-        echo $kdPesanan;
+        $data['kdPesanan'] = $kdPesanan;
+        $this -> bind('dasbor/pembayaran/formPembayaran', $data);
     }
 
 }

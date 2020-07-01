@@ -4,7 +4,7 @@ const menu = 'menu';
 const pelanggan = 'pelanggan';
 const meja = 'meja';
 const promo = 'promo';
-const pesanan = 'pesanan';
+const pesananBaru = 'pesananBaru';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
@@ -34,29 +34,43 @@ var divMenu = new Vue({
   el: '#divMenu',
   data: {},
   methods: {
-    berandaAct : function() {
+    berandaAct : function()
+    {
       renderMenu(beranda); 
       divJudul.judulForm = "Beranda";
     },
-    menuAtc : function() {
+    menuAtc : function()
+    {
       renderMenu(menu);
       divJudul.judulForm = "Menu Restoran";
     },
-    pelangganAtc : function() {
+    pelangganAtc : function()
+    {
       renderMenu(pelanggan);
       divJudul.judulForm = "Daftar Pelanggan";
     },
-    mejaAtc : function() {
+    mejaAtc : function()
+    {
       renderMenu(meja);
       divJudul.judulForm = "List Meja";
     },
-    promoAtc : function() {
+    promoAtc : function()
+    {
       renderMenu(promo);
       divJudul.judulForm = "Promo";
     },
-    pesananAtc : function() {
-      renderMenu(pesanan);
-      divJudul.judulForm = "Pesanan baru"
+    pesananBaruAtc : function()
+    {
+      renderMenu(pesananBaru);
+      divJudul.judulForm = "Pesanan baru";
+    },
+    pesananAtc : function()
+    {
+      
+    },
+    daftarPesananAtc : function()
+    {
+
     }
   }
 });

@@ -35,7 +35,6 @@ class pesanan extends Route{
 
     public function updateTempPesanan()
     {
-        // 'kdmenu':dtm[index].kdmenu, 'kdPesanan':kdPesanan, 'hargaAt':dtm[index].harga, 'qt':dtm[index].qt, 'total':dtm[index].total
         $kdMenu = $this -> inp('kdMenu');
         $kdPesanan = $this -> inp('kdPesanan');
         $hargaAt = $this -> inp('hargaAt');
