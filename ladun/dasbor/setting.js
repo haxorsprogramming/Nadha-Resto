@@ -12,9 +12,11 @@ var divSetting = new Vue({
             if(this.btnCap === 'Edit'){
                 this.btnCap = 'Simpan';
                 this.btnClass = 'fas fa-save';
+                $(".form-control").removeAttr("disabled");
             }else{
                 this.btnCap = 'Edit';
                 this.btnClass = 'far fa-edit';
+                $(".form-control").attr("disabled", "disabled");
             }
         }
     }

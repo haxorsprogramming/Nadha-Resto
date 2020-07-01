@@ -13,6 +13,8 @@ class setting extends Route{
     {
         $data['namaResto'] = $this -> state($this -> sn) -> getSettingData('nama_resto');
         $data['alamatResto'] = $this -> state($this -> sn) -> getSettingData('alamat_resto');
+        $data['namaOwner'] = $this -> state($this -> sn) -> getSettingData('nama_owner');
+        $data['tax'] = $this -> state($this -> sn) -> getSettingData('');
         $this -> toJson($data);
     }
 
