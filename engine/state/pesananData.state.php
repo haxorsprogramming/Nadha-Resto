@@ -9,6 +9,12 @@ class pesananData{
         $this -> st = new state;
     }
 
+    public function getDataPesanan()
+    {
+        $this -> st -> query("SELECT * FROM tbl_pesanan;");
+        return $this -> st -> queryAll();
+    }
+
     public function getDataMeja()
     {
         $this -> st -> query("SELECT * FROM tbl_meja;");

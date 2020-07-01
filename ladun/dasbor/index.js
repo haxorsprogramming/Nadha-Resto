@@ -4,7 +4,8 @@ const menu = 'menu';
 const pelanggan = 'pelanggan';
 const meja = 'meja';
 const promo = 'promo';
-const pesananBaru = 'pesananBaru';
+const pesanan = 'pesanan';
+const pesananBaru = 'pesanan/pesananBaru';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
@@ -66,11 +67,8 @@ var divMenu = new Vue({
     },
     pesananAtc : function()
     {
-      
-    },
-    daftarPesananAtc : function()
-    {
-
+     renderMenu(pesanan);
+     divJudul.judulForm = "Daftar Pesanan"; 
     }
   }
 });

@@ -6,10 +6,16 @@ class pesanan extends Route{
 
     public function index()
     {
+        $data['daftarPesanan'] = $this -> state($this -> sn) -> getDataPesanan();
+        $this -> bind('dasbor/pesanan/pesanan');
+    }
+
+    public function pesananBaru()
+    {
         $data['meja'] = $this -> state($this -> sn) -> getDataMeja();
         $data['pelanggan'] = $this -> state($this -> sn) -> getDataPelanggan();
         $data['kategori'] = $this -> state($this -> sn) -> getDataKategori();
-        $this -> bind('dasbor/pesanan/pesanan', $data);
+        $this -> bind('dasbor/pesanan/buatPesanan', $data);
     }
 
     public function getMenuKategori()
