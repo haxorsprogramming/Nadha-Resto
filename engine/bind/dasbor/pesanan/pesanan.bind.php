@@ -32,7 +32,16 @@
                     <td><?=$dp['jumlah_tamu']; ?></td>
                     <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Keluar : </td>
                     <td><?=$dp['operator']; ?></td>
-                    <td></td>
+                    <td>
+                    <div class="dropdown d-inline">
+                      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class='fas fa-bars'></i> Aksi
+                      </button>
+                      <div class="dropdown-menu" x-placement="bottom-start" style="border:1px solid grey;position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a class="dropdown-item has-icon" href="#!" v-on:click=''><i class="fas fa-info-circle"></i> Detail</a>
+                      </div>
+                    </div>
+                    </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

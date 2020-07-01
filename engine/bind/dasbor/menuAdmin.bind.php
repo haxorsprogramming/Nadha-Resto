@@ -34,7 +34,7 @@
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="	fas fa-cogs"></i> <span>Setting Resto</span></a>
     <ul class="dropdown-menu">
-      <li><a class="nav-link" href="#!" v-on:click=''>Pengaturan Umum</a></li>
+      <li><a class="nav-link" href="#!" v-on:click='pengaturanUmumAtc'>Pengaturan Umum</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Manajemen User</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Backup & Restore Data</a></li>
     </ul>

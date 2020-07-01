@@ -6,6 +6,8 @@ const meja = 'meja';
 const promo = 'promo';
 const pesanan = 'pesanan';
 const pesananBaru = 'pesanan/pesananBaru';
+const pengaturanUmum = 'setting/setting';
+
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
@@ -69,6 +71,11 @@ var divMenu = new Vue({
     {
      renderMenu(pesanan);
      divJudul.judulForm = "Daftar Pesanan"; 
+    },
+    pengaturanUmumAtc : function()
+    {
+      renderMenu(pengaturanUmum);
+      divJudul.judulForm = "Pengaturan Laundry";
     }
   }
 });

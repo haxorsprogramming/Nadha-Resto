@@ -107,7 +107,7 @@ var divMenuCheckout = new Vue({
                     menu : kdMenu, namaMenu:nama, qt : 1, harga : harga, total : harga
                 });
             }
-            console.log(divMenuCheckout.menuDipilih); 
+            // console.log(divMenuCheckout.menuDipilih); 
         },
         hapusItem : function(kdMenu)
         {

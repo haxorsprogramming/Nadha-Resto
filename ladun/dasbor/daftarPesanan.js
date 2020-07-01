@@ -6,7 +6,7 @@ var divPesanan = new Vue({
     methods : {
         detailPesanan : function(kdPesanan)
         {
-            window.alert(kdPesanan);
+            
         }
     }
 });
