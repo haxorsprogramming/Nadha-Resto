@@ -7,7 +7,7 @@ class pesanan extends Route{
     public function index()
     {
         $data['daftarPesanan'] = $this -> state($this -> sn) -> getDataPesanan();
-        $this -> bind('dasbor/pesanan/pesanan');
+        $this -> bind('dasbor/pesanan/pesanan', $data);
     }
 
     public function pesananBaru()
