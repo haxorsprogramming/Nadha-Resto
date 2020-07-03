@@ -34,7 +34,10 @@ class pesanan extends Route{
         $waktuMasuk = $this -> waktu();
         $operator = $this -> getses('userSes');
         $meja = $this -> inp('mejaId');
+        //simpan ke tabel pesanan
         $this -> state($this -> sn) -> buatPesanan($kdPesanan, $kdPelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator, $meja);
+        //update status meja
+        $this -> state($this -> sn) -> updateStatusMeja($meja);
         $data['status'] = 'sukses';
         $data['kdPesanan'] = $kdPesanan; 
         $this -> toJson($data);

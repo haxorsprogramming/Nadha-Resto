@@ -53,4 +53,11 @@ class pesananData{
         $this -> st -> queryRun();
     }
 
+    public function updateStatusMeja($kdMeja)
+    {
+        $query = "UPDATE tbl_meja SET status='active' WHERE kd_meja='$kdMeja';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 

@@ -1,15 +1,13 @@
 <div id='divFormPembayaran'>
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+        <div><input type="hidden" value="<?=$data['kdPesanan']; ?>" id='txtKdPesananHidden'></div>
     <div class='card card-primary' style="border-radius:3px; padding:12px;">
         <div class="card-header"><h5>Data Pesanan</h5></div>
         <div class="card-body">
             <table>
                 <tr>
-                    <td>Kode Pesanan</td><td>: <b><span id=''></span><b/></td>
-                </tr>
-                <tr>
-                    <td>No Invoice</td><td>: <span id=''></span></td>
+                    <td>No Invoice</td><td>: <span id=''>{{kdPesanan}}</span></td>
                 </tr>
                 <tr>
                     <td>Pelanggan</td><td>:</td>
@@ -19,6 +17,9 @@
                 </tr>
                 <tr>
                     <td>Jumlah Tamu</td><td>: <span id=''></span> </td>
+                </tr>
+                <tr>
+                    <td>No Meja</td><td>: <span id=''></span> </td>
                 </tr>
                 <tr>
                     <td>Waktu Masuk</td><td>: <span id=''></span></td>
@@ -59,7 +60,7 @@
                 <tr>
                     <td>Tunai</td><td>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Tunai" id='txtTunai' v-model='tunai'>
+                        <input type="number" class="form-control" placeholder="Tunai" id='txtTunai'>
                         <div class="input-group-append">
                           <button class="btn btn-primary" type="button" id='txtSetTunai' v-on:click=''>Set</button>
                         </div>
