@@ -10,7 +10,6 @@ var divSetting = new Vue({
         ipAddressPrintKasir : '',
         ipAddressPrintKichen : '',
         ipAddressPrintOther : '',
-        logoResto : '',
         emailResto : '',
         awalPembukuan : '',
         apiWaResponder : '',
@@ -18,7 +17,8 @@ var divSetting = new Vue({
         nomorHandphone : '',
         koneksiPrinter : '',
         emailHost : '',
-        emailHostPassword : ''       
+        emailHostPassword : '',
+        logo : ''       
 
     },
     methods : {
@@ -47,7 +47,6 @@ $.post('setting/getDataRestoran', function(data){
     divSetting.ipAddressPrintKasir = obj.ipAddressPrintKasir,
     divSetting.ipAddressPrintKichen = obj.ipAddressPrintKichen,
     divSetting.ipAddressPrintOther = obj.ipAddressPrintOther,
-    divSetting.logoResto = obj.logoResto,
     divSetting.emailResto = obj.emailResto,
     divSetting.awalPembukuan = obj.awalPembukuan,
     divSetting.apiWaResponder = obj.apiWaResponder,
@@ -55,5 +54,6 @@ $.post('setting/getDataRestoran', function(data){
     divSetting.nomorHandphone = obj.nomorHandphone,
     divSetting.koneksiPrinter = obj.koneksiPrinter,
     divSetting.emailHost = obj.emailHost,
-    divSetting.emailHostPassword = obj.emailHostPassword
+    divSetting.emailHostPassword = obj.emailHostPassword,
+    divSetting.logo = obj.logo
 });

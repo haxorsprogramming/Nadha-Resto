@@ -46,10 +46,6 @@
                             <label>Email Restoran</label>
                             <input type="text" class="form-control" id='txtEmailRestoran' v-model='emailResto' disabled>
                         </div>
-                        <div class="form-group">
-                            <label>Logo Resto</label>
-                            <input type="file" class="form-control" id='txtLogoResto' disabled>
-                        </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="form-group">
@@ -115,10 +111,17 @@
     <div class="col-12 col-sm-6 col-lg-6">
     <div class="card card-primary">
         <div class="card-header">
-        <h4>Bantuan untuk pengaturan restoran</h4>
+        <h4>Detail Informasi Restoran</h4>
         </div>
         <div class="card-body">
-
+            <div style="text-align: center;">
+            <img v-bind:src="'ladun/'+logo" style="width: 200px;">
+            </div>
+            <table class="table">
+                <tr>
+                    <td>Nama Resto</td><td style="text-align: left;">{{namaResto}}</td>
+                </tr>
+            </table>
         </div>
     </div>    
 </div>

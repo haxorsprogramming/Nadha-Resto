@@ -18,7 +18,6 @@ class setting extends Route{
         $data['ipAddressPrintKasir']    = $this -> state($this -> sn) -> getSettingData('ip_address_print_kasir');
         $data['ipAddressPrintKichen']   = $this -> state($this -> sn) -> getSettingData('ip_address_print_kichen');
         $data['ipAddressPrintOther']    = $this -> state($this -> sn) -> getSettingData('ip_address_print_other');
-        $data['logoResto']              = $this -> state($this -> sn) -> getSettingData('logo_resto');
         $data['emailResto']             = $this -> state($this -> sn) -> getSettingData('email_resto');
         $data['awalPembukuan']          = $this -> state($this -> sn) -> getSettingData('awal_pembukuan');
         $data['apiWaResponder']         = $this -> state($this -> sn) -> getSettingData('api_wa_responder');
@@ -27,6 +26,7 @@ class setting extends Route{
         $data['koneksiPrinter']         = $this -> state($this -> sn) -> getSettingData('koneksi_printer');
         $data['emailHost']              = $this -> state($this -> sn) -> getSettingData('email_host');
         $data['emailHostPassword']      = $this -> state($this -> sn) -> getSettingData('email_host_password');
+        $data['logo']                   = $this -> state($this -> sn) -> getSettingData('logo_resto');                         
         $this -> toJson($data);
     }
 
