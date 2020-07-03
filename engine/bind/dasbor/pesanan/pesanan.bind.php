@@ -8,6 +8,7 @@
                     <th>Tipe</th>
                     <th>Tamu</th>
                     <th>Waktu</th>
+                    <th>Status Pembayaran</th>
                     <th>Operator</th>
                     <th></th>
                 </tr>
@@ -31,6 +32,7 @@
                     <td><?=$capTipe; ?></td>
                     <td><?=$dp['jumlah_tamu']; ?></td>
                     <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Keluar : </td>
+                    <td></td>
                     <td><?=$dp['operator']; ?></td>
                     <td>
                     <div class="dropdown d-inline">
@@ -45,7 +47,7 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
+        </table> 
     </div>
 </div>
 <script src="<?=STYLEBASE; ?>/dasbor/daftarPesanan.js"></script> 

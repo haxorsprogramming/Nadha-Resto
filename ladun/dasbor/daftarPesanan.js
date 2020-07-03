@@ -6,7 +6,8 @@ var divPesanan = new Vue({
     methods : {
         detailPesanan : function(kdPesanan)
         {
-            
+            renderMenu('pembayaran/formPembayaran/'+kdPesanan);
+            divJudul.judulForm = "Pembayaran";
         }
     }
 });

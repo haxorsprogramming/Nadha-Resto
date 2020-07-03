@@ -33,26 +33,6 @@ class setting extends Route{
 
     public function updateData()
     {
-        // 'namaResto' : this.namaResto, 'alamatResto' : this.alamatResto, 'namaOwner' : this.namaResto,
-                    // 'tax' : this.tax, 'ipAddressPrintKasir' : this.ipAddressPrintKasir, 'ipAddressPrintKichen' : this.ipAddressPrintKichen,
-                    // 'ipAddressPrintOther' : this.ipAddressPrintOther, 'emailResto' : this.emailResto, 'awalPembukuan' : this.awalPembukuan, 
-                    // 'apiWaResponder': this.apiWaResponder,
-                    // 'saldoAwal' : this.saldoAwal, 'nomorHandphone' : this.nomorHandphone, 'koneksiPrinter' : this.koneksiPrinter, 'emailHost' : this.emailHost, 
-                    // 'emailHostPassword' : this.emailHostPassword
-        // $data['namaResto'] = $this -> inp('namaResto');
-        // $data['alamatResto'] = $this -> inp('alamatResto');
-        // $data['namaOwner'] = $this -> inp('namaOwner');
-        // $data['tax'] = $this -> inp('tax');
-        // $data['ipAddressPrintKasir'] = $this -> inp('ipAddressPrintKasir');
-        // $data['ipAddressPrintKichen'] = $this -> inp('ipAddressPrintKichen');
-        // $data['ipAddressPrintOther'] = $this -> inp('ipAddressPrintOther');
-        // $data['emailResto'] = $this -> inp('emailResto');
-        // $data['awalPembukuan'] = $this -> inp('awalPembukuan');
-        // $data['saldoAwal'] = $this -> inp('saldoAwal');
-        // $data['nomorHandphone'] = $this -> inp('nomorHandphone');
-        // $data['koneksiPrinter'] = $this -> inp('koneksiPrinter');
-        // $data['emailHost'] = $this -> inp('emailHost');
-        // $data['emailHostPassword'] = $this -> inp('emailHostPassword');
         $this -> state($this -> sn) -> updateData('tax', $this -> inp('tax'));
         $this -> state($this -> sn) -> updateData('nama_resto', $this -> inp('namaResto'));
         $this -> state($this -> sn) -> updateData('ip_address_print_kasir', $this -> inp('ipAddressPrintKasir'));
