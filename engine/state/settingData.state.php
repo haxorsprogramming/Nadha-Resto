@@ -16,4 +16,11 @@ class settingData{
         return $qs['value'];
     }
 
+    public function updateData($kdSetting, $value)
+    {
+        $query = "UPDATE tbl_setting SET value='$value' WHERE kd_setting='$kdSetting';";
+        $this -> st -> query($query);
+        $this -> st -> queryAll();
+    }
+
 }

@@ -30,16 +30,19 @@ var divSetting = new Vue({
                 $(".form-control").removeAttr("disabled");
             }else{
                 let dataSend = {
-                    'namaResto' : this.namaResto, 'alamatResto' : this.alamatResto, 'namaOwner' : this.namaResto,
+                    'namaResto' : this.namaResto, 'alamatResto' : this.alamatResto, 'namaOwner' : this.namaOwner,
                     'tax' : this.tax, 'ipAddressPrintKasir' : this.ipAddressPrintKasir, 'ipAddressPrintKichen' : this.ipAddressPrintKichen,
                     'ipAddressPrintOther' : this.ipAddressPrintOther, 'emailResto' : this.emailResto, 'awalPembukuan' : this.awalPembukuan, 'apiWaResponder': this.apiWaResponder,
                     'saldoAwal' : this.saldoAwal, 'nomorHandphone' : this.nomorHandphone, 'koneksiPrinter' : this.koneksiPrinter, 'emailHost' : this.emailHost, 
                     'emailHostPassword' : this.emailHostPassword
                 }
-                if(this.namaResto === '' || this.alamatResto === '' || this.namaResto === '' || this.tax === '' || this.ipAddressPrintKasir === '' || this.ipAddressPrintKichen === '' || this.ipAddressPrintOther === '' || this.emailResto === '' || this.awalPembukuan === '' || this.apiWaResponder === '' || this.saldoAwal === '' || this.nomorHandphone === '' || this.koneksiPrinter === '' || this.emailHost === '' || this.emailHostPassword === ''){
+                if(this.namaResto == '' || this.alamatResto == '' || this.namaResto == '' || this.tax == '' || this.ipAddressPrintKasir == '' || this.ipAddressPrintKichen == '' || this.ipAddressPrintOther == '' || this.emailResto == '' || this.awalPembukuan == '' || this.apiWaResponder == '' || this.saldoAwal == '' || this.nomorHandphone == '' || this.koneksiPrinter == '' || this.emailHost == '' || this.emailHostPassword == ''){
                     pesanUmumApp('warning', 'Isi field!!', 'Harap lengkapi field!!');
                 }else{
-
+                    NProgress.start();
+                    $.post('setting/updateData', dataSend, function(data){
+                        NProgress.done();
+                    });
                 }
                 this.btnCap = 'Edit';
                 this.btnClass = 'far fa-edit';
