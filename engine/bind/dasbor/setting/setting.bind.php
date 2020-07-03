@@ -68,15 +68,15 @@
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <div class="form-group">
                             <label>Tahun pembukuan awal</label>
-                            <input type="text" class="form-control" id='txtPembukuanAwal' v-model='awalPembukuan' disabled>
+                            <input type="number" class="form-control" id='txtPembukuanAwal' v-model='awalPembukuan' disabled>
                         </div>
                         <div class="form-group">
                             <label>Saldo Awal</label>
-                            <input type="text" class="form-control" id='txtSaldoAwal' v-model='saldoAwal' disabled>
+                            <input type="number" class="form-control" id='txtSaldoAwal' v-model='saldoAwal' disabled>
                         </div>
                         <div class="form-group">
                             <label>Pajak (pph & ppn)</label>
-                            <input type="text" class="form-control" id='txtPajak' v-model='tax' disabled>
+                            <input type="number" class="form-control" id='txtPajak' v-model='tax' disabled>
                         </div>
 
                     </div>
@@ -119,8 +119,37 @@
             </div>
             <table class="table">
                 <tr>
-                    <td>Nama Resto</td><td style="text-align: left;">{{namaResto}}</td>
+                    <td>Nama Restoran</td><td style="text-align: left;">{{namaResto}}</td>
                 </tr>
+                <tr>
+                    <td>Nama Owner</td><td style="text-align: left;">{{namaOwner}}</td>
+                </tr>
+                <tr>
+                    <td>Nomor Handphone Restoran</td><td style="text-align: left;">{{nomorHandphone}}</td>
+                </tr>
+                <tr>
+                    <td>Alamat Restoran</td><td style="text-align: left;">{{alamatResto}}</td>
+                </tr>
+                <tr>
+                    <td>Email Restoran</td><td style="text-align: left;">{{emailResto}}</td>
+                </tr>
+                <tr>
+                    <td>Email Host</td><td style="text-align: left;">{{emailHost}}</td>
+                </tr>
+                <tr>
+                    <td>API Key Wa</td><td style="text-align: left;">{{apiWaResponder}}</td>
+                </tr>
+                <tr>
+                    <td>Tahun Pembukuan Awal</td><td style="text-align: left;">{{awalPembukuan}}</td>
+                </tr>
+                <tr>
+                    <td>Saldo Awal</td><td style="text-align: left;">Rp. {{ Number(saldoAwal).toLocaleString() }}</td>
+                </tr>
+                <tr>
+                    <td>Pajak</td><td style="text-align: left;">{{tax}}</td>
+                </tr>
+                
+
             </table>
         </div>
     </div>    
