@@ -134,6 +134,7 @@ var divMenuCheckout = new Vue({
                 pesanUmumApp('warning', 'Pilih item', 'Belum ada item dipilih..');
             }else{
                 let dataSend = {'pelanggan': this.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': this.jlhTamu, 'mejaId': this.mejaId}
+                
                 $.post('pesanan/buatPesanan', dataSend, function(data){
                     let obj = JSON.parse(data);
                     if(obj.status === 'sukses'){
@@ -144,9 +145,10 @@ var divMenuCheckout = new Vue({
                         function sendTempPesanan(item, index){
                             let dataSend = {'kdMenu':dtm[index].menu, 'kdPesanan':kdPesanan, 'hargaAt':dtm[index].harga, 'qt':dtm[index].qt, 'total':dtm[index].total}
                             $.post('pesanan/updateTempPesanan', dataSend, function(data){
-                                renderMenu('pembayaran/formPembayaran/'+kdPesanan);
+                               
                             });
                         }
+                        renderMenu('pembayaran/formPembayaran/'+kdPesanan);
                     }else{ 
                         
                     }

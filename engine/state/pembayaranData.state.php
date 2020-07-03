@@ -27,4 +27,11 @@ class pembayaranData{
         return  $this -> st -> querySingle();
     }
 
+    public function getNamaPelanggan($kdPelanggan)
+    {
+        $this -> st -> query("SELECT nama FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
+        $q = $this -> st -> querySingle();
+        return $q['nama'];
+    }
+
 }

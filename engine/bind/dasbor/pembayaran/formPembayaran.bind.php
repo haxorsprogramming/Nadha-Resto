@@ -7,22 +7,22 @@
         <div class="card-body">
             <table>
                 <tr>
-                    <td>No Invoice</td><td>: <span id=''>{{kdPesanan}}</span></td>
+                    <td>No Invoice</td><td>: {{kdInvoice}}</td>
                 </tr>
                 <tr>
-                    <td>Pelanggan</td><td>:</td>
+                    <td>Pelanggan</td><td>: {{namaPelanggan}}</td>
                 </tr>
                 <tr>
-                    <td>Tipe Pesanan</td><td>: <span id=''></span></td>
+                    <td>Tipe Pesanan</td><td>: </td>
                 </tr>
                 <tr>
-                    <td>Jumlah Tamu</td><td>: <span id=''></span> </td>
+                    <td>Jumlah Tamu</td><td>: </td>
                 </tr>
                 <tr>
-                    <td>No Meja</td><td>: <span id=''></span> </td>
+                    <td>No Meja</td><td>: </td>
                 </tr>
                 <tr>
-                    <td>Waktu Masuk</td><td>: <span id=''></span></td>
+                    <td>Waktu Masuk</td><td>: </td>
                 </tr>
             </table>
 <hr/>
@@ -45,15 +45,12 @@
         <div class="card-body">
             <table class="table">
                 <tr>
-                    <td>Harga pesanan</td><td>Rp. {{}}</td>
-                </tr>
-                <tr>
-                    <td>Diskon Promo</td><td>Rp. {{}}</td>
+                    <td>Harga pesanan</td><td>Rp. Rp. {{ Number(totalHarga).toLocaleString() }}</td>
                 </tr>
                 <tr>
                     <td>Kode Promo</td><td>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Kode Promo" id='txtKodePromo'>
+                        <input type="text" class="form-control" placeholder="Kode Promo" v-model='kdPromo' id='txtKodePromo'>
                         <div class="input-group-append">
                           <button class="btn btn-primary" type="button" id='txtGunakan' v-on:click=''>Gunakan</button>
                         </div>
@@ -74,7 +71,7 @@
                     <td>
                         Promo 
                     </td>
-                    <td><span id='txtNamaPromo'>-</span></td>
+                    <td><span id='txtNamaPromo'>{{kdPromo}}</span></td>
                 </tr>
                 <tr>
                     <td>Harga akhir</td><td>Rp. <span id='txtHargaFinal' style="display: none;"></span><span id='txtHargaFinalCap' style="font-size: 20px;"></span></td>
