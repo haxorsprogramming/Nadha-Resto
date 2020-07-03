@@ -140,7 +140,7 @@
                                 <th><code>Meja</code></th><th><code>: {{mejaCap}}</code></th>
                            </tr>
                        </table>
-                    </div>
+                    </div> 
                     <div class="row">
                     Daftar Item : 
                     <table class="table">

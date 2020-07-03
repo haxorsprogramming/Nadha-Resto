@@ -18,10 +18,10 @@
                     <td>Tipe Pesanan</td><td>: <span id=''></span></td>
                 </tr>
                 <tr>
-                    <td>Jumlah Tamu</td><td>: <span id=''></span> %</td>
+                    <td>Jumlah Tamu</td><td>: <span id=''></span> </td>
                 </tr>
                 <tr>
-                    <td>Waktu Masuk</td><td>: <span id=''></span> %</td>
+                    <td>Waktu Masuk</td><td>: <span id=''></span></td>
                 </tr>
             </table>
 <hr/>

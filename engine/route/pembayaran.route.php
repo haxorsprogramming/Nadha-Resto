@@ -6,7 +6,7 @@ class pembayaran extends Route{
 
     public function index()
     {
-
+        echo "<pre>Meaowwww</pre>";
     }
 
     public function formPembayaran($kdPesanan)

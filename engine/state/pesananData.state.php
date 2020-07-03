@@ -39,9 +39,9 @@ class pesananData{
         return $this -> st -> queryAll();
     }
 
-    public function buatPesanan($kdPesanan, $pelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator)
+    public function buatPesanan($kdPesanan, $pelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator, $meja)
     {
-        $query = "INSERT INTO tbl_pesanan VALUES(null, '$kdPesanan', '$pelanggan', '$tipe', '$jlhTamu', '$waktuMasuk', '', '$operator', 'active');";
+        $query = "INSERT INTO tbl_pesanan VALUES(null, '$kdPesanan', '$pelanggan', '$tipe', '$jlhTamu', '$meja', '$waktuMasuk', '', '$operator', 'active');";
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
@@ -53,4 +53,4 @@ class pesananData{
         $this -> st -> queryRun();
     }
 
-}
+} 
