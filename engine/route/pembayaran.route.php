@@ -28,9 +28,14 @@ class pembayaran extends Route{
         foreach($qTemp as $qt){
             $kdMenu = $qt['kd_menu'];
             //cari nama lewat kode menu
-            $namaMenu = $this -> state($this -> sn) ->  getCapMenuName($kdMenu);
-            $arrTemp['namaMenu'] = $namaMenu;
-            $data['tempPesanan'] = $arrTemp;
+            $qMenu = $this -> state($this -> sn) ->  getCapMenuName($kdMenu);
+            $arrTemp['namaMenu'] = $qMenu['nama'];
+            $arrTemp['satuan'] = $qMenu['satuan'];
+            $arrTemp['hargaAt'] = $qt['harga_at'];
+            $arrTemp['qt'] = $qt['qt'];
+            $arrTemp['total'] = $qt['total'];
+            $arrTemp['kdMenu'] = $kdMenu;
+            $data['tempPesanan'][] = $arrTemp;
         }
         $data['status'] = '200';
         $this -> toJson($data);

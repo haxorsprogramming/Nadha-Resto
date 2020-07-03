@@ -31,7 +31,10 @@
 <tr>
     <th>Item</th><th>Qt</th><th>Total</th>
 </tr>
-
+<tr v-for='ip in itemPesanan'>
+    <td><b>{{ip.namaMenu}}</b> <br/> Harga (@) Rp. {{ Number(ip.hargaAt).toLocaleString() }}</td>
+    <td>{{ip.qt}}</td><td>Rp. {{ Number(ip.total).toLocaleString() }}</td>
+</tr>
 </table>
         </div>
     </div> 

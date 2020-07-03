@@ -23,9 +23,8 @@ class pembayaranData{
 
     public function getCapMenuName($kdMenu)
     {
-        $this -> st -> query("SELECT nama FROM tbl_menu WHERE kd_menu='$kdMenu';");
-        $q = $this -> st -> querySingle();
-        return $q['nama'];
+        $this -> st -> query("SELECT * FROM tbl_menu WHERE kd_menu='$kdMenu';");
+        return  $this -> st -> querySingle();
     }
 
 }
