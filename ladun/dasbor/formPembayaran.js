@@ -16,12 +16,17 @@ var divFormPembayaran = new Vue({
         tunai : '',
         kembali : '',
         hargaAfterTax : '',
-        taxPrice : ''
+        taxPrice : '',
+        valuePromo : ''
     },
     methods : {
         cekPromoAtc : function()
         {
             cekPromo();
+        },
+        setFinalHarga : function()
+        {
+            this.kembali = parseInt(this.tunai) - parseInt(this.hargaAkhir);
         }
     }
 });
@@ -78,7 +83,20 @@ function cekPromo()
         if(obj.status === 'error_promo_code'){
             pesanUmumApp('error', 'Error kode promo', 'Kode promo tidak valid/berlaku');
         }else{
-            console.log(obj);
+           let tipe = obj.tipe;
+           let valuePromo = obj.value; 
+           $('#txtGunakan').addClass('disabled');
+           if(tipe === 'persen'){
+                let persenValuePrice = parseInt(valuePromo) * parseInt(divFormPembayaran.hargaAkhir) / 100;
+                divFormPembayaran.valuePromo = persenValuePrice;
+                let hff = parseInt(divFormPembayaran.hargaAkhir) - parseInt(persenValuePrice);
+                divFormPembayaran.hargaAkhir = hff;
+           }else{
+               let hargaFixBefore = divFormPembayaran.hargaAkhir;
+               let hargaBeforePromo = parseInt(hargaFixBefore) - parseInt(valuePromo);
+               divFormPembayaran.valuePromo = valuePromo;
+               divFormPembayaran.hargaAkhir = hargaBeforePromo;
+           }
         }
     });
 }

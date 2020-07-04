@@ -60,9 +60,9 @@
                 <tr>
                     <td>Tunai</td><td>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Tunai" id='txtTunai'>
+                        <input type="number" class="form-control" placeholder="Tunai" id='txtTunai' v-model='tunai'>
                         <div class="input-group-append">
-                          <button class="btn btn-primary" type="button" id='txtSetTunai' v-on:click=''>Set</button>
+                          <button class="btn btn-primary" type="button" id='txtSetTunai' v-on:click='setFinalHarga'>Set</button>
                         </div>
                       </div>
                     </td>
@@ -71,7 +71,7 @@
                     <td>
                         Promo (<b>{{kdPromo}}</b>)
                     </td>
-                    <td><span id='txtNamaPromo'></span></td>
+                    <td>Rp. {{ Number(valuePromo).toLocaleString() }}</td>
                 </tr>
                 <tr>
                     <td>Pajak {{tax}}%</td><td>Rp. {{ Number(taxPrice).toLocaleString() }}</td>
