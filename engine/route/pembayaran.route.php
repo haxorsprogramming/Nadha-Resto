@@ -52,5 +52,18 @@ class pembayaran extends Route{
         $this -> toJson($data);
     }
 
+    public function cekPromo()
+    {
+        $kdPromo = $this -> inp('kdPromo');
+        $promoCek = $this -> state($this -> sn) -> cekPromoValid($kdPromo);
+        if($promoCek == false){
+            $data['status'] = 'next';
+        }else{
+            $data['status'] = 'error_promo_code';
+        }
+        // $data['status'] = $promoCek;
+        $this -> toJson($data);
+    }
+
 }
  

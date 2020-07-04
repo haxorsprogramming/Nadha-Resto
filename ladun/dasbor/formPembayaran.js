@@ -21,7 +21,7 @@ var divFormPembayaran = new Vue({
     methods : {
         cekPromoAtc : function()
         {
-            window.alert("Update");
+            cekPromo();
         }
     }
 });
@@ -33,7 +33,7 @@ divFormPembayaran.kdPesanan = kdPesananGlobal;
 document.getElementById('txtKodePromo').focus();
 $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data){
     let obj = JSON.parse(data);
-    console.log(obj);
+    // console.log(obj);
     let itemPesanan = obj.tempPesanan;
     divFormPembayaran.kdInvoice = obj.kdInvoice;
     divFormPembayaran.namaPelanggan = obj.namaPelanggan;
@@ -69,3 +69,16 @@ $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data
 
 });
 
+//cek promo 
+function cekPromo()
+{
+    let kdPromo = divFormPembayaran.kdPromo;
+    $.post('pembayaran/cekPromo', {'kdPromo':kdPromo}, function(data){
+        let obj = JSON.parse(data);
+        if(obj.status === 'error_promo_code'){
+            pesanUmumApp('error', 'Error kode promo', 'Kode promo tidak valid/berlaku');
+        }else{
+
+        }
+    });
+}

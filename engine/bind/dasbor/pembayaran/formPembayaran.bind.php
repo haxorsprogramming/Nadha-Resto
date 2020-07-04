@@ -69,9 +69,9 @@
                 </tr>
                 <tr id='divTblPromo'>
                     <td>
-                        Promo 
+                        Promo (<b>{{kdPromo}}</b>)
                     </td>
-                    <td><span id='txtNamaPromo'>{{kdPromo}}</span></td>
+                    <td><span id='txtNamaPromo'></span></td>
                 </tr>
                 <tr>
                     <td>Pajak {{tax}}%</td><td>Rp. {{ Number(taxPrice).toLocaleString() }}</td>

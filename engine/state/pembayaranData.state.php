@@ -48,4 +48,15 @@ class pembayaranData{
         return $q['value'];
     }
 
+    public function cekPromoValid($kdPromo)
+    {
+        $this -> st -> query("SELECT id FROM tbl_promo WHERE nama='$kdPromo';");
+        $q = $this -> st -> numRow();
+        if($q > 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 }
