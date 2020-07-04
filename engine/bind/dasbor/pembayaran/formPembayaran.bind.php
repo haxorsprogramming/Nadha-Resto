@@ -87,7 +87,7 @@
                 </tr>         
             </table>
             <div>
-                <a href='#!' class="btn btn-lg btn-primary" v-on:click='' id='btnProsesPembayaran'><i class='fas fa-check-circle'></i> Proses pembayaran</a>&nbsp;&nbsp;
+                <a href='#!' class="btn btn-lg btn-primary" v-on:click='prosesPembayaranAtc' id='btnProsesPembayaran'><i class='fas fa-check-circle'></i> Proses pembayaran</a>&nbsp;&nbsp;
                 <a href='#!' class="btn btn-lg btn-warning" id='btnKembali'><i class='fas fa-reply'></i> Kembali</a>
             </div>
         </div>

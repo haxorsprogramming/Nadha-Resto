@@ -26,7 +26,16 @@ var divFormPembayaran = new Vue({
         },
         setFinalHarga : function()
         {
-            this.kembali = parseInt(this.tunai) - parseInt(this.hargaAkhir);
+            if(parseInt(this.tunai) < parseInt(this.hargaAkhir)){
+                pesanUmumApp('error', 'Jumlah tunai', 'Jumlah uang tunai harus lebih besar/sama dengan total haraga!!');
+            }else{
+                document.getElementById('btnProsesPembayaran').classList.remove('disabled');
+                this.kembali = parseInt(this.tunai) - parseInt(this.hargaAkhir);
+            }
+        },
+        prosesPembayaranAtc : function()
+        {
+            konfirmasiPembayaran();
         }
     }
 });
@@ -36,6 +45,8 @@ divFormPembayaran.kdPesanan = kdPesananGlobal;
 
 //inisialisasi
 document.getElementById('txtKodePromo').focus();
+document.getElementById('btnProsesPembayaran').classList.add('disabled');
+
 $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data){
     let obj = JSON.parse(data);
     // console.log(obj);
@@ -98,5 +109,41 @@ function cekPromo()
                divFormPembayaran.hargaAkhir = hargaBeforePromo;
            }
         }
+    });
+}
+
+function konfirmasiPembayaran()
+{
+    Swal.fire({
+        title: "Konfirmasi?",
+        text: "Proses pembayaran?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Batal",
+      }).then((result) => {
+        if (result.value) {
+            prosesPembayaran();
+        }
+      });
+}
+
+function prosesPembayaran()
+{
+    let kdPesanan = divFormPembayaran.kdPesanan;
+    let kdInvoice = divFormPembayaran.kdInvoice;
+    let totalHarga = divFormPembayaran.totalHarga;
+    let kdPromo = divFormPembayaran.kdPromo;
+    let diskon = divFormPembayaran.valuePromo;
+    let tax = divFormPembayaran.taxPrice;
+    let totalFinal = divFormPembayaran.hargaAkhir;
+    let tunai = divFormPembayaran.tunai;
+    let kembali = divFormPembayaran.kembali;
+    let dataSend = {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali}
+    $.post('pembayaran/prosesPembayaran', dataSend, function(data){
+        let obj = JSON.parse(data);
+        console.log(obj);
     });
 }

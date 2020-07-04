@@ -77,5 +77,25 @@ class pembayaran extends Route{
         $this -> toJson($data);
     }
 
+    public function prosesPembayaran()
+    {
+        // {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,
+        // 'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali}
+        $kdInvoice = $this -> inp('kdInvoice');
+        $kdPesanan = $this -> inp('kdPesanan');
+        $totalHarga = $this -> inp('totalHarga');
+        $kdPromo = $this -> inp('kdPromo');
+        $diskon = $this -> inp('diskon');
+        $tax = $this -> inp('tax');
+        $totalFinal = $this -> inp('totalFinal');
+        $tunai = $this -> inp('tunai');
+        $kembali = $this -> inp('kembali');
+        $operator = $this -> getses('userSes');
+        $waktu = $this -> waktu();
+        $this -> state($this -> sn) -> prosesPembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $kdPromo, $diskon, $tax, $totalFinal, $tunai, $kembali, $operator);
+        $data['status'] = $operator;
+        $this -> toJson($data);
+    }
+
 }
  

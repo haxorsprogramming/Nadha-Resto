@@ -65,4 +65,11 @@ class pembayaranData{
        return $this -> st -> querySingle();
     }
 
+    public function prosesPembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $kdPromo, $diskon, $tax, $totalFinal, $tunai, $kembali, $operator)
+    {
+        $query = "INSERT INTO tbl_pembayaran VALUES(null, '$kdInvoice','$kdPesanan','$waktu','$totalHarga','$kdPromo','$diskon','$tax','$totalFinal','$tunai','$kembali','$operator');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
