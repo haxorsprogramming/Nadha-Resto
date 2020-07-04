@@ -86,4 +86,16 @@ class pembayaranData{
         $this -> st -> queryRun();
     }
 
+    public function updateKuotaPromo($kdPromo)
+    {
+        //ambil kuota awal 
+        $this -> st -> query("SELECT kuota FROM tbl_promo WHERE nama='$kdPromo';");
+        $q = $this -> st -> querySingle();
+        $kuotaLama = $q['kuota'];
+        $kuotaBaru = $kuotaLama - 1;
+        $qUpdate = "UPDATE tbl_promo SET kuota='$kuotaBaru' WHERE nama='$kdPromo';";
+        $this -> st -> query($qUpdate);
+        $this -> st -> queryRun();
+    }
+
 } 

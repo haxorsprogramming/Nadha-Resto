@@ -97,7 +97,8 @@ class pembayaran extends Route{
         $this -> state($this -> sn) -> prosesPembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $kdPromo, $diskon, $tax, $totalFinal, $tunai, $kembali, $operator);
         //update status pembayaran
         $this -> state($this -> sn) -> updateStatusPembayaran($kdPesanan, $waktu);
-        //update meja 
+        //update kuota promo 
+        $this -> state($this -> sn) -> updateKuotaPromo($kdPromo);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
