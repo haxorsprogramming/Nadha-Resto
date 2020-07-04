@@ -1,0 +1,175 @@
+/* 6.10 Navs
+----------------------------------------------------------*/
+
+/* Pills */
+
+.nav-pills {
+  > .nav-item {
+    > .nav-link {
+      border-radius: 0;
+      font-family: $font-secondary;
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+
+      padding: 1rem 1.8rem;
+      background-color: $color-light;
+
+      &.active {
+        background-color: $color-primary;
+        color: white;
+
+        &:hover, &:focus {
+          background-color: $color-primary;
+        }
+      }
+    }
+
+    + .nav-item {
+      margin-left: 0;
+    }
+  }
+}
+
+/* Tabs */
+
+.nav-tabs {
+  > .nav-item {
+    > .nav-link {
+      border-radius: 0;
+      position: relative;
+      font-family: $font-secondary;
+      padding: 1rem 2rem;
+      font-weight: 300;
+      margin-right: 0;
+      text-transform: uppercase;
+
+      &.active {
+
+      }
+    }
+  }
+}
+
+/* Vertical Navigation */
+
+.nav-vertical {
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+
+  li {
+    a {
+      font-weight: 500;
+      padding: 0.75rem 0;
+      display: block;
+
+      &:hover, &:focus {
+        background: transparent;
+      }
+    }
+  }
+
+  > li {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-line;
+    }
+
+    > a {
+      &:hover, &:focus {
+        color: $color-primary;
+      }
+
+      &.active {
+        color: $color-primary;
+
+        + ul {
+          display: block;
+        }
+      }
+    }
+
+    > ul {
+      padding: 0 0.75rem;
+      margin:  0 0 0.75rem;
+      list-style: none;
+      display: none;
+
+      li {
+        &:not(:last-child) {
+          border-bottom: 0;
+        }
+
+        a {
+          opacity: 0.5;
+          padding: 0.2rem 0;
+          font-size: 0.9rem;
+
+          &.active, &:hover, &:focus {
+            opacity: 1;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Nav Icons */
+
+.nav-icons {
+  margin-bottom: 40px;
+
+  a {
+    opacity: 0.5;
+    margin-right: 15px;
+
+    &:hover, &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+/* Nav Additional */
+
+#nav-additional {
+  @include transition-primary;
+  box-shadow: 0 0 30px 0 rgba(black,0.1);
+  transform: translateX(-100%);
+  position: fixed;
+  top: 0;
+  left: 460px;
+  bottom: 0;
+  width: 300px;
+  background-color: $color-light;
+  z-index: 899;
+  padding: 2.25rem;
+  overflow: auto;
+  visibility: hidden;
+
+  @include media('<=xl') {
+    left: 360px;
+  }
+
+  @include media('<=sm') {
+    left: 300px;
+    width: 260px;
+  }
+
+  @include media('<=xs') {
+    left: 0;
+    width: calc(100% - 55px);
+    z-index: 901;
+  }
+
+  &.show {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+

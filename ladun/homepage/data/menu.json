@@ -1,0 +1,154 @@
+[
+  {
+    "id": 1,
+    "categoryId": 1,
+    "name": "Beef Burger",
+    "price": 9.0,
+    "ingredients": ["Beef", "Cheese", "Potato", "Onion", "Fries"],
+    "sizes": [
+      {
+        "id": 1,
+        "active": true,
+        "name": "Normal",
+        "value": "200g",
+        "price": 9.0
+      },
+      {
+        "id": 2,
+        "active": false,
+        "name": "Double",
+        "value": "400g",
+        "price": 12.0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "categoryId": 1,
+    "name": "Broccoli",
+    "price": 9.0,
+    "ingredients": ["Chicken", "Cheese", "Potato", "Onion", "Fries"],
+    "sizes": [
+      {
+        "id": 1,
+        "active": true,
+        "name": "Normal",
+        "value": "200g",
+        "price": 9.0
+      },
+      {
+        "id": 2,
+        "active": false,
+        "name": "Double",
+        "value": "400g",
+        "price": 12.0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "categoryId": 1,
+    "name": "Chicken Burger",
+    "price": 14.0,
+    "ingredients": ["Angues Beef", "Pickles", "Potato", "Onion", "Fries"],
+    "sizes": [
+      {
+        "id": 1,
+        "active": true,
+        "name": "Normal",
+        "value": "200g",
+        "price": 14.0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "categoryId": 2,
+    "name": "Creste di Galli",
+    "price": 13.0,
+    "ingredients": ["Cheese", "Champignon Mushroom"],
+    "sizes": [
+      {
+        "id": 1,
+        "active": true,
+        "name": "Small",
+        "value": "30cm",
+        "price": 13.0
+      },
+      {
+        "id": 2,
+        "active": false,
+        "name": "Normal",
+        "value": "40cm",
+        "price": 16.0
+      },
+      {
+        "id": 3,
+        "active": false,
+        "name": "Large",
+        "value": "50cm",
+        "price": 21.0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "categoryId": 2,
+    "name": "Chicken wings",
+    "price": 13.0,
+    "ingredients": ["Cheese", "Champignon Mushroom", "Prosciutto"],
+    "sizes": [
+      {
+        "id": 1,
+        "active": true,
+        "name": "Small",
+        "value": "30cm",
+        "price": 13.0
+      },
+      {
+        "id": 2,
+        "active": false,
+        "name": "Normal",
+        "value": "40cm",
+        "price": 16.0
+      },
+      {
+        "id": 3,
+        "active": false,
+        "name": "Large",
+        "value": "50cm",
+        "price": 21.0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "categoryId": 4,
+    "name": "Nigiri-sushi",
+    "price": 13.0,
+    "ingredients": ["Cheese", "Champignon Mushroom", "Broccoli", "Chicken", "Potato"],
+    "sizes": [
+      {
+        "id": 1,
+        "active": true,
+        "name": "Small",
+        "value": "30cm",
+        "price": 13.0
+      },
+      {
+        "id": 2,
+        "active": false,
+        "name": "Normal",
+        "value": "40cm",
+        "price": 16.0
+      },
+      {
+        "id": 3,
+        "active": false,
+        "name": "Large",
+        "value": "50cm",
+        "price": 21.0
+      }
+    ]
+  }
+]

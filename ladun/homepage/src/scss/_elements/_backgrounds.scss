@@ -1,0 +1,187 @@
+/* 6.2 Backgrounds
+----------------------------------------------------------*/
+
+/* Image / Slideshow */
+
+.bg-image,
+.bg-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size:  cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+
+  &.bottom {
+    background-position-y: bottom;
+  }
+
+  &.light-overlay::after,
+  &.dark-overlay::after {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ' ';
+  }
+
+  &.light-overlay::after {
+    background: rgba(255,255,255,0.5);
+  }
+
+  &.dark-overlay::after {
+    background: rgba(0,0,0,0.5);
+  }
+}
+
+.bg-image > img { display: none; }
+.bg-image + * { position: relative; }
+
+.bg-fixed {
+  background-attachment: fixed;
+
+  @include media('<=sm') {
+    background-attachment: scroll;
+  }
+}
+
+.bg-slideshow {
+  .slick-list, .slick-track {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.bg-multiply {
+  mix-blend-mode: multiply;
+}
+
+.bg-overlay {
+  mix-blend-mode: overlay;
+}
+
+/* Video */
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.light-overlay::after,
+  &.dark-overlay::after {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ' ';
+  }
+
+  &.light-overlay::after {
+    background: rgba(255,255,255,0.5);
+  }
+
+  &.dark-overlay::after {
+    background: rgba(0,0,0,0.5);
+  }
+}
+
+/* Map */
+
+.bg-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &.with-joiner::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    content: ' ';
+    background-image: linear-gradient(to bottom, white, rgba(white,0));
+  }
+
+  &.light-overlay::after,
+  &.dark-overlay::after {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ' ';
+  }
+
+  &.light-overlay::after {
+    background: rgba(255,255,255,0.5);
+  }
+
+  &.dark-overlay::after {
+    background: rgba(0,0,0,0.5);
+  }
+
+  &.light-overlay,
+  &.dark-overlay {
+    &:hover::after {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  + * {
+    position: relative;
+  }
+}
+
+/* Colors */
+
+.bg-white { background-color: white !important; }
+.bg-light { background-color: $color-light !important; }
+.bg-black { background-color: black !important; }
+
+$k: 1;
+@each $type, $color in $color-versions {
+
+  .bg-#{$type} {
+    background-color: $color !important;
+  }
+
+}
+
+.bg-primary-tint {
+  background-color: tint($color-primary,10%) !important;
+}
+
+.bg-primary-shade {
+  background-color: shade($color-primary,10%) !important;
+}
+
+
+$k: 1;
+@each $type, $color in $social-brands {
+  $type: nth($social-brands,$k);
+  $color: nth($social-brands,$k+1);
+
+  .bg-#{$type} {
+    background-color: $color;
+  }
+
+}

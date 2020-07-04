@@ -1,0 +1,145 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 7. WIDGETS
+/* ----------------------------------------------------------------------------- */
+
+
+.widget {
+  margin-bottom: 2.4rem;
+
+  .owl-pagination .owl-page span {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@include media('<=sm') {
+  .sidebar .widget {
+    width: 47%;
+    float: left;
+
+    &:nth-child(2n-1) {
+      margin-right: 3%;
+    }
+  }
+}
+
+@include media('<=xs') {
+  .sidebar .widget {
+    width: 100%;
+    float: left;
+    margin-right: 0 !important;
+  }
+}
+
+/* About
+----------------------------------------------------------*/
+
+.widget-about {
+  .text {
+    position: relative;
+    padding-left: 60px;
+
+    &::after {
+      opacity: 0.1;
+      position: absolute;
+      top: -54px;
+      left: -10px;
+      font-size: 10rem;
+      content: '\201c';
+    }
+  }
+}
+
+/* Recent Posts
+----------------------------------------------------------*/
+
+.list-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+
+    .image {
+      float: left;
+      width: 48px;
+
+      > img {
+        border-radius: 50%;
+      }
+    }
+
+    .content {
+      margin-left: 77px;
+      padding-top: 0.2rem;
+    }
+
+    .title {
+      font-weight: 500;
+      display: block;
+    }
+
+    .date {
+      opacity: 0.7;
+      font-size: 0.85rem;
+      font-weight: 200;
+
+      &::after {
+        font-family: 'themify-icons';
+        content: '\e628';
+        font-size: 80%;
+        vertical-align: middle;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+
+/* Twitter
+----------------------------------------------------------*/
+
+.twitter-feed {
+  ul {
+    list-style: none;
+    padding: 0 0 0 2rem;
+    margin: 0;
+    overflow: hidden;
+
+    li {
+      position: relative;
+      margin-bottom: 0.5rem;
+      font-weight: 200;
+      background-color: white;
+      padding: 1rem;
+
+      &::before {
+        position: absolute;
+        top: 0.3rem;
+        left: -25px;
+        font-family: 'themify-icons';
+        color: $color-twitter;
+        content: '\e74b';
+      }
+
+      .tweet {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+
+        a {
+          word-break: break-word;
+        }
+      }
+
+      .timePosted {
+        display: block;
+        font-size: 0.8rem;
+        opacity: 0.5;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

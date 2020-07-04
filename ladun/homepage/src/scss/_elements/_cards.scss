@@ -1,0 +1,32 @@
+/* 6.5 Cards
+----------------------------------------------------------*/
+
+.card {
+  border-radius: 0;
+  border: 0;
+  background-color: $color-light;
+  margin-bottom: 1.5rem;
+
+  .bg-light &,
+  .bg-primary-light & {
+    background-color: white;
+  }
+
+  .bg-extra-dark & {
+    background-color: $color-dark;
+  }
+
+  .bg-dark & {
+    background-color: $color-extra-dark;
+  }
+
+  .card-image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+}

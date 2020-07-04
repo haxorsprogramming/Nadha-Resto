@@ -1,0 +1,18 @@
+/* 6.8 Loaders
+----------------------------------------------------------*/
+
+.animsition-loading {
+  border-radius: 50%;
+  animation: loaderAnimation 1s linear infinite;
+  border-width: 2px;
+  border-style: solid;
+  border-left-color: $color-global;
+  border-right-color: $color-line;
+  border-top-color: $color-line;
+  border-bottom-color: $color-line;
+}
+
+@keyframes loaderAnimation {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}

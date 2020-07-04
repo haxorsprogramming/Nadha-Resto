@@ -1,0 +1,107 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 5. FOOTER
+/* ----------------------------------------------------------------------------- */
+
+#footer {
+  @include media('<=xs') {
+    padding-bottom: 2rem;
+  }
+
+  .footer-first-row {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+
+    @include media('<=xl') {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    @include media('<=sm') {
+      > *:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .footer-second-row {
+    border-top: 1px solid $color-line-light;
+    font-size: 0.9em;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    @include media('<=xl') {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+/* Back to top */
+
+#back-to-top {
+  @include reset(button);
+  @include transition-primary;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: white;
+  width: 45px;
+  height: 45px;
+  background: shade($color-dark, 30%);
+  font-size: 14px;
+  z-index: 650;
+  visibility: hidden;
+  opacity: 0;
+
+  @include media('<=sm') {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  > * {
+    transform: translate3d(-50%,-50%,0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+/* Nav Footer */
+
+.nav-footer {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: inline-block;
+
+  > li {
+    display: block;
+    margin-bottom: 0.2em;
+
+    > a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      font-family: $font-secondary;
+      color: $color-muted;
+
+      &:hover, &:focus {
+        color: $color-primary;
+      }
+    }
+
+    &.active {
+      > a {
+        opacity: 1;
+      }
+    }
+  }
+}

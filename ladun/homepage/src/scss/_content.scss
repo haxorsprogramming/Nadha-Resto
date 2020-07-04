@@ -1,0 +1,26 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 4. CONTENT
+/* ----------------------------------------------------------------------------- */
+
+#content {
+  position: relative;
+  overflow: hidden;
+
+  @include media('<=md') {
+    margin-top: $header-mobile-height;
+  }
+}
+
+.page-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@import '_content/blog';
+@import '_content/features';
+@import '_content/menu';
+@import '_content/other';
+@import '_content/page-title';
+@import '_content/sections';
+
+

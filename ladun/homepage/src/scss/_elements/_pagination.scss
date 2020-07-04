@@ -1,0 +1,74 @@
+/* 6.13 Pagination
+----------------------------------------------------------*/
+
+/* Pagination */
+
+.pagination {
+  > .page-item {
+    display: inline-block;
+    vertical-align: middle;
+
+    > .page-link {
+      @include transition-primary;
+      border-radius: 50%;
+      border: 0;
+      color: $color-global;
+      font-weight: 600;
+      display: inline-block;
+      display: block;
+      padding: 0.25rem 0.75rem;
+      background-color: transparent;
+
+      &.active {
+        color: $color-primary;
+      }
+
+      &:hover {
+        background-color: transparent;
+        color: $color-primary;
+      }
+    }
+
+    &:first-child, &:last-child {
+      > .page-link {
+        @include transition-secondary;
+        border-radius: 50%;
+        padding: 0;
+        width: 2rem;
+        text-align: center;
+        color: $color-global;
+
+        > i {
+          line-height: 26px;
+          font-size: 0.8rem;
+        }
+
+        &:hover {
+          color: $color-muted;
+        }
+      }
+    }
+
+    &:first-child > a {
+      &:hover {
+        transform: translateX(-2px);
+      }
+    }
+
+    &:last-child > a {
+      &:hover {
+        transform: translateX(2px);
+      }
+    }
+
+    &.active > .page-link {
+      color: $color-primary;
+      background-color: transparent;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}

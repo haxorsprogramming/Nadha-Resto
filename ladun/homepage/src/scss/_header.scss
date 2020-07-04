@@ -1,0 +1,123 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 3. HEADER
+/* ----------------------------------------------------------------------------- */
+
+#header {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  z-index: 900;
+  @include media('>md') {
+    height: $header-height;
+  }
+
+  @include media('<=md') {
+    display: none;
+  }
+
+  &.absolute {
+    position: absolute;
+  }
+
+  &.light { background-color: white; }
+  &.dark { background-color: $color-dark; }
+  &.transparent { background-color: transparent; color: white; }
+
+  .module {
+    line-height: $header-height-inner;
+    display: inline-block;
+
+    &:not(.module-logo):not(.module-logo-horizontal) {
+      padding-top: $header-module-padding;
+      padding-bottom: $header-module-padding;
+    }
+
+    &.right { float: right; }
+    &.left { float: left; }
+  }
+
+  .module-logo {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    right: 15px;
+    text-align: center;
+    padding: 5rem 2rem;
+
+    @include media('<=xl') {
+      padding: 4rem 2rem;
+    }
+
+    &.light { background-color: white; }
+    &.dark { background-color: $color-dark; }
+
+    img {
+      max-width: 150px;
+    }
+  }
+
+  .module-logo-horizontal {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+
+    img {
+      height: 50px;
+    }
+  }
+
+  .module-cart {
+    &:hover, &:focus {
+      color: inherit;
+
+      .cart-value {
+        opacity: 0.6;
+      }
+    }
+
+    .cart-icon {
+      position: relative;
+
+      i {
+        font-size: 1.7rem;
+        display: inline-block;
+        color: $color-medium;
+      }
+
+      .notification {
+        border-radius: 30px;
+        position: absolute;
+        top: -0.8rem;
+        right: 0;
+        background-color: $color-green;
+        color: white;
+        font-weight: 600;
+        font-size: 0.7rem;
+        display: inline-block;
+        padding: 0.15rem 0.3rem 0.2rem 0.35rem;
+        line-height: 1;
+      }
+    }
+
+    .cart-value {
+      @include transition-primary;
+      font-size: 1.4rem;
+      font-family: $font-secondary;
+      border-left: 1px solid $color-line;
+      margin-left: 0.5rem;
+      padding-left: 0.75rem;
+    }
+  }
+
+  &.transparent,
+  &.dark {
+    .module-cart {
+      .cart-value {
+        border-color: $color-line-light;
+      }
+    }
+  }
+}
+
+@import '_header/header-mobile';
+@import '_header/navigation-desktop';

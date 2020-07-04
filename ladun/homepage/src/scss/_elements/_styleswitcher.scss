@@ -1,0 +1,214 @@
+/* 6.16 Styleswitcher
+----------------------------------------------------------*/
+
+#style-switcher-wrapper {
+  position: fixed;
+  z-index: 950;
+
+  &::before {
+    @include transition-primary;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+    background-color: rgba(black,0.1);
+    visibility: hidden;
+  }
+
+  &.show {
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #style-switcher {
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// Styleswitcher - toggle
+#style-switcher {
+  @include transition-primary;
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.1);
+  transform: scale(0.9);
+  opacity: 0;
+  position: fixed;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  width: 250px;
+  height: calc(100vh - 30px);
+  z-index: 2200;
+  color: #333;
+  font-family: 'Helvetica Neue', 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  background: white;
+  overflow: auto;
+  color: $color-global;
+  visibility: hidden;
+
+  .style-switcher-title {
+    background-color: $color-light;
+    padding: 18px;
+    font-size: 14px;
+  }
+
+  .style-switcher-close {
+    @include transition-primary;
+    opacity: 0.5;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    cursor: pointer;
+    display: inline-block;
+
+    > img {
+      width: 10px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .style-switcher-bottom {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+
+// Styleswitcher - toggle
+#style-switcher-toggle {
+  box-shadow: 0 0 30px 0 rgba(black,0.1);
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  width: 48px;
+  height: 48px;
+  z-index: 951;
+  color: white;
+  line-height: 46px;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+
+  @include media('<=lg') {
+    bottom: 15px;
+    left: 25px;
+  }
+
+  @include media('<=xs') {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  > img {
+    @include transition-primary;
+    animation: 4s spinAnimation infinite linear;
+    opacity: 0.5;
+    width: 16px;
+    line-height: 48px;
+  }
+
+  &:hover {
+    > img {
+      opacity: 1;
+    }
+  }
+
+  @keyframes spinAnimation {
+    0% { transform: rotateZ(0); }
+    100% { transform: rotateZ(360deg); }
+  }
+}
+
+/* Styleswitcher - options */
+
+.style-switcher-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    border-bottom: 1px solid $color-line;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: 14px 18px 10px 38px;
+      cursor: pointer;
+
+      &::before {
+        border-radius: 50%;
+        position: absolute;
+        top: 14px;
+        left: 12px;
+        display: block;
+        width: 22px;
+        height: 22px;
+        content: ' ';
+        border: 1px solid $color-line;
+      }
+
+      &::after {
+        @include transition-primary;
+        transform: scale(0.5);
+        opacity: 0;
+        position: absolute;
+        top: 17px;
+        left: 17px;
+        width: 10px;
+        height: 10px;
+        font-family: 'themify-icons';
+        content: '\e64c';
+        font-weight: bold;
+        font-size: 12px;
+        color: #282828;
+        visibility: hidden;
+      }
+
+      .color {
+        @include transition-primary;
+        border-radius: 22px;
+        display: inline-block;
+        width: 44px;
+        height: 22px;
+        margin: 0 1px;
+      }
+
+      .label {
+        @include transition-primary;
+        margin-left: 4px;
+        line-height: 22px;
+        color: $color-muted;
+      }
+
+      &.active {
+        &::after {
+          transform: scale(1);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .label {
+          color: $color-global;
+        }
+      }
+    }
+  }
+
+  &.list-colors {
+    text-align: right;
+  }
+}
+

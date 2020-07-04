@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "name": "Burgers",
+    "additions": [
+      {
+        "id": 1,
+        "name": "Chicken",
+        "price": 2.0
+      },
+      {
+        "id": 2,
+        "name": "Angus Beef",
+        "price": 5.0
+      },
+      {
+        "id": 3,
+        "name": "Beef",
+        "price": 3.0
+      },
+      {
+        "id": 4,
+        "name": "Potato",
+        "price": 2.0
+      },
+      {
+        "id": 5,
+        "name": "Paprika",
+        "price": 2.0
+      },
+      {
+        "id": 6,
+        "name": "Broccoli",
+        "price": 2.0
+      },
+      {
+        "id": 7,
+        "name": "Cheese",
+        "price": 2.0
+      },
+      {
+        "id": 8,
+        "name": "Onion",
+        "price": 2.0
+      },
+      {
+        "id": 9,
+        "name": "Pickle",
+        "price": 2.0
+      },
+      {
+        "id": 10,
+        "name": "Fries",
+        "price": 4.0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Pasta",
+    "additions": [
+      {
+        "id": 1,
+        "name": "Prosciutto",
+        "price": 3.0
+      },
+      {
+        "id": 2,
+        "name": "Chicken",
+        "price": 2.0
+      },
+      {
+        "id": 3,
+        "name": "Champignon Mushroom",
+        "price": 5.0
+      },
+      {
+        "id": 4,
+        "name": "Beef",
+        "price": 3.0
+      },
+      {
+        "id": 5,
+        "name": "Salami",
+        "price": 3.0
+      },
+      {
+        "id": 6,
+        "name": "Potato",
+        "price": 2.0
+      },
+      {
+        "name": "Paprika",
+        "price": 2.0
+      },
+      {
+        "id": 7,
+        "name": "Broccoli",
+        "price": 2.0
+      },
+      {
+        "id": 8,
+        "name": "Cheese",
+        "price": 2.0
+      },
+      {
+        "id": 9,
+        "name": "Onion",
+        "price": 2.0
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Pizza"
+  },
+  {
+    "id": 4,
+    "name": "Sushi"
+  },
+  {
+    "id": 5,
+    "name": "Desserts"
+  },
+  {
+    "id": 6,
+    "name": "Drinks"
+  }
+]

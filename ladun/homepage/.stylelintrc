@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "stylelint-config-sass-guidelines",
+    "./node_modules/prettier-stylelint/config.js"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "scss/at-import-partial-extension-blacklist": null,
+    "scss/at-import-no-partial-leading-underscore": null,
+    "declaration-block-single-line-max-declarations": 10,
+    "order/properties-alphabetical-order": null,
+    "max-nesting-depth": null,
+    "selector-max-id": null,
+    "color-named": "always-where-possible",
+    "block-no-empty": null,
+    "selector-max-compound-selectors": null,
+    "selector-no-qualifying-type": null,
+    "selector-no-vendor-prefix": null,
+    "selector-class-pattern": null
+  }
+}

@@ -1,0 +1,39 @@
+/* 4.5 Page Title
+----------------------------------------------------------*/
+
+.page-title {
+  position: relative;
+  padding: 6rem 0 7rem;
+
+  @include media('<=xl') {
+    padding: 4rem 0 5rem;
+  }
+
+  &.bg-dark {
+    background-color: shade($color-dark,20%) !important;
+  }
+
+  &.page-title-lg {
+    padding: 9rem 0;
+
+    @include media('<=xl') {
+      padding: 6rem 0;
+    }
+  }
+
+  h1 {
+    font-size: 5.5rem;
+
+    @include media('<=xl') {
+      font-size: 4.75rem;
+    }
+
+    @include media('<=md') {
+      font-size: 4rem;
+    }
+
+    @include media('<=xs') {
+      font-size: 3.5rem;
+    }
+  }
+}

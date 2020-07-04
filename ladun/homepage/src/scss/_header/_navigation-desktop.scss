@@ -1,0 +1,145 @@
+/* 3.2 Navigation Desktop
+----------------------------------------------------------*/
+
+.nav-main {
+  font-family: $font-secondary;
+  text-transform: uppercase;
+
+  > li {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+
+    &.has-dropdown {
+      > a {
+        &::after {
+          @include transition-primary;
+          opacity: 0.5;
+          font-family: 'themify-icons';
+          content: '\e62a';
+          margin-left: 0.5rem;
+          font-size: 0.75em;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &:hover, &:focus {
+          color: inherit;
+
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+
+      &.dropdown-show {
+        > a::after {
+          transform: translateY(3px);
+          opacity: 1;
+        }
+
+        > .dropdown-container {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    > a {
+      line-height: $header-height-inner;
+
+      &:hover, &:focus {
+        color: $color-primary;
+      }
+    }
+
+    .dropdown-container {
+      @include transition-primary;
+      display: flex;
+      transform: translateY(10px);
+      top: calc(100% + #{$header-height-inner});
+      left: 0;
+      position: absolute;
+      background-color: white;
+      opacity: 0;
+      visibility: hidden;
+      color: $color-global;
+      text-align: left;
+
+      .dropdown-mega {
+        padding: 0.5rem 1.5rem;
+
+        > li {
+          > a {
+            padding: 0.75rem 0;
+          }
+        }
+      }
+
+      .dropdown-image {
+        width: 250px;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    line-height: 1.5;
+    width: 200px;
+    background-color: white;
+
+    li {
+      position: relative;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-line;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+
+        .badge {
+          margin-left: auto;
+        }
+      }
+
+      &.has-dropdown::after {
+        opacity: 0.5;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-family: 'themify-icons';
+        content: '\e628';
+        font-size: 0.75em;
+      }
+
+      > ul {
+        @include transition-primary;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 8px);
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &.dropdown-show {
+        &.has-dropdown::after {
+          opacity: 1;
+        }
+
+        > ul {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

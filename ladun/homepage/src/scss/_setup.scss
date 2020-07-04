@@ -1,0 +1,139 @@
+/* ----------------------------------------------------------------------------- */
+/* --- 1. SETUP
+/* ----------------------------------------------------------------------------- */
+
+html {
+  font-size: 14px;
+
+  @include media('<=xs') {
+    font-size: 13px;
+  }
+}
+
+body {
+  position: relative;
+  color: $color-global;
+  font-family: $font-primary;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:not(.no-margins) {
+    margin: 0 30px 30px;
+
+    @include media('<=lg') {
+      margin: 0 15px 15px;
+    }
+
+    @include media('<=xs') {
+      margin: 0;
+    }
+  }
+}
+
+button, input {
+  font-family: inherit;
+}
+
+a {
+  transition: all 0.2s ease-in-out;
+  color: inherit;
+}
+
+a:hover, a:focus { text-decoration: none; color: $color-primary; }
+
+textarea:focus, input:focus, a:focus, a:visited, *:focus { outline: none; }
+
+iframe { border: 0; }
+
+img { max-width: 100%; height: auto; backface-visibility: hidden;}
+
+#body-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    @include transition-primary();
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(black,0.5);
+    content: ' ';
+    z-index: 899;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.dropdown-visible {
+  #body-wrapper::before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.container, .container-fluid {
+}
+
+.container {
+  > .main, > .sidebar {
+    &.left {
+      float: left;
+
+      @include media('<=sm') {
+        float: none;
+      }
+    }
+
+    &.right {
+      float: right;
+
+      @include media('<=sm') {
+        float: none;
+      }
+    }
+  }
+
+  > .main {
+    width: 70%;
+
+    @include media('<=sm') {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+  }
+
+  > .sidebar {
+    width: 24%;
+
+    @include media('<=sm') {
+      width: 100%;
+    }
+  }
+}
+
+.container-md {
+  width: 860px;
+
+  @include media('<=sm') {
+    width: 730px;
+  }
+  @include media('<=xs') {
+    width: auto;
+  }
+}
+
+
+::selection {
+  background: $color-primary;
+  color: white;
+}
+
+*::-moz-selection {
+  background: $color-primary;
+  color: white;
+}

@@ -1,0 +1,19 @@
+/* 6.3 Badges
+----------------------------------------------------------*/
+
+.badge {
+  border-radius: 2rem;
+  border: 0;
+  padding: 0.4em 0.75em;
+  font-weight: 600;
+  font-size: 60%;
+}
+
+$k: 1;
+@each $type, $color in $color-versions {
+
+  &.badge-#{$type} {
+    background-color: $color;
+  }
+
+}

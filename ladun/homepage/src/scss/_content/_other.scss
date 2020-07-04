@@ -1,0 +1,314 @@
+/* 4.4 Other
+----------------------------------------------------------*/
+
+/* Rate */
+
+.rate {
+  > i {
+    margin-right: 0.5em;
+
+    color: $color-medium;
+
+    &.active {
+      color: $color-gold !important;
+    }
+  }
+
+  &.rate-lg {
+    font-size: 1.3em;
+  }
+
+  &.rate-sm {
+    font-size: 0.8em;
+  }
+}
+
+.dark .rate {
+  > i {
+    color: rgba(white,0.4);
+  }
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+
+  > i {
+    cursor: pointer;
+
+    &:hover {
+      &, ~ i {
+        color: $color-gold;
+      }
+    }
+  }
+}
+
+/* Special Offer */
+
+.special-offer {
+  margin-bottom: 30px;
+
+  @include media ('>md') {
+    display: flex !important;
+  }
+
+  .special-offer-image {
+    position: relative;
+    width: 50%;
+    z-index: 1;
+
+    @include media ('<=md') {
+      width: auto;
+      float: none;
+    }
+  }
+
+  .special-offer-content {
+    position: relative;
+    width: 55%;
+    margin-left: -5%;
+    margin-top: 5%;
+    float: left;
+    background-color: $color-light;
+    padding: 4rem;
+    z-index: 2;
+
+    @include media ('<=md') {
+      float: none;
+      width: auto;
+      margin-left: 5%;
+      margin-top: -5%;
+      padding: 3rem;
+    }
+
+    .bg-light &,
+    .bg-primary-light & {
+      background-color: white;
+    }
+  }
+}
+
+/* Panel Details */
+
+.panel-details {
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-line;
+  }
+
+  .panel-details-title {
+    margin: 0;
+    padding: 1.25rem 0;
+
+    > label {
+      top: -0.25em;
+      margin-bottom: 0;
+      margin-right: 0;
+      display: inline-block;
+      vertical-align: middle;
+      float: left;
+      pointer-events: none;
+    }
+  }
+
+  .panel-details-content {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid $color-line;
+  }
+}
+
+/* Grey to Color */
+
+.grey-to-color {
+  @include transition-primary;
+  filter: grayscale(100%);
+
+  &:hover, &:focus {
+    filter: grayscale(0%);
+  }
+}
+
+/* Utility Box */
+
+.utility-box {
+  background-color: white;
+
+  .utility-box-title,
+  .utility-box-content {
+    padding: 2rem;
+    position: relative;
+  }
+
+  .utility-box-btn {
+    &:hover, &:focus {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Image Box */
+
+.image-box {
+  @include transition-primary;
+  margin-bottom: 2rem;
+
+  &:hover {
+    box-shadow: 0 0 25px 0 rgba(black,0.05);
+    transform: translateY(-3px);
+  }
+
+  .image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: white;
+  }
+}
+
+/* Product */
+
+.product-single {
+  .product-content {
+    background: white;
+    padding: 2.5rem 3rem;
+
+    .product-header {
+      padding-bottom: 2.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid $color-line;
+    }
+
+    .product-title {
+      margin-bottom: 0.25rem;
+    }
+
+    .product-caption {
+      font-size: 1.3rem;
+      font-weight: 200;
+      display: block;
+    }
+
+    .product-price {
+      font-size: 2.5rem;
+      color: $color-primary;
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+/* Documentation */
+
+.example-box { border: 1px solid #e1e1e8; border-top-left-radius: 4px; border-top-right-radius: 4px; }
+.example-box-content { padding: 20px; }
+.example-box-content > *:last-child { margin-bottom: 0; }
+.example-box-title { padding: 10px 20px; text-transform: uppercase; font-size: 11px; border-bottom: 1px solid #e1e1e8; background-color: #f7f8f9; color: #9b9fa1; font-weight: 500; }
+.example-box + pre { margin-top: -1px !important; border-top-left-radius: 0; border-top-right-radius: 0; }
+pre { tab-size: 4; }
+
+.prettyprint {
+  .tag {
+    font-size: 13px;
+    font-weight: normal;
+    padding: 0;
+  }
+}
+
+pre {
+  padding: 0 3px 2px;
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+  color: #333;
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 30px !important;
+  font-size: 0.9rem;
+  line-height: 20px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+pre.prettyprint {
+  margin-bottom: 20px;
+}
+
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+.com {
+  color: #999;
+}
+
+.lit {
+  color: #195f91;
+}
+
+.pun, .opn, .clo {
+  color: #93a1a1;
+}
+
+.fun {
+  color: #dc322f;
+}
+
+.str, .atv {
+  color: #d44950;
+}
+
+.kwd, .prettyprint .tag {
+  color: #2f6f9f;
+}
+
+.typ, .atn, .dec, .var {
+  /*color: teal;*/
+  color: #4f9fcf;
+}
+
+.pln {
+  color: #333;
+}
+
+.prettyprint.prettyprinted {
+  padding: 10px 15px;
+  background-color: #f7f8f9;
+  border: 1px solid $color-line;
+}
+
+.prettyprint.linenums {
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 -12px;
+}
+
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 20px;
+  list-style: decimal;
+}
+
+
+/* WooCommerce */
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+  border-color: $color-primary;
+  background-color: white;
+}
+
+.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
+  border-radius: 0;
+  border-color: $color-line;
+}

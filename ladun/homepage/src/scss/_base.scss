@@ -1,0 +1,63 @@
+@charset 'UTF-8';
+/* -----------------------------------------------------------------------------
+
+Soup - Restaurant with Online Ordering System Template
+
+File:			      Base SCSS File (Classic)
+Version:        2.00
+Last change:    22/05/2020
+Author:			    Suelo (Piotr Osmola)
+
+Table of Contents:
+
+1. Setup
+2. Basic
+3. Header
+-- 4.1 Header Mobile
+-- 4.2 Navigation Desktop
+4. Content
+-- 4.1 Blog
+-- 4.2 Features
+-- 4.3 Menu
+-- 4.4 Other
+-- 4.5 Page Title
+-- 4.6 Sections
+5. Footer
+6. Elements
+-- 6.1 Alerts
+-- 6.2 Backgrounds
+-- 6.3 Badges
+-- 6.4 Buttons
+-- 6.5 Carousel
+-- 6.6 Forms
+-- 6.7 Icons
+-- 6.8 Loader
+-- 6.9 Modals
+-- 6.10 Navigations
+-- 6.11 Notification Bar
+-- 6.12 Other
+-- 6.13 Pagination
+-- 6.14 Testimonials
+-- 6.15 Typography
+7. Widgets
+8. Animations
+9. Custom
+
+-------------------------------------------------------------------------------- */
+
+// Mixins
+@import 'include-media/dist/_include-media';
+
+// Import config
+@import 'config';
+
+// Import Styles
+@import 'setup';
+@import 'basics';
+@import 'header';
+@import 'content';
+@import 'footer';
+@import 'elements';
+@import 'widgets';
+@import 'animations';
+@import 'custom';

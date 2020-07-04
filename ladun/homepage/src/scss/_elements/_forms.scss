@@ -1,0 +1,193 @@
+/* 6.6 Forms
+----------------------------------------------------------*/
+
+/* Form Group */
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+/* Input Group */
+
+.input-group {
+  .btn {
+    &:hover, &:focus, &:active, &:focus:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+.input-group-btn:not(:first-child) > .btn, .input-group-btn:not(:first-child) > .btn-group {
+  margin-left: -2px;
+}
+
+/* Form Control */
+
+.form-control {
+  box-shadow: inset 1px 1px 2px 0 rgba($color-dark,0.06);
+  appearance: none;
+  border-color: $color-line;
+  font-weight: 300;
+  padding: 1rem;
+  border: 2px solid $color-line;
+  border-radius: 0;
+  height: calc(3.25rem + 2px);
+
+  &::placeholder {
+    opacity: 0.5;
+    color: inherit;
+  }
+
+  &:focus {
+    box-shadow: inset 1px 1px 2px 0 rgba($color-primary,0.1);
+    border-color: $color-primary;
+  }
+
+  &.error {
+    border-color: tint($color-red,70%);
+    background-color: tint($color-red,98%);
+  }
+
+  &.input-qty {
+    text-align: center;
+    font-weight: 500;
+  }
+}
+
+.form-control-sm {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.form-control-lg {
+  padding: 1.625rem;
+  font-size: 1.2rem;
+  border-radius: 0;
+}
+
+
+.dark .form-control {
+  border-color: white;
+}
+
+/* Select */
+
+.select-container {
+  position: relative;
+
+  &::after {
+    transform: translate3d(0,-50%,0);
+    position: absolute;
+    top: 50%;
+    display: block;
+    right: 13px;
+    font-size: 0.8rem;
+    color: $color-global;
+    font-family: 'themify-icons';
+    content:'\e62a';
+  }
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(3.25rem + 4px);
+}
+
+/* Label */
+
+label {
+  font-weight: 400;
+}
+
+/* Custom Controls */
+
+.custom-control {
+  min-height: 1.5em;
+  padding-left: 1.9em;
+  margin-right: 1em;
+
+  .custom-control-indicator {
+    position: absolute;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    > svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      > path {
+        @include transition-primary;
+        stroke: $color-primary;
+      }
+    }
+  }
+
+  .custom-control-description {
+    cursor: pointer;
+
+    > span {
+      opacity: 0.6;
+    }
+  }
+}
+
+/* Radio - Custom */
+
+.custom-radio {
+  .custom-control-input {
+    + .custom-control-indicator {
+      border-radius: 50%;
+      top: 0.1em;
+      font-weight: 400;
+      font-family: $font-secondary;
+      width: 1.3em;
+      height: 1.3em;
+      margin-right: 0.5rem;
+      border: 2px solid $color-line;
+      background-color: white;
+    }
+
+    &:checked + .custom-control-indicator {
+      > svg > path {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    &:focus + .custom-control-indicator {
+      box-shadow: none;
+      border-color: shade($color-line, 10%);
+    }
+  }
+}
+
+/* Checkbox - Custom */
+
+.custom-checkbox {
+  .custom-control-input {
+    + .custom-control-indicator {
+      top: 0.1em;
+      font-weight: 400;
+      font-family: $font-secondary;
+      width: 1.3em;
+      height: 1.3em;
+      margin-right: 0.5rem;
+      border-radius: 0;
+      border: 2px solid $color-line;
+      background-color: white;
+    }
+
+    &:checked + .custom-control-indicator {
+      > svg > path {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    &:focus + .custom-control-indicator {
+      box-shadow: none;
+    }
+  }
+}

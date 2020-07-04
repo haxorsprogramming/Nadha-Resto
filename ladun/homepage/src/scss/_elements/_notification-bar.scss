@@ -1,0 +1,43 @@
+/* 6.11 Notification Bar
+----------------------------------------------------------*/
+
+#notification-bar {
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.1);
+  transition: all 0.4s ease-out;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-weight: 300;
+  color: white;
+  z-index: 960;
+  transform: translateY(100%);
+  visibility: hidden;
+  text-align: center;
+  font-family: $font-secondary;
+
+  > div {
+    padding: 1.5rem;
+    font-size: 14px;
+
+    &.success {
+      background-color: $color-green;
+    }
+
+    &.error {
+      background-color: $color-red;
+    }
+  }
+
+  &.visible {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1rem;
+  }
+}

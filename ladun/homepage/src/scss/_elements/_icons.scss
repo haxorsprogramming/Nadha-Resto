@@ -1,0 +1,132 @@
+/* 6.7 Icons
+----------------------------------------------------------*/
+
+.icon {
+
+  $k: 1;
+
+  $k: 1;
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  width: 52px;
+  vertical-align: middle;
+
+  @each $type, $color in $color-versions {
+    &.icon-#{$type} {
+      color: $color;
+    }
+  }
+  @each $type, $color in $social-brands {
+    &.icon-#{$type} {
+      color: $color-medium;
+
+      &:hover, &:focus {
+        color: $color;
+      }
+    }
+  }
+
+  &.icon-sm { font-size: 18px; width: 30px;  }
+  &.icon-lg { font-size: 76px; width: 88px;  }
+  &.icon-xl { font-size: 120px; width: 130px; }
+
+  &.icon-dark {
+    color: rgba(black,0.4);
+  }
+
+  &.icon-default {
+    color: $color-medium;
+  }
+
+  &.icon-circle {
+
+    $k: 1;
+
+    $k: 1;
+    border-radius: 50%;
+    height: 52px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-align: center;
+
+    > * {
+      position: relative;
+      z-index: 2;
+      line-height: 48px;
+    }
+
+    &.icon-xs {
+      height: 26px;
+      font-size: 11px;
+
+      > * {
+        line-height: 26px;
+      }
+    }
+
+    &.icon-sm {
+      height: 30px;
+      font-size: 12px;
+
+      > * {
+        line-height: 30px;
+      }
+    }
+
+    &.icon-lg {
+      height: 88px;
+      font-size: 36px;
+
+      > * {
+        line-height: 88px;
+      }
+    }
+
+    &.icon-white {
+      color: $color-primary;
+
+      &::before {
+        background-color: white;
+      }
+    }
+
+    &.icon-hover {
+      &:hover, &:focus {
+        &::before {
+          transform: scale(1.1);
+        }
+      }
+    }
+    @each $type, $color in $color-versions {
+      &.icon-#{$type} {
+        background-color: $color;
+      }
+    }
+    @each $type, $color in $social-brands {
+      &.icon-#{$type} {
+        color: white;
+        background-color: $color-medium;
+
+        &:hover, &:focus {
+          color: white;
+          background-color: $color;
+        }
+      }
+    }
+  }
+}
+
+.dark .icon-circle {
+  $k: 1;
+  @each $type, $color in $social-brands {
+    &.icon-#{$type} {
+      background-color: tint($color-dark,10%);
+    }
+  }
+}
+
+.i-before { margin-right: 8px; }
+.i-after { margin-left: 8px; }
+.i-before-after { margin-right: 8px; margin-left: 8px; }

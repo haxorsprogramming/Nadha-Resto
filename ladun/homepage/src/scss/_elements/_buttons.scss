@@ -1,0 +1,457 @@
+/* 6.4 Buttons
+----------------------------------------------------------*/
+
+.btn {
+  @include transition-primary;
+  backface-visibility: hidden;
+  position: relative;
+  font-family: $font-secondary;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 0 2rem;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-width: 2px;
+  cursor: pointer;
+  height: calc(3.25rem + 2px);
+
+  @include media('<=xs') {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  &::before {
+    @include transition-primary($property: 'transform, visibility');
+    transform-origin: center bottom;
+    transform: scaleY(0);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    bottom: -2px;
+    right: -2px;
+    content: ' ';
+    visibility: hidden;
+  }
+
+  &:hover, &:focus, &:active, &:focus:active {
+    box-shadow: none;
+    transform: translateY(-2px);
+    outline: none;
+
+    &::before {
+      transform: scaleY(1);
+      visibility: visible;
+    }
+  }
+
+  > span {
+    position: relative;
+    z-index: 2;
+  }
+
+  i {
+    position: relative;
+    top: 1px;
+
+    > i {
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+      display: inline-block;
+    }
+  }
+
+  img {
+    height: 1em;
+    position: relative;
+    top: -0.05em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+/* Sizes */
+
+.btn-lg {
+  padding: 0 3rem;
+  font-size: 1.2rem;
+  border-radius: 0;
+  height: calc(4.75rem + 2px);
+
+  @include media('<=xs') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.btn-sm {
+  padding: 0 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 0;
+  height: calc(2.5rem + 2px);
+}
+
+/* Types */
+
+$k: 1;
+@each $type, $color in $color-versions {
+  &.btn-#{$type} {
+    border-color: $color;
+    background-color: $color;
+    color: white;
+
+    &::before {
+      background-color: shade($color, 10%);
+    }
+
+    &:hover, &:focus, &:active, &:focus:active {
+      border-color: $color;
+      background-color: $color;
+      color: white;
+    }
+  }
+}
+
+.btn-secondary::before {
+  background-color: $color-primary;
+}
+
+.btn-link {
+  color: inherit;
+
+  &:hover, &:focus, &:active, &:focus:active {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+$k: 1;
+@each $type, $color in $color-versions {
+  &.btn-outline-#{$type} {
+    border-color: $color;
+    color: inherit;
+
+    &::before {
+      background-color: $color;
+    }
+
+    &:hover, &:focus, &:active, &:focus:active {
+      border-color: $color;
+      background: transparent;
+      color: white;
+    }
+  }
+}
+
+.btn-outline-white {
+  border-color: white;
+  color: inherit;
+
+  &:hover, &:focus, &:active, &:focus:active {
+    border-color: white;
+    background: white;
+    color: $color-primary;
+  }
+}
+
+.btn-group {
+  > .btn:first-child:not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  > .btn:last-child:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  > .btn:not(.btn-link):not(:first-child) {
+    border-left: 1px solid rgba(white,0.2);
+  }
+
+  > .btn-secondary:not(:first-child) {
+    border-left-color: $color-line-light !important;
+  }
+
+  > .btn-dark:not(:first-child) {
+    border-left-color: $color-line-light !important;
+  }
+
+  .btn-outline-primary + .price {
+    background-color: $color-primary;
+    color: white;
+  }
+
+  .btn {
+    &:hover, &:focus {
+      transform: translateY(0);
+    }
+  }
+
+  .price {
+    @include transition-primary;
+    font-family: $font-secondary;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 1rem;
+    height: calc(3.25rem + 2px);
+    display: inline-flex;
+    align-items: center;
+
+    &.price-lg {
+      padding: 0 1rem;
+      font-size: 1.2rem;
+      height: calc(4.75rem + 2px);
+    }
+  }
+}
+
+/* Submit Button */
+
+.btn-submit {
+  .description {
+    @include transition-primary;
+  }
+
+  .success, .error {
+    @include transition-primary;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    visibility: hidden;
+  }
+
+  svg {
+    position: relative;
+    top: -0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &.loading {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+  }
+
+  &.success, &.error {
+    .description {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &.success {
+    .success {
+      opacity: 1;
+      visibility: visible;
+
+      > svg > path {
+        transition: all 0.3s ease-out 0.25s;
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+
+  &.error {
+    background-color: $color-medium;
+    border-color: $color-medium;
+
+    .error {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@keyframes btnLoading {
+  0% { transform: scale(1); }
+  12% { transform: scale(0.7); }
+  38% { transform: scale(1.1); }
+  62% { transform: scale(0.8); }
+  87% { transform: scale(1); }
+}
+
+/* Play Button */
+
+.btn-play {
+  @include reset(button);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  font-size: 52px;
+  width: 92px;
+  height: 92px;
+  vertical-align: middle;
+  border: 2px solid white;
+
+  &::before {
+    @include transition-primary;
+    border-radius: 50%;
+    opacity: 0;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    background-color: white;
+    visibility: hidden;
+    content: ' ';
+  }
+
+  &::after {
+    @include transition-primary;
+    filter: blur(0);
+    transform: translate3d(-50%,-50%,0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent white;
+    content: ' ';
+  }
+
+  &:hover, &:focus, &:active, &:focus:active {
+    outline: none;
+
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &::after {
+      border-color: transparent transparent transparent $color-global;
+    }
+  }
+}
+
+/* Play Button #2 */
+
+.btn-play-2 {
+  @include reset(button);
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 600;
+
+  > span {
+    border-radius: 50%;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 2px solid $color-primary;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+
+    &::before {
+      @include transition-primary;
+      border-radius: 50%;
+      transform: scale(0.9);
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: $color-primary;
+      visibility: hidden;
+      content: ' ';
+    }
+
+    &::after {
+      @include transition-primary;
+      filter: blur(0);
+      transform: translate3d(-50%,-50%,0);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-style: solid;
+      border-width: 6px 0 6px 10px;
+      border-color: transparent transparent transparent $color-primary;
+      content: ' ';
+    }
+  }
+
+  &:hover, &:focus, &:active, &:focus:active {
+    outline: none;
+    color: inherit;
+
+    > span {
+      &::before {
+        transform: scale(1.2);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &::after {
+        border-color: transparent transparent transparent white;
+      }
+    }
+  }
+}
+
+/* Download Button */
+
+.btn-download {
+  @include reset(button);
+  @include transition-primary;
+  border-radius: 40px;
+  backface-visibility: hidden;
+  position: relative;
+  font-weight: 300;
+  color: white;
+  padding: 1rem 2rem;
+  display: inline-block;
+  outline: none;
+  font-family: $font-secondary;
+  background-color: $color-dark;
+  min-width: 220px;
+  margin-bottom: 0.2rem;
+  text-align: left;
+
+  @include media('<=xs') {
+    min-width: 180px;
+  }
+
+  > .i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    img {
+      height: 1.4rem;
+    }
+  }
+
+  > .content {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+
+    > span {
+      &:first-child {
+        opacity: 0.5;
+        font-size: 0.9rem;
+        display: block;
+      }
+
+      &:last-child {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  &:hover, &:focus, &:active, &:focus:active {
+    transform: translateY(2px);
+    outline: none;
+    color: white;
+  }
+}
