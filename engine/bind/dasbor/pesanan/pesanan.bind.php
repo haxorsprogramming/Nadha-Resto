@@ -20,30 +20,33 @@
                     $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
                     $kdPesananCap = strtoupper(substr($kdPesanan, 0, 3)."-".substr($kdPesanan, 4,3)."-".substr($kdPesanan, 7, 5)); 
                     $tipe = $dp['tipe'];
+                    $sp = $dp['status'];
+
                     if($tipe === 'dine_in'){
                         $capTipe = 'Makan di tempat';
                     }else{
                         $capTipe = 'Bawa pulang';
                     }
+                    if($sp === 'done'){
+                        $capPembayaran = 'Selesai';
+                        $colPayment = '#55efc4';
+                        $sbp = 'disabled';
+                    }else{
+                        $capPembayaran = 'Pending';
+                        $colPayment = '#fab1a0';
+                        $sbp = '';
+                    }
                 ?>
                     <tr>
-                    <td><a href='#!' style="font-size:18px;" v-on:click='detailPesanan("<?=$kdPesanan; ?>")'><?=$kdPesananCap; ?></a></td>
+                    <td><a href='#!' style="font-size:18px;"><?=$kdPesananCap; ?></a></td>
                     <td><?=$namaPelanggan; ?></td>
                     <td><?=$capTipe; ?></td>
                     <td><?=$dp['jumlah_tamu']; ?></td>
                     <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Keluar : </td>
-                    <td></td>
+                    <td style="background-color: <?=$colPayment; ?>;"><?=$capPembayaran; ?></td>
                     <td><?=$dp['operator']; ?></td>
                     <td>
-                    <div class="dropdown d-inline">
-                      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class='fas fa-bars'></i> Aksi
-                      </button>
-                      <div class="dropdown-menu" x-placement="bottom-start" style="border:1px solid grey;position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                        <a class="dropdown-item has-icon" href="#!" v-on:click=''><i class="fas fa-info-circle"></i> Detail</a>
-                      </div>
-                    </div>
-                    </td>
+                    <a href='#!' class="btn btn-primary btn-icon icon-left <?=$sbp; ?>"  v-on:click='bayarPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-donate'></i> Bayar</a>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -72,4 +72,11 @@ class pembayaranData{
         $this -> st -> queryRun();
     }
 
-}
+    public function updateStatusPembayaran($kdPesanan, $waktu)
+    {
+        $query = "UPDATE tbl_pesanan SET status='done', waktu_selesai='$waktu' WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+} 

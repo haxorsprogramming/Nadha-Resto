@@ -36,6 +36,11 @@ var divFormPembayaran = new Vue({
         prosesPembayaranAtc : function()
         {
             konfirmasiPembayaran();
+        },
+        kembaliAtc : function()
+        {
+            renderMenu(pesanan);
+            divJudul.judulForm = "Daftar Pesanan"; 
         }
     }
 });
@@ -44,7 +49,7 @@ var kdPesananGlobal = document.getElementById('txtKdPesananHidden').value;
 divFormPembayaran.kdPesanan = kdPesananGlobal;
 
 //inisialisasi
-document.getElementById('txtKodePromo').focus();
+document.getElementById('txtTunai').focus();
 document.getElementById('btnProsesPembayaran').classList.add('disabled');
 
 $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data){
@@ -144,6 +149,10 @@ function prosesPembayaran()
     let dataSend = {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali}
     $.post('pembayaran/prosesPembayaran', dataSend, function(data){
         let obj = JSON.parse(data);
-        console.log(obj);
+        if(obj.status === 'sukses'){
+            pesanUmumApp('success', 'Sukses', 'Pembayaran berhasil ..');
+            renderMenu(pesanan);
+            divJudul.judulForm = "Daftar Pesanan"; 
+        }
     });
 }
