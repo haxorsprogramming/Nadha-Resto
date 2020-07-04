@@ -78,7 +78,7 @@ function cekPromo()
         if(obj.status === 'error_promo_code'){
             pesanUmumApp('error', 'Error kode promo', 'Kode promo tidak valid/berlaku');
         }else{
-
+            console.log(obj);
         }
     });
 }

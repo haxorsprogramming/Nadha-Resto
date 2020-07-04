@@ -158,6 +158,16 @@ class Route{
     {
       return date("Y-m-d");
     }
+    //fungsi cek apakah tanggal sudah lewat atau tidak (yyyy-mm-dd) - tanggal awal - tanggal sekarang
+    function cekDateCompare($tglCompare, $tglSekarang)
+    {
+      $selisih = $tglCompare - $tglSekarang;
+      if($selisih < 1){
+        return false;
+      }else{
+        return true;
+      }
+    }
     //fungsi untuk ambil jumlah jarak antara 2 tanggal
     function jarakTanggal( $first, $last, $step = '+1 day', $format = 'Y/m/d' ) {
       $dates    = array();

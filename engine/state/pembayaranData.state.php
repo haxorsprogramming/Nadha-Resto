@@ -59,4 +59,10 @@ class pembayaranData{
         }
     }
 
+    public function getDataPromo($kdPromo)
+    {
+       $this -> st -> query("SELECT * FROM tbl_promo WHERE nama='$kdPromo';");
+       return $this -> st -> querySingle();
+    }
+
 }

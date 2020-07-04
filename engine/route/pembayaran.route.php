@@ -55,9 +55,19 @@ class pembayaran extends Route{
     public function cekPromo()
     {
         $kdPromo = $this -> inp('kdPromo');
+        $tglNow = date('d-m-Y');
         $promoCek = $this -> state($this -> sn) -> cekPromoValid($kdPromo);
-        if($promoCek == false){
-            $data['status'] = 'next';
+        if($promoCek === false){
+            $dataPromo = $this -> state($this -> sn) -> getDataPromo($kdPromo);
+            $tglExpired = $dataPromo['tanggal_expired'];
+            $tbb = explode("-", $tglExpired);
+            $tglAff = $tbb[2]."-".$tbb[1]."-".$tbb[0];
+            $selisih = $this -> cekDateCompare($tglAff, $tglNow);
+            if($selisih === false){
+                $data['status'] = 'error_promo_code';
+            }else{
+                $data['status'] = 'next';
+            }
         }else{
             $data['status'] = 'error_promo_code';
         }
