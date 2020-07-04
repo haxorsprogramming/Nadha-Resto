@@ -13,16 +13,16 @@
                     <td>Pelanggan</td><td>: {{namaPelanggan}}</td>
                 </tr>
                 <tr>
-                    <td>Tipe Pesanan</td><td>: </td>
+                    <td>Tipe Pesanan</td><td>: {{tipePesanan}}</td>
                 </tr>
                 <tr>
-                    <td>Jumlah Tamu</td><td>: </td>
+                    <td>Jumlah Tamu</td><td>: {{jumlahTamu}}</td>
                 </tr>
                 <tr>
-                    <td>No Meja</td><td>: </td>
+                    <td>No Meja</td><td>: {{noMeja}}</td>
                 </tr>
                 <tr>
-                    <td>Waktu Masuk</td><td>: </td>
+                    <td>Waktu Masuk</td><td>: {{waktuMasuk}}</td>
                 </tr>
             </table>
 <hr/>
@@ -52,7 +52,7 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Kode Promo" v-model='kdPromo' id='txtKodePromo'>
                         <div class="input-group-append">
-                          <button class="btn btn-primary" type="button" id='txtGunakan' v-on:click=''>Gunakan</button>
+                          <button class="btn btn-primary" type="button" id='txtGunakan' v-on:click='cekPromoAtc'>Gunakan</button>
                         </div>
                       </div>
                     </td>
@@ -74,13 +74,13 @@
                     <td><span id='txtNamaPromo'>{{kdPromo}}</span></td>
                 </tr>
                 <tr>
-                    <td>Harga akhir</td><td>Rp. <span id='txtHargaFinal' style="display: none;"></span><span id='txtHargaFinalCap' style="font-size: 20px;"></span></td>
+                    <td>Harga akhir</td><td>Rp. {{ Number(hargaAkhir).toLocaleString() }}</td>
                 </tr> 
                 <tr>
-                    <td>Tunai</td><td>Rp. </td>
+                    <td>Tunai</td><td>Rp. {{ Number(tunai).toLocaleString() }}</td>
                 </tr>
                 <tr>
-                    <td>Kembali</td><td>Rp. </td>
+                    <td>Kembali</td><td>Rp. {{ Number(kembali).toLocaleString() }}</td>
                 </tr>         
             </table>
             <div>

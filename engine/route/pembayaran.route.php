@@ -25,6 +25,10 @@ class pembayaran extends Route{
         $data['kdInvoice'] = $kdInvoice;
         $data['detailPesanan'] = $this -> state($this -> sn) -> getPesananDetails($kdPesanan);
         $kdPelanggan = $data['detailPesanan']['pelanggan'];
+        $data['tipePesanan'] = $data['detailPesanan']['tipe'];
+        //cari meja
+        $kdMeja = $data['detailPesanan']['meja'];
+        $data['namaMeja'] = $this -> state($this -> sn) -> getCapMeja($kdMeja);
         $data['namaPelanggan'] = $this -> state($this -> sn) -> getNamaPelanggan($kdPelanggan);
         $qTemp = $this -> state($this -> sn) -> getDataTempPesanan($kdPesanan);
         $totalHarga = 0;

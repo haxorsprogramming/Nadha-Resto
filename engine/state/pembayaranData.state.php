@@ -34,4 +34,11 @@ class pembayaranData{
         return $q['nama'];
     }
 
+    public function getCapMeja($kdMeja)
+    {
+        $this -> st -> query("SELECT nama FROM tbl_meja WHERE kd_meja='$kdMeja';");
+        $q = $this -> st -> querySingle();
+        return $q['nama'];
+    }
+
 }
