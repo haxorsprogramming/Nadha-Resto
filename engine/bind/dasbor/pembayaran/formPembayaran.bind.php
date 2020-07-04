@@ -74,6 +74,9 @@
                     <td><span id='txtNamaPromo'>{{kdPromo}}</span></td>
                 </tr>
                 <tr>
+                    <td>Pajak {{tax}}%</td><td>Rp. {{ Number(taxPrice).toLocaleString() }}</td>
+                </tr> 
+                <tr>
                     <td>Harga akhir</td><td>Rp. {{ Number(hargaAkhir).toLocaleString() }}</td>
                 </tr> 
                 <tr>

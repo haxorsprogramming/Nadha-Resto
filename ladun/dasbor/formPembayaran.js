@@ -14,7 +14,9 @@ var divFormPembayaran = new Vue({
         waktuMasuk : '',
         hargaAkhir : '',
         tunai : '',
-        kembali : ''
+        kembali : '',
+        hargaAfterTax : '',
+        taxPrice : ''
     },
     methods : {
         cekPromoAtc : function()
@@ -42,12 +44,20 @@ $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data
     divFormPembayaran.jumlahTamu = detailPesanan.jumlah_tamu;
     divFormPembayaran.noMeja = obj.namaMeja;
     divFormPembayaran.waktuMasuk = detailPesanan.waktu_masuk;
+    let tax = obj.tax;
+    divFormPembayaran.tax = tax;
+    let taxPrice = parseInt(tax) * parseInt(obj.totalHarga) / 100;
+    divFormPembayaran.taxPrice = taxPrice;
+    let hargaAfterTax = parseInt(obj.totalHarga) + taxPrice;
+    divFormPembayaran.hargaAkhir = hargaAfterTax;
     if(tipePesanan == 'dine_in'){
         divFormPembayaran.tipePesanan = 'Makan di tempat (Dine in)';
     }else{
         divFormPembayaran.tipePesanan = 'Bawa pulang (take away)';
     }
+    
     itemPesanan.forEach(renderPesanan);
+    
     function renderPesanan(item, index){
         divFormPembayaran.itemPesanan.push({
             namaMenu : itemPesanan[index].namaMenu, 
@@ -56,5 +66,6 @@ $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data
             total : itemPesanan[index].total             
         });
     }
+
 });
 

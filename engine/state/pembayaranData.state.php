@@ -41,4 +41,11 @@ class pembayaranData{
         return $q['nama'];
     }
 
+    public function getTax()
+    {
+        $this -> st -> query("SELECT value FROM tbl_setting WHERE kd_setting='tax';");
+        $q = $this -> st -> querySingle();
+        return $q['value'];
+    }
+
 }
