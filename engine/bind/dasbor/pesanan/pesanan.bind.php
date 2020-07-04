@@ -30,11 +30,9 @@
                     if($sp === 'done'){
                         $capPembayaran = 'Selesai';
                         $colPayment = '#55efc4';
-                        $sbp = 'disabled';
                     }else{
                         $capPembayaran = 'Pending';
                         $colPayment = '#fab1a0';
-                        $sbp = '';
                     }
                 ?>
                     <tr>
@@ -46,7 +44,12 @@
                     <td style="background-color: <?=$colPayment; ?>;"><?=$capPembayaran; ?></td>
                     <td><?=$dp['operator']; ?></td>
                     <td>
-                    <a href='#!' class="btn btn-primary btn-icon icon-left <?=$sbp; ?>"  v-on:click='bayarPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-donate'></i> Bayar</a>
+                    <?php if($sp === 'done'){ ?> 
+                        <a href='#!' class="btn btn-info btn-icon icon-left" v-on:click='detailPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-info-circle'></i>Detail</a>
+                    <?php }else{ ?>
+                        <a href='#!' class="btn btn-primary btn-icon icon-left"  v-on:click='bayarPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-donate'></i> Bayar</a>
+                    <?php }?>
+                    </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -79,4 +79,11 @@ class pembayaranData{
         $this -> st -> queryRun();
     }
 
+    public function updateMeja($meja)
+    {
+        $query = "UPDATE tbl_meja SET status='leave' WHERE nama='$meja';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 

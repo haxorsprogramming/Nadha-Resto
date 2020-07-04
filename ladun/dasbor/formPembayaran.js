@@ -146,7 +146,8 @@ function prosesPembayaran()
     let totalFinal = divFormPembayaran.hargaAkhir;
     let tunai = divFormPembayaran.tunai;
     let kembali = divFormPembayaran.kembali;
-    let dataSend = {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali}
+    let meja = divFormPembayaran.noMeja;
+    let dataSend = {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali,'meja':meja}
     $.post('pembayaran/prosesPembayaran', dataSend, function(data){
         let obj = JSON.parse(data);
         if(obj.status === 'sukses'){

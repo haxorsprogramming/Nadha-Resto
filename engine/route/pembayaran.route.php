@@ -92,6 +92,7 @@ class pembayaran extends Route{
         $kembali = $this -> inp('kembali');
         $operator = $this -> getses('userSes');
         $waktu = $this -> waktu();
+        $meja = $this -> inp('meja');
         //simpan data pembayaran
         $this -> state($this -> sn) -> prosesPembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $kdPromo, $diskon, $tax, $totalFinal, $tunai, $kembali, $operator);
         //update status pembayaran

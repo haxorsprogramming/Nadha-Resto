@@ -8,6 +8,10 @@ var divPesanan = new Vue({
         {
             renderMenu('pembayaran/formPembayaran/'+kdPesanan);
             divJudul.judulForm = "Pembayaran";
+        },
+        detailPesanan : function(kdPesanan)
+        {
+            
         }
     }
 });
