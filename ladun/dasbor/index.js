@@ -1,5 +1,6 @@
 //inisialisasi variabel lokal
 const beranda = 'dasbor/beranda';
+const monitoring = 'monitoring';
 const menu = 'menu';
 const pelanggan = 'pelanggan';
 const meja = 'meja';
@@ -41,6 +42,11 @@ var divMenu = new Vue({
     {
       renderMenu(beranda); 
       divJudul.judulForm = "Beranda";
+    },
+    monitoringAtc : function()
+    {
+      renderMenu(monitoring);
+      divJudul.judulForm = "Monitoring Restoran";
     },
     menuAtc : function()
     {
