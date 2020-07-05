@@ -103,5 +103,12 @@ class pembayaran extends Route{
         $this -> toJson($data);
     }
 
+    public function kosongkanMeja()
+    {
+        $kdMeja = $this -> inp('meja');
+        $this -> state($this -> sn) -> kosongkanMeja($kdMeja);
+        $this -> state($this -> sn) -> updateMeja($kdMeja);
+    }
+
 }
  

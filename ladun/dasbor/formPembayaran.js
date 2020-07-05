@@ -152,8 +152,29 @@ function prosesPembayaran()
         let obj = JSON.parse(data);
         if(obj.status === 'sukses'){
             pesanUmumApp('success', 'Sukses', 'Pembayaran berhasil ..');
+            konfirmasiKosongkanMeja(meja);
             renderMenu(pesanan);
             divJudul.judulForm = "Daftar Pesanan"; 
         }
     });
+}
+
+function konfirmasiKosongkanMeja(meja)
+{
+    Swal.fire({
+        title: "Kosongkan meja?",
+        text: "Pembayaran telah selesai, kosongkan meja?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.value) {
+            $.post('pembayaran/kosongkanMeja', {'meja':meja}, function(data){
+                pesanUmumApp('success', 'Sukses', 'Meja berhasil dikosongkan...');
+            });
+        }
+      });
 }

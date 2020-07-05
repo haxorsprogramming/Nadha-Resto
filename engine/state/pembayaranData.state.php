@@ -98,4 +98,11 @@ class pembayaranData{
         $this -> st -> queryRun();
     }
 
+    public function kosongkanMeja($kdMeja)
+    {
+        $query = "UPDATE tbl_meja SET jlh_tamu='0' WHERE nama='$kdMeja';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 
