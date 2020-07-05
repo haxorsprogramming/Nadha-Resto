@@ -42,7 +42,7 @@
                     <td><?=$capTipe; ?></td>
                     <td></td>
                     <td><?=$dp['jumlah_tamu']; ?></td>
-                    <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Keluar : </td>
+                    <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Selesai : <?=$dp['waktu_selesai']; ?></td>
                     <td style="background-color: <?=$colPayment; ?>;"><?=$capPembayaran; ?></td>
                     <td><?=$dp['operator']; ?></td>
                     <td>
