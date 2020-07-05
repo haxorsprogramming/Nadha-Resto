@@ -12,6 +12,10 @@ var divPesanan = new Vue({
         detailPesanan : function(kdPesanan)
         {
             
+        },
+        updatePesanan : function(kdPesanan)
+        {
+            window.alert(kdPesanan);
         }
     }
 });
