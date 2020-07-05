@@ -3,8 +3,7 @@
         <table id='tblDaftarPesanan' class='table table-hover table-bordered table-stripped'>
             <thead>
                 <tr>
-                    <th>Kd Pesanan</th>
-                    <th>Pelanggan</th>
+                    <th>Pesanan</th>
                     <th>Tipe</th>
                     <th>Meja</th>
                     <th>Tamu</th>
@@ -37,8 +36,9 @@
                     }
                 ?>
                     <tr>
-                    <td><a href='#!' style="font-size:14px;"><?=$kdPesananCap; ?></a></td>
-                    <td><?=$namaPelanggan; ?></td>
+                    <td><a href='#!' style="font-size:14px;"><?=$kdPesananCap; ?></a><br/>
+                    <?=$namaPelanggan; ?>
+                    </td>
                     <td><?=$capTipe; ?></td>
                     <td></td>
                     <td><?=$dp['jumlah_tamu']; ?></td>

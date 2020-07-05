@@ -45,9 +45,9 @@ class pesanan extends Route{
         $this -> toJson($data);
     }
 
-    public function updatePesanan()
+    public function updatePesanan($kdPesanan)
     {
-        echo "Holaa";
+        echo $kdPesanan;
     }
 
     public function updateTempPesanan()

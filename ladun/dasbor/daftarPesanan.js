@@ -15,10 +15,11 @@ var divPesanan = new Vue({
         },
         updatePesanan : function(kdPesanan)
         {
-            window.alert(kdPesanan);
+            renderMenu('pesanan/updatePesanan/'+kdPesanan);
+            divJudul.judulForm = "Update Pesanan";
         }
     }
 });
 
 //inisialisasi
-$('#tblDaftarPesanan').dataTable({"order": [[ 5, "desc" ]]});
+$('#tblDaftarPesanan').dataTable({"order": [[ 4, "desc" ]]});
