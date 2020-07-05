@@ -7,5 +7,11 @@ class utility extends Route{
         $password = $this ->  hashPassword('admin');
         echo $password;
     }
+
+    public function getDataMenu()
+    {
+      $data['menu'] = $this -> state('utilityData') -> getDataMenu();
+      $this -> toJson($data);
+    }
     
 }

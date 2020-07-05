@@ -29,4 +29,6 @@ class pelanggan extends Route{
       $this -> toJson($data);
     }
 
+   
+
 }
