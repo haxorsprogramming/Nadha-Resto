@@ -19,7 +19,7 @@ class pelanggan extends Route{
       $visit          = $this -> waktu();
       $idPelanggan    = $this -> rnint(8);
       //cek apakah ada nomor handphone & nama yang sama
-      $jlhPelanggan = $this -> state($this -> sn) -> getNamaHandphone($nama, $hp);
+      $jlhPelanggan   = $this -> state($this -> sn) -> getNamaHandphone($nama, $hp);
       if($jlhPelanggan > 0){
         $data['status'] = 'error';
       }else{

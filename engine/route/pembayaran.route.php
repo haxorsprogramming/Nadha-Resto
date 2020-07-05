@@ -54,22 +54,25 @@ class pembayaran extends Route{
 
     public function cekPromo()
     {
-        $kdPromo = $this -> inp('kdPromo');
-        $tglNow = date('d-m-Y');
-        $promoCek = $this -> state($this -> sn) -> cekPromoValid($kdPromo);
+        $kdPromo    = $this -> inp('kdPromo');
+        $tglNow     = date('d-m-Y');
+        $promoCek   = $this -> state($this -> sn) -> cekPromoValid($kdPromo);
+
         if($promoCek === false){
-            $dataPromo = $this -> state($this -> sn) -> getDataPromo($kdPromo);
+            $dataPromo  = $this -> state($this -> sn) -> getDataPromo($kdPromo);
             $tglExpired = $dataPromo['tanggal_expired'];
-            $tbb = explode("-", $tglExpired);
-            $tglAff = $tbb[2]."-".$tbb[1]."-".$tbb[0];
-            $selisih = $this -> cekDateCompare($tglAff, $tglNow);
+            $tbb        = explode("-", $tglExpired);
+            $tglAff     = $tbb[2]."-".$tbb[1]."-".$tbb[0];
+            $selisih    = $this -> cekDateCompare($tglAff, $tglNow);
+
             if($selisih === false){
                 $data['status'] = 'error_promo_code';
             }else{
-                $data['value'] = $dataPromo['value'];
-                $data['tipe'] = $dataPromo['tipe'];
+                $data['value']  = $dataPromo['value'];
+                $data['tipe']   = $dataPromo['tipe'];
                 $data['status'] = 'next';
             }
+            
         }else{
             $data['status'] = 'error_promo_code';
         }
@@ -81,18 +84,18 @@ class pembayaran extends Route{
     {
         // {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,
         // 'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali}
-        $kdInvoice = $this -> inp('kdInvoice');
-        $kdPesanan = $this -> inp('kdPesanan');
+        $kdInvoice  = $this -> inp('kdInvoice');
+        $kdPesanan  = $this -> inp('kdPesanan');
         $totalHarga = $this -> inp('totalHarga');
-        $kdPromo = $this -> inp('kdPromo');
-        $diskon = $this -> inp('diskon');
-        $tax = $this -> inp('tax');
+        $kdPromo    = $this -> inp('kdPromo');
+        $diskon     = $this -> inp('diskon');
+        $tax        = $this -> inp('tax');
         $totalFinal = $this -> inp('totalFinal');
-        $tunai = $this -> inp('tunai');
-        $kembali = $this -> inp('kembali');
-        $operator = $this -> getses('userSes');
-        $waktu = $this -> waktu();
-        $meja = $this -> inp('meja');
+        $tunai      = $this -> inp('tunai');
+        $kembali    = $this -> inp('kembali');
+        $operator   = $this -> getses('userSes');
+        $waktu      = $this -> waktu();
+        $meja       = $this -> inp('meja');
         //simpan data pembayaran
         $this -> state($this -> sn) -> prosesPembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $kdPromo, $diskon, $tax, $totalFinal, $tunai, $kembali, $operator);
         //update status pembayaran

@@ -12,47 +12,47 @@ class pesanan extends Route{
 
     public function pesananBaru()
     {
-        $data['meja'] = $this -> state($this -> sn) -> getDataMeja();
-        $data['pelanggan'] = $this -> state($this -> sn) -> getDataPelanggan();
-        $data['kategori'] = $this -> state($this -> sn) -> getDataKategori();
+        $data['meja']       = $this -> state($this -> sn) -> getDataMeja();
+        $data['pelanggan']  = $this -> state($this -> sn) -> getDataPelanggan();
+        $data['kategori']   = $this -> state($this -> sn) -> getDataKategori();
         $this -> bind('dasbor/pesanan/buatPesanan', $data);
     }
 
     public function getMenuKategori()
     {
-        $kdKategori = $this -> inp('kdMenu');
-        $data['menu'] = $this -> state($this -> sn) -> getMenuWithKategori($kdKategori);
+        $kdKategori     = $this -> inp('kdMenu');
+        $data['menu']   = $this -> state($this -> sn) -> getMenuWithKategori($kdKategori);
         $this -> toJson($data);
     }
 
     public function buatPesanan()
     {
-        $kdPelanggan = $this -> inp('pelanggan');
-        $tipe = $this -> inp('tipe');
-        $jlhTamu = $this -> inp('jlhTamu');
-        $kdPesanan = $this -> rnstr(15);
-        $waktuMasuk = $this -> waktu();
-        $operator = $this -> getses('userSes');
-        $meja = $this -> inp('mejaId');
+        $kdPelanggan        = $this -> inp('pelanggan');
+        $tipe               = $this -> inp('tipe');
+        $jlhTamu            = $this -> inp('jlhTamu');
+        $kdPesanan          = $this -> rnstr(15);
+        $waktuMasuk         = $this -> waktu();
+        $operator           = $this -> getses('userSes');
+        $meja               = $this -> inp('mejaId');
         //simpan ke tabel pesanan
         $this -> state($this -> sn) -> buatPesanan($kdPesanan, $kdPelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator, $meja);
         //update status meja
         $this -> state($this -> sn) -> updateStatusMeja($meja);
         //update jumlah tamu meja 
         $this -> state($this -> sn) -> updateJumlahTamu($jlhTamu, $meja);
-        $data['status'] = 'sukses';
-        $data['kdPesanan'] = $kdPesanan; 
+        $data['status']     = 'sukses';
+        $data['kdPesanan']  = $kdPesanan; 
         $this -> toJson($data);
     }
 
     public function updateTempPesanan()
     {
-        $kdMenu = $this -> inp('kdMenu');
-        $kdPesanan = $this -> inp('kdPesanan');
-        $hargaAt = $this -> inp('hargaAt');
-        $qt = $this -> inp('qt');
-        $total = $this -> inp('total');
-        $kdTemp = $this -> rnstr(20);
+        $kdMenu     = $this -> inp('kdMenu');
+        $kdPesanan  = $this -> inp('kdPesanan');
+        $hargaAt    = $this -> inp('hargaAt');
+        $qt         = $this -> inp('qt');
+        $total      = $this -> inp('total');
+        $kdTemp     = $this -> rnstr(20);
         $this -> state($this -> sn) -> updateTempPesanan($kdTemp, $kdMenu, $kdPesanan, $hargaAt, $qt, $total);
     }
 
