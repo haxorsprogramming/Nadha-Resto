@@ -17,4 +17,4 @@ var divPesanan = new Vue({
 });
 
 //inisialisasi
-$('#tblDaftarPesanan').dataTable();
+$('#tblDaftarPesanan').dataTable({"order": [[ 5, "desc" ]]});

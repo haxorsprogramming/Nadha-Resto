@@ -6,6 +6,7 @@
                     <th>Kd Pesanan</th>
                     <th>Pelanggan</th>
                     <th>Tipe</th>
+                    <th>Meja</th>
                     <th>Tamu</th>
                     <th>Waktu</th>
                     <th>Status Pembayaran</th>
@@ -18,7 +19,7 @@
                     $kdPesanan = $dp['kd_pesanan'];
                     $kdPelanggan = $dp['pelanggan'];
                     $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
-                    $kdPesananCap = strtoupper(substr($kdPesanan, 0, 3)."-".substr($kdPesanan, 4,3)."-".substr($kdPesanan, 7, 5)); 
+                    $kdPesananCap = strtoupper(substr($kdPesanan, 0, 4))."..."; 
                     $tipe = $dp['tipe'];
                     $sp = $dp['status'];
 
@@ -36,9 +37,10 @@
                     }
                 ?>
                     <tr>
-                    <td><a href='#!' style="font-size:18px;"><?=$kdPesananCap; ?></a></td>
+                    <td><a href='#!' style="font-size:14px;"><?=$kdPesananCap; ?></a></td>
                     <td><?=$namaPelanggan; ?></td>
                     <td><?=$capTipe; ?></td>
+                    <td></td>
                     <td><?=$dp['jumlah_tamu']; ?></td>
                     <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Keluar : </td>
                     <td style="background-color: <?=$colPayment; ?>;"><?=$capPembayaran; ?></td>
