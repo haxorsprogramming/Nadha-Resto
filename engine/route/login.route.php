@@ -14,13 +14,12 @@ class login extends Route{
     {
         $user           = $this -> inp('username');
         $password       = $this -> inp('password');
-        $passHash       = md5($password);
         $waktu          = $this -> waktu();
         //get data password from database & verif
         $userPasswordDb = $this -> state($this -> sn) -> getPassword($user);
         $checkPassword  = $this -> verifPassword($password, $userPasswordDb);
 
-        if($checkPassword = true){
+        if($checkPassword === true){
             $this -> setses('userSes', $user);
             $this -> state($this -> sn) -> updateLogin($waktu, $user);
             $data['status_login'] = 'sukses';
