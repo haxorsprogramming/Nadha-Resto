@@ -6,7 +6,7 @@
     <?php foreach($data['meja'] as $dm) : 
         $status = $dm['status'];
         //cari jumlah tamu per meja 
-        $jlhTamu = $this -> state('monitoringData') -> getJumlahTamu($dm['kd_meja']);
+        $jlhTamu = $dm['jlh_tamu'];
         if($status === 'active'){
             $ic = 'fas fa-utensils';
             $wm = '#00cec9';

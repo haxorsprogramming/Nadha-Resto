@@ -163,8 +163,8 @@
                         </tr>
                     </table>
                     <div>
-                        <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='bayarAtc'><i class='fas fa-check-circle'></i> Bayar sekarang</a>&nbsp;&nbsp;&nbsp;
-                        <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-share-square'></i> Bayar nanti</a>
+                        <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='bayarAtc'><i class='fas fa-check-circle'></i> Proses Pesanan</a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-share-square'></i> Batal</a>
                     </div>
                     </div>
                     

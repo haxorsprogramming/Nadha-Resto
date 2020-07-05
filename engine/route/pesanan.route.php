@@ -38,6 +38,8 @@ class pesanan extends Route{
         $this -> state($this -> sn) -> buatPesanan($kdPesanan, $kdPelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator, $meja);
         //update status meja
         $this -> state($this -> sn) -> updateStatusMeja($meja);
+        //update jumlah tamu meja 
+        $this -> state($this -> sn) -> updateJumlahTamu($jlhTamu, $meja);
         $data['status'] = 'sukses';
         $data['kdPesanan'] = $kdPesanan; 
         $this -> toJson($data);

@@ -60,4 +60,11 @@ class pesananData{
         $this -> st -> queryRun();
     }
 
+    public function updateJumlahTamu($jlhTamu, $kdMeja)
+    {
+        $query = "UPDATE tbl_meja SET jlh_tamu='$jlhTamu' WHERE kd_meja='$kdMeja';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 

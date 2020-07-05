@@ -23,7 +23,7 @@ class mejaData{
 
     public function tambahMeja($kdMeja, $nama, $deks, $waktu)
     {
-        $query = "INSERT INTO tbl_meja VALUES(null, '$kdMeja','$nama','$deks','leave','$waktu');";
+        $query = "INSERT INTO tbl_meja VALUES(null, '$kdMeja','$nama','$deks','leave','0','$waktu');";
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
