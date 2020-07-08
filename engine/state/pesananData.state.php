@@ -67,4 +67,10 @@ class pesananData{
         $this -> st -> queryRun();
     }
 
+    public function getDetailPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';");
+        return $this -> st -> queryAll();
+    }
+
 } 

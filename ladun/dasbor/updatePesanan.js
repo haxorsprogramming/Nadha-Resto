@@ -1,6 +1,7 @@
 var divUpdatePesanan = new Vue({
     el : '#divUpdatePesanan',
     data : {
+        kdPesanan : '',
         dataMenu : [],
         dataKategori : [],
         kategoriDipilih : ''
@@ -9,12 +10,16 @@ var divUpdatePesanan = new Vue({
         updateMenu : function()
         {
             updateMenu();
+        },
+        updateAtc : function()
+        {
+            // window.alert(this.kdPesanan);
         }
     }
 });
 
 //inisialisasi 
-
+divUpdatePesanan.kdPesanan = document.getElementById('txtKdPesanan').innerHTML;
 //get data kategori
 $.post('utility/getDataKategori', function(data){
     let obj = JSON.parse(data);
@@ -26,6 +31,10 @@ $.post('utility/getDataKategori', function(data){
             nama : listKategori[index].nama
         });
     }
+});
+//get data pesanan 
+$.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
+    console.log(data);
 });
 
 function updateMenu()

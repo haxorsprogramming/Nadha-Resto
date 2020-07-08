@@ -62,4 +62,12 @@ class pesanan extends Route{
         $this -> state($this -> sn) -> updateTempPesanan($kdTemp, $kdMenu, $kdPesanan, $hargaAt, $qt, $total);
     }
 
+    public function getDetailPesanan()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $dp = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
+        $data['kdPesanan'] = $dp;
+        $this -> toJson($data);
+    }
+
 }

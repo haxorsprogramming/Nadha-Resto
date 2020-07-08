@@ -32,8 +32,34 @@
             </div>
         </div>
     </div>
-    <div class="">
-
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+    <div class="card card card-primary">
+            <div class="card-header">
+                <h4>Detail Pesanan</h4>
+            </div>
+            <div class="card-body">
+            <div style="margin-bottom: 12px;">
+                       <table>
+                           <tr>
+                               <th><code>Nomor Pesanan</code></th><th>: <code id='txtKdPesanan'><?=$data['kdPesanan']; ?></code></th>
+                           </tr>
+                           <tr>
+                               <th><code>Nama Pelanggan</code></th><th><code>: {{}}</code></th>
+                           </tr>
+                           <tr>
+                               <th><code>Jumlah Tamu</code></th><th><code>: {{}}</code></th>
+                           </tr>
+                           <tr>
+                                <th><code>Meja</code></th><th><code>: {{}}</code></th>
+                           </tr>
+                       </table>
+                    </div> 
+                    <div>
+                        <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='updateAtc'><i class='fas fa-check-circle'></i> Proses Pesanan</a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-share-square'></i> Batal</a>
+                    </div>
+            </div>
+    </div>
     </div>
 </div>
 <script src="<?=STYLEBASE; ?>/dasbor/updatePesanan.js"></script> 
