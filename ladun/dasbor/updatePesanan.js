@@ -24,6 +24,10 @@ var divUpdatePesanan = new Vue({
         hapusItem : function(kdMenu)
         {
             hapusItem(kdMenu);
+        },
+        tambahItem(kdMenu, nama, harga)
+        {
+            tambahItem(kdMenu, nama, harga);
         }
     }
 });
@@ -95,6 +99,23 @@ function getTempMenuFirst()
     });
 }
 
+function tambahItem(kdMenu, nama, harga)
+{
+   let cekArray = dataMenuUpdate.includes(kdMenu);
+   if(cekArray === true){
+
+   }else{
+    dataMenuUpdate.push(kdMenu);
+    divUpdatePesanan.menuFresh.push({
+        namaMenu : nama, 
+        hargaAt : harga,
+        qt : 1,
+        total : harga,
+        kdMenu : kdMenu
+    });
+   }
+}
+
 function getDataPesanan()
 {
     $.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
@@ -118,7 +139,9 @@ function hapusItem(kdMenu)
     if(cekArray === true){
         let cekLetakArray = dataMenuUpdate.indexOf(kdMenu);
         let totalHargaAt = divUpdatePesanan.menuFresh[cekLetakArray].total;
-        console.log(totalHargaAt);
+        // console.log(totalHargaAt);
+        let tHargaNow = parseInt(divUpdatePesanan.totalHarga) - parseInt(totalHargaAt);
+        divUpdatePesanan.totalHarga = tHargaNow;
         dataMenuUpdate.splice(cekLetakArray, 1);
         divUpdatePesanan.menuFresh.splice(cekLetakArray, 1);
     }else{

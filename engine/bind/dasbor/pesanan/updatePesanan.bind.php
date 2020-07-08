@@ -85,7 +85,7 @@
                 </div>
                 <div>
                     <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='updateAtc'><i
-                            class='fas fa-check-circle'></i> Proses Pesanan</a>&nbsp;&nbsp;&nbsp;
+                            class='fas fa-check-circle'></i> Update Pesanan</a>&nbsp;&nbsp;&nbsp;
                     <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-share-square'></i>
                         Batal</a>
                 </div>
