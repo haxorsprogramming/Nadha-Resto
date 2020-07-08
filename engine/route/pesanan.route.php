@@ -74,4 +74,11 @@ class pesanan extends Route{
         $this -> toJson($data);
     }
 
+    public function getTempFirst()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $data['kdPesanan'] = $kdPesanan;
+        $this -> toJson($data);
+    }
+
 }

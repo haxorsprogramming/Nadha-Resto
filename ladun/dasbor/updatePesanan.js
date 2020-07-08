@@ -25,6 +25,7 @@ var divUpdatePesanan = new Vue({
 // var kdPesananUp = document.getElementById('txtKdPesanan').innerHTML;
 divUpdatePesanan.kdPesanan = document.getElementById('txtKdPesanan').innerHTML;
 setTimeout(getDataPesanan, 200);
+setTimeout(getTempMenuFirst, 200);
 //get data kategori
 $.post('utility/getDataKategori', function(data){
     let obj = JSON.parse(data);
@@ -67,7 +68,10 @@ function updateMenu()
 
 function getTempMenuFirst()
 {
-    
+    $.post('pesanan/getTempFirst', {'kdPesanan':divUpdatePesanan.kdPesanan}, function(data){
+        let obj = JSON.parse(data);
+        console.log(obj);
+    });
 }
 
 function getDataPesanan()
