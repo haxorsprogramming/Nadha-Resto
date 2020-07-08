@@ -5,9 +5,9 @@ var divUpdatePesanan = new Vue({
         dataMenu : [],
         dataKategori : [],
         kategoriDipilih : '',
-        namaPelanggan : '',
-        meja : '',
-        jlhTamu : ''
+        namaPelanggan : 'memuat...',
+        meja : 'memuat...',
+        jlhTamu : 'memuat...'
     },
     methods : {
         updateMenu : function()
@@ -69,8 +69,6 @@ function getDataPesanan()
 {
     $.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
         let obj = JSON.parse(data);
-        // let dk = obj.kategori;
-        console.log(obj);
         divUpdatePesanan.namaPelanggan = obj.namaPelanggan;
         divUpdatePesanan.meja = obj.meja;
         divUpdatePesanan.jlhTamu = obj.jlhTamu;
