@@ -34,7 +34,8 @@ $.post('utility/getDataKategori', function(data){
 });
 //get data pesanan 
 $.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
-    console.log(data);
+    let obj = JSON.parse(data);
+    console.log(obj);
 });
 
 function updateMenu()
