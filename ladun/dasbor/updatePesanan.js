@@ -23,10 +23,10 @@ var divUpdatePesanan = new Vue({
 });
 
 //inisialisasi 
-// var kdPesananUp = document.getElementById('txtKdPesanan').innerHTML;
 divUpdatePesanan.kdPesanan = document.getElementById('txtKdPesanan').innerHTML;
 setTimeout(getDataPesanan, 200);
 setTimeout(getTempMenuFirst, 200);
+var dataMenuUpdate = [];
 //get data kategori
 $.post('utility/getDataKategori', function(data){
     let obj = JSON.parse(data);
@@ -74,6 +74,7 @@ function getTempMenuFirst()
         let km = obj.pesanan;
         km.forEach(renderMenu);
         function renderMenu(item, index){
+            dataMenuUpdate.push(km[index].kdMenu);
             divUpdatePesanan.menuFresh.push({
                 namaMenu : km[index].namaMenu,
                 hargaAt : km[index].hargaAt,
@@ -81,6 +82,7 @@ function getTempMenuFirst()
                 total : km[index].total
             });
         }
+        console.log(dataMenuUpdate);
     });
 }
 

@@ -79,6 +79,7 @@ class pesanan extends Route{
         $kdPesanan = $this -> inp('kdPesanan');
         $dtp = $this -> state($this -> sn) -> getTempFirst($kdPesanan);
         foreach($dtp as $dp) {
+            $arrTemp['kdMenu'] = $dp['kd_menu'];
             $arrTemp['hargaAt'] = $dp['harga_at'];
             $arrTemp['namaMenu'] = $this -> state('utilityData') -> getNamaMenu($dp['kd_menu']);
             $arrTemp['total'] = $dp['total'];
