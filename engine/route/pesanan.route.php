@@ -47,7 +47,8 @@ class pesanan extends Route{
 
     public function updatePesanan($kdPesanan)
     {
-        $this -> bind('dasbor/pesanan/updatePesanan');
+        $data['kdPesanan'] = $kdPesanan;
+        $this -> bind('dasbor/pesanan/updatePesanan', $data);
     }
 
     public function updateTempPesanan()
