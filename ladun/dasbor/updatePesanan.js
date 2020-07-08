@@ -1,3 +1,4 @@
+var dataMenuUpdate = [];
 var divUpdatePesanan = new Vue({
     el : '#divUpdatePesanan',
     data : {
@@ -18,6 +19,16 @@ var divUpdatePesanan = new Vue({
         updateAtc : function()
         {
             // window.alert(this.kdPesanan);
+        },
+        hapusItem : function(kdMenu)
+        {
+            let cekArray = dataMenuUpdate.includes(kdMenu);
+            if(cekArray === true)
+            {
+                let cekLetakArray = dataMenuUpdate.indexOf(kdMenu);
+                dataMenuUpdate.splice(cekLetakArray, 1);
+                this.menuFresh.splice(cekLetakArray, 1);
+            }
         }
     }
 });
@@ -26,7 +37,7 @@ var divUpdatePesanan = new Vue({
 divUpdatePesanan.kdPesanan = document.getElementById('txtKdPesanan').innerHTML;
 setTimeout(getDataPesanan, 200);
 setTimeout(getTempMenuFirst, 200);
-var dataMenuUpdate = [];
+
 //get data kategori
 $.post('utility/getDataKategori', function(data){
     let obj = JSON.parse(data);
@@ -79,10 +90,11 @@ function getTempMenuFirst()
                 namaMenu : km[index].namaMenu,
                 hargaAt : km[index].hargaAt,
                 qt : km[index].qt,
-                total : km[index].total
+                total : km[index].total,
+                kdMenu : km[index].kdMenu
             });
         }
-        console.log(dataMenuUpdate);
+        
     });
 }
 

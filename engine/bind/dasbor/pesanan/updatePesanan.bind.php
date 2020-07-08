@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <tr>
-                                <!-- <td colspan="3"><strong style="font-size: 25px;">Total</strong></td><td>Rp. {{ Number(totalHarga).toLocaleString() }}</td> -->
+                                <td colspan="3"><strong style="font-size: 25px;">Total</strong></td><td>Rp. {{ Number().toLocaleString() }}</td>
                             </tr>
                         </tr>
                     </table>
