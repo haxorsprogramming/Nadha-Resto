@@ -75,7 +75,7 @@ class pesananData{
 
     public function getTempFirst($kdPesanan)
     {
-        $this -> st -> query("SELECT * FROM tbl_temp_pesanan WHERE kd_pesanan='tSRUmTWrZIoXBND';");
+        $this -> st -> query("SELECT * FROM tbl_temp_pesanan WHERE kd_pesanan='$kdPesanan';");
         return $this -> st -> queryAll();
     }
 

@@ -9,7 +9,8 @@ var divUpdatePesanan = new Vue({
         kategoriDipilih : '',
         namaPelanggan : 'memuat...',
         meja : 'memuat...',
-        jlhTamu : 'memuat...'
+        jlhTamu : 'memuat...',
+        totalHarga : ''
     },
     methods : {
         updateMenu : function()
@@ -18,17 +19,11 @@ var divUpdatePesanan = new Vue({
         },
         updateAtc : function()
         {
-            // window.alert(this.kdPesanan);
+           
         },
         hapusItem : function(kdMenu)
         {
-            let cekArray = dataMenuUpdate.includes(kdMenu);
-            if(cekArray === true)
-            {
-                let cekLetakArray = dataMenuUpdate.indexOf(kdMenu);
-                dataMenuUpdate.splice(cekLetakArray, 1);
-                this.menuFresh.splice(cekLetakArray, 1);
-            }
+            hapusItem(kdMenu);
         }
     }
 });
@@ -50,7 +45,6 @@ $.post('utility/getDataKategori', function(data){
         });
     }
 });
-//get data pesanan 
 
 function updateMenu()
 {
@@ -58,6 +52,7 @@ function updateMenu()
     $.post('utility/getDataMenuKategori', {'kdKategori':kdKategori}, function(data){
         let obj = JSON.parse(data);
         let md = obj.menu;
+        let totalHarga = 0;
         //clear menu 
         let pjgArray = divUpdatePesanan.dataMenu.length;
         var i;
@@ -74,7 +69,10 @@ function updateMenu()
                 harga : md[index].harga,
                 pic : md[index].pic
             });
+            let hargaAt = md[index].harga;
+            totalHarga = parseInt(totalHarga) + parseInt(hargaAt);
         }
+        divUpdatePesanan.totalHarga = totalHarga;
     });
 }
 
@@ -113,4 +111,16 @@ function setMenuKategori()
 {
     divUpdatePesanan.kategoriDipilih = document.getElementById('txtKategori').value;
     divUpdatePesanan.updateMenu();
+}
+
+function hapusItem(kdMenu)
+{
+    let cekArray = dataMenuUpdate.includes(kdMenu);
+    if(cekArray === true){
+        let cekLetakArray = dataMenuUpdate.indexOf(kdMenu);
+        dataMenuUpdate.splice(cekLetakArray, 1);
+        divUpdatePesanan.menuFresh.splice(cekLetakArray, 1);
+    }else{
+        pesanUmumApp('warning', 'T_T', 'Menu tidak ada dalam pesanan');
+    }
 }
