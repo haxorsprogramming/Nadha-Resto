@@ -52,7 +52,6 @@ function updateMenu()
     $.post('utility/getDataMenuKategori', {'kdKategori':kdKategori}, function(data){
         let obj = JSON.parse(data);
         let md = obj.menu;
-        let totalHarga = 0;
         //clear menu 
         let pjgArray = divUpdatePesanan.dataMenu.length;
         var i;
@@ -69,10 +68,7 @@ function updateMenu()
                 harga : md[index].harga,
                 pic : md[index].pic
             });
-            let hargaAt = md[index].harga;
-            totalHarga = parseInt(totalHarga) + parseInt(hargaAt);
         }
-        divUpdatePesanan.totalHarga = totalHarga;
     });
 }
 
@@ -81,6 +77,7 @@ function getTempMenuFirst()
     $.post('pesanan/getTempFirst', {'kdPesanan':divUpdatePesanan.kdPesanan}, function(data){
         let obj = JSON.parse(data);
         let km = obj.pesanan;
+        let totalHarga = 0;
         km.forEach(renderMenu);
         function renderMenu(item, index){
             dataMenuUpdate.push(km[index].kdMenu);
@@ -91,8 +88,10 @@ function getTempMenuFirst()
                 total : km[index].total,
                 kdMenu : km[index].kdMenu
             });
+            let total = km[index].total;
+            totalHarga = parseInt(totalHarga) + parseInt(total);
         }
-        
+        divUpdatePesanan.totalHarga = totalHarga;
     });
 }
 
