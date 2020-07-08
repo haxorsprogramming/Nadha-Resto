@@ -106,6 +106,15 @@ function tambahItem(kdMenu, nama, harga)
     //cek harga sekarang 
     let arrayKe = dataMenuUpdate.indexOf(kdMenu);
     let hMenuNow = divUpdatePesanan.menuFresh[arrayKe].total;
+    let hMenuNext = parseInt(hMenuNow) + parseInt(harga);
+    divUpdatePesanan.menuFresh[arrayKe].total = hMenuNext;
+    //update harga total
+    let hUpdateNow = parseInt(divUpdatePesanan.totalHarga) + parseInt(harga);
+    divUpdatePesanan.totalHarga = hUpdateNow;
+    //update quantity
+    let qtNow = divUpdatePesanan.menuFresh[arrayKe].qt;
+    let qtUpdate = parseInt(qtNow) + 1;
+    divUpdatePesanan.menuFresh[arrayKe].qt = qtUpdate;
     console.log(hMenuNow);
    }else{
     dataMenuUpdate.push(kdMenu);
