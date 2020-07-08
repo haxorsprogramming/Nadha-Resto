@@ -4,7 +4,10 @@ var divUpdatePesanan = new Vue({
         kdPesanan : '',
         dataMenu : [],
         dataKategori : [],
-        kategoriDipilih : ''
+        kategoriDipilih : '',
+        namaPelanggan : '',
+        meja : '',
+        jlhTamu : ''
     },
     methods : {
         updateMenu : function()
@@ -19,7 +22,9 @@ var divUpdatePesanan = new Vue({
 });
 
 //inisialisasi 
+// var kdPesananUp = document.getElementById('txtKdPesanan').innerHTML;
 divUpdatePesanan.kdPesanan = document.getElementById('txtKdPesanan').innerHTML;
+setTimeout(getDataPesanan, 200);
 //get data kategori
 $.post('utility/getDataKategori', function(data){
     let obj = JSON.parse(data);
@@ -33,10 +38,6 @@ $.post('utility/getDataKategori', function(data){
     }
 });
 //get data pesanan 
-$.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
-    let obj = JSON.parse(data);
-    console.log(obj);
-});
 
 function updateMenu()
 {
@@ -62,6 +63,19 @@ function updateMenu()
             });
         }
     });
+}
+
+function getDataPesanan()
+{
+    $.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
+        let obj = JSON.parse(data);
+        // let dk = obj.kategori;
+        console.log(obj);
+        divUpdatePesanan.namaPelanggan = obj.namaPelanggan;
+        divUpdatePesanan.meja = obj.meja;
+        divUpdatePesanan.jlhTamu = obj.jlhTamu;
+    });
+    
 }
 
 function setMenuKategori()

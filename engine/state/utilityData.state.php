@@ -16,6 +16,13 @@ class utilityData{
         return $qP['nama'];
     }
 
+    public function getNamaMeja($kdMeja)
+    {
+        $this -> st -> query("SELECT nama FROM tbl_meja WHERE kd_meja='$kdMeja';");
+        $q = $this -> st -> querySingle();
+        return $q['nama'];
+    }
+
     public function getDataMenu()
     {
         $this -> st -> query("SELECT * FROM tbl_menu;");

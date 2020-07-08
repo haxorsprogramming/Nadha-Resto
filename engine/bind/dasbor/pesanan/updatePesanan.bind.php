@@ -44,13 +44,13 @@
                                <th><code>Nomor Pesanan</code></th><th>: <code id='txtKdPesanan'><?=$data['kdPesanan']; ?></code></th>
                            </tr>
                            <tr>
-                               <th><code>Nama Pelanggan</code></th><th><code>: {{}}</code></th>
+                               <th><code>Nama Pelanggan</code></th><th><code>: {{namaPelanggan}}</code></th>
                            </tr>
                            <tr>
-                               <th><code>Jumlah Tamu</code></th><th><code>: {{}}</code></th>
+                               <th><code>Jumlah Tamu</code></th><th><code>: {{meja}}</code></th>
                            </tr>
                            <tr>
-                                <th><code>Meja</code></th><th><code>: {{}}</code></th>
+                                <th><code>Meja</code></th><th><code>: {{jlhTamu}}</code></th>
                            </tr>
                        </table>
                     </div> 

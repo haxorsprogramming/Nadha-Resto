@@ -66,12 +66,11 @@ class pesanan extends Route{
     {
         $kdPesanan = $this -> inp('kdPesanan');
         $dp = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
-        foreach($dp as $dp2){
-            $arrTemp['pelanggan'] = $dp2['pelanggan'];
-            $arrTemp['jlhTamu'] = $dp2['jumlah_tamu'];
-            $arrTemp['namaPelanggan'] = $this -> state('utilityData') -> getNamaPelanggan($dp2['pelanggan']);
-            $data['kategori'][] = $arrTemp;
-        }
+        
+        $data['jlhTamu'] = $dp['jumlah_tamu'];
+        $data['namaPelanggan'] = $this -> state('utilityData') -> getNamaPelanggan($dp['pelanggan']);
+        $data['meja'] = $this -> state('utilityData') -> getNamaMeja($dp['meja']);
+        
         $this -> toJson($data);
     }
 

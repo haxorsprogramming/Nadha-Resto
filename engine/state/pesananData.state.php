@@ -70,7 +70,7 @@ class pesananData{
     public function getDetailPesanan($kdPesanan)
     {
         $this -> st -> query("SELECT * FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';");
-        return $this -> st -> queryAll();
+        return $this -> st -> querySingle();
     }
 
 } 
