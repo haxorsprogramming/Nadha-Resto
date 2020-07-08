@@ -65,6 +65,11 @@ function updateMenu()
     });
 }
 
+function getTempMenuFirst()
+{
+    
+}
+
 function getDataPesanan()
 {
     $.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
