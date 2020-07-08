@@ -103,7 +103,10 @@ function tambahItem(kdMenu, nama, harga)
 {
    let cekArray = dataMenuUpdate.includes(kdMenu);
    if(cekArray === true){
-
+    //cek harga sekarang 
+    let arrayKe = dataMenuUpdate.indexOf(kdMenu);
+    let hMenuNow = divUpdatePesanan.menuFresh[arrayKe].total;
+    console.log(hMenuNow);
    }else{
     dataMenuUpdate.push(kdMenu);
     divUpdatePesanan.menuFresh.push({
