@@ -12,6 +12,23 @@
                         <option v-for='dk in dataKategori' :value='dk.kd'>{{dk.nama}}</option>
                     </select>
                 </div>
+                <div class="row">
+                    <ul class="list-unstyled list-unstyled-border">
+                    
+                    <li class="media" v-for='dm in dataMenu'>
+                      <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
+                      <div class="media-body">
+                        <div class="float-right text-primary">
+                            <a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama, dm.harga)'><i class="fas fa-plus-circle"></i></a>
+                            <a href='#!' class="btn btn-sm btn-warning" v-on:click='hapusItem(dm.kdMenu)'><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                        <div class="media-title">{{dm.nama}}</div>
+                        <span class="text-small text-muted">{{dm.deks}}</span>
+                      </div>
+                    </li>
+                  
+                    </ul>
+                    </div>
             </div>
         </div>
     </div>

@@ -28,4 +28,10 @@ class utilityData{
         return $this -> st -> queryAll();
     }
 
+    public function getDataMenuKategori($kdKategori)
+    {
+        $this -> st -> query("SELECT * FROM tbl_menu WHERE kategori='$kdKategori';");
+        return $this -> st -> queryAll();
+    }
+
 }
