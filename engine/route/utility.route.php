@@ -2,15 +2,17 @@
 
 class utility extends Route{
 
-    public function tesHash()
-    {
-        $password = $this ->  hashPassword('admin');
-        echo $password;
-    }
+    private $sn = 'utilityData';
 
     public function getDataMenu()
     {
-      $data['menu'] = $this -> state('utilityData') -> getDataMenu();
+      $data['menu'] = $this -> state($this -> sn) -> getDataMenu();
+      $this -> toJson($data);
+    }
+    
+    public function getDataKategori()
+    {
+      $data['kategori'] = $this -> state($this -> sn) -> getDataKategori();
       $this -> toJson($data);
     }
     
