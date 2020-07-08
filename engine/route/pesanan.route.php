@@ -64,27 +64,25 @@ class pesanan extends Route{
 
     public function getDetailPesanan()
     {
-        $kdPesanan = $this -> inp('kdPesanan');
-        $dp = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
-        
-        $data['jlhTamu'] = $dp['jumlah_tamu'];
-        $data['namaPelanggan'] = $this -> state('utilityData') -> getNamaPelanggan($dp['pelanggan']);
-        $data['meja'] = $this -> state('utilityData') -> getNamaMeja($dp['meja']);
-        
+        $kdPesanan              = $this -> inp('kdPesanan');
+        $dp                     = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
+        $data['jlhTamu']        = $dp['jumlah_tamu'];
+        $data['namaPelanggan']  = $this -> state('utilityData') -> getNamaPelanggan($dp['pelanggan']);
+        $data['meja']           = $this -> state('utilityData') -> getNamaMeja($dp['meja']);
         $this -> toJson($data);
     }
 
     public function getTempFirst()
     {
-        $kdPesanan = $this -> inp('kdPesanan');
-        $dtp = $this -> state($this -> sn) -> getTempFirst($kdPesanan);
+        $kdPesanan  = $this -> inp('kdPesanan');
+        $dtp        = $this -> state($this -> sn) -> getTempFirst($kdPesanan);
         foreach($dtp as $dp) {
-            $arrTemp['kdMenu'] = $dp['kd_menu'];
-            $arrTemp['hargaAt'] = $dp['harga_at'];
-            $arrTemp['namaMenu'] = $this -> state('utilityData') -> getNamaMenu($dp['kd_menu']);
-            $arrTemp['total'] = $dp['total'];
-            $arrTemp['qt'] = $dp['qt'];
-            $data['pesanan'][] = $arrTemp;
+            $arrTemp['kdMenu']      = $dp['kd_menu'];
+            $arrTemp['hargaAt']     = $dp['harga_at'];
+            $arrTemp['namaMenu']    = $this -> state('utilityData') -> getNamaMenu($dp['kd_menu']);
+            $arrTemp['total']       = $dp['total'];
+            $arrTemp['qt']          = $dp['qt'];
+            $data['pesanan'][]      = $arrTemp;
         }
         $this -> toJson($data);
     }

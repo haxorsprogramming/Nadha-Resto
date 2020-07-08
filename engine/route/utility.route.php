@@ -18,8 +18,8 @@ class utility extends Route{
 
     public function getDataMenuKategori()
     {
-      $kdKategori = $this -> inp('kdKategori');
-      $data['menu'] = $this -> state($this -> sn) -> getDataMenuKategori($kdKategori);
+      $kdKategori     = $this -> inp('kdKategori');
+      $data['menu']   = $this -> state($this -> sn) -> getDataMenuKategori($kdKategori);
       $this -> toJson($data);
     }
     
