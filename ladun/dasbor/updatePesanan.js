@@ -117,6 +117,8 @@ function hapusItem(kdMenu)
     let cekArray = dataMenuUpdate.includes(kdMenu);
     if(cekArray === true){
         let cekLetakArray = dataMenuUpdate.indexOf(kdMenu);
+        let totalHargaAt = divUpdatePesanan.menuFresh[cekLetakArray].total;
+        console.log(totalHargaAt);
         dataMenuUpdate.splice(cekLetakArray, 1);
         divUpdatePesanan.menuFresh.splice(cekLetakArray, 1);
     }else{
