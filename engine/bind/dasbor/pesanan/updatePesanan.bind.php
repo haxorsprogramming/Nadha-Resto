@@ -70,12 +70,12 @@
                             <th>Qt</th>
                             <th>Total</th>
                         </tr>
-                        <!-- <tr v-for='mp in menuDipilih'>
+                        <tr v-for='mp in menuFresh'>
                             <td><strong>{{mp.namaMenu}}</strong></td>
-                            <td>Rp. {{ Number(mp.harga).toLocaleString() }}</td>
+                            <td>Rp. {{ Number(mp.hargaAt).toLocaleString() }}</td>
                             <td>{{mp.qt}}</td>
                             <td>Rp. {{ Number(mp.total).toLocaleString() }}</td>
-                        </tr> -->
+                        </tr>
                         <tr>
                             <tr>
                                 <!-- <td colspan="3"><strong style="font-size: 25px;">Total</strong></td><td>Rp. {{ Number(totalHarga).toLocaleString() }}</td> -->

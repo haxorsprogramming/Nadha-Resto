@@ -4,6 +4,7 @@ var divUpdatePesanan = new Vue({
         kdPesanan : '',
         dataMenu : [],
         dataKategori : [],
+        menuFresh : [],
         kategoriDipilih : '',
         namaPelanggan : 'memuat...',
         meja : 'memuat...',
@@ -70,7 +71,16 @@ function getTempMenuFirst()
 {
     $.post('pesanan/getTempFirst', {'kdPesanan':divUpdatePesanan.kdPesanan}, function(data){
         let obj = JSON.parse(data);
-        console.log(obj);
+        let km = obj.pesanan;
+        km.forEach(renderMenu);
+        function renderMenu(item, index){
+            divUpdatePesanan.menuFresh.push({
+                namaMenu : km[index].namaMenu,
+                hargaAt : km[index].hargaAt,
+                qt : km[index].qt,
+                total : km[index].total
+            });
+        }
     });
 }
 

@@ -77,7 +77,14 @@ class pesanan extends Route{
     public function getTempFirst()
     {
         $kdPesanan = $this -> inp('kdPesanan');
-        $data['kdPesanan'] = $kdPesanan;
+        $dtp = $this -> state($this -> sn) -> getTempFirst($kdPesanan);
+        foreach($dtp as $dp) {
+            $arrTemp['hargaAt'] = $dp['harga_at'];
+            $arrTemp['namaMenu'] = $this -> state('utilityData') -> getNamaMenu($dp['kd_menu']);
+            $arrTemp['total'] = $dp['total'];
+            $arrTemp['qt'] = $dp['qt'];
+            $data['pesanan'][] = $arrTemp;
+        }
         $this -> toJson($data);
     }
 

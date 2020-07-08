@@ -23,6 +23,13 @@ class utilityData{
         return $q['nama'];
     }
 
+    public function getNamaMenu($kdMenu)
+    {
+        $this -> st -> query("SELECT nama FROM tbl_menu WHERE kd_menu='$kdMenu';");
+        $q = $this -> st -> querySingle();
+        return $q['nama'];
+    }
+
     public function getDataMenu()
     {
         $this -> st -> query("SELECT * FROM tbl_menu;");
