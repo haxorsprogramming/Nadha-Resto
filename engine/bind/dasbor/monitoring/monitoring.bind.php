@@ -27,12 +27,12 @@
                 <div class="card-header">
                     <h4>Meja <?=$dm['nama']; ?> (<?=$cm; ?>)</h4>
                 </div>
-                <div class="card-body" style="margin-bottom: 20px;">
+                <div class="card-body" style="margin-bottom: 15px;">
                     <span style="font-size: 14px;">Jumlah tamu : <?=$jlhTamu; ?></span> <br/>
                     <?php if($status === 'active'){ ?> 
                         <a href='#!' class="btn btn-sm btn-info btn-icon icon-left" v-on:click='setLeaveAtc("<?=$dm['kd_meja'];?>")'><i class='fas fa-sign-in-alt'></i> Set Leave</a>
                     <?php }else{ ?> 
-                        
+                        <a href='#!' class="btn btn-sm btn-warning btn-icon <?=$dm['kd_meja'];?> icon-left" @click='setActiveAtc("<?=$dm['kd_meja'];?>")'><i class='fas fa-check-circle'></i> Set Active</a>
                     <?php } ?>
                     
                 </div>
