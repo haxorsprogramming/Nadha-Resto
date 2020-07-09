@@ -111,7 +111,7 @@
                     </nav>
                     <div class="module left">
                         <a href="#!" class="btn btn-outline-secondary"><span>Order</span></a>
-                        <a href="<?=HOMEBASE;?>/login" class="btn btn-outline-secondary"><span>Login</span></a>
+                        <a href="<?=HOMEBASE;?>login" class="btn btn-outline-secondary"><span>Login</span></a>
                     </div>
                 </div>
                 <div class="col-md-2">
