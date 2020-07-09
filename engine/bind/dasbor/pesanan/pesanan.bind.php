@@ -48,16 +48,16 @@
                     <td><?=$dp['operator']; ?></td>
                     <td>
                     <?php if($sp === 'done'){ ?> 
-                        <a href='#!' class="btn btn-info btn-icon icon-left" v-on:click='detailPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-info-circle'></i>Detail</a>
+                        <a href='#!' class="btn btn-info btn-icon icon-left" @click='detailPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-info-circle'></i>Detail</a>
                     <?php }else{ ?>
                         <div class="dropdown d-inline mr-2">
                       <button class="btn btn-primary dropdown-toggle btn-icon icon-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class='fas fa-sliders-h'></i> Aksi
                       </button>
                       <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                        <a class="dropdown-item" href="#!" v-on:click='updatePesanan("<?=$kdPesanan; ?>")'>Update Pesanan</a>
-                        <a class="dropdown-item" href="#!" v-on:click='bayarPesanan("<?=$kdPesanan; ?>")'>Bayar</a>
-                        <a class="dropdown-item" href="#!">Batalkan Pesanan</a>
+                        <a class="dropdown-item" href="#!" @click='updatePesanan("<?=$kdPesanan; ?>")'>Update Pesanan</a>
+                        <a class="dropdown-item" href="#!" @click='bayarPesanan("<?=$kdPesanan; ?>")'>Bayar</a>
+                        <a class="dropdown-item" href="#!" @click='batalkanPesanan("<?=$kdPesanan; ?>")'>Batalkan Pesanan</a>
                       </div>
                     </div>
                         

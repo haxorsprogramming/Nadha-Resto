@@ -95,4 +95,12 @@ class pesanan extends Route{
         $this -> toJson($data);
     }
 
+    public function batalkanPesanan()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        //bersihkan temp data 
+        $this -> state($this -> sn) -> hapusTempLama($kdPesanan);
+        //hapus
+    }
+
 }
