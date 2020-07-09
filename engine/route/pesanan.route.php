@@ -100,7 +100,10 @@ class pesanan extends Route{
         $kdPesanan = $this -> inp('kdPesanan');
         //bersihkan temp data 
         $this -> state($this -> sn) -> hapusTempLama($kdPesanan);
-        //hapus
+        //hapus data pesanan
+        $this -> state($this -> sn) -> hapusPesanan($kdPesanan);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
     }
 
 }

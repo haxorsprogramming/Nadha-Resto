@@ -29,8 +29,8 @@ $('#tblDaftarPesanan').dataTable({"order": [[ 4, "desc" ]]});
 function konfirmBatalkanPesan(kdPesanan)
 {
     Swal.fire({
-        title: "Kosongkan meja?",
-        text: "Pembayaran telah selesai, kosongkan meja?",
+        title: "Batalkan pesanan?",
+        text: "Yakin membatalkan pesanan?",
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -48,7 +48,12 @@ function batalkanPesanan(kdPesanan)
 {
     let dataSend = {'kdPesanan':kdPesanan}
     $.post('pesanan/batalkanPesanan', dataSend, function(data){
-
+        let obj = JSON.parse(data);
+        if(obj.status === 'sukses'){
+            pesanUmumApp('success', 'Sukses', 'Berhasil membatalkan pesanan');
+            renderMenu(pesanan);
+            divJudul.judulForm = "Daftar Pesanan"; 
+        }
     });
 }
 

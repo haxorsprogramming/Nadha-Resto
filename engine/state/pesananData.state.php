@@ -86,4 +86,11 @@ class pesananData{
         $this -> st -> queryRun();
     }
 
+    public function hapusPesanan($kdPesanan)
+    {
+        $query = "DELETE FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 

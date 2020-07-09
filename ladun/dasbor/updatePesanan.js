@@ -1,4 +1,5 @@
 var dataMenuUpdate = [];
+
 var divUpdatePesanan = new Vue({
     el : '#divUpdatePesanan',
     data : {
