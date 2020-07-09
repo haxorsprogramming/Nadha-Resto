@@ -125,6 +125,9 @@ function tambahItem(kdMenu, nama, harga)
         total : harga,
         kdMenu : kdMenu
     });
+    // let arrItemBaru = dataMenuUpdate.indexOf(kdMenu);
+    let hItemNow = parseInt(divUpdatePesanan.totalHarga) + parseInt(harga);
+    divUpdatePesanan.totalHarga = hItemNow;
    }
 }
 
