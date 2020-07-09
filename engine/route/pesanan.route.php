@@ -89,7 +89,7 @@ class pesanan extends Route{
 
     public function hapusTempLama()
     {
-        $kdPesanan = $this -> inp('kdPesanan');
+        $kdPesanan      = $this -> inp('kdPesanan');
         $this -> state($this -> sn) -> hapusTempLama($kdPesanan);
         $data['status'] = 'sukses';
         $this -> toJson($data);
