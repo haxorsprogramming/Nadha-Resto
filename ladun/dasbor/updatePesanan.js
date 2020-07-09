@@ -57,8 +57,27 @@ $.post('utility/getDataKategori', function(data){
 function updateProses()
 {
     let totalHarga = divUpdatePesanan.totalHarga;
+    let listPesanan = divUpdatePesanan.menuFresh;
+    let kdPesanan = divUpdatePesanan.kdPesanan;
+    //hapus temp pesanan lama
+    hapusTempLama(kdPesanan); 
+    //update temp pesanan
     if(totalHarga > 0){
-        
+        listPesanan.forEach(renderUpdate);
+        function renderUpdate(item, index)
+        {
+            let dataSend = {
+                'kdMenu':listPesanan[index].kdMenu, 
+                'kdPesanan':kdPesanan, 
+                'hargaAt' :listPesanan[index].hargaAt, 
+                'qt':listPesanan[index].qt, 
+                'total':listPesanan[index].total
+            }
+            $.post('pesanan/updateTempPesanan', dataSend, function(){
+
+            });
+        }
+        pesanUmumApp('success', 'Updated', 'Pesanan di update...');
     }else{
         pesanUmumApp('error', 'Tidak ada pesanan', 'Periksan pesanan...');
     }
@@ -181,4 +200,10 @@ function kembaliAtc()
 {
     renderMenu(pesanan);
     divJudul.judulForm = "Daftar Pesanan"; 
+}
+
+function hapusTempLama(kdPesanan)
+{
+    let dataSend = {'kdPesanan':kdPesanan}
+    $.post('pesanan/hapusTempLama', dataSend, function(data){});
 }

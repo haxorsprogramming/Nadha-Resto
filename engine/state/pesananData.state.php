@@ -79,4 +79,11 @@ class pesananData{
         return $this -> st -> queryAll();
     }
 
+    public function hapusTempLama($kdPesanan)
+    {
+        $query = "DELETE FROM tbl_temp_pesanan WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 
