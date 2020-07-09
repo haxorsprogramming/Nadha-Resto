@@ -19,7 +19,7 @@ var divUpdatePesanan = new Vue({
         },
         updateAtc : function()
         {
-           
+            updateProses();
         },
         hapusItem : function(kdMenu)
         {
@@ -28,6 +28,10 @@ var divUpdatePesanan = new Vue({
         tambahItem(kdMenu, nama, harga)
         {
             tambahItem(kdMenu, nama, harga);
+        },
+        kembaliAtc : function()
+        {
+            kembaliAtc();
         }
     }
 });
@@ -49,6 +53,16 @@ $.post('utility/getDataKategori', function(data){
         });
     }
 });
+
+function updateProses()
+{
+    let totalHarga = divUpdatePesanan.totalHarga;
+    if(totalHarga > 0){
+        
+    }else{
+        pesanUmumApp('error', 'Tidak ada pesanan', 'Periksan pesanan...');
+    }
+}
 
 function updateMenu()
 {
@@ -139,7 +153,6 @@ function getDataPesanan()
         divUpdatePesanan.meja = obj.meja;
         divUpdatePesanan.jlhTamu = obj.jlhTamu;
     });
-    
 }
 
 function setMenuKategori()
@@ -162,4 +175,10 @@ function hapusItem(kdMenu)
     }else{
         pesanUmumApp('warning', 'T_T', 'Menu tidak ada dalam pesanan');
     }
+}
+
+function kembaliAtc()
+{
+    renderMenu(pesanan);
+    divJudul.judulForm = "Daftar Pesanan"; 
 }
