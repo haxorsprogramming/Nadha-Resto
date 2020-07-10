@@ -10,4 +10,11 @@ class monitoring extends Route{
         $this -> bind('dasbor/monitoring/monitoring', $data);
     }
 
+    public function setActive()
+    {
+        $kdMeja = $this -> inp('kdMeja');
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }

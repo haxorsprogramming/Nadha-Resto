@@ -22,5 +22,10 @@ class monitoringData{
         return $q['jumlah_tamu'];
     }
 
+    public function setMejaActive($kdMeja)
+    {
+        $query = "UPDATE tbl_meja SET status='active' WHERE kd_meja='$kdMeja';";
+        $this -> st -> query($query);
+    }
 
 }

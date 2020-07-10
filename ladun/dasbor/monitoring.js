@@ -10,10 +10,11 @@ var divMonitoring = new Vue({
         },
         setActiveAtc : function(kdMeja)
         {
-            // window.alert(kdMeja);
-            $('.'+kdMeja).removeClass('btn-warning');
-            $('.'+kdMeja).addClass('btn-info');
-            // document.getElementById()
+            //use reload form
+            $.post('monitoring/setActive', {'kdMeja':kdMeja}, function(data){
+                let obj = JSON.parse(data);
+                console.log(obj);
+            });
         }
     }
 });
