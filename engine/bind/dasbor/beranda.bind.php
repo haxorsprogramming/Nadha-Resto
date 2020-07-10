@@ -9,11 +9,11 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-      <h3 id='capTotalUji'></h3>
+      <h3 id=''><?=$data['jlhPengunjung']; ?></h3>
             <h4>Pengunjung</h4>
           </div>
           <div class="card-body">
-
+    
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-          <h3 id='capTotalGejala'></h3>
+          <h3 id=''><?=$data['jlhPelanggan']; ?></h3>
             <h4>Pelanggan</h4>
           </div>
           <div class="card-body">
@@ -41,7 +41,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-        <h3 id='capTotalGejala'>%</h3>
+        <h3 id=''>%</h3>
             <h4>Rasio Kunjungan</h4>
           </div>
           <div class="card-body">
@@ -57,7 +57,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-          <h3 id='capTotalUji'>51</h3>
+          <h3 id=''>51</h3>
             <h4>Transaksi Harian</h4>
           </div>
           <div class="card-body">

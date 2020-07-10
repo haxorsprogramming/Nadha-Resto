@@ -14,7 +14,9 @@ class dasbor extends Route{
 
     public function beranda()
     {
-        $this -> bind('/dasbor/beranda');   
+        $data['jlhPengunjung'] = $this -> state('utilityData') -> getJlhPengunjung();
+        $data['jlhPelanggan'] = $this -> state('utilityData') -> getJlhPelanggan();
+        $this -> bind('/dasbor/beranda', $data);   
     }
 
     public function logOut()

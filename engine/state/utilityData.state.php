@@ -9,6 +9,20 @@ class utilityData{
         $this -> st = new state;
     }
 
+    public function getJlhPengunjung()
+    {
+        $this -> st -> query("SELECT SUM(jlh_tamu) FROM tbl_meja;");
+        $q = $this -> st -> querySingle();
+        return $q['SUM(jlh_tamu)'];
+    }
+
+    public function getJlhPelanggan()
+    {
+        $this -> st -> query("SELECT COUNT(id) FROM tbl_pelanggan;");
+        $q = $this -> st -> querySingle();
+        return $q['COUNT(id)'];
+    }
+
     public function getNamaPelanggan($kdPelanggan)
     {
         $this -> st -> query("SELECT nama FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
