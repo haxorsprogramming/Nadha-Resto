@@ -19,6 +19,12 @@ class dasbor extends Route{
         $this -> bind('/dasbor/beranda', $data);   
     }
 
+    public function getMenuTerlaris()
+    {
+        $data['menuTerlaris'] = $this -> state('utilityData') -> getMenuTerlaris();
+        $this -> toJson($data);
+    }
+
     public function logOut()
     {
         $this -> destses();

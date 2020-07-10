@@ -23,6 +23,12 @@ class utilityData{
         return $q['COUNT(id)'];
     }
 
+    public function getMenuTerlaris()
+    {
+        $this -> st -> query("SELECT * FROM tbl_menu ORDER BY total_dipesan DESC;");
+        return $this -> st -> queryAll();
+    }
+
     public function getNamaPelanggan($kdPelanggan)
     {
         $this -> st -> query("SELECT nama FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");

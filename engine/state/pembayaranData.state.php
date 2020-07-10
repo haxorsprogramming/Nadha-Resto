@@ -110,7 +110,7 @@ class pembayaranData{
         $this -> st -> query("SELECT * FROM tbl_temp_pesanan WHERE kd_pesanan='$kdPesanan';");
         $dtp = $this -> st -> queryAll();
         foreach($dtp as $dp){
-            $kdMenu = $dp['kdMenu'];
+            $kdMenu = $dp['kd_menu'];
             $qtBuy = $dp['qt'];
             //cari jlh pesanan di menu sekarang 
             $this -> st -> query("SELECT total_dipesan FROM tbl_menu WHERE kd_menu='$kdMenu';");
