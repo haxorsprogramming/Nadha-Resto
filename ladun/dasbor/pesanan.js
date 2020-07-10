@@ -137,11 +137,23 @@ var divPesananTakeHome = new Vue({
                     let dataSend = {'kdPelanggan' : this.kdPelanggan}
                     let pesanan = this.daftarItem;
                     $.post('pesanan/buatPesananTakeHome', dataSend, function(data){
+                        let obj = JSON.parse(data);
+                        let kdPesanan = obj.kdPesanan;
                         pesanan.forEach(renderPesanan);
                         function renderPesanan(item, index)
                         {
-
+                            let dsn = {
+                                'kdMenu':pesanan[index].menu, 
+                                'kdPesanan':kdPesanan, 
+                                'hargaAt':pesanan[index].harga, 
+                                'qt':pesanan[index].qt,
+                                'total':pesanan[index].total
+                            }
+                            $.post('pesanan/updateTempPesanan', dsn, function(data){
+                               
+                            });
                         }
+                        renderMenu('pembayaran/formPembayaran/'+kdPesanan);
                     });
                 }
             }

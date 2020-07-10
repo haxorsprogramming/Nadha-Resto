@@ -53,6 +53,9 @@ class pesanan extends Route{
         $operator = $this -> getses('userSes');
         //buat pesanan 
         $this -> state($this -> sn) -> buatPesananTakeHome($kdPesanan, $kdPelanggan, $waktu, $operator);
+        $data['status']     = 'sukses';
+        $data['kdPesanan']  = $kdPesanan; 
+        $this -> toJson($data);
     }
 
     public function updatePesanan($kdPesanan)
