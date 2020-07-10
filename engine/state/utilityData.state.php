@@ -25,7 +25,13 @@ class utilityData{
 
     public function getMenuTerlaris()
     {
-        $this -> st -> query("SELECT * FROM tbl_menu ORDER BY total_dipesan DESC;");
+        $this -> st -> query("SELECT * FROM tbl_menu ORDER BY total_dipesan DESC LIMIT 0, 5;");
+        return $this -> st -> queryAll();
+    }
+
+    public function getTransaksiTerakhir()
+    {
+        $this -> st -> query("SELECT * FROM tbl_pembayaran ORDER BY waktu DESC;");
         return $this -> st -> queryAll();
     }
 

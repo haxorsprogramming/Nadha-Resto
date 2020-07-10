@@ -25,6 +25,12 @@ class dasbor extends Route{
         $this -> toJson($data);
     }
 
+    public function getTransaksiTerakhir()
+    {
+        $data['lt'] = $this -> state('utilityData') -> getTransaksiTerakhir();
+        $this -> toJson($data);
+    }
+
     public function logOut()
     {
         $this -> destses();
