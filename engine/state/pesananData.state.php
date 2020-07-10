@@ -46,6 +46,13 @@ class pesananData{
         $this -> st -> queryRun();
     }
 
+    public function buatPesananTakeHome($kdPesanan, $kdPelanggan, $waktu, $operator)
+    {
+        $query = "INSERT INTO tbl_pesanan VALUES(null, '$kdPesanan','$kdPelanggan','take_home','0','-','$waktu','','$operator','active');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
     public function updateTempPesanan($kdTemp, $kdMenu, $kdPesanan, $hargaAt, $qt, $total)
     {
         $query = "INSERT INTO tbl_temp_pesanan VALUES(null, '$kdTemp', '$kdPesanan', '$kdMenu', '$hargaAt', '$qt', '$total');";

@@ -126,12 +126,24 @@ var divPesananTakeHome = new Vue({
         },
         prosesPesanan : function()
         {
+            let jlhPesanan = this.daftarItem.length;
             if(this.namaPelanggan === '')
             {
                 pesanUmumApp('warning', 'Pilih pelanggan', 'Pilih pelanggan ..');
             }else{
-                 let dataSend = {'kdPelanggan' : this.kdPelanggan}
-                 
+                if(jlhPesanan < 1){
+                    pesanUmumApp('warning', 'Pilih menu', 'Pilih menu ..');
+                }else{
+                    let dataSend = {'kdPelanggan' : this.kdPelanggan}
+                    let pesanan = this.daftarItem;
+                    $.post('pesanan/buatPesananTakeHome', dataSend, function(data){
+                        pesanan.forEach(renderPesanan);
+                        function renderPesanan(item, index)
+                        {
+
+                        }
+                    });
+                }
             }
         }
     }

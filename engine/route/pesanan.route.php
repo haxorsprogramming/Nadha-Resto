@@ -47,7 +47,12 @@ class pesanan extends Route{
 
     public function buatPesananTakeHome()
     {
-        
+        $kdPelanggan = $this -> inp('kdPelanggan');
+        $kdPesanan = $this -> rnstr(15);
+        $waktu = $this -> waktu();
+        $operator = $this -> getses('userSes');
+        //buat pesanan 
+        $this -> state($this -> sn) -> buatPesananTakeHome($kdPesanan, $kdPelanggan, $waktu, $operator);
     }
 
     public function updatePesanan($kdPesanan)
