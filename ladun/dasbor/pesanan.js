@@ -114,6 +114,10 @@ var divPesananTakeHome = new Vue({
             let cekArray = arrTh.includes(kdMenu);
             if(cekArray === true){
                 let posArr = arrTh.indexOf(kdMenu);
+                //cari total harga item 
+                let tHItem = this.daftarItem[posArr].total;
+                let hUpdateDelete = parseInt(this.totalHarga) - parseInt(tHItem);
+                this.totalHarga = hUpdateDelete;
                 arrTh.splice(posArr, 1);
                 this.daftarItem.splice(posArr, 1);   
             }else{

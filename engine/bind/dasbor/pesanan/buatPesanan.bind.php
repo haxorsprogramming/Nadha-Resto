@@ -124,6 +124,9 @@
                             </tr>
                         </tr>
                     </table>
+                    <div>
+                        <a href='#!' class="btn btn-lg btn-primary">Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,7 +149,6 @@
                     </div>
                     <div class="row">
                     <ul class="list-unstyled list-unstyled-border">
-                    
                     <li class="media" v-for='dm in menuDipilih'>
                       <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
                       <div class="media-body">
@@ -154,11 +156,11 @@
                             <a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama, dm.harga)'><i class="fas fa-plus-circle"></i></a>
                             <a href='#!' class="btn btn-sm btn-warning" v-on:click='hapusItem(dm.kdMenu)'><i class="fas fa-trash-alt"></i></a>
                         </div>
-                        <div class="media-title">{{dm.nama}}</div>
+                        <div class="media-title">{{dm.nama}} <br/>
+                        <span class="badge badge-info">Rp. {{ Number(dm.harga).toLocaleString() }}</span></div>
                         <span class="text-small text-muted">{{dm.deks}}</span>
                       </div>
                     </li>
-                  
                     </ul>
                     </div>
                 </div>
@@ -198,7 +200,8 @@
                             <a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama, dm.harga)'><i class="fas fa-plus-circle"></i></a>
                             <a href='#!' class="btn btn-sm btn-warning" v-on:click='hapusItem(dm.kdMenu)'><i class="fas fa-trash-alt"></i></a>
                         </div>
-                        <div class="media-title">{{dm.nama}}</div>
+                        <div class="media-title">{{dm.nama}}<br/>
+                        <span class="badge badge-info">Rp. {{ Number(dm.harga).toLocaleString() }}</span></div>
                         <span class="text-small text-muted">{{dm.deks}}</span>
                       </div>
                     </li>
