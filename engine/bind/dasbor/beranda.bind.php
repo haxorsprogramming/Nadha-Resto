@@ -110,9 +110,9 @@
                             <img class="mr-3 rounded" width="50" src="<?=STYLEBASE; ?>/dasbor/img/avatar-1.png" alt="product">
                           </a>
                           <div class="media-body">
-                            <div class="media-right">Rp. {{lt.total}}</div>
-                            <div class="media-title"><a href="#">Farhana Hasri</a></div>
-                            <div class="text-muted text-small">Dine in <a href="#"></a> <div class="bullet"></div> Tanggal</div>
+                            <div class="media-right">Rp. {{ Number(lt.total).toLocaleString() }}</div>
+                            <div class="media-title"><a href="#">{{lt.namaPelanggan}}</a></div>
+                            <div class="text-muted text-small">Dine in <a href="#"></a> <div class="bullet"></div> {{lt.waktu}}</div>
                           </div>
                         </li>
                       </ul>

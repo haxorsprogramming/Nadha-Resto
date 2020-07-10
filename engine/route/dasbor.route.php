@@ -27,7 +27,17 @@ class dasbor extends Route{
 
     public function getTransaksiTerakhir()
     {
-        $data['lt'] = $this -> state('utilityData') -> getTransaksiTerakhir();
+        $gtt = $this -> state('utilityData') -> getTransaksiTerakhir();
+        foreach($gtt as $gt){
+            $kdPesanan = $gt['kd_pesanan'];
+            //ambil 
+            $kdPelanggan = $this -> state('utilityData') -> getPelangganFromPesanan($kdPesanan);
+            $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
+            $arrTemp['namaPelanggan'] = $namaPelanggan;
+            $arrTemp['total'] = $gt['total_final'];
+            $arrTemp['waktu'] = $gt['waktu'];
+            $data['lt'][] = $arrTemp;
+        }
         $this -> toJson($data);
     }
 

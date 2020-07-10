@@ -27,7 +27,9 @@ $.post('dasbor/getTransaksiTerakhir', function(data){
     lts.forEach(renderLs);
     function renderLs(item, index){
         divBeranda.lastTs.push({
-            total : lts[index].total_final
+            total : lts[index].total,
+            waktu : lts[index].waktu,
+            namaPelanggan : lts[index].namaPelanggan
         });
     }
 });

@@ -35,6 +35,13 @@ class utilityData{
         return $this -> st -> queryAll();
     }
 
+    public function getPelangganFromPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT pelanggan FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';");
+        $q = $this -> st -> querySingle();
+        return $q['pelanggan'];
+    }
+
     public function getNamaPelanggan($kdPelanggan)
     {
         $this -> st -> query("SELECT nama FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
