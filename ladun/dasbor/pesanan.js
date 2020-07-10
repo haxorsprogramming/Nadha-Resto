@@ -83,7 +83,6 @@ var divPesananTakeHome = new Vue({
         tambahItem : function(kdMenu, nama, harga)
         {
             let cekArray = arrTh.includes(kdMenu);
-            
             if(cekArray === true){
                 let posArr = arrTh.indexOf(kdMenu);
                 //update quantity
@@ -109,7 +108,15 @@ var divPesananTakeHome = new Vue({
                 let hargaUpdate = parseInt(this.totalHarga) + parseInt(harga);
                 this.totalHarga = hargaUpdate;
             }
-            console.log(arrTh);
+        },
+        hapusItem : function(kdMenu)
+        {
+            let cekArray = arrTh.includes(kdMenu);
+            if(cekArray === true){
+
+            }else{
+                pesanUmumApp('warning', 'No menu', 'Menu tidak ada');
+            }
         }
     }
 });
