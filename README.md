@@ -21,10 +21,12 @@
 </ul>
 <br/>
 <b>Library</b>
+<ul>
 <li>Axios (Resfull API Client)</li>
 <li>Domp PDF (Report for PDF document)</li>
 <li>PHP Mailer (Mail sender)</li>
 <li>AWS Serveless (Coming soon)</li>
+</ul>
 <br/>
 <b>Fitur</b>
 <ul>
@@ -41,9 +43,11 @@
 </ul>
 <br/>
 <b>Development Team</b>
+<ul>
 <li> Hasnah Nur Ardita : Project Manager & Front End Development</li>
 <li> Aditia Darma Nst : Backend Development</li>
 <li> Muhammad Rizky : Microservice</li>
+</ul>
 
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
 

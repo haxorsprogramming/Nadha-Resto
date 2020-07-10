@@ -113,8 +113,9 @@ var divPesananTakeHome = new Vue({
         {
             let cekArray = arrTh.includes(kdMenu);
             if(cekArray === true){
-                let posArr = arrTh.indexOf();
-                
+                let posArr = arrTh.indexOf(kdMenu);
+                arrTh.splice(posArr, 1);
+                this.daftarItem.splice(posArr, 1);   
             }else{
                 pesanUmumApp('warning', 'No menu', 'Menu tidak ada');
             }
