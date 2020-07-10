@@ -10,6 +10,11 @@ class pesanan extends Route{
         $this -> bind('dasbor/pesanan/pesanan', $data);
     }
 
+    public function detailPesanan($kdPesanan)
+    {
+        $this -> bind('dasbor/pesanan/detailPesanan');
+    }
+
     public function pesananBaru()
     {
         $data['meja']       = $this -> state($this -> sn) -> getDataMeja();
@@ -47,10 +52,10 @@ class pesanan extends Route{
 
     public function buatPesananTakeHome()
     {
-        $kdPelanggan = $this -> inp('kdPelanggan');
-        $kdPesanan = $this -> rnstr(15);
-        $waktu = $this -> waktu();
-        $operator = $this -> getses('userSes');
+        $kdPelanggan        = $this -> inp('kdPelanggan');
+        $kdPesanan          = $this -> rnstr(15);
+        $waktu              = $this -> waktu();
+        $operator           = $this -> getses('userSes');
         //buat pesanan 
         $this -> state($this -> sn) -> buatPesananTakeHome($kdPesanan, $kdPelanggan, $waktu, $operator);
         $data['status']     = 'sukses';

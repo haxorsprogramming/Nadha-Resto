@@ -10,7 +10,7 @@ var divPesanan = new Vue({
         },
         detailPesanan : function(kdPesanan)
         {
-            
+            detailPesanan(kdPesanan);
         },
         updatePesanan : function(kdPesanan)
         {
@@ -55,6 +55,12 @@ function batalkanPesanan(kdPesanan)
             divJudul.judulForm = "Daftar Pesanan"; 
         }
     });
+}
+
+function detailPesanan(kdPesanan)
+{
+    renderMenu('pesanan/detailPesanan/'+kdPesanan);
+    divJudul.judulForm = "Detail Pesanan";
 }
 
 function bayarPesanan(kdPesanan)

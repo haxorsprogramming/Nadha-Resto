@@ -12,6 +12,10 @@ require_once 'lib/phpmailer/library/SMTP.php';
 //import library aws (untuk kebutuhan serverless)
 require 'lib/aws-master/src/Aws.php';
 //import library firebase (coming soon)
+require_once 'lib/escopos/autoload.php';
+
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\Printer;
 
 class Route{
     //fungsi bind (memasukkan view ke dalam controller)
