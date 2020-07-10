@@ -14,7 +14,7 @@ var divMonitoring = new Vue({
         }
     }
 });
-
+//inisialisai fungsi 
 function setLeave(kdMeja)
 {
     $.post('monitoring/setLeave', {'kdMeja':kdMeja}, function(data){
@@ -22,7 +22,6 @@ function setLeave(kdMeja)
         pesanUmumApp('success', 'Sukses', 'Meja di set ke leave..');
         renderMenu(monitoring);
         divJudul.judulForm = "Monitoring Restoran";
-        console.log(obj);
     });
 }
 
@@ -33,6 +32,5 @@ function setActive(kdMeja)
         pesanUmumApp('success', 'Sukses', 'Meja di set ke aktif..');
         renderMenu(monitoring);
         divJudul.judulForm = "Monitoring Restoran";
-        console.log(obj);
     });
 }

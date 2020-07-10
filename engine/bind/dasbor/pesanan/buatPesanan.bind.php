@@ -78,7 +78,29 @@
     </div>
 </div>
 <div id='divPesananTakeHome'>
-
+<div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h4>Pelanggan</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Nama Pelanggan</label><br />
+                        <select class="form-control select2" id='txtPelanggan' onchange="setPelanggan()" style="width: 100%;">
+                            <option value="none" default>-- Pilih pelanggan --</option>
+                            <?php foreach($data['pelanggan'] as $dp) :
+                            ?>
+                            <option value="<?=$dp['id_pelanggan']; ?>-<?=$dp['nama']; ?>"><?=$dp['nama']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah Tamu</label>
+                        <input type="number" class="form-control" id='txtJlhTamu'>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 <div id='divMenuCheckout'>
 <div class='row'>

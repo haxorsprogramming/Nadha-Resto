@@ -160,6 +160,7 @@ var divMenuCheckout = new Vue({
 
 //inisialisasi 
 $('#divPesananDineIn').hide();
+$('#divPesananTakeHome').hide();
 $('#divMenuCheckout').hide();
 $(".select2").select2();
 
@@ -169,6 +170,11 @@ document.getElementById('btnDineIn').addEventListener('click', function(){
     $('#btnPilihPesanan').hide();
 });
 
+document.getElementById('btnTakeHome').addEventListener('click', function(){
+    divPilihPesanan.cap = 'Detail Pesanan';
+    $('#divPesananTakeHome').show();
+    $('#btnPilihPesanan').hide();
+});
 
 function setMenuKategori()
 {
