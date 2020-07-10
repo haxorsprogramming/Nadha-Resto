@@ -13,6 +13,15 @@ class monitoring extends Route{
     public function setActive()
     {
         $kdMeja = $this -> inp('kdMeja');
+        $this -> state($this -> sn) -> setMejaActive($kdMeja);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
+    public function setLeave()
+    {
+        $kdMeja = $this -> inp('kdMeja');
+        $this -> state($this -> sn) -> setMejaLeave($kdMeja);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

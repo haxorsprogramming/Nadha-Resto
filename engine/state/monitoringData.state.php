@@ -26,6 +26,14 @@ class monitoringData{
     {
         $query = "UPDATE tbl_meja SET status='active' WHERE kd_meja='$kdMeja';";
         $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function setMejaLeave($kdMeja)
+    {
+        $query = "UPDATE tbl_meja SET status='leave' WHERE kd_meja='$kdMeja';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
     }
 
 }

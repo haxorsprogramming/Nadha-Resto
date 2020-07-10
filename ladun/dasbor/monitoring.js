@@ -6,15 +6,29 @@ var divMonitoring = new Vue({
     methods : {
         setLeaveAtc : function(kdMeja)
         {
-            window.alert(kdMeja);
+            
         },
         setActiveAtc : function(kdMeja)
         {
-            //use reload form
-            $.post('monitoring/setActive', {'kdMeja':kdMeja}, function(data){
-                let obj = JSON.parse(data);
-                console.log(obj);
-            });
+            setActive(kdMeja);           
         }
     }
 });
+
+function setLeave(kdMeja)
+{
+    $.post('monitoring/setLeave', {'kdMeja':kdMeja}, function(data){
+        
+    });
+}
+
+function setActive(kdMeja)
+{
+    $.post('monitoring/setActive', {'kdMeja':kdMeja}, function(data){
+        let obj = JSON.parse(data);
+        pesanUmumApp('success', 'Sukses', 'Meja di set ke aktif..');
+        renderMenu(monitoring);
+        divJudul.judulForm = "Monitoring Restoran";
+        console.log(obj);
+    });
+}
