@@ -47,7 +47,8 @@ var divPesananDineIn = new Vue({
         }
     }
 });
-//vue objek pesanan check out
+//vue objek pesanan take home
+var arrTh = [];
 var divPesananTakeHome = new Vue({
     el : '#divPesananTakeHome',
     data : {
@@ -56,7 +57,7 @@ var divPesananTakeHome = new Vue({
         kategoriMenu : '',
         menuDipilih : [],
         daftarItem : [],
-        totalHarga : ''
+        totalHarga : 0
     },
     methods : {
         getMenuThAtc : function()
@@ -78,6 +79,37 @@ var divPesananTakeHome = new Vue({
                     });
                 }
             });
+        },
+        tambahItem : function(kdMenu, nama, harga)
+        {
+            let cekArray = arrTh.includes(kdMenu);
+            
+            if(cekArray === true){
+                let posArr = arrTh.indexOf(kdMenu);
+                //update quantity
+                let qt = this.daftarItem[posArr].qt;
+                let qtN = parseInt(qt) + 1;
+                this.daftarItem[posArr].qt = qtN;
+                //update total harga per item
+                let tHargaItem = this.daftarItem[posArr].total;
+                let uHargaItem = parseInt(tHargaItem) + parseInt(harga);
+                this.daftarItem[posArr].total = uHargaItem;
+                //update total harga 
+                let hUpdate = parseInt(this.totalHarga) + parseInt(harga);
+                this.totalHarga = hUpdate;
+            }else{
+                arrTh.push(kdMenu);
+                this.daftarItem.push({
+                    namaMenu : nama,
+                    harga :  harga,
+                    qt : 1,
+                    total : harga
+                });
+                //update total harga 
+                let hargaUpdate = parseInt(this.totalHarga) + parseInt(harga);
+                this.totalHarga = hargaUpdate;
+            }
+            console.log(arrTh);
         }
     }
 });
