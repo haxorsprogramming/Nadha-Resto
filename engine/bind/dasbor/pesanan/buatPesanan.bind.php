@@ -92,7 +92,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Nama Pelanggan</label><br />
-                        <select class="form-control select2" id='txtPelanggan' onchange="" style="width: 100%;">
+                        <select class="form-control select2" id='txtPelangganTh' onchange="setNamaPelangganTh()" style="width: 100%;">
                             <option value="none" default>-- Pilih pelanggan --</option>
                             <?php foreach($data['pelanggan'] as $dp) :
                             ?>
@@ -103,6 +103,27 @@
                     <div class="form-group">
                         
                     </div>
+                    <hr/>
+                    <h4> Daftar Item :</h4>
+                    <table class="table">
+                        <tr>
+                            <th>Menu</th>
+                            <th>Harga (@)</th>
+                            <th>Qt</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr v-for='mp in daftarItem'>
+                            <td><strong>{{mp.namaMenu}}</strong></td>
+                            <td>Rp. {{ Number(mp.harga).toLocaleString() }}</td>
+                            <td>{{mp.qt}}</td>
+                            <td>Rp. {{ Number(mp.total).toLocaleString() }}</td>
+                        </tr>
+                        <tr>
+                            <tr>
+                                <td colspan="3"><strong style="font-size: 25px;">Total</strong></td><td>Rp. {{ Number(totalHarga).toLocaleString() }}</td>
+                            </tr>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -115,7 +136,7 @@
                     <div>
                     <div class="form-group">
                         <label>Kategori</label>
-                        <select class="form-control" id='txtKategori' onchange="">
+                        <select class="form-control" id='txtKategoriTh' onchange="setMenuTakeHome()">
                         <option value="none">--- Pilih kategori menu ---</option>
                             <?php foreach($data['kategori'] as $dk) : ?>
                                 <option value="<?=$dk['id']; ?>"><?=$dk['nama']; ?></option>
@@ -124,7 +145,21 @@
                     </div>
                     </div>
                     <div class="row">
+                    <ul class="list-unstyled list-unstyled-border">
                     
+                    <li class="media" v-for='dm in menuDipilih'>
+                      <img class="mr-3" width="150" :src="'ladun/dasbor/img/menu/'+dm.pic">
+                      <div class="media-body">
+                        <div class="float-right text-primary">
+                            <a href='#!' class="btn btn-sm btn-primary" v-on:click='tambahItem(dm.kdMenu, dm.nama, dm.harga)'><i class="fas fa-plus-circle"></i></a>
+                            <a href='#!' class="btn btn-sm btn-warning" v-on:click='hapusItem(dm.kdMenu)'><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                        <div class="media-title">{{dm.nama}}</div>
+                        <span class="text-small text-muted">{{dm.deks}}</span>
+                      </div>
+                    </li>
+                  
+                    </ul>
                     </div>
                 </div>
             </div>

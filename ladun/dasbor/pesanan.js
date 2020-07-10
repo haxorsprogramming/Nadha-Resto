@@ -4,7 +4,7 @@ var divPilihPesanan = new Vue({
         cap : 'Pilih tipe pesanan'
     }
 });
-
+//vue objek pesanan dine in
 var divPesananDineIn = new Vue({
     el : '#divPesananDineIn',
     data : {
@@ -47,6 +47,49 @@ var divPesananDineIn = new Vue({
         }
     }
 });
+//vue objek pesanan check out
+var divPesananTakeHome = new Vue({
+    el : '#divPesananTakeHome',
+    data : {
+        namaPelanggan : '',
+        kdPelanggan : '',
+        kategoriMenu : '',
+        menuDipilih : [],
+        daftarItem : [],
+        totalHarga : ''
+    },
+    methods : {
+        getMenuThAtc : function()
+        {
+            $.post('pesanan/getMenuKategori', {'kdMenu':this.kategoriMenu}, function(data){
+                let obj = JSON.parse(data);
+                let menu = obj.menu;
+                let pic = 'ladun/dasbor/img/menu/';
+                let jlhMenu = divPesananTakeHome.menuDipilih.length;
+                var i;
+                for(i = 0; i < jlhMenu; i++){
+                    divPesananTakeHome.menuDipilih.splice(0,1);
+                }
+                menu.forEach(renderMenu);
+                function renderMenu(item, index)
+                {
+                    divPesananTakeHome.menuDipilih.push({
+                       nama : menu[index].nama, pic : menu[index].pic, deks : menu[index].deks, kdMenu : menu[index].kd_menu, harga : menu[index].harga
+                    });
+                }
+            });
+        }
+    }
+});
+
+function setNamaPelangganTh()
+{
+    let bahanPelanggan = document.getElementById('txtPelangganTh').value;
+    let bp = bahanPelanggan.split("-");
+    divPesananTakeHome.kdPelanggan = bp[0];
+    divPesananTakeHome.namaPelanggan = bp[1];
+}
+
 //vue objek menu checkout 
 var arrMenu = [];
 var divMenuCheckout = new Vue({
@@ -75,14 +118,12 @@ var divMenuCheckout = new Vue({
                     divMenuCheckout.dataMenu.splice(0,1);
                 }
                 menu.forEach(renderMenu);
-
                 function renderMenu(item, index)
                 {
                     divMenuCheckout.dataMenu.push({
                        nama : menu[index].nama, pic : menu[index].pic, deks : menu[index].deks, kdMenu : menu[index].kd_menu, harga : menu[index].harga
                     });
                 }
-
             });
         },
         tambahItem : function(kdMenu, nama, harga)
@@ -180,6 +221,12 @@ function setMenuKategori()
 {
     divMenuCheckout.kategoriMenu = document.getElementById('txtKategori').value;
     divMenuCheckout.getMenuAtc();
+}
+
+function setMenuTakeHome()
+{
+    divPesananTakeHome.kategoriMenu = document.getElementById('txtKategoriTh').value;
+    divPesananTakeHome.getMenuThAtc();
 }
 
 function setPelanggan()
