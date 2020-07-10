@@ -11,6 +11,9 @@
         </a>
     </div>
 </div>
+
+<!-- PESANAN DINE IN AREA -->
+
 <div id="divPesananDineIn">
     <div class='row'>
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
@@ -77,8 +80,11 @@
         <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" v-on:click='pilihMenuAtc'><i class='fas fa-chevron-circle-right'></i>Next (Pilih menu)</a>
     </div>
 </div>
-<div id='divPesananTakeHome'>
-<div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+
+<!-- PESANAN TAKE HOME AREA -->
+
+<div id='divPesananTakeHome' class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
             <div class="card card-primary">
                 <div class="card-header">
                     <h4>Pelanggan</h4>
@@ -86,7 +92,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Nama Pelanggan</label><br />
-                        <select class="form-control select2" id='txtPelanggan' onchange="setPelanggan()" style="width: 100%;">
+                        <select class="form-control select2" id='txtPelanggan' onchange="" style="width: 100%;">
                             <option value="none" default>-- Pilih pelanggan --</option>
                             <?php foreach($data['pelanggan'] as $dp) :
                             ?>
@@ -95,13 +101,39 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Jumlah Tamu</label>
-                        <input type="number" class="form-control" id='txtJlhTamu'>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+        <div class="card card card-primary">
+                <div class="card-header">
+                    <h4>Pilih Menu</h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select class="form-control" id='txtKategori' onchange="">
+                        <option value="none">--- Pilih kategori menu ---</option>
+                            <?php foreach($data['kategori'] as $dk) : ?>
+                                <option value="<?=$dk['id']; ?>"><?=$dk['nama']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row">
+                    
                     </div>
                 </div>
             </div>
         </div>
 </div>
+
+
+<!-- MENU CHECKOUT AREA -->
+
 <div id='divMenuCheckout'>
 <div class='row'>
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
