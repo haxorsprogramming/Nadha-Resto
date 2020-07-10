@@ -82,8 +82,6 @@ class pembayaran extends Route{
 
     public function prosesPembayaran()
     {
-        // {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,
-        // 'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali}
         $kdInvoice  = $this -> inp('kdInvoice');
         $kdPesanan  = $this -> inp('kdPesanan');
         $totalHarga = $this -> inp('totalHarga');
@@ -102,6 +100,8 @@ class pembayaran extends Route{
         $this -> state($this -> sn) -> updateStatusPembayaran($kdPesanan, $waktu);
         //update kuota promo 
         $this -> state($this -> sn) -> updateKuotaPromo($kdPromo);
+        //update menu total dipesan
+        $this -> state($this -> sn) -> updateTotalDipesan($kdPesanan);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

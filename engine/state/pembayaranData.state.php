@@ -105,4 +105,23 @@ class pembayaranData{
         $this -> st -> queryRun();
     }
 
+    public function updateTotalDipesan($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_pesanan WHERE kd_pesanan='$kdPesanan';");
+        $dtp = $this -> st -> queryAll();
+        foreach($dtp as $dp){
+            $kdMenu = $dp['kdMenu'];
+            $qtBuy = $dp['qt'];
+            //cari jlh pesanan di menu sekarang 
+            $this -> st -> query("SELECT total_dipesan FROM tbl_menu WHERE kd_menu='$kdMenu';");
+            $qtMenu = $this -> st -> querySingle();
+            $tDipesanMenu = $qtMenu['total_dipesan'];
+            //update jlh dipesan 
+            $tDipesanNow = $qtBuy + $tDipesanMenu;
+            $qUpdate = "UPDATE tbl_menu SET total_dipesan='$tDipesanNow' WHERE kd_menu='$kdMenu';";
+            $this -> st -> query($qUpdate);
+            $this -> st -> queryRun();
+        }
+    }
+
 } 
