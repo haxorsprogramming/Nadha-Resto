@@ -31,7 +31,7 @@ class utilityData{
 
     public function getTransaksiTerakhir()
     {
-        $this -> st -> query("SELECT * FROM tbl_pembayaran ORDER BY waktu DESC;");
+        $this -> st -> query("SELECT * FROM tbl_pembayaran ORDER BY waktu DESC LIMIT 0, 7;");
         return $this -> st -> queryAll();
     }
 

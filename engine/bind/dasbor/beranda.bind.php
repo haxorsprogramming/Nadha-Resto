@@ -105,12 +105,12 @@
                 </div>
                 <div class="card-body">
                 <ul class="list-unstyled list-unstyled-border">
-                        <li class="media">
+                        <li class="media" v-for='lt in lastTs'>
                           <a href="#">
                             <img class="mr-3 rounded" width="50" src="<?=STYLEBASE; ?>/dasbor/img/avatar-1.png" alt="product">
                           </a>
                           <div class="media-body">
-                            <div class="media-right">Rp. 200.000</div>
+                            <div class="media-right">Rp. {{lt.total}}</div>
                             <div class="media-title"><a href="#">Farhana Hasri</a></div>
                             <div class="text-muted text-small">Dine in <a href="#"></a> <div class="bullet"></div> Tanggal</div>
                           </div>

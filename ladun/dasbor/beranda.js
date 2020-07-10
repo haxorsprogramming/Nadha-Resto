@@ -21,6 +21,13 @@ $.post('dasbor/getMenuTerlaris', function(data){
 });
 
 //get transaksi terakhir
-$.post('dasbor/', function(data){
-
+$.post('dasbor/getTransaksiTerakhir', function(data){
+    let obj = JSON.parse(data);
+    let lts = obj.lt;
+    lts.forEach(renderLs);
+    function renderLs(item, index){
+        divBeranda.lastTs.push({
+            total : lts[index].total_final
+        });
+    }
 });
