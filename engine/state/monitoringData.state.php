@@ -34,6 +34,9 @@ class monitoringData{
         $query = "UPDATE tbl_meja SET status='leave' WHERE kd_meja='$kdMeja';";
         $this -> st -> query($query);
         $this -> st -> queryRun();
+        $qKosong = "UPDATE tbl_meja SET jlh_tamu='0' WHERE kd_meja='$kdMeja';";
+        $this -> st -> query($qKosong);
+        $this -> st -> queryRun();
     }
 
 }

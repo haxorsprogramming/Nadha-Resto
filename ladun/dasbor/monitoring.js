@@ -6,7 +6,7 @@ var divMonitoring = new Vue({
     methods : {
         setLeaveAtc : function(kdMeja)
         {
-            
+            setLeave(kdMeja);
         },
         setActiveAtc : function(kdMeja)
         {
@@ -18,7 +18,11 @@ var divMonitoring = new Vue({
 function setLeave(kdMeja)
 {
     $.post('monitoring/setLeave', {'kdMeja':kdMeja}, function(data){
-        
+        let obj = JSON.parse(data);
+        pesanUmumApp('success', 'Sukses', 'Meja di set ke leave..');
+        renderMenu(monitoring);
+        divJudul.judulForm = "Monitoring Restoran";
+        console.log(obj);
     });
 }
 
