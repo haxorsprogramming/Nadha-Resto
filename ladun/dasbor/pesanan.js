@@ -123,6 +123,16 @@ var divPesananTakeHome = new Vue({
             }else{
                 pesanUmumApp('warning', 'No menu', 'Menu tidak ada');
             }
+        },
+        prosesPesanan : function()
+        {
+            if(this.namaPelanggan === '')
+            {
+                pesanUmumApp('warning', 'Pilih pelanggan', 'Pilih pelanggan ..');
+            }else{
+                 let dataSend = {'kdPelanggan' : this.kdPelanggan}
+                 
+            }
         }
     }
 });

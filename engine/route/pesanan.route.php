@@ -45,6 +45,11 @@ class pesanan extends Route{
         $this -> toJson($data);
     }
 
+    public function buatPesananTakeHome()
+    {
+        
+    }
+
     public function updatePesanan($kdPesanan)
     {
         $data['kdPesanan'] = $kdPesanan;

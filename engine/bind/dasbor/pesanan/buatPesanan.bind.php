@@ -125,7 +125,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a href='#!' class="btn btn-lg btn-primary">Checkout</a>
+                        <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" @click='prosesPesanan'><i class='fas fa-check-circle'></i> Proses Pesanan</a>
                     </div>
                 </div>
             </div>
