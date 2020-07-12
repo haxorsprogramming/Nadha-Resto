@@ -6,10 +6,12 @@ var divBahanBaku = new Vue({
     methods : {
         tambahBahanBakuAtc : function()
         {
-
+            $('#divTambahBahanBaku').show();
+            $('#divBahanBaku').hide();
         }
     }
 });
 
 //inisialisasi 
+$('#divTambahBahanBaku').hide();
 $('#tblBahanBakuAtc').dataTable();
