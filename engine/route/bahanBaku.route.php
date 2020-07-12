@@ -12,7 +12,15 @@ class bahanBaku extends Route{
 
     public function tambahBahanBaku()
     {
-        
+        // {'nama':nama, 'deks':deks, 'satuan':satuan, 'kategori':kategori, 'stok':stok}
+        $nama = $this -> inp('nama');
+        $deks = $this -> inp('deks');
+        $satuan = $this -> inp('satuan');
+        $kategori = $this -> inp('kategori');
+        $stok = $this -> inp('stok');
+        $kdBahan = $this -> rnint(4);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
     }
 
 }

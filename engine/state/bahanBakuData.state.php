@@ -15,4 +15,11 @@ class bahanBakuData{
         return $this -> st -> queryAll();
     }
 
+    public function tambahBahan($kdBahan, $nama, $deks, $kategori, $satuan, $stok)
+    {
+        $query = "INSERT INTO tbl_bahan_baku VALUES(null, '$kdBahan','$nama','$deks','$kategori','$satuan','$stok','1');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

@@ -51,22 +51,22 @@
             <div class="form-group">
                 <label>Kategori</label>
                 <select class="form-control" v-model='kategori'>
-                    <option>Karbo</option>
-                    <option>Sayur</option>
-                    <option>Buah</option>
-                    <option>Bumbu</option>
-                    <option>Fast food</option>
-                    <option>Lain lain</option>
+                    <option value="karbo">Karbo</option>
+                    <option value="sayur">Sayur</option>
+                    <option value="buah">Buah</option>
+                    <option value="bumbu">Bumbu</option>
+                    <option value="fastfood">Fast food</option>
+                    <option value="lainlain">Lain lain</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Satuan</label>
                 <select v-model='satuan' class="form-control" v-model='satuan'>
-                    <option>Kg</option>
-                    <option>Liter</option>
-                    <option>Pcs</option>
-                    <option>Sachet</option>
-                    <option>Dus</option>
+                    <option value="kg">Kg</option>
+                    <option value="liter">Liter</option>
+                    <option value="pcs">Pcs</option>
+                    <option value="sachet">Sachet</option>
+                    <option value="dus">Dus</option>
                 </select>
             </div>
             <div class="form-group">
