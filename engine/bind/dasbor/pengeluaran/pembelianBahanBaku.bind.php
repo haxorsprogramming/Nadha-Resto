@@ -14,6 +14,33 @@
                 <div class="card-header">
                     <h5>Detail Pembelian</h5>
                 </div>
+                <div class="card-body">
+                    <h6>List item</h6>
+                    <div class="form-group">
+                        <label>Mitra</label>
+                        <select class="form-control select2" id='txtMitra' onchange="setMitra()" style="width: 100%;">
+                            <option value="none" default>-- Pilih pemasok --</option>
+                            <?php foreach($data['mitra'] as $dp) :
+                            ?>
+                            <option value="<?=$dp['kd_mitra']; ?>-<?=$dp['nama']; ?>"><?=$dp['nama']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <th>Item</th><th>Quantity</th>
+                        </tr>
+                        <tr v-for='ip in itemDipilih'>
+                            <td>{{ip.nama}}</td><td>{{ip.value}} {{ip.satuan}}</td>
+                        </tr>
+                    </table>
+                    <div>
+                    <div class="form-group">
+                        <label>Nominal pembelian</label>
+                        <input type="number" class="form-control" id='txtNominal'>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
@@ -48,8 +75,19 @@
                     <tbody>
                         <tr v-for='ibb in itemBahanBaku'>
                             <td>{{ibb.nama}}</td>
-                            <td><div class="row"><input type="number" class="form-control form-control-sm" style="width: 100px;">&nbsp;&nbsp;&nbsp;{{ibb.satuan}}</div></td>
-                            <td><a href='#!' class="btn btn-sm btn-icon btn-primary icon-left"><i class="fas fa-plus-circle"></i> Tambah</a></td>
+                            <td>
+                                <div class="row">
+                                    <input type="number" v-bind:id='ibb.kdBahan' class="form-control form-control-sm txtNilai" style="width: 100px;">&nbsp;&nbsp;{{ibb.satuan}}
+                                </div>
+                            </td>
+                            <td>
+                                <a href='#!' class="btn btn-sm btn-icon btn-primary icon-left" @click='tambahItemAtc(ibb.kdBahan, ibb.satuan, ibb.nama)'>
+                                    <i class="fas fa-plus-circle"></i> Set
+                                </a>&nbsp;&nbsp;
+                                <a href='#!' class="btn btn-sm btn-icon btn-warning icon-left" @click='hapusItemAtc(ibb.kdBahan)'>
+                                    <i class="fas fa-minus-circle"></i> Hapus
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

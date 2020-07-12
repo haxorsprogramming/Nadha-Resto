@@ -6,7 +6,8 @@ class pengeluaran extends Route{
 
     public function pembelianBahanBaku()
     {
-        $this -> bind('dasbor/pengeluaran/pembelianBahanBaku');
+        $data['mitra'] = $this -> state($this -> sn) -> getMitra();
+        $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
     }
 
     public function getDataBahanBakuKategori()
