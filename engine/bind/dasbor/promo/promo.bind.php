@@ -75,7 +75,7 @@
                 <input type="date" class="form-control" id='txtTanggalExpired'>
             </div>
             <div>
-                <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan' v-on:click='prosesTambah'><i class='fas fa-save'></i>Simpan</a>
+                <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan' v-on:click='prosesTambah'><i class='fas fa-save'></i> Simpan</a>
                 &nbsp;&nbsp;
                 <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearForm'><i class='fas fa-i-cursor'></i> Clear</a>
             </div>

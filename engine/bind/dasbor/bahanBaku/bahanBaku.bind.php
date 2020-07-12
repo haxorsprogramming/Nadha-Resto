@@ -1,7 +1,7 @@
 <div id='divBahanBaku'>
 <div id='divListBahanBaku'>
     <div style='margin-bottom:15px;'>
-        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click='tambahBahanBakuAtc'><i
+        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahBahanBakuAtc'><i
                 class="fas fa-plus-circle"></i> Tambah Bahan Baku</a>
     </div>
     <div class="row" id='' style="padding-left:20px;margin-right:10px;">
@@ -24,7 +24,7 @@
                     <td><?=$bb['kategori']; ?></td>
                     <td><?=$bb['stok']; ?> <?=$bb['satuan']; ?></td>
                     <td></td>
-                    <td><a href='#!' class="btn btn-primary btn-icon btn-sm icon-left">Edit</a></td>
+                    <td><a href='#!' class="btn btn-primary btn-icon btn-sm icon-left"><i class='far fa-edit'></i> Edit</a></td>
                 </tr>
                 <?php 
                     endforeach; 
@@ -35,7 +35,7 @@
 </div>
 <div id='divTambahBahanBaku'>
     <div>
-        <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='kembaliAtc'><i class='fas fa-reply'></i>
+        <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'><i class='fas fa-reply'></i>
             Kembali</a>
     </div>
     <div class="row">
@@ -74,8 +74,8 @@
                 <input type="number" class="form-control" id='txtStokAwal' v-model='stok'>
             </div>
             <div>
-                <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'>Simpan</a>&nbsp;&nbsp;
-                <a href='#!' class="btn btn-info btn-icon icon-left">Clear</a>
+                <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-save'></i> Simpan</a>&nbsp;&nbsp;
+                <a href='#!' class="btn btn-info btn-icon icon-left" @click='clearAtc'><i class='fas fa-i-cursor'></i> Clear</a>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">

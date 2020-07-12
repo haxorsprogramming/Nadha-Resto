@@ -22,15 +22,15 @@ class bahanBakuData{
         $this -> st -> queryRun();
     }
 
-    public function cekNamaBahan($kdBahan, $nama)
+    public function cekNamaBahan($nama)
     {
-        $this -> st -> query("SELECT * FROM tbl_bahan_baku WHERE kd_bahan='$kdBahan' AND nama='$nama';");
-        return $this -> st -> numRow();
-        // if($jBahan > 0){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
+        $this -> st -> query("SELECT * FROM tbl_bahan_baku WHERE nama='$nama';");
+        $jBahan = $this -> st -> numRow();
+        if($jBahan > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

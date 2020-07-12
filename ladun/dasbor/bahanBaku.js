@@ -10,16 +10,19 @@ var divBahanBaku = new Vue({
     methods : {
         tambahBahanBakuAtc : function()
         {
-            tampilFormTambahBahanBaku();
+            tampilForm();
         },
         simpanAtc : function()
         {
-            // console.log(this.satuan);
-           simpan();
+            simpan();
         },
         kembaliAtc : function()
         {
             kembali();
+        },
+        clearAtc : function()
+        {
+            clear();
         }
     }
 });
@@ -43,9 +46,25 @@ function simpan()
         // console.log(dataSend);
         $.post('bahanBaku/tambahBahanBaku', dataSend, function(data){
             let obj = JSON.parse(data);
-            console.log(obj);
+            if(obj.status === 'error'){
+                pesanUmumApp('warning', 'Error', 'Nama bahan sudah ada!!');
+            }else{
+                pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan bahan baku');
+                renderMenu(bahanBaku);
+                divJudul.judulForm = "Bahan Baku";
+            }
         });
     }
+}
+
+function clear()
+{
+    divBahanBaku.nama = '';
+    divBahanBaku.deks = '';
+    divBahanBaku.satuan = '';
+    divBahanBaku.kategori = '';
+    divBahanBaku.stok = 0;
+    document.getElementById('txtNamaBahan').focus();
 }
 
 function kembali()
@@ -54,7 +73,7 @@ function kembali()
     divJudul.judulForm = "Bahan Baku";
 }
 
-function tampilFormTambahBahanBaku()
+function tampilForm()
 {
     $('#divTambahBahanBaku').show();
     $('#divListBahanBaku').hide();
