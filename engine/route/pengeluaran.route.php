@@ -19,7 +19,6 @@ class pengeluaran extends Route{
 
     public function prosesPembelian()
     {
-        // {'mitra':mitra, 'nominal':nominal}
         $kdPembelian = $this -> rnstr(15);
         $waktu = $this -> waktu();
         $mitra = $this -> inp('mitra');
@@ -28,6 +27,18 @@ class pengeluaran extends Route{
         $nominalClear = str_replace('.','',$nominal);
         $this -> state($this -> sn) -> prosesPembelian($kdPembelian, $mitra, $waktu, $nominalClear, $operator);
         $data['kdPembelian'] = $kdPembelian;
+        $this -> toJson($data);
+    }
+
+    public function updateTempPembelian()
+    {
+        // 'kdPembelian':kdPembelian, 'kdItem':itemPesanan[index].kdBahan, 'qt':itemPesanan[index].value
+        $kdTemp = $this -> rnstr(20);
+        $kdPembelian = $this -> inp('kdPembelian');
+        $kdItem = $this -> inp('kdItem');
+        $qt = $this -> inp('qt');
+        $this -> state($this -> sn) -> updateTemp($kdTemp, $kdPembelian, $kdItem, $qt);
+        $data['status'] = 'sukses';
         $this -> toJson($data);
     }
 

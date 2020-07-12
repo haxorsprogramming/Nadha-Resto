@@ -3,6 +3,23 @@
         <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahPembelianAtc'>
             <i class="fas fa-plus-circle"></i> Tambah Pembelian
         </a>
+        <div>
+        <table id='tblHistoryPembelian' class='table table-hover table-bordered table-stripped'>
+            <thead>
+                <tr>
+                    <th>Bahan Baku</th>
+                    <th>Deks</th>
+                    <th>Kategori / Satuan</th>
+                    <th>Stok</th>
+                    <th>Total Pembelian</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+        </div>
     </div>
     <div id='pembelianBaru'>
         <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'>

@@ -40,6 +40,7 @@ var divPembelian = new Vue({
 $('#pembelianBaru').hide();
 $(".select2").select2();
 var nominal = document.getElementById('txtNominal');
+$('#tblHistoryPembelian').dataTable();
 
 function proses()
 {
@@ -70,9 +71,14 @@ function proses()
                 let itemPesanan = divPembelian.itemDipilih;
                 itemPesanan.forEach(renderTemp);
                 function renderTemp(item, index){
-                    
+                    let dts = {'kdPembelian':kdPembelian, 'kdItem':itemPesanan[index].kdBahan, 'qt':itemPesanan[index].value}
+                    $.post('pengeluaran/updateTempPembelian', dts, function(data){
+                    });
                 }
-              }) ;
+                pesanUmumApp('success', 'Sukses', 'Pembelian bahan baku item sukses..');
+                renderMenu(pembelianBahanBaku);
+                divJudul.judulForm = "Pembelian bahan baku";
+              });
             }
           });
     }
@@ -117,7 +123,8 @@ function tambahItem(kdBahan, satuan, nama)
             divPembelian.itemDipilih.push({
                 nama : nama,
                 satuan : satuan,
-                value : valueItem
+                value : valueItem,
+                kdBahan : kdBahan
             });
         }
     }

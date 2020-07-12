@@ -28,4 +28,11 @@ class pengeluaranData{
         $this -> st -> queryRun();
     }
 
+    public function updateTemp($kdTemp, $kdPembelian, $kdItem, $qt)
+    {
+        $query = "INSERT INTO tbl_temp_pembelian_bahan_baku VALUES(null, '$kdTemp', '$kdPembelian', '$kdItem', '$qt');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
