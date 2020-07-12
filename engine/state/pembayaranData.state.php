@@ -126,7 +126,8 @@ class pembayaranData{
 
     public function cetakStruk($kdPesanan)
     {
-
+        $this -> st -> query("SELECT * FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';");
+        $qPesanan = $this -> st -> queryAll();
     }
 
 } 
