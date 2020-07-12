@@ -19,7 +19,15 @@ class bahanBaku extends Route{
         $kategori = $this -> inp('kategori');
         $stok = $this -> inp('stok');
         $kdBahan = $this -> rnint(4);
-        $data['status'] = 'sukses';
+        //cek kode bahan & nama 
+        $cek = $this -> state($this -> sn) -> cekNamaBahan($kdBahan, $nama);
+        if($cek == true){
+            $data['status'] = $cek;
+        }else{
+            $data['status'] = $cek;
+        }
+        // $this -> state($this -> sn) -> tambahBahan($kdBahan, $nama, $deks, $kategori, $satuan, $stok);
+        
         $this -> toJson($data);
     }
 
