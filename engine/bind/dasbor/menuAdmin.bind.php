@@ -20,7 +20,6 @@
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" v-on:click=''>Data Bahan Baku</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Pembelian Bahan</a></li>
-      <li><a class="nav-link" href='#!' v-on:click=''>Setup Kebutuhan Menu</a></li>
     </ul>
   </li>
   <li class="dropdown">

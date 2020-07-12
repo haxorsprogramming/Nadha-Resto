@@ -124,4 +124,9 @@ class pembayaranData{
         }
     }
 
+    public function cetakStruk($kdPesanan)
+    {
+
+    }
+
 } 
