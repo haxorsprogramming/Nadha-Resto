@@ -14,7 +14,6 @@
       <li><a class="nav-link" href='#!' v-on:click=''>Mitra</a></li>
     </ul>
   </li>
-  <li><a class="nav-link " href="#!" v-on:click=''><i class="fas fa-receipt"></i> <span>Data Transaksi</span></a></li>
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cookie"></i> <span>Bahan Baku</span></a>
     <ul class="dropdown-menu">
@@ -22,6 +21,7 @@
       <li><a class="nav-link" href="#!" v-on:click=''>Pembelian Bahan</a></li>
     </ul>
   </li>
+  <li><a class="nav-link " href="#!" v-on:click=''><i class="fas fa-receipt"></i> <span>Data Transaksi</span></a></li>
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-chart-line"></i> <span>Laporan & Statistik</span></a>
     <ul class="dropdown-menu">
