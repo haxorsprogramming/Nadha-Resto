@@ -99,6 +99,7 @@ var divPesananTakeHome = new Vue({
             }else{
                 arrTh.push(kdMenu);
                 this.daftarItem.push({
+                    kdMenu : kdMenu,
                     namaMenu : nama,
                     harga :  harga,
                     qt : 1,
@@ -143,7 +144,7 @@ var divPesananTakeHome = new Vue({
                         function renderPesanan(item, index)
                         {
                             let dsn = {
-                                'kdMenu':pesanan[index].menu, 
+                                'kdMenu':pesanan[index].kdMenu, 
                                 'kdPesanan':kdPesanan, 
                                 'hargaAt':pesanan[index].harga, 
                                 'qt':pesanan[index].qt,
