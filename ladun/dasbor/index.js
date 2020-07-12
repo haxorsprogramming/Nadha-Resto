@@ -9,6 +9,7 @@ const pesanan = 'pesanan';
 const pesananBaru = 'pesanan/pesananBaru';
 const pengaturanUmum = 'setting/setting';
 const bahanBaku = 'bahanBaku';
+const pembelianBahanBaku = 'bahanBaku/pembelianBahanBaku';
 const mitra = 'mitra';
 
 const d = new Date();
@@ -94,6 +95,10 @@ var divMenu = new Vue({
     {
       renderMenu(mitra);
       divJudul.judulForm = "Daftar Mitra";
+    },
+    pembelianBahanBakuAtc : function()
+    {
+
     }
   }
 });

@@ -30,4 +30,10 @@ class bahanBaku extends Route{
         $this -> toJson($data);
     }
 
+    public function pembelianBahanBaku()
+    {
+        $this -> bind('dasbor/mitra/pembelianBahanBaku');
+    }
+
+
 }

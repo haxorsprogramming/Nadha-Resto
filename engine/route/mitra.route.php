@@ -30,4 +30,5 @@ class mitra extends Route{
         $this -> toJson($data);
     }
 
+    
 }

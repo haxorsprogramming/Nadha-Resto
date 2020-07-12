@@ -52,11 +52,14 @@
             <div class="form-group">
                 <label>Kategori</label>
                 <select class="form-control" v-model='kategori'>
-                    <option value="karbo">Karbo</option>
-                    <option value="sayur">Sayur</option>
-                    <option value="buah">Buah</option>
-                    <option value="bumbu">Bumbu</option>
-                    <option value="fastfood">Fast food</option>
+                    <option value="Olahan Hewan">Olahan Hewan</option>
+                    <option value="Karbo">Karbo</option>
+                    <option value="Sayur">Sayur</option>
+                    <option value="Buah">Buah</option>
+                    <option value="Mie Instan">Mie Instan</option>
+                    <option value="Bumbu">Bumbu</option>
+                    <option value="Fast Food">Fast food</option>
+                    <option value="Tepung">Tepung</option>
                     <option value="lainlain">Lain lain</option>
                 </select>
             </div>
