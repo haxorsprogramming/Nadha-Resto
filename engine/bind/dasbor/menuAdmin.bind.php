@@ -17,7 +17,7 @@
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cookie"></i> <span>Bahan Baku</span></a>
     <ul class="dropdown-menu">
-      <li><a class="nav-link" href="#!" v-on:click=''>Data Bahan Baku</a></li>
+      <li><a class="nav-link" href="#!" v-on:click='bahanBakuAtc'>Data Bahan Baku</a></li>
       <li><a class="nav-link" href="#!" v-on:click=''>Pembelian Bahan</a></li>
     </ul>
   </li>

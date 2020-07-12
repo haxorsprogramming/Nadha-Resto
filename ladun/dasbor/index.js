@@ -8,6 +8,7 @@ const promo = 'promo';
 const pesanan = 'pesanan';
 const pesananBaru = 'pesanan/pesananBaru';
 const pengaturanUmum = 'setting/setting';
+const bahanBaku = 'bahanBaku';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -82,6 +83,11 @@ var divMenu = new Vue({
     {
       renderMenu(pengaturanUmum);
       divJudul.judulForm = "Pengaturan Resto";
+    },
+    bahanBakuAtc : function()
+    {
+      renderMenu(bahanBaku);
+      divJudul.judulForm = "Bahan Baku";
     }
   }
 });
