@@ -48,8 +48,8 @@ function proses()
     let cekItem = divPembelian.itemDipilih.length;
     // console.log(mitra);
     let dataSend = {'mitra':mitra, 'nominal':nominal}
-    if(nominal === '' || nominal === 0 || mitra === '' || cekItem === 0){
-        pesanUmumApp('error', 'warning', 'Isi field!!');
+    if(nominal === '' || nominal === 0 || mitra === '' || cekItem === 0 || nominal < 1){
+        pesanUmumApp('error', 'warning', 'Isi field!!, dan pastikan nominal benar');
     }else{
         Swal.fire({
             title: "Konfirmasi pembelian?",
@@ -63,6 +63,7 @@ function proses()
           }).then((result) => {
             if(result.value) {
                 //buat pesanan 
+                console.log(dataSend);
               $.post('pengeluaran/prosesPembelian', dataSend, function(data){
                 let obj = JSON.parse(data);
                 let kdPembelian = obj.kdPembelian;

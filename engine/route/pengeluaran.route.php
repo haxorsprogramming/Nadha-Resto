@@ -25,7 +25,8 @@ class pengeluaran extends Route{
         $mitra = $this -> inp('mitra');
         $nominal = $this -> inp('nominal');
         $operator = $this -> getses('userSes');
-        
+        $nominalClear = str_replace('.','',$nominal);
+        $this -> state($this -> sn) -> prosesPembelian($kdPembelian, $mitra, $waktu, $nominalClear, $operator);
         $data['kdPembelian'] = $kdPembelian;
         $this -> toJson($data);
     }

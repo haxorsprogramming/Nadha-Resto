@@ -21,4 +21,11 @@ class pengeluaranData{
         return $this -> st -> queryAll();
     }
 
+    public function prosesPembelian($kdPembelian, $mitra, $waktu, $nominal, $operator)
+    {
+        $query = "INSERT INTO tbl_pembelian_bahan_baku VALUES(null, '$kdPembelian', '$mitra', '$waktu', '$nominal', '$operator');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
