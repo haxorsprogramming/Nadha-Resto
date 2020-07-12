@@ -10,8 +10,7 @@ var divBahanBaku = new Vue({
     methods : {
         tambahBahanBakuAtc : function()
         {
-            $('#divTambahBahanBaku').show();
-            $('#divBahanBaku').hide();
+            tampilFormTambahBahanBaku();
         }
     }
 });
@@ -19,3 +18,10 @@ var divBahanBaku = new Vue({
 //inisialisasi 
 $('#divTambahBahanBaku').hide();
 $('#tblBahanBakuAtc').dataTable();
+
+function tampilFormTambahBahanBaku()
+{
+    $('#divTambahBahanBaku').show();
+    $('#divBahanBaku').hide();
+    document.getElementById('txtNamaBahan').focus();
+}

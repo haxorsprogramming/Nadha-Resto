@@ -46,11 +46,17 @@
             </div>
             <div class="form-group">
                 <label>Deks</label>
-                <textarea placeholder="Deksripsi bahan baku" id='txtDeks'></textarea>
+                <textarea placeholder="Deksripsi bahan baku" id='txtDeks' class="form-control" style="resize:none;"></textarea>
             </div>
             <div class="form-group">
                 <label>Kategori</label>
-               
+                <select class="form-control">
+                    <option>Karbo</option>
+                    <option>Sayur</option>
+                    <option>Buah</option>
+                    <option>Bumbu</option>
+                    <option>Fast food</option>
+                </select>
             </div>
             <div class="form-group">
                 <label>Satuan</label>
