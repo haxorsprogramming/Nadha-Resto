@@ -12,7 +12,6 @@ class bahanBaku extends Route{
 
     public function tambahBahanBaku()
     {
-        // {'nama':nama, 'deks':deks, 'satuan':satuan, 'kategori':kategori, 'stok':stok}
         $nama = $this -> inp('nama');
         $deks = $this -> inp('deks');
         $satuan = $this -> inp('satuan');
@@ -29,11 +28,5 @@ class bahanBaku extends Route{
         }
         $this -> toJson($data);
     }
-
-    public function pembelianBahanBaku()
-    {
-        $this -> bind('dasbor/mitra/pembelianBahanBaku');
-    }
-
 
 }

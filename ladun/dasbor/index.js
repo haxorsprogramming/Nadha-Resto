@@ -9,7 +9,7 @@ const pesanan = 'pesanan';
 const pesananBaru = 'pesanan/pesananBaru';
 const pengaturanUmum = 'setting/setting';
 const bahanBaku = 'bahanBaku';
-const pembelianBahanBaku = 'bahanBaku/pembelianBahanBaku';
+const pembelianBahanBaku = 'pengeluaran/pembelianBahanBaku';
 const mitra = 'mitra';
 
 const d = new Date();
@@ -98,7 +98,8 @@ var divMenu = new Vue({
     },
     pembelianBahanBakuAtc : function()
     {
-
+      renderMenu(pembelianBahanBaku);
+      divJudul.judulForm = "Pembelian bahan baku";
     }
   }
 });
