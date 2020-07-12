@@ -1,16 +1,25 @@
 var divBahanBaku = new Vue({
     el : '#divBahanBaku',
     data : {
-        namaBahan : '',
+        nama : '',
         deks : '',
         satuan : '',
         kategori : '',
-        stok : ''
+        stok : 0
     },
     methods : {
         tambahBahanBakuAtc : function()
         {
             tampilFormTambahBahanBaku();
+        },
+        simpanAtc : function()
+        {
+            this.stok = parseInt(this.stok) + 1;
+            console.log(this.stok);
+        },
+        kembaliAtc : function()
+        {
+
         }
     }
 });
@@ -22,6 +31,7 @@ $('#tblBahanBakuAtc').dataTable();
 function tampilFormTambahBahanBaku()
 {
     $('#divTambahBahanBaku').show();
-    $('#divBahanBaku').hide();
+    $('#divListBahanBaku').hide();
+    divJudul.judulForm = "Tambah bahan baku";
     document.getElementById('txtNamaBahan').focus();
 }
