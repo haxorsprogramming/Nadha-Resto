@@ -6,7 +6,8 @@ class bahanBaku extends Route{
 
     public function index()
     {
-        $this -> bind('dasbor/bahanBaku/bahanBaku');
+        $data['bahanBaku'] = $this -> state($this -> sn) -> getDataBahanBaku();
+        $this -> bind('dasbor/bahanBaku/bahanBaku', $data);
     }
 
 }
