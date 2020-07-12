@@ -11,7 +11,7 @@
       <li><a class="nav-link" href="#!" v-on:click='pelangganAtc'>Pelanggan</a></li>
       <li><a class="nav-link" href="#!" v-on:click='mejaAtc'>Meja</a></li>
       <li><a class="nav-link" href='#!' v-on:click='promoAtc'>Promo</a></li>
-      <li><a class="nav-link" href='#!' v-on:click=''>Mitra</a></li>
+      <li><a class="nav-link" href='#!' v-on:click='mitraAtc'>Mitra</a></li>
     </ul>
   </li>
   <li class="dropdown">
