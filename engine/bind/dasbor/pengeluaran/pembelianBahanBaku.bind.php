@@ -35,9 +35,13 @@
                         </tr>
                     </table>
                     <div>
-                    <div class="form-group">
-                        <label>Nominal pembelian</label>
-                        <input type="number" class="form-control" id='txtNominal'>
+                        <hr/>                        
+                      <div class="form-group">
+                        <label for='nominal'>Nominal Pembelian</label>&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="nominal" id='txtNominal' class="form-control" style="width: 200px;" maxlength="20">
+                      </div>
+                    <div>
+                        <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnProses' @click='prosesAtc'><i class='fas fa-check-circle'></i> Proses</a>
                     </div>
                     </div>
                 </div>

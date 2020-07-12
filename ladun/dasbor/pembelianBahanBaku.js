@@ -5,7 +5,8 @@ var divPembelian = new Vue({
         itemBahanBaku : [],
         kategoriDipilih : '',
         itemDipilih : [],
-        mitra : ''
+        mitra : '',
+        nominal : 0
     },
     methods : {
         tambahPembelianAtc : function()
@@ -27,6 +28,10 @@ var divPembelian = new Vue({
         hapusItemAtc : function(kdBahan)
         {
             hapusItem(kdBahan);
+        },
+        prosesAtc : function()
+        {
+            proses();
         }
     }
 });
@@ -34,6 +39,25 @@ var divPembelian = new Vue({
 //inisialisasi 
 $('#pembelianBaru').hide();
 $(".select2").select2();
+var nominal = document.getElementById('txtNominal');
+
+function proses()
+{
+    let nominal = divPembelian.nominal;
+    let mitra = divPembelian.mitra;
+    let cekItem = divPembelian.itemDipilih.length;
+    if(nominal === '' || nominal === 0 || mitra === '' || cekItem === 0){
+        pesanUmumApp('error', 'warning', 'Isi field!!');
+    }else{
+        
+    }
+
+}
+
+nominal.addEventListener('keyup', function(e){
+    divPembelian.nominal = this.value;
+    nominal.value = formatRupiah(this.value, 'Rp.');
+});
 
 function setMitra()
 {
@@ -72,7 +96,7 @@ function tambahItem(kdBahan, satuan, nama)
             });
         }
     }
-    console.log(arrItemDipilih);
+    // console.log(arrItemDipilih);
 }
 
 function setItem(kategori)
@@ -114,4 +138,21 @@ function kembali()
 {
     renderMenu(pembelianBahanBaku);
     divJudul.judulForm = "Pembelian bahan baku";
+}
+
+function formatRupiah(angka, prefix){
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+    split   		= number_string.split(','),
+    sisa     		= split[0].length % 3,
+    rupiah     		= split[0].substr(0, sisa),
+    ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if(ribuan){
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
 }
