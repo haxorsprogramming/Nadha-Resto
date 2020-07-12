@@ -22,7 +22,7 @@
                             <option value="none" default>-- Pilih pemasok --</option>
                             <?php foreach($data['mitra'] as $dp) :
                             ?>
-                            <option value="<?=$dp['kd_mitra']; ?>-<?=$dp['nama']; ?>"><?=$dp['nama']; ?></option>
+                            <option value="<?=$dp['kd_mitra']; ?>"><?=$dp['nama']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

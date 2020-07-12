@@ -17,4 +17,17 @@ class pengeluaran extends Route{
         $this -> toJson($data);
     }
 
+    public function prosesPembelian()
+    {
+        // {'mitra':mitra, 'nominal':nominal}
+        $kdPembelian = $this -> rnstr(15);
+        $waktu = $this -> waktu();
+        $mitra = $this -> inp('mitra');
+        $nominal = $this -> inp('nominal');
+        $operator = $this -> getses('userSes');
+        
+        $data['kdPembelian'] = $kdPembelian;
+        $this -> toJson($data);
+    }
+
 }

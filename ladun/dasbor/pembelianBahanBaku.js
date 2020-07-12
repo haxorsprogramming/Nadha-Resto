@@ -46,10 +46,34 @@ function proses()
     let nominal = divPembelian.nominal;
     let mitra = divPembelian.mitra;
     let cekItem = divPembelian.itemDipilih.length;
+    // console.log(mitra);
+    let dataSend = {'mitra':mitra, 'nominal':nominal}
     if(nominal === '' || nominal === 0 || mitra === '' || cekItem === 0){
         pesanUmumApp('error', 'warning', 'Isi field!!');
     }else{
-        
+        Swal.fire({
+            title: "Konfirmasi pembelian?",
+            text: "Proses pembelian bahan baku?",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+          }).then((result) => {
+            if(result.value) {
+                //buat pesanan 
+              $.post('pengeluaran/prosesPembelian', dataSend, function(data){
+                let obj = JSON.parse(data);
+                let kdPembelian = obj.kdPembelian;
+                let itemPesanan = divPembelian.itemDipilih;
+                itemPesanan.forEach(renderTemp);
+                function renderTemp(item, index){
+                    
+                }
+              }) ;
+            }
+          });
     }
 
 }
