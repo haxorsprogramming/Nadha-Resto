@@ -1,8 +1,9 @@
 <div id='divBahanBaku'>
 <div id='divListBahanBaku'>
     <div style='margin-bottom:15px;'>
-        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahBahanBakuAtc'><i
-                class="fas fa-plus-circle"></i> Tambah Bahan Baku</a>
+        <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahBahanBakuAtc'>
+            <i class="fas fa-plus-circle"></i> Tambah Bahan Baku
+        </a>
     </div>
     <div class="row" id='' style="padding-left:20px;margin-right:10px;">
         <table id='tblBahanBakuAtc' class='table table-hover table-bordered table-stripped'>
@@ -52,7 +53,8 @@
             <div class="form-group">
                 <label>Kategori</label>
                 <select class="form-control" v-model='kategori'>
-                    <option value="Olahan Hewan">Olahan Hewan</option>
+                    <option value="Olahan Hewan">Daging</option>
+                    <option value="Olahan Hewan">Seafood</option>
                     <option value="Karbo">Karbo</option>
                     <option value="Sayur">Sayur</option>
                     <option value="Buah">Buah</option>

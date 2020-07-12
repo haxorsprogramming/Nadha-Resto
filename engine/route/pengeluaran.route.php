@@ -9,4 +9,10 @@ class pengeluaran extends Route{
         $this -> bind('dasbor/pengeluaran/pembelianBahanBaku');
     }
 
+    public function getDataBahanBaku()
+    {
+        $data['bahanBaku'] = $this -> state($this -> sn) -> getDataBahanBaku();
+        $this -> toJson($data);
+    }
+
 }
