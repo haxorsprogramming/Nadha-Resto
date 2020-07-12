@@ -1,7 +1,7 @@
 <div id='divFormTambahMenu'>
     <form enctype="multipart/form-data" id='frmUpload'>
     <div>
-        <a href='#!' class="btn btn-primary btn-icon icon-left" id='btnKembali' v-on:click='kembaliAtc'><i class='fas fa-reply'></i> Kembali</a>
+        <a href='#!' class="btn btn-primary btn-icon icon-left" id='btnKembali' @click='kembaliAtc'><i class='fas fa-reply'></i> Kembali</a>
     </div>
         <div class="row" style="margin-top: 15px;">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -30,10 +30,10 @@
                     </ul>
                 </div>
                 <!-- <label>{{username}}{{namaLengkap}}{{alamat}}{{nomorHandphone}}{{email}}{{levelUser}}</label> -->
-                <a href='#!' id='btnSimpan' class="btn btn-lg btn-primary btn-icon icon-left" v-on:click='prosesAtc'><i
+                <a href='#!' id='btnSimpan' class="btn btn-lg btn-primary btn-icon icon-left" @click='prosesAtc'><i
                         class='fas fa-save'></i> Simpan</a>
                 &nbsp;&nbsp;
-                <a href='#!' id='btnClear' class="btn btn-lg btn-info btn-icon icon-left" v-on:click='clearFormAtc'><i
+                <a href='#!' id='btnClear' class="btn btn-lg btn-info btn-icon icon-left" @click='clearFormAtc'><i
                         class='fas fa-i-cursor'></i> Clear form</a>
                 &nbsp;&nbsp;
             </div>

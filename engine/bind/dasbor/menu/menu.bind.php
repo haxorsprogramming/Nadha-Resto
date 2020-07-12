@@ -1,6 +1,6 @@
 <div id='divMenuResto'>
 <div style='margin-bottom:15px;'>
-<a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click='tambahMenuAtc'><i class="fas fa-plus-circle"></i> Tambah Menu</a>
+<a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahMenuAtc'><i class="fas fa-plus-circle"></i> Tambah Menu</a>
 </div>
 <div class="row" id='divTabelMenu' style="padding-left:20px;margin-right:10px;">
 <table id='tblMenu' class='table table-hover table-bordered table-stripped'>
