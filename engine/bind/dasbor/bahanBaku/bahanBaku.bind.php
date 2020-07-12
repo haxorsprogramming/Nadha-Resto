@@ -24,7 +24,7 @@
                     <td><?=$bb['kategori']; ?></td>
                     <td><?=$bb['stok']; ?> <?=$bb['satuan']; ?></td>
                     <td></td>
-                    <td><a href='#!' class="btn btn-primary btn-icon btn-sm icon-left"><i class='far fa-edit'></i> Edit</a></td>
+                    <td><a href='#!' class="btn btn-primary btn-icon btn-sm icon-left" @click='editAtc("<?=$bb['kd_bahan']; ?>")'><i class='far fa-edit'></i> Edit</a></td>
                 </tr>
                 <?php 
                     endforeach; 

@@ -23,6 +23,10 @@ var divBahanBaku = new Vue({
         clearAtc : function()
         {
             clear();
+        },
+        editAtc : function(kdBahan)
+        {
+            console.log(kdBahan);
         }
     }
 });
