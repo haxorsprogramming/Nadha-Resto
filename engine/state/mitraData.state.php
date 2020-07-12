@@ -12,7 +12,7 @@ class mitraData{
     public function getMitra()
     {
         $this -> st -> query("SELECT * FROM tbl_mitra;");
-        $this -> st -> queryAll();
+        return $this -> st -> queryAll();
     }
 
 }

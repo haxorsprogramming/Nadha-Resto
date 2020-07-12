@@ -6,7 +6,10 @@ var divMitra = new Vue({
     methods : {
         tambahMitraAtc : function()
         {
-            
+
         }
     }
 });
+
+//inisialisasi
+$('#tblMitra').dataTable();

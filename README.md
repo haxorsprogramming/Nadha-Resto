@@ -1,6 +1,6 @@
-<span align="center">
+<p align="center">
 <img src='https://github.com/haxorsprogramming/Haxors-Contributors/blob/master/haxors_project/nadha_resto.png?raw=true' width='500px'>
-</span>
+</p>
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
 
@@ -52,8 +52,8 @@
 
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
 
-Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang di kembangan oleh haxorsprogramming
-<h3>https://t.me/haxorsupdate</h3>
+Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 
+<h3><a href='https://t.me/haxorsupdate'>Channel Telegram Haxorsprogramming</a></h3>
 
 <p align='justify'>
 Ingin berkontribusi untuk pengembangan club programming ini? bantu kami melalui donasi lewat saweria di <h2><a href='https://saweria.co/donate/haxorsprogramming'>Saweria Haxorsprogramming</a></h2>sedikit banyaknya donasi dapat memberi kontribusi yang positif bagi perkembangan club ini. Terima kasih, salam koding .. ^_^
