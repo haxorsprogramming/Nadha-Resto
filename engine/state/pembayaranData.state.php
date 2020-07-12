@@ -130,4 +130,11 @@ class pembayaranData{
         $qPesanan = $this -> st -> queryAll();
     }
 
+    public function updateTransaksi($tokenTransaksi, $kdPesanan, $arus, $totalFinal, $waktu, $operator)
+    {
+        $query = "INSERT INTO tbl_transaksi VALUES(null, '$tokenTransaksi', '$kdPesanan', '$arus', '$totalFinal', '$waktu', '$operator');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 } 

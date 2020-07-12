@@ -103,6 +103,10 @@ class pembayaran extends Route{
         //update menu total dipesan
         $this -> state($this -> sn) -> updateTotalDipesan($kdPesanan);
         //cetak struk 
+        //update tbl transaksi
+        $tokenTransaksi = $this -> rnstr(25);
+        $arus = 'masuk';
+        $this -> state($this -> sn) -> updateTransaksi($tokenTransaksi, $kdPesanan, $arus, $totalFinal, $waktu, $operator);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
