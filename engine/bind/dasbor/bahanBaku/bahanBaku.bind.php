@@ -35,8 +35,9 @@
 </div>
 <div id='divTambahBahanBaku'>
     <div>
-        <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'><i class='fas fa-reply'></i>
-            Kembali</a>
+        <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'>
+            <i class='fas fa-reply'></i>Kembali
+        </a>
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">

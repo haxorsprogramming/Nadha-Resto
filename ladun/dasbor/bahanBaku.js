@@ -3,8 +3,8 @@ var divBahanBaku = new Vue({
     data : {
         nama : '',
         deks : '',
-        satuan : 'karbo',
-        kategori : 'kg',
+        satuan : '',
+        kategori : '',
         stok : 0
     },
     methods : {
@@ -43,7 +43,7 @@ function simpan()
     let kategori = divBahanBaku.kategori;
     let stok = divBahanBaku.stok;
 
-    if(nama === '' || deks === '' || stok === ''){
+    if(nama === '' || deks === '' || stok === '' || satuan === '' || kategori === ''){
         pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
     }else{
         let dataSend = {'nama':nama, 'deks':deks, 'satuan':satuan, 'kategori':kategori, 'stok':stok}
