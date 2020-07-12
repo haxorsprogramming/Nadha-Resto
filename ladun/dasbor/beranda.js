@@ -15,7 +15,8 @@ $.post('dasbor/getMenuTerlaris', function(data){
         divBeranda.menuFavorit.push({
             judul : dt[index].nama,
             pic : dt[index].pic,
-            deks : dt[index].deks
+            deks : dt[index].deks,
+            total_dipesan : dt[index].total_dipesan
         });
     }
 });

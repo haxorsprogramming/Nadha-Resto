@@ -32,7 +32,7 @@ class Route{
     //membuat string random dengan parameter(jumlah)
     public function rnstr($length)
     {
-        $bahan  = 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM';
+        $bahan  = 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNMqwertyuioplkjhgfdsazxcvbnm';
         $acak   = str_shuffle($bahan);
         $hasil  = substr($acak,0,$length);
         return $hasil;

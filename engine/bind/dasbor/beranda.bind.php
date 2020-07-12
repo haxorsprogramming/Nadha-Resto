@@ -87,7 +87,8 @@
                         <div class="media-title">{{mv.judul}}</div>
                         <span class="text-small text-muted">
                         {{mv.deks}}
-                        </span>
+                        </span><br/>
+                        <strong>Dipesan {{mv.total_dipesan}} kali</strong>
                       </div>
                     </li>
                   </ul>
