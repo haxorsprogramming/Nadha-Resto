@@ -1,7 +1,11 @@
 var divBahanBaku = new Vue({
     el : '#divBahanBaku',
     data : {
-
+        namaBahan : '',
+        deks : '',
+        satuan : '',
+        kategori : '',
+        stok : ''
     },
     methods : {
         tambahBahanBakuAtc : function()

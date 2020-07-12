@@ -1,3 +1,4 @@
+<div>
 <div id='divBahanBaku'>
     <div style='margin-bottom:15px;'>
         <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' v-on:click='tambahBahanBakuAtc'><i
@@ -37,5 +38,32 @@
         <a href='#!' class="btn btn-primary btn-icon icon-left" v-on:click='kembaliAtc'><i class='fas fa-reply'></i>
             Kembali</a>
     </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="form-group">
+                <label>Nama Bahan</label>
+                <input type="text" class="form-control" id='txtNamaBahan'>
+            </div>
+            <div class="form-group">
+                <label>Deks</label>
+                <textarea placeholder="Deksripsi bahan baku" id='txtDeks'></textarea>
+            </div>
+            <div class="form-group">
+                <label>Kategori</label>
+               
+            </div>
+            <div class="form-group">
+                <label>Satuan</label>
+                
+            </div>
+            <div class="form-group">
+                <label>Stok Awal</label>
+                <input type="number" class="form-control" id='txtStokAwal'>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+        </div>
+    </div>
+</div>
 </div>
 <script src="<?=STYLEBASE; ?>/dasbor/bahanBaku.js"></script>
