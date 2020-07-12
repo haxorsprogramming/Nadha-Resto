@@ -10,4 +10,9 @@ class bahanBaku extends Route{
         $this -> bind('dasbor/bahanBaku/bahanBaku', $data);
     }
 
+    public function tambahBahanBaku()
+    {
+        
+    }
+
 }

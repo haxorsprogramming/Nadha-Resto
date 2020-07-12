@@ -14,12 +14,11 @@ var divBahanBaku = new Vue({
         },
         simpanAtc : function()
         {
-            this.stok = parseInt(this.stok) + 1;
-            console.log(this.stok);
+           simpan();
         },
         kembaliAtc : function()
         {
-
+            kembali();
         }
     }
 });
@@ -27,6 +26,27 @@ var divBahanBaku = new Vue({
 //inisialisasi 
 $('#divTambahBahanBaku').hide();
 $('#tblBahanBakuAtc').dataTable();
+
+function simpan()
+{
+    let nama = divBahanBaku.nama;
+    let deks = divBahanBaku.deks;
+    let satuan = divBahanBaku.satuan;
+    let kategori = divBahanBaku.kategori;
+    let stok = divBahanBaku.stok;
+
+    if(nama === '' || deks === '' || stok === ''){
+        pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
+    }else{
+        
+    }
+}
+
+function kembali()
+{
+    renderMenu(bahanBaku);
+    divJudul.judulForm = "Bahan Baku";
+}
 
 function tampilFormTambahBahanBaku()
 {

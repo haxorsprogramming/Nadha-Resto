@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
                 <label>Satuan</label>
-                <select v-model='satuan' class="form-control">
+                <select v-model='satuan' class="form-control" v-model='satuan'>
                     <option>Kg</option>
                     <option>Liter</option>
                     <option>Pcs</option>
@@ -71,7 +71,7 @@
             </div>
             <div class="form-group">
                 <label>Stok Awal</label>
-                <input type="number" class="form-control" id='txtStokAwal'>
+                <input type="number" class="form-control" id='txtStokAwal' v-model='stok'>
             </div>
             <div>
                 <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'>Simpan</a>&nbsp;&nbsp;
