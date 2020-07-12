@@ -4,6 +4,9 @@ var divMitra = new Vue({
 
     },
     methods : {
-        
+        tambahMitraAtc : function()
+        {
+            
+        }
     }
 });
