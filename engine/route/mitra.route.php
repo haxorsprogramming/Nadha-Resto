@@ -1,12 +1,13 @@
 <?php
 
-class meja extends Route{
+class mitra extends Route{
 
     private $sn = 'mitraData';
     
     public function index()
     {
-        $this -> bind('dasbor/mitra/mitra');
+        $data['mitra'] = $this -> state($this -> sn) -> getMitra();
+        $this -> bind('dasbor/mitra/mitra', $data);
     }
 
 }

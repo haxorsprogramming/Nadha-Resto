@@ -9,6 +9,7 @@ const pesanan = 'pesanan';
 const pesananBaru = 'pesanan/pesananBaru';
 const pengaturanUmum = 'setting/setting';
 const bahanBaku = 'bahanBaku';
+const mitra = 'mitra';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -88,6 +89,11 @@ var divMenu = new Vue({
     {
       renderMenu(bahanBaku);
       divJudul.judulForm = "Bahan Baku";
+    },
+    mitraAtc : function()
+    {
+      renderMenu(mitra);
+      divJudul.judulForm = "Daftar Mitra";
     }
   }
 });

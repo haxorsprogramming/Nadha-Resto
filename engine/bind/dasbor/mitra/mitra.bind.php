@@ -1,1 +1,3 @@
-Halaman mitra
+<div id='divBahanBaku'>
+    
+</div>
