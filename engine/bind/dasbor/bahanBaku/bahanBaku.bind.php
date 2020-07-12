@@ -53,8 +53,8 @@
             <div class="form-group">
                 <label>Kategori</label>
                 <select class="form-control" v-model='kategori'>
-                    <option value="Olahan Hewan">Daging</option>
-                    <option value="Olahan Hewan">Seafood</option>
+                    <option value="Daging">Daging</option>
+                    <option value="Seafood">Seafood</option>
                     <option value="Karbo">Karbo</option>
                     <option value="Sayur">Sayur</option>
                     <option value="Buah">Buah</option>

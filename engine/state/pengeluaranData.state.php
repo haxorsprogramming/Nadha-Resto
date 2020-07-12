@@ -9,9 +9,9 @@ class pengeluaranData{
         $this -> st = new state;
     }
 
-    public function getDataBahanBaku()
+    public function getDataBahanBakuKategori($kategori)
     {
-        $this -> st -> query("SELECT * FROM tbl_bahan_baku;");
+        $this -> st -> query("SELECT * FROM tbl_bahan_baku WHERE kategori='$kategori';");
         return $this -> st -> queryAll();
     }
 
