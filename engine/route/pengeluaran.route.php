@@ -6,14 +6,14 @@ class pengeluaran extends Route{
 
     public function pembelianBahanBaku()
     {
-        $data['mitra'] = $this -> state($this -> sn) -> getMitra();
-        $dataHistory = $this -> state($this -> sn) -> getHistory();
+        $data['mitra']  = $this -> state($this -> sn) -> getMitra();
+        $dataHistory    = $this -> state($this -> sn) -> getHistory();
         foreach($dataHistory as $dh){
-            $arrTemp['kdMitra'] = $dh['mitra'];
-            $arrTemp['kdPembelian'] = $dh['kd_pembelian'];
-            $arrTemp['waktu'] = $dh['waktu'];
-            $arrTemp['namaMitra'] = $this -> state($this -> sn) -> getNamaMitra($dh['mitra']);
-            $arrTemp['total'] = $dh['total'];
+            $arrTemp['kdMitra']         = $dh['mitra'];
+            $arrTemp['kdPembelian']     = $dh['kd_pembelian'];
+            $arrTemp['waktu']           = $dh['waktu'];
+            $arrTemp['namaMitra']       = $this -> state($this -> sn) -> getNamaMitra($dh['mitra']);
+            $arrTemp['total']           = $dh['total'];
             $data['historyPembelian'][] = $arrTemp; 
         }
         $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
@@ -22,13 +22,14 @@ class pengeluaran extends Route{
     public function detailPembelian($kdPembelian)
     {
         $data['pembelian'] = $this -> state($this -> sn) -> getDataPembelian($kdPembelian);
+        $data['itemPembelian'] = $this -> state($this -> sn) -> getItemPembelian($kdPembelian);
         $this -> bind('dasbor/pengeluaran/detailPembelianBahanBaku', $data);
     }
 
     public function getDataBahanBakuKategori()
     {
-        $kategori = $this -> inp('kategori');
-        $data['bahanBaku'] = $this -> state($this -> sn) -> getDataBahanBakuKategori($kategori);
+        $kategori           = $this -> inp('kategori');
+        $data['bahanBaku']  = $this -> state($this -> sn) -> getDataBahanBakuKategori($kategori);
         $this -> toJson($data);
     }
 

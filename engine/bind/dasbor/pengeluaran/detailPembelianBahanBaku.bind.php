@@ -14,15 +14,15 @@
                             <div class="col-md-6">
                                 <address>
                                     <strong>Pembayaran oleh </strong><br>
-                                    <br>
-                                    <br>
+                                    Nadha Resto<br>
+                                    Jln. Pantai Cermin, No. 12, Perbaungan<br>
                                     <br>
                                 </address>
                             </div>
                             <div class="col-md-6 text-md-right">
                                 <address>
                                     <strong>Kepada </strong><br>
-                                    <br>
+                                    Toko Delima<br>
                                     <br>
                                     , <br>
                                     , 
@@ -57,10 +57,10 @@
                                         <th data-width="40" style="width: 40px;">#</th>
                                         <th>Produk</th>
                                         <th class="text-center">Harga (@)</th>
-                                        <th class="text-center">Qt</th>
-                                        <th class="text-right">Total</th>
+                                        <th class="text-center">Satuan</th>
+                                        <th class="text-right">Qt</th>
                                     </tr>
-
+                                    <?php foreach($data['itemPembelian'] as $dp) : ?>
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -68,39 +68,15 @@
                                         <td class="text-center"></td>
                                         <td class="text-right">Rp. </td>
                                     </tr>
-
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-lg-8">
-                                <div class="section-title">Kode Promo</div>
-                                <p class="section-lead">--</p>
-                            </div>
-                            <div class="col-lg-4 text-right">
+                            <div class="col-lg-4 text-left">
                                 <div class="invoice-detail-item">
-                                    <div class="invoice-detail-name">Subtotal</div>
-                                    <div class="invoice-detail-value">Rp. </div>
-                                </div>
-                                <div class="invoice-detail-item">
-                                    <div class="invoice-detail-name">Diskon <small>(Level pengguna & kode promo)</small>
-                                    </div>
-                                    <div class="invoice-detail-value">Rp. </div>
-                                </div>
-                                <hr class="mt-2 mb-2">
-                                <div class="invoice-detail-item">
-                                    <div class="invoice-detail-name">Total</div>
-                                    <div class="invoice-detail-value invoice-detail-value-lg">Rp. </div>
-                                </div>
-                                <hr class="mt-2 mb-2">
-                                <div class="invoice-detail-item">
-                                    <div class="invoice-detail-name">Tunai</div>
-                                    <div class="invoice-detail-value">Rp.</div>
-                                </div>
-                                <hr class="mt-2 mb-2">
-                                <div class="invoice-detail-item">
-                                    <div class="invoice-detail-name">Kembali</div>
-                                    <div class="invoice-detail-value">Rp. </div>
+                                    <div class="invoice-detail-name">Total Pembelian</div>
+                                    <div class="invoice-detail-value">Rp. <?=number_format($data['pembelian']['total']); ?></div>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +86,7 @@
             <hr>
             <div class="text-md-right">
                 <div class="float-lg-left mb-lg-0 mb-3">
-                    <a class="btn btn-primary btn-icon icon-left" href='#!' target="new"><i class="fas fa-print"></i>
+                    <a class="btn btn-primary btn-icon icon-left" href='<?=HOMEBASE; ?>cetak/invoicePembelianBb/<?=$data['pembelian']['kd_pembelian']; ?>' target="new"><i class="fas fa-print"></i>
                         Cetak</a>
                     <button class="btn btn-warning btn-icon icon-left" v-on:click=''><i class="fas fa-reply"></i>
                         Kembali</button>
