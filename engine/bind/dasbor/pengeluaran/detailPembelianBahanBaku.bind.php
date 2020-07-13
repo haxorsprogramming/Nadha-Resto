@@ -23,7 +23,7 @@
                                 <address>
                                     <strong>Kepada </strong><br>
                                     Toko Delima<br>
-                                    <br>
+                                    Jln. Pantai Cermin, No. 12, Perbaungan<br>
                                     , <br>
                                     , 
                                 </address>
@@ -60,7 +60,9 @@
                                         <th class="text-center">Satuan</th>
                                         <th class="text-right">Qt</th>
                                     </tr>
-                                    <?php foreach($data['itemPembelian'] as $dp) : ?>
+                                    <?php foreach($data['itemPembelian'] as $dp) : 
+                                        
+                                    ?>
                                     <tr>
                                         <td></td>
                                         <td></td>

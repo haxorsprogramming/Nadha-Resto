@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <!-- Meta -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <!-- Title -->
-<title>Soup - Restaurant with Online Ordering System Template</title>
-
+<title>Nadha Resto - Aplikasi Manajemen Restoran</title>
 <!-- Favicons -->
 <link rel="shortcut icon" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon_60x60.png">
 <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon_76x76.png">
 <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon_120x120.png">
 <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon_152x152.png">
-
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@100;200;400;500&display=swap" rel="stylesheet">
-
 <!-- CSS Core -->
 <link rel="stylesheet" href="<?=HOMEBASE; ?>ladun/homepage/dist/css/core.css" />
-
 <!-- CSS Theme -->
 <link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/homepage/dist/css/theme-beige.css" />
-
 </head>
 
 <body>
-
 <!-- Body Wrapper -->
 <div id="body-wrapper" class="animsition">
-
     <!-- Header -->
     <header id="header" class="light">
 
@@ -635,19 +626,6 @@
             </div>
             <button type="button" class="modal-btn btn btn-secondary btn-block btn-lg" data-action="add-to-cart"><span>Add to Cart</span></button>
             <button type="button" class="modal-btn btn btn-secondary btn-block btn-lg" data-action="update-cart"><span>Update</span></button>
-        </div>
-    </div>
-</div>
-
-<!-- Cookies Bar -->
-<div id="cookies-bar" class="body-bar cookies-bar">
-    <div class="body-bar-container container">
-        <div class="body-bar-text">
-            <h4 class="mb-2">Cookies & GDPR</h4>
-            <p>This is a sample Cookies / GDPR information. You can use it easily on your site and even add link to <a href="#">Privacy Policy</a>.</p>
-        </div>
-        <div class="body-bar-action">
-            <button class="btn btn-primary" data-accept="cookies"><span>Accept</span></button>
         </div>
     </div>
 </div>
