@@ -61,4 +61,10 @@ class pengeluaranData{
         $this -> st -> queryRun();
     }
 
+    public function getDataPembelian($kdPembelian)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pembelian_bahan_baku WHERE kd_pembelian='$kdPembelian';");
+        return $this -> st -> querySingle();
+    }
+
 }

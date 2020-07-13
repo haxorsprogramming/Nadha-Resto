@@ -11,7 +11,8 @@ var divPembelian = new Vue({
     methods : {
         detailAtc : function(kdPembelian)
         {
-            window.alert(kdPembelian);
+            renderMenu('pengeluaran/detailPembelian/'+kdPembelian);
+            divJudul.judulForm = "Detail pembelian bahan baku";
         },
         tambahPembelianAtc : function()
         {

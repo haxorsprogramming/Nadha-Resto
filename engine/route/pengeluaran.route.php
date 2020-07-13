@@ -19,6 +19,12 @@ class pengeluaran extends Route{
         $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
     }
 
+    public function detailPembelian($kdPembelian)
+    {
+        $data['pembelian'] = $this -> state($this -> sn) -> getDataPembelian($kdPembelian);
+        $this -> bind('dasbor/pengeluaran/detailPembelianBahanBaku', $data);
+    }
+
     public function getDataBahanBakuKategori()
     {
         $kategori = $this -> inp('kategori');
