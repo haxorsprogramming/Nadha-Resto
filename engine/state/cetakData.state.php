@@ -22,9 +22,9 @@ class cetakData{
         return $q['nama'];
     }
 
-    public function getLogo()
+    public function getSetting($kdSetting)
     {
-        $this -> st -> query("SELECT value FROM tbl_setting WHERE kd_setting='logo_resto';");
+        $this -> st -> query("SELECT value FROM tbl_setting WHERE kd_setting='$kdSetting';");
         $q = $this -> st -> querySingle();
         return $q['value'];
     }

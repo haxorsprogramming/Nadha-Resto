@@ -9,6 +9,10 @@ var divPembelian = new Vue({
         nominal : 0
     },
     methods : {
+        detailAtc : function(kdPembelian)
+        {
+            window.alert(kdPembelian);
+        },
         tambahPembelianAtc : function()
         {
             tambahPembelian();
