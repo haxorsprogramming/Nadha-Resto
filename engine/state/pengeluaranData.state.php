@@ -21,9 +21,11 @@ class pengeluaranData{
         return $this -> st -> queryAll();
     }
 
-    public function getNamaMitra()
+    public function getNamaMitra($kdMitra)
     {
-        
+        $this -> st -> query("SELECT nama FROM tbl_mitra WHERE kd_mitra='$kdMitra';");
+        $q = $this -> st -> querySingle();
+        return $q['nama'];
     }
 
     public function getDataBahanBakuKategori($kategori)

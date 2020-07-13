@@ -12,6 +12,8 @@ class pengeluaran extends Route{
             $arrTemp['kdMitra'] = $dh['mitra'];
             $arrTemp['kdPembelian'] = $dh['kd_pembelian'];
             $arrTemp['waktu'] = $dh['waktu'];
+            $arrTemp['namaMitra'] = $this -> state($this -> sn) -> getNamaMitra($dh['mitra']);
+            $arrTemp['total'] = $dh['total'];
             $data['historyPembelian'][] = $arrTemp; 
         }
         $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
