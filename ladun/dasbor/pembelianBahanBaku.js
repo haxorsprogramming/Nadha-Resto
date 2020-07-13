@@ -77,6 +77,7 @@ function proses()
                 }
                 //todo : tambahkan konfirmasi apakah ingin cetak struk ..
                 pesanUmumApp('success', 'Sukses', 'Pembelian bahan baku item sukses..');
+                window.open('cetak/invoicePembelianBb/'+kdPembelian);
                 renderMenu(pembelianBahanBaku);
                 divJudul.judulForm = "Pembelian bahan baku";
               });
