@@ -46,7 +46,10 @@ class pengeluaran extends Route{
         $kdPembelian = $this -> inp('kdPembelian');
         $kdItem = $this -> inp('kdItem');
         $qt = $this -> inp('qt');
+        //update temp 
         $this -> state($this -> sn) -> updateTemp($kdTemp, $kdPembelian, $kdItem, $qt);
+        //update stok 
+        $this -> state($this -> sn) ->  updateStok($kdItem, $qt);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

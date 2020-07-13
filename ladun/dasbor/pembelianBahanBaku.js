@@ -64,7 +64,7 @@ function proses()
           }).then((result) => {
             if(result.value) {
                 //buat pesanan 
-                console.log(dataSend);
+                // console.log(dataSend);
               $.post('pengeluaran/prosesPembelian', dataSend, function(data){
                 let obj = JSON.parse(data);
                 let kdPembelian = obj.kdPembelian;
