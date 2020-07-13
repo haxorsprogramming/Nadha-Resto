@@ -9,10 +9,21 @@ class pengeluaranData{
         $this -> st = new state;
     }
 
+    public function getHistory()
+    {
+        $this -> st -> query("SELECT * FROM tbl_pembelian_bahan_baku;");
+        return $this -> st -> queryAll();
+    }
+
     public function getMitra()
     {
         $this -> st -> query("SELECT * FROM tbl_mitra;");
         return $this -> st -> queryAll();
+    }
+
+    public function getNamaMitra()
+    {
+        
     }
 
     public function getDataBahanBakuKategori($kategori)

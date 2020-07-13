@@ -7,6 +7,13 @@ class pengeluaran extends Route{
     public function pembelianBahanBaku()
     {
         $data['mitra'] = $this -> state($this -> sn) -> getMitra();
+        $dataHistory = $this -> state($this -> sn) -> getHistory();
+        foreach($dataHistory as $dh){
+            $arrTemp['kdMitra'] = $dh['mitra'];
+            $arrTemp['kdPembelian'] = $dh['kd_pembelian'];
+            $arrTemp['waktu'] = $dh['waktu'];
+            $data['historyPembelian'][] = $arrTemp; 
+        }
         $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
     }
 

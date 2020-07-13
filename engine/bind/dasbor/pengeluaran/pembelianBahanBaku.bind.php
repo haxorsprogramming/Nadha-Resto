@@ -3,20 +3,27 @@
         <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahPembelianAtc'>
             <i class="fas fa-plus-circle"></i> Tambah Pembelian
         </a>
-        <div>
+        <div style="margin-top: 20px;">
         <table id='tblHistoryPembelian' class='table table-hover table-bordered table-stripped'>
             <thead>
                 <tr>
-                    <th>Bahan Baku</th>
-                    <th>Deks</th>
-                    <th>Kategori / Satuan</th>
-                    <th>Stok</th>
-                    <th>Total Pembelian</th>
+                    <th>Kd Pembelian</th>
+                    <th>Mitra</th>
+                    <th>Total</th>
+                    <th>Waktu</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-    
+                <?php foreach($data['historyPembelian'] as $hp) : ?>
+                    <tr>
+                        <td><?=$hp['kdPembelian']; ?></td>
+                        <td><?=$hp['kdMitra']; ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
         </div>
