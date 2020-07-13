@@ -75,6 +75,7 @@ function proses()
                     $.post('pengeluaran/updateTempPembelian', dts, function(data){
                     });
                 }
+                //todo : tambahkan konfirmasi apakah ingin cetak struk ..
                 pesanUmumApp('success', 'Sukses', 'Pembelian bahan baku item sukses..');
                 renderMenu(pembelianBahanBaku);
                 divJudul.judulForm = "Pembelian bahan baku";

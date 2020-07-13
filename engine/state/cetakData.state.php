@@ -29,4 +29,16 @@ class cetakData{
         return $q['value'];
     }
 
+    public function getDataTemp($kdPembelian)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_pembelian_bahan_baku WHERE kd_pembelian='$kdPembelian';");
+        return $this -> st -> queryAll();
+    }
+
+    public function getBahanData($kdBahan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_bahan_baku WHERE kd_bahan='$kdBahan';");
+        return $this -> st -> querySingle(); 
+    }
+
 }
