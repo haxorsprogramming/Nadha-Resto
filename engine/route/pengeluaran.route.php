@@ -21,11 +21,17 @@ class pengeluaran extends Route{
 
     public function getDetailPembelian()
     {
+        //ambil kode pembelian dari method post
         $kdPembelian = $this -> inp('kdPembelian');
+        //ambil query data pembelian
         $qPembelian = $this -> state($this -> sn) ->  getDataPembelian($kdPembelian);
-        //get total data
+        //ambil data total pembelian dan masukkan ke dalam variabel data
         $data['total'] = $qPembelian['total'];
+        //ambil nama resto dan masukkan ke dalam variabel data
+        $data['namaResto'] = $this -> state($this -> sn) -> getNamaResto();
+        //kode pembelian dimasukkan ke dalam variabel data
         $data['kdPembelian'] = $qPembelian;
+        //kirim respon json dari variabel data
         $this -> toJson($data);
     }
 

@@ -32,6 +32,7 @@ function renderHeader()
     $.post('pengeluaran/getDetailPembelian', {'kdPembelian':kdPembelian}, function(data){
         let obj = JSON.parse(data);
         divDetailPembelianBb.totalPembelian = obj.total;
+        divDetailPembelianBb.namaResto = obj.namaResto;
         console.log(obj);
     });
 }
