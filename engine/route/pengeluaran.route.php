@@ -49,6 +49,23 @@ class pengeluaran extends Route{
         $this -> toJson($data);
     }
 
+    public function getItemPembelian()
+    {
+         //ambil kode pembelian dari method post
+         $kdPembelian = $this -> inp('kdPembelian');
+         $qItemPembelian = $this -> state($this -> sn) -> getItemPembelian($kdPembelian);
+         foreach($qItemPembelian as $ip) {
+             $qItem = $this -> state($this -> su) -> getBahanBakuData($ip['kd_item']);
+             $arrTemp['kdBahan'] = $ip['kd_item'];
+             $arrTemp['qt'] = $ip['qt'];
+             $arrTemp['namaBahan'] = $qItem['nama'];
+             $arrTemp['kategori'] = $qItem['kategori'];
+             $arrTemp['satuan'] = $qItem['satuan'];
+             $data['itemPembelian'][] = $arrTemp;
+         }
+         $this -> toJson($data);
+    }
+
     public function detailPembelian($kdPembelian)
     {
         $data['kdPembelian'] = $kdPembelian;

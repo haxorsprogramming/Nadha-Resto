@@ -48,7 +48,7 @@
                 <div class="row mt-4">
                     <div class="col-md-12">
                         <div class="section-title">Daftar items</div>
-                        <p class="section-lead">Daftar item produk/service yang dimasukkan</p>
+                        <p class="section-lead">Daftar item bahan baku yang beli</p>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-md">
                                     <tr>
@@ -59,7 +59,7 @@
                                     </tr>
                                     <tr v-for='ip in itemPembelian'>
                                         <td></td>
-                                        <td >{{ip.namaProduk}}</td>
+                                        <td >{{ip.nama}}</td>
                                         <td class="text-center">{{ip.satuan}}</td>
                                         <td class="text-right">{{ip.qt}}</td>
                                     </tr>

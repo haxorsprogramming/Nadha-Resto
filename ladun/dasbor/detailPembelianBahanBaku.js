@@ -30,6 +30,7 @@ setTimeout(renderHeader, 400);
 function renderHeader()
 {
     let kdPembelian = divDetailPembelianBb.kdPembelian;
+    //render header
     $.post('pengeluaran/getDetailPembelian', {'kdPembelian':kdPembelian}, function(data){
         let obj = JSON.parse(data);
         divDetailPembelianBb.totalPembelian = obj.total;
@@ -41,5 +42,19 @@ function renderHeader()
         divDetailPembelianBb.noHpMitra = obj.noHpMitra;
         divDetailPembelianBb.waktuPembelian = obj.waktuPembelian;
         console.log(obj);
+    });
+    //render list item pembelian
+    $.post('pengeluaran/getItemPembelian', {'kdPembelian':kdPembelian}, function(data){
+        let obj = JSON.parse(data);
+        let itemPem = obj.itemPembelian;
+        divDetailPembelianBb.itemPembelian.splice(0,1);
+        itemPem.forEach(renderItem);
+        function renderItem(item, index){
+            divDetailPembelianBb.itemPembelian.push({
+                nama : itemPem[index].namaBahan,
+                satuan : itemPem[index].satuan,
+                qt : itemPem[index].qt
+            });
+        }
     });
 }

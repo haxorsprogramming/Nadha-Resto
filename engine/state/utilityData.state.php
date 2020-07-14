@@ -54,7 +54,13 @@ class utilityData{
         $q = $this -> st -> querySingle();
         return $q['pelanggan'];
     }
-
+    //fungsi ambil nama bahan baku 
+    public function getBahanBakuData($kdBahan)
+    {
+        $this -> st -> query("SELECT nama,kategori,satuan FROM tbl_bahan_baku WHERE kd_bahan='$kdBahan';");
+        return $this -> st -> querySingle();
+    }
+    //fungsi ambil nama pelanggan
     public function getNamaPelanggan($kdPelanggan)
     {
         $this -> st -> query("SELECT nama FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
