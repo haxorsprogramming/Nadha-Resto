@@ -8,14 +8,7 @@ class pengeluaranData{
     {
         $this -> st = new state;
     }
-
-    public function getNamaResto()
-    {
-        $this -> st -> query("SELECT value FROM tbl_setting WHERE kd_setting='nama_resto';");
-        $q = $this -> st -> querySingle();
-        return $q['value'];
-    }
-
+    
     public function getHistory()
     {
         $this -> st -> query("SELECT * FROM tbl_pembelian_bahan_baku;");

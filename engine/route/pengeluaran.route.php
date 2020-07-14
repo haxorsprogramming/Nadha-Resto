@@ -3,6 +3,7 @@
 class pengeluaran extends Route{
 
     private $sn = 'pengeluaranData';
+    private $su = 'utilityData';
 
     public function pembelianBahanBaku()
     {
@@ -25,11 +26,20 @@ class pengeluaran extends Route{
         $kdPembelian = $this -> inp('kdPembelian');
         //ambil query data pembelian
         $qPembelian = $this -> state($this -> sn) ->  getDataPembelian($kdPembelian);
+        //ambil variabel kd_mitra & data query mitra
+        $kdMitra = $qPembelian['mitra'];
+        $qMitra = $this -> state($this -> su) -> getMitraData($kdMitra);
         //ambil data total pembelian dan masukkan ke dalam variabel data
         $data['total'] = $qPembelian['total'];
         //ambil nama resto dan masukkan ke dalam variabel data
-        $data['namaResto'] = $this -> state($this -> sn) -> getNamaResto();
-        //kode pembelian dimasukkan ke dalam variabel data
+        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        //ambil alamat resto dan masukkan ke dalam variabel data
+        $data['alamatResto'] = $this -> state($this -> su) -> getSettingResto('alamat_resto');
+        //ambil nomor hp resto dan masukkan ke dalam variabel data
+        $data['noHpResto'] = $this -> state($this -> su) -> getSettingResto('nomor_handphone');
+        //ambil nama mitra dan masukkan ke variabel data
+        $data['namaMitra'] = $qMitra['nama'];
+        //query pembelian dimasukkan ke dalam variabel data
         $data['kdPembelian'] = $qPembelian;
         //kirim respon json dari variabel data
         $this -> toJson($data);

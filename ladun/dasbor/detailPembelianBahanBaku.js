@@ -33,6 +33,8 @@ function renderHeader()
         let obj = JSON.parse(data);
         divDetailPembelianBb.totalPembelian = obj.total;
         divDetailPembelianBb.namaResto = obj.namaResto;
+        divDetailPembelianBb.alamatResto = obj.alamatResto;
+        divDetailPembelianBb.noHpResto = obj.noHpResto;
         console.log(obj);
     });
 }
