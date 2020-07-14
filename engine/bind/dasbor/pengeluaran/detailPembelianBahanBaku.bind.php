@@ -6,7 +6,7 @@
                     <div class="col-lg-12">
                         <div class="invoice-title">
                             <h2>Invoice</h2>
-                            <div class="invoice-number">Service Id #</div>
+                            <div class="invoice-number">Service Id # <span id='txtKdPembelian'><?=$data['kdPembelian']; ?></div>
                             <span id='txtKodeService' style='display:none;'></span>
                         </div>
                         <hr>
@@ -51,30 +51,25 @@
                         <p class="section-lead">Daftar item produk/service yang dimasukkan</p>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-md">
-                                <tbody>
                                     <tr>
                                         <th data-width="40" style="width: 40px;">#</th>
                                         <th>Produk</th>
-                                        <th class="text-center">Harga (@)</th>
                                         <th class="text-center">Satuan</th>
                                         <th class="text-right">Qt</th>
                                     </tr>
-                                    <tr>
+                                    <tr v-for='ip in itemPembelian'>
                                         <td></td>
-                                        <td></td>
-                                        <td class="text-center">Rp. </td>
-                                        <td class="text-center"></td>
-                                        <td class="text-right">Rp. </td>
+                                        <td >{{ip.namaProduk}}</td>
+                                        <td class="text-center">{{ip.satuan}}</td>
+                                        <td class="text-right">{{ip.qt}}</td>
                                     </tr>
-                                    
-                                </tbody>
                             </table>
                         </div>
                         <div class="row mt-4">
                             <div class="col-lg-4 text-left">
                                 <div class="invoice-detail-item">
                                     <div class="invoice-detail-name">Total Pembelian</div>
-                                    <div class="invoice-detail-value">Rp. <?=number_format($data['pembelian']['total']); ?></div>
+                                    <div class="invoice-detail-value">Rp. {{ Number(totalPembelian).toLocaleString() }}</div>
                                 </div>
                             </div>
                         </div>
@@ -84,10 +79,12 @@
             <hr>
             <div class="text-md-right">
                 <div class="float-lg-left mb-lg-0 mb-3">
-                    <a class="btn btn-primary btn-icon icon-left" href='<?=HOMEBASE; ?>cetak/invoicePembelianBb/<?=$data['pembelian']['kd_pembelian']; ?>' target="new"><i class="fas fa-print"></i>
-                        Cetak</a>
-                    <button class="btn btn-warning btn-icon icon-left" v-on:click=''><i class="fas fa-reply"></i>
-                        Kembali</button>
+                    <a class="btn btn-primary btn-icon icon-left" href="<?=HOMEBASE; ?>cetak/invoicePembelianBb/<?=$data['kdPembelian']; ?>" target="new">
+                        <i class="fas fa-print"></i> Cetak
+                    </a>
+                    <a class="btn btn-warning btn-icon icon-left" href='#!' @click='kembaliAtc'>
+                        <i class="fas fa-reply"></i> Kembali
+                    </a>
                 </div>
             </div>
         </div>

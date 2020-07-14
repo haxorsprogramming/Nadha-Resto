@@ -14,8 +14,11 @@ class dasbor extends Route{
 
     public function beranda()
     {
+        //get jumlah pengunjung
         $data['jlhPengunjung'] = $this -> state('utilityData') -> getJlhPengunjung();
+        //get jumlah pelanggan
         $data['jlhPelanggan'] = $this -> state('utilityData') -> getJlhPelanggan();
+        //render to view 
         $this -> bind('/dasbor/beranda', $data);   
     }
 

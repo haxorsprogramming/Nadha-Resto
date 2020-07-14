@@ -19,10 +19,19 @@ class pengeluaran extends Route{
         $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
     }
 
+    public function getDetailPembelian()
+    {
+        $kdPembelian = $this -> inp('kdPembelian');
+        $qPembelian = $this -> state($this -> sn) ->  getDataPembelian($kdPembelian);
+        //get total data
+        $data['total'] = $qPembelian['total'];
+        $data['kdPembelian'] = $qPembelian;
+        $this -> toJson($data);
+    }
+
     public function detailPembelian($kdPembelian)
     {
-        $data['pembelian'] = $this -> state($this -> sn) -> getDataPembelian($kdPembelian);
-        $data['itemPembelian'] = $this -> state($this -> sn) -> getItemPembelian($kdPembelian);
+        $data['kdPembelian'] = $kdPembelian;
         $this -> bind('dasbor/pengeluaran/detailPembelianBahanBaku', $data);
     }
 
