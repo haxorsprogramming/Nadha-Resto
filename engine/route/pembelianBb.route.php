@@ -17,7 +17,7 @@ class pengeluaran extends Route{
             $arrTemp['total']           = $dh['total'];
             $data['historyPembelian'][] = $arrTemp; 
         }
-        $this -> bind('dasbor/pengeluaran/pembelianBahanBaku', $data);
+        $this -> bind('dasbor/pembelianBb/pembelianBahanBaku', $data);
     }
 
     public function getDetailPembelian()

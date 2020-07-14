@@ -11,7 +11,7 @@ var divPembelian = new Vue({
     methods : {
         detailAtc : function(kdPembelian)
         {
-            renderMenu('pengeluaran/detailPembelian/'+kdPembelian);
+            renderMenu('pembelianBb/detailPembelian/'+kdPembelian);
             divJudul.judulForm = "Detail pembelian bahan baku";
         },
         tambahPembelianAtc : function()
@@ -77,7 +77,7 @@ function proses()
                 itemPesanan.forEach(renderTemp);
                 function renderTemp(item, index){
                     let dts = {'kdPembelian':kdPembelian, 'kdItem':itemPesanan[index].kdBahan, 'qt':itemPesanan[index].value}
-                    $.post('pengeluaran/updateTempPembelian', dts, function(data){
+                    $.post('pembelianBb/updateTempPembelian', dts, function(data){
                     });
                 }
                 //todo : tambahkan konfirmasi apakah ingin cetak struk ..
@@ -140,7 +140,7 @@ function tambahItem(kdBahan, satuan, nama)
 
 function setItem(kategori)
 {
-    $.post('pengeluaran/getDataBahanBakuKategori', {'kategori':kategori}, function(data){
+    $.post('pembelianBb/getDataBahanBakuKategori', {'kategori':kategori}, function(data){
         let obj = JSON.parse(data);
         let bb = obj.bahanBaku;
         let pjgArray = divPembelian.itemBahanBaku.length;

@@ -9,7 +9,7 @@ const pesanan = 'pesanan';
 const pesananBaru = 'pesanan/pesananBaru';
 const pengaturanUmum = 'setting/setting';
 const bahanBaku = 'bahanBaku';
-const pembelianBahanBaku = 'pengeluaran/pembelianBahanBaku';
+const pembelianBahanBaku = 'pembelianBb/pembelianBahanBaku';
 const mitra = 'mitra';
 
 const d = new Date();
