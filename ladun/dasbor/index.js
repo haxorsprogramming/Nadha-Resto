@@ -40,7 +40,9 @@ var divJudul = new Vue({
 //objek vue menu
 var divMenu = new Vue({
   el: '#divMenu',
-  data: {},
+  data: {
+    
+  },
   methods: {
     berandaAct : function()
     {
