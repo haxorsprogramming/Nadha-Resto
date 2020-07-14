@@ -38,7 +38,7 @@
                             <div class="col-md-6 text-md-right">
                                 <address>
                                     <strong>Tanggal Transaksi</strong><br>
-                                    <br><br>
+                                    <br>{{waktuPembelian}}<br>
                                 </address>
                             </div>
                         </div>

@@ -39,6 +39,10 @@ class pengeluaran extends Route{
         $data['noHpResto'] = $this -> state($this -> su) -> getSettingResto('nomor_handphone');
         //ambil nama mitra dan masukkan ke variabel data
         $data['namaMitra'] = $qMitra['nama'];
+        $data['alamatMitra'] = $qMitra['alamat'];
+        $data['noHpMitra'] = $qMitra['hp'];
+        //data waktu 
+        $data['waktuPembelian'] = date('d M Y', strtotime($qPembelian['waktu']));
         //query pembelian dimasukkan ke dalam variabel data
         $data['kdPembelian'] = $qPembelian;
         //kirim respon json dari variabel data

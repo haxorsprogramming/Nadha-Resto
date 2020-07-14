@@ -9,6 +9,7 @@ var divDetailPembelianBb = new Vue({
         alamatMitra : 'Memuat ...',
         noHpMitra : 'Memuat ...',
         totalPembelian : 0,
+        waktuPembelian : '',
         itemPembelian : [
             {namaProduk: 'Memuat ..', satuan: 'Memuat ..', qt : 0}
         ]
@@ -35,6 +36,10 @@ function renderHeader()
         divDetailPembelianBb.namaResto = obj.namaResto;
         divDetailPembelianBb.alamatResto = obj.alamatResto;
         divDetailPembelianBb.noHpResto = obj.noHpResto;
+        divDetailPembelianBb.namaMitra = obj.namaMitra;
+        divDetailPembelianBb.alamatMitra = obj.alamatMitra;
+        divDetailPembelianBb.noHpMitra = obj.noHpMitra;
+        divDetailPembelianBb.waktuPembelian = obj.waktuPembelian;
         console.log(obj);
     });
 }

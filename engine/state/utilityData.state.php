@@ -19,7 +19,7 @@ class utilityData{
     public function getMitraData($kdMitra)
     {
         $this -> st -> query("SELECT * FROM tbl_mitra WHERE kd_mitra='$kdMitra';");
-        return $this -> st -> queryAll();
+        return $this -> st -> querySingle();
     }
     //fungsi ambil jumlah pengunjung
     public function getJlhPengunjung()
