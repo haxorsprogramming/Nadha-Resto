@@ -1,6 +1,6 @@
 <?php 
 
-class pengeluaranData{
+class pembelianBbData{
    
     private $st;
 

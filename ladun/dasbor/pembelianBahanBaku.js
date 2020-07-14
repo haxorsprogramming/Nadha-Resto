@@ -70,7 +70,7 @@ function proses()
             if(result.value) {
                 //buat pesanan 
                 // console.log(dataSend);
-              $.post('pengeluaran/prosesPembelian', dataSend, function(data){
+              $.post('pembelianBb/prosesPembelian', dataSend, function(data){
                 let obj = JSON.parse(data);
                 let kdPembelian = obj.kdPembelian;
                 let itemPesanan = divPembelian.itemDipilih;

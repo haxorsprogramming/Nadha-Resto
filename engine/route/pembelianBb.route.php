@@ -1,8 +1,8 @@
 <?php
 
-class pengeluaran extends Route{
+class pembelianBb extends Route{
 
-    private $sn = 'pengeluaranData';
+    private $sn = 'pembelianBbData';
     private $su = 'utilityData';
 
     public function pembelianBahanBaku()
@@ -69,7 +69,7 @@ class pengeluaran extends Route{
     public function detailPembelian($kdPembelian)
     {
         $data['kdPembelian'] = $kdPembelian;
-        $this -> bind('dasbor/pengeluaran/detailPembelianBahanBaku', $data);
+        $this -> bind('dasbor/pembelianBb/detailPembelianBahanBaku', $data);
     }
 
     public function getDataBahanBakuKategori()

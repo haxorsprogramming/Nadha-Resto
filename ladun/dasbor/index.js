@@ -11,6 +11,7 @@ const pengaturanUmum = 'setting/setting';
 const bahanBaku = 'bahanBaku';
 const pembelianBahanBaku = 'pembelianBb/pembelianBahanBaku';
 const mitra = 'mitra';
+const pengeluaran = 'pengeluaran';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -100,6 +101,11 @@ var divMenu = new Vue({
     {
       renderMenu(pembelianBahanBaku);
       divJudul.judulForm = "Pembelian bahan baku";
+    },
+    pengeluaranAtc : function()
+    {
+      renderMenu(pengeluaran);
+      divJudul.judulForm = "Pengeluaran Resto";
     }
   }
 });
