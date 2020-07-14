@@ -14,18 +14,17 @@
                             <div class="col-md-6">
                                 <address>
                                     <strong>Pembayaran oleh </strong><br>
-                                    Nadha Resto<br>
-                                    Jln. Pantai Cermin, No. 12, Perbaungan<br>
-                                    <br>
+                                    {{namaResto}}<br>
+                                    {{alamatResto}}<br>
+                                    {{noHpResto}}<br>
                                 </address>
                             </div>
                             <div class="col-md-6 text-md-right">
                                 <address>
                                     <strong>Kepada </strong><br>
-                                    Toko Delima<br>
-                                    Jln. Pantai Cermin, No. 12, Perbaungan<br>
-                                    , <br>
-                                    , 
+                                    {{namaMitra}}<br>
+                                    {{alamatMitra}}<br>
+                                    {{noHpMitra}}<br> 
                                 </address>
                             </div>
                         </div>
@@ -60,9 +59,6 @@
                                         <th class="text-center">Satuan</th>
                                         <th class="text-right">Qt</th>
                                     </tr>
-                                    <?php foreach($data['itemPembelian'] as $dp) : 
-                                        
-                                    ?>
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -70,7 +66,7 @@
                                         <td class="text-center"></td>
                                         <td class="text-right">Rp. </td>
                                     </tr>
-                                    <?php endforeach; ?>
+                                    
                                 </tbody>
                             </table>
                         </div>
