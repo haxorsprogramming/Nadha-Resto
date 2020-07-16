@@ -11,6 +11,10 @@ var divPengeluaran = new Vue({
         kembaliAtc : function()
         {
             divMenu.pengeluaranAtc();
+        },
+        simpanAtc : function()
+        {
+            konfirmasiSimpan();
         }
     }
 });
@@ -19,6 +23,11 @@ var divPengeluaran = new Vue({
 //inisialisasi 
 $('#tblHistoryPengeluaran').dataTable();
 $('#divTambahPengeluaran').hide();
+
+function konfirmasiSimpan()
+{
+    // divPengeluaran.
+}
 
 function tampilFormTambahPengeluaran()
 {

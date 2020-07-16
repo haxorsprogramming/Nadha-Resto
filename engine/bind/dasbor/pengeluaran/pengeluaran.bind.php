@@ -55,10 +55,13 @@
                             <input type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-check-circle'></i> Simpan</a>
+                            <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-check-circle'></i> Simpan</a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+
             </div>
         </div>
     </div>
