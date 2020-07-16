@@ -20,6 +20,7 @@ class pengeluaran extends Route{
         $total = str_replace('.', '', $this -> inp('total'));
         $waktu = $this -> waktu();
         $operator = $this -> getses('userSes');
+        //simpan data pengeluaran
         $this -> state($this -> sn) -> prosesPengeluaran($kdPengeluaran, $nama, $deks, $kategori, $total, $operator, $waktu);
         //simpan ke arus kas 
         $this -> state($this -> su) -> simpanArusKas($kdPengeluaran, 'Pengeluaran resto', 'keluar', $total, $waktu, $operator);
