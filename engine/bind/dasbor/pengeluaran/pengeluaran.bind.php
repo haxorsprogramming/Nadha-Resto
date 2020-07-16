@@ -18,7 +18,16 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <?php foreach($data['pengeluaran'] as $dp) : ?>
+                        <tr>
+                            <td><?=$dp['nama']; ?></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>                            
+                        </tr>
+                    <?php endforeach; ?> 
                 </tbody>
             </table>
         </div>
@@ -44,15 +53,15 @@
                         <div class="form-group">
                             <label>Kategori</label>
                             <select class="form-control" id='txtKategori'>
-                                <option>Listrik</option>
-                                <option>Operasional</option>
-                                <option>Gaji Pegawai</option>
-                                <option>Lain lain</option>
+                                <option value="listrik">Listrik</option>
+                                <option value="operasional">Operasional</option>
+                                <option value="gaji pegawai">Gaji Pegawai</option>
+                                <option value="lain lain">Lain lain</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Total</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id='txtTotal'>
                         </div>
                         <div class="form-group">
                             <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-check-circle'></i> Simpan</a>
