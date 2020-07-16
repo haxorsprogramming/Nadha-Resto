@@ -21,6 +21,8 @@ class pengeluaran extends Route{
         $waktu = $this -> waktu();
         $operator = $this -> getses('userSes');
         $this -> state($this -> sn) -> prosesPengeluaran($kdPengeluaran, $nama, $deks, $kategori, $total, $operator, $waktu);
+        //simpan ke arus kas 
+        $this -> state($this -> su) -> simpanArusKas($kdPengeluaran, 'Pengeluaran resto', 'keluar', $total, $waktu, $operator);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

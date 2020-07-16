@@ -21,11 +21,13 @@
                     <?php foreach($data['pengeluaran'] as $dp) : ?>
                         <tr>
                             <td><?=$dp['nama']; ?></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>                            
+                            <td><?=$dp['deks']; ?></td>
+                            <td><?=$dp['kategori']; ?></td>
+                            <td>Rp. <?=number_format($dp['total']); ?></td>
+                            <td><?=$dp['operator']; ?></td>
+                            <td>
+                                <a href='#!' class="btn btn-sm btn-primary btn-icon icon-left"><i class='fas fa-info-circle'></i> Detail</a>
+                            </td>                            
                         </tr>
                     <?php endforeach; ?> 
                 </tbody>
@@ -65,6 +67,7 @@
                         </div>
                         <div class="form-group">
                             <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-check-circle'></i> Simpan</a>
+
                         </div>
                     </div>
                 </div>

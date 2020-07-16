@@ -99,5 +99,12 @@ class utilityData{
         $this -> st -> query("SELECT * FROM tbl_menu WHERE kategori='$kdKategori';");
         return $this -> st -> queryAll();
     }
+    //fungsi simpan arus kas 
+    public function simpanArusKas($kdTransaksi, $tipe, $arus, $total, $waktu, $operator)
+    {
+        $query = "INSERT INTO tbl_arus_kas VALUES(null, '$kdTransaksi','$tipe','$arus','$total','$waktu','$operator');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
 
 }

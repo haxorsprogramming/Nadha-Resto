@@ -88,6 +88,8 @@ class pembelianBb extends Route{
         $operator = $this -> getses('userSes');
         $nominalClear = str_replace('.','',$nominal);
         $this -> state($this -> sn) -> prosesPembelian($kdPembelian, $mitra, $waktu, $nominalClear, $operator);
+        //simpan ke arus kas
+        $this -> state($this -> su) -> simpanArusKas($kdPembelian, 'Pembelian bahan baku resto', 'keluar', $nominalClear, $waktu, $operator);
         $data['kdPembelian'] = $kdPembelian;
         $this -> toJson($data);
     }
