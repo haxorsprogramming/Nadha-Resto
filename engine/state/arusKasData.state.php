@@ -9,4 +9,10 @@ class arusKasData{
         $this -> st = new state;
     }
 
+    public function getDataArusKas()
+    {
+        $this -> st -> query("SELECT * FROM tbl_arus_kas;");
+        return $this -> st -> queryAll();
+    }
+
 }

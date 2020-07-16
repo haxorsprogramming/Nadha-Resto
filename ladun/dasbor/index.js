@@ -12,6 +12,7 @@ const bahanBaku = 'bahanBaku';
 const pembelianBahanBaku = 'pembelianBb/pembelianBahanBaku';
 const mitra = 'mitra';
 const pengeluaran = 'pengeluaran';
+const arusKas = 'arusKas';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -108,6 +109,11 @@ var divMenu = new Vue({
     {
       renderMenu(pengeluaran);
       divJudul.judulForm = "Pengeluaran Resto";
+    },
+    arusKasAtc : function()
+    {
+      renderMenu(arusKas);
+      divJudul.judulForm = "Arus Kas";
     }
   }
 });
