@@ -1,7 +1,10 @@
 var divPengeluaran = new Vue({
     el : '#divPengeluaran',
     data : {
-
+        namaPengeluaran : '',
+        deksripsi : '',
+        kategori : '',
+        
     },
     methods : {
         tambahPengeluaranAtc : function()
