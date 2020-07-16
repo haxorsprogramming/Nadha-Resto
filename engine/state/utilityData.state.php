@@ -106,5 +106,6 @@ class utilityData{
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
+    //fungsi ambil 
 
 }

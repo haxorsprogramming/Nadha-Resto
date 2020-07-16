@@ -8,6 +8,7 @@ class arusKas extends Route{
     public function index()
     {
         $data['arusKas'] = $this -> state($this -> sn) -> getDataArusKas();
+        $data['saldoAwal'] = $this -> state($this -> su) -> getSettingResto('saldo_awal');
         $this -> bind('dasbor/arusKas/arusKas', $data);
     }
 
