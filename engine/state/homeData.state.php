@@ -27,4 +27,10 @@ class homeData{
         return $this -> st -> queryAll();
     }
 
+    public function getMenuWithKategori($kdMenu)
+    {
+        $this -> st -> query("SELECT * FROM tbl_menu WHERE kategori='$kdMenu';");
+        return $this -> st -> queryAll();
+    }
+
 }

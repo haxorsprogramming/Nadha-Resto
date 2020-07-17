@@ -51,10 +51,19 @@
                           <li><a href="#!">Gallery Resto</a></li>
                         </ul>
                     </nav>
-                    <div class="module right">
+                    <div class="module left">
                         <a href="<?=HOMEBASE;?>home/selfservice" class="btn btn-outline-secondary"><span>Order</span></a>
                         <a href="<?=HOMEBASE;?>login" class="btn btn-outline-secondary"><span>Login</span></a>
-                    </div>
+                    </div>            
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="module module-cart right" data-toggle="panel-cart">
+                        <span class="cart-icon">
+                            <i class="ti ti-shopping-cart"></i>
+                            <span class="notification">0</span>
+                        </span>
+                        <span class="cart-value">$<span class="value">0.00</span></span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -96,107 +105,52 @@
         </div>
 
         <!-- Page Content -->
-        <div class="page-content">
+        <div class="page-content" id='divMenu'>
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-md-3">
                         <!-- Menu Navigation -->
-                        <nav id="menu-navigation" class="stick-to-content" data-local-scroll>
+                        <nav id="menu-navigation" class="stick-to-content">
                             <ul class="nav nav-menu bg-dark dark">
                               <?php foreach($data['kategoriMenu'] as $km) : ?>
-                                <li><a href="#Burgers"><?=$km['nama'];?></a></li>
+                                <li><a href="#<?=$km['nama'];?>"><?=$km['nama'];?></a></li>
                               <?php endforeach; ?>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-md-9">
-                      
+                    <?php foreach($data['kategoriMenu'] as $km) : 
+                      $kdMenu = $km['id'];
+                      $menu = $this -> state('homeData') -> getMenuWithKategori($kdMenu);  
+                    ?>
                         <!-- Menu Category / Burgers -->
-                        <div id="Burgers" class="menu-category">
+                        <div id="<?=$km['nama'];?>" class="menu-category">
                             <div class="menu-category-title">
                                 <div class="bg-image"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-burgers.jpg" alt=""></div>
-                                <h2 class="title">Burgers</h2>
+                                <h2 class="title"><?=$km['nama'];?></h2>
                             </div>
                             <div class="menu-category-content padded">
                                 <div class="row gutters-sm">
+                                    <?php foreach($menu as $mn) : ?>
                                     <div class="col-lg-4 col-6">
                                         <!-- Menu Item -->
                                         <div class="menu-item menu-grid-item">
-                                            <img class="mb-4" src="http://assets.suelo.pl/soup/img/products/product-burger.jpg" alt="">
-                                            <h6 class="mb-0">Beef Burger</h6>
-                                            <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
+                                            <img class="mb-4" src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$mn['pic']; ?>" alt="">
+                                            <h6 class="mb-0"><?=$mn['nama']; ?></h6>
+                                            <span class="text-muted text-sm"><?=$mn['deks']; ?></span>
                                             <div class="row align-items-center mt-4">
-                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price>9.00</span></span></div>
-                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0"><button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button></div>
+                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">Rp. <strong><?=number_format($mn['harga']); ?></strong></span></div>
+                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
+                                                  <a href='#!' class="btn btn-outline-secondary btn-sm" @click='addMenuAtc("<?=$mn['kd_menu']; ?>", "<?=$mn['kd_menu']; ?>")'><span>Add</span></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-6">
-                                        <!-- Menu Item -->
-                                        <div class="menu-item menu-grid-item">
-                                            <img class="mb-4" src="http://assets.suelo.pl/soup/img/products/product-pizza.jpg" alt="">
-                                            <h6 class="mb-0">Broccoli</h6>
-                                            <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
-                                            <div class="row align-items-center mt-4">
-                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price>9.00</span></span></div>
-                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0"><button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="2"><span>Add to cart</span></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-6">
-                                        <!-- Menu Item -->
-                                        <div class="menu-item menu-grid-item">
-                                            <img class="mb-4" src="http://assets.suelo.pl/soup/img/products/product-chicken-burger.jpg" alt="">
-                                            <h6 class="mb-0">Chicken Burger</h6>
-                                            <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
-                                            <div class="row align-items-center mt-4">
-                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price>14.00</span></span></div>
-                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0"><button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="3"><span>Add to cart</span></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-6">
-                                        <!-- Menu Item -->
-                                        <div class="menu-item menu-grid-item">
-                                            <img class="mb-4" src="http://assets.suelo.pl/soup/img/products/product-pasta.jpg" alt="">
-                                            <h6 class="mb-0">Creste di Galli</h6>
-                                            <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
-                                            <div class="row align-items-center mt-4">
-                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price>13.00</span></span></div>
-                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0"><button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="4"><span>Add to cart</span></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-6">
-                                        <!-- Menu Item -->
-                                        <div class="menu-item menu-grid-item">
-                                            <img class="mb-4" src="http://assets.suelo.pl/soup/img/products/product-chicken-wings.jpg" alt="">
-                                            <h6 class="mb-0">Chicken wings</h6>
-                                            <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
-                                            <div class="row align-items-center mt-4">
-                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price>13.00</span></span></div>
-                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0"><button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="5"><span>Add to cart</span></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-6">
-                                        <!-- Menu Item -->
-                                        <div class="menu-item menu-grid-item">
-                                            <img class="mb-4" src="http://assets.suelo.pl/soup/img/products/product-sushi.jpg" alt="">
-                                            <h6 class="mb-0">Nigiri-sushi</h6>
-                                            <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
-                                            <div class="row align-items-center mt-4">
-                                                <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price>13.00</span></span></div>
-                                                <div class="col-sm-6 text-sm-right mt-2 mt-sm-0"><button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="6"><span>Add to cart</span></button></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </div>                                   
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
-
-
-
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -212,7 +166,7 @@
                         <a href="index.html"><img src="assets/img/logo-light.svg" alt="" width="88" class="mt-5 mb-5"></a>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <h5 class="text-muted">Latest news</h5>
+                        <h5 class="text-muted">Promo terbaru</h5>
                         <ul class="list-posts">
                             <li>
                                 <a href="blog-post.html" class="title">How to create effective webdeisign?</a>
@@ -229,22 +183,6 @@
                         </ul>
                     </div>
                     <div class="col-lg-5 col-md-6">
-                        <h5 class="text-muted">Subscribe Us!</h5>
-                        <!-- MailChimp Form -->
-                        <form action="//suelo.us12.list-manage.com/subscribe/post-json?u=ed47dbfe167d906f2bc46a01b&amp;id=24ac8a22ad" id="sign-up-form" class="sign-up-form validate-form mb-5" method="POST">
-                            <div class="input-group">
-                                <input name="EMAIL" id="mce-EMAIL" type="email" class="form-control" placeholder="Tap your e-mail..." required>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-submit" type="submit">
-                                        <span class="description">Subscribe</span>
-                                        <span class="success">
-                                            <svg x="0px" y="0px" viewBox="0 0 32 32"><path stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/></svg>
-                                        </span>
-                                        <span class="error">Try again...</span>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
                         <h5 class="text-muted mb-3">Social Media</h5>
                         <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="icon icon-social icon-circle icon-sm icon-google"><i class="fa fa-google"></i></a>
@@ -255,7 +193,7 @@
                 </div>
                 <!-- Footer 2nd Row -->
                 <div class="footer-second-row">
-                    <span class="text-muted">Copyright Soup 2017©. Made with love by Suelo.</span>
+                <span class="text-sm text-muted">NadhaResto <br> Develop By Haxorsprogramming</span>
                 </div>
             </div>
 
@@ -276,7 +214,7 @@
                 <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
             </div>
             <div class="panel-cart-content cart-details">
-                <table class="cart-table">
+                <table class="cart-empty">
                     <tr>
                         <td class="title">
                             <span class="name"><a href="#product-modal" data-toggle="modal">Beef Burger</a></span>
@@ -314,10 +252,6 @@
                         <div class="col-7 text-right text-muted">Total:</div>
                         <div class="col-5"><strong>$<span class="cart-total">0.00</span></strong></div>
                     </div>
-                </div>
-                <div class="cart-empty">
-                    <i class="ti ti-shopping-cart"></i>
-                    <p>Your cart is empty...</p>
                 </div>
             </div>
         </div>
@@ -482,22 +416,9 @@
     </div>
 </div>
 
-<!-- Cookies Bar -->
-<div id="cookies-bar" class="body-bar cookies-bar">
-    <div class="body-bar-container container">
-        <div class="body-bar-text">
-            <h4 class="mb-2">Cookies & GDPR</h4>
-            <p>This is a sample Cookies / GDPR information. You can use it easily on your site and even add link to <a href="#">Privacy Policy</a>.</p>
-        </div>
-        <div class="body-bar-action">
-            <button class="btn btn-primary" data-accept="cookies"><span>Accept</span></button>
-        </div>
-    </div>
-</div>
-
 <!-- JS Core -->
 <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
-
+<script src="<?=HOMEBASE; ?>ladun/home/js/selfService.js"></script>
 </body>
 
 </html>
