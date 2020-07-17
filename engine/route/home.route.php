@@ -15,7 +15,9 @@ class home extends Route{
 
     public function selfservice()
     {
-        $this -> bind('/home/selfService');
+        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $data['kategoriMenu'] = $this -> state($this -> sn) -> getKategoriMenu();
+        $this -> bind('/home/selfService', $data);
     }
 
 }

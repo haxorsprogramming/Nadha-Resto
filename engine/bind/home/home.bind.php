@@ -46,6 +46,7 @@
                         <li><a href="#!">About Resto</a></li>
                         <li><a href="#!">Menu Resto</a></li>
                         <li><a href="#!">Gallery Resto</a></li>
+                        </ul>
                     </nav>
                     <div class="module right">
                         <a href="<?=HOMEBASE;?>home/selfservice" class="btn btn-outline-secondary"><span>Order</span></a>
@@ -89,7 +90,7 @@
                 <!-- Slide -->
                 <?php foreach($data['dataSlider'] as $ds) : ?>
                 <div class="slide">
-                    <div class="bg-image zooming"><img src="<?=STYLEBASE; ?>/home/img/slider/soto_ayam.jpg" alt=""></div>
+                    <div class="bg-image zooming"><img src="<?=STYLEBASE; ?>/home/img/slider/<?=$ds['img']; ?>" alt=""></div>
                     <div class="container v-center">
                     <h4 class="text-muted"><?=$ds['sub_header']; ?></h4>
                         <h1 class="display-2 mb-2"><?=$ds['title']; ?></h1>
@@ -103,10 +104,10 @@
         </section>
 
         <!-- Section - About -->
-        <section class="section section-bg-edge">
+        <section class="section section-bg-edge" style="margin-top: 20px;">
 
             <div class="image left col-md-6">
-                <div class="bg-image"><img src="http://assets.suelo.pl/soup/img/photos/bg-chef.jpg" alt=""></div>
+                <div class="bg-image"><img src="<?=STYLEBASE; ?>/home/img/chef.jpg" alt=""></div>
             </div>
 
             <div class="container">
@@ -144,7 +145,7 @@
         </section>
 
         <!-- Section - Steps -->
-        <section class="section section-extended left dark">
+        <section class="section section-extended center dark bg-dark" style="margin-top: 20px;">
 
             <div class="container bg-dark">
                 <div class="row">
