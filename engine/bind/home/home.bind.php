@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- Title -->
-<title>Nadha Resto - Aplikasi Manajemen Restoran</title>
+<title><?=$data['namaResto']; ?> - Aplikasi Manajemen Restoran</title>
 <!-- Favicons -->
 <link rel="shortcut icon" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon_60x60.png">
@@ -15,9 +15,11 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@100;200;400;500&display=swap" rel="stylesheet">
 <!-- CSS Core -->
-<link rel="stylesheet" href="<?=HOMEBASE; ?>ladun/homepage/dist/css/core.css" />
+<link rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/core.css" />
 <!-- CSS Theme -->
-<link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/homepage/dist/css/theme-beige.css" />
+<link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/theme-beige.css" />
+<!-- Vue JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
@@ -630,8 +632,8 @@
 </div>
 
 <!-- JS Core -->
-<script src="<?=HOMEBASE; ?>ladun/homepage/dist/js/core.js"></script>
-
+<script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
+<script src="<?=HOMEBASE; ?>ladun/home/js/home.js"></script>
 </body>
 
 </html>
