@@ -7,7 +7,9 @@ class home extends Route{
 
     public function index()
     {   
-        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');  
+        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $data['dataSlider'] = $this -> state($this -> sn) -> getDataSlider();
+        $data['dataMenu'] = $this -> state($this -> sn) -> getDataMenu();  
         $this -> bind('/home/home', $data);   
     }
 

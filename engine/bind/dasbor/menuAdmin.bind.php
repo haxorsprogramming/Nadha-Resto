@@ -39,6 +39,14 @@
       <li><a class="nav-link" href="#!" @click=''>Backup & Restore Data</a></li>
     </ul>
   </li>
+  <li class="dropdown">
+    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-chalkboard"></i> <span>Setting Front End</span></a>
+    <ul class="dropdown-menu">
+      <li><a class="nav-link" href="#!" @click=''>Slider Utama</a></li>
+      <li><a class="nav-link" href="#!" @click=''>Special Offer</a></li>
+      <li><a class="nav-link" href="#!" @click=''>Testimoni</a></li>
+    </ul>
+  </li>
   <li><a class="nav-link" id='btnBantuan' href='#!' @click=''><i class="fas fa-info-circle"></i> <span>Bantuan</span></a></li>
   <li><a class="nav-link" id='btnTentang' href='#!' @click=''><i class="fas fa-heart"></i> <span>Tentang Aplikasi</span></a></li>
   <li><a class="nav-link" id='btnLogOut' href="<?= HOMEBASE; ?>dasbor/logOut"><i class="fas fa-sign-out-alt"></i> <span>LogOut</span></a></li>
