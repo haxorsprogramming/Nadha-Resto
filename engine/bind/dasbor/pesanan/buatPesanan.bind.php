@@ -10,6 +10,14 @@
             Bawa Pulang (Take home)
         </a>
     </div>
+    <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+    <img src="http://assets.suelo.pl/soup/img/photos/menu-sample-burgers.jpg">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+    <img src="http://assets.suelo.pl/soup/img/photos/menu-sample-pasta.jpg">
+    </div>
+    </div>
 </div>
 
 <!-- PESANAN DINE IN AREA -->

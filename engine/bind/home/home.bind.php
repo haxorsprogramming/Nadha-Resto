@@ -78,7 +78,6 @@
                                 </div>
                             </li>
                             <li><a href="page-offers.html">Offers</a></li>
-                            <li><a href="page-contact.html">Contact</a></li>
                             <li class="has-dropdown">
                                 <a href="#">More</a>
                                 <div class="dropdown-container">

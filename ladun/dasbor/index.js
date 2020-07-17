@@ -121,7 +121,7 @@ var divMenu = new Vue({
  
 function renderMenu(halaman) {
   NProgress.start();
-  $('#divUtama').html("");
+  $('#divUtama').html("Memuat form ..");
   $('#divUtama').load(halaman);
   NProgress.done();
 }
