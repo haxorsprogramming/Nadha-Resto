@@ -13,6 +13,7 @@ const pembelianBahanBaku = 'pembelianBb/pembelianBahanBaku';
 const mitra = 'mitra';
 const pengeluaran = 'pengeluaran';
 const arusKas = 'arusKas';
+const laporanTransaksi = 'laporanTransaksi';
 
 const d = new Date();
 const tahun = d.getFullYear();
