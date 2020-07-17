@@ -57,12 +57,12 @@
                     </div>            
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="module module-cart right" data-toggle="panel-cart">
+                    <a href="#!" class="module module-cart right" data-toggle="panel-cart">
                         <span class="cart-icon">
                             <i class="ti ti-shopping-cart"></i>
                             <span class="notification">0</span>
                         </span>
-                        <span class="cart-value">$<span class="value">0.00</span></span>
+                        <span class="cart-value">Rp. <span class="value" id='capJumlah'></span></span>
                     </a>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                                             <div class="row align-items-center mt-4">
                                                 <div class="col-sm-6"><span class="text-md mr-4"><span class="text-muted">Rp. <strong><?=number_format($mn['harga']); ?></strong></span></div>
                                                 <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
-                                                  <a href='#!' class="btn btn-outline-secondary btn-sm" @click='addMenuAtc("<?=$mn['kd_menu']; ?>", "<?=$mn['kd_menu']; ?>")'><span>Add</span></a>
+                                                  <a href='#!' class="btn btn-outline-secondary btn-sm module module-cart" data-toggle="panel-cart" onclick='addMenu("<?=$mn['kd_menu']; ?>", "<?=$mn['nama']; ?>", "<?=$mn['harga']; ?>")'><span>Add</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,52 +210,25 @@
     <div id="panel-cart">
         <div class="panel-cart-container">
             <div class="panel-cart-title">
-                <h5 class="title">Your Cart</h5>
+                <h5 class="title">Pesanan anda</h5>
                 <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
             </div>
-            <div class="panel-cart-content cart-details">
-                <table class="cart-empty">
-                    <tr>
+            <div class="panel-cart-content cart-details" id='divCartFinal'>
+                <table class="cart-table">
+                    <tr v-for='li in listItem'>
                         <td class="title">
-                            <span class="name"><a href="#product-modal" data-toggle="modal">Beef Burger</a></span>
+                            <span class="name"><a href="#!">{{li.nama}}</a></span>
                             <span class="caption text-muted">Large (500g)</span>
                         </td>
-                        <td class="price">$9.00</td>
+                        <td class="price">Rp. {{ Number(li.harga).toLocaleString() }}</td>
                         <td class="actions">
-                            <a href="#product-modal" data-toggle="modal" class="action-icon"><i class="ti ti-pencil"></i></a>
-                            <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="title">
-                            <span class="name"><a href="#product-modal" data-toggle="modal">Extra Burger</a></span>
-                            <span class="caption text-muted">Small (200g)</span>
-                        </td>
-                        <td class="price text-success">$9.00</td>
-                        <td class="actions">
-                            <a href="#product-modal" data-toggle="modal" class="action-icon"><i class="ti ti-pencil"></i></a>
                             <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
                         </td>
                     </tr>
                 </table>
-                <div class="cart-summary">
-                    <div class="row">
-                        <div class="col-7 text-right text-muted">Order total:</div>
-                        <div class="col-5"><strong>$<span class="cart-products-total">0.00</span></strong></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 text-right text-muted">Devliery:</div>
-                        <div class="col-5"><strong>$<span class="cart-delivery">0.00</span></strong></div>
-                    </div>
-                    <hr class="hr-sm">
-                    <div class="row text-lg">
-                        <div class="col-7 text-right text-muted">Total:</div>
-                        <div class="col-5"><strong>$<span class="cart-total">0.00</span></strong></div>
-                    </div>
-                </div>
             </div>
         </div>
-        <a href="checkout.html" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+        <a href="#!" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
     </div>
 
     <!-- Panel Mobile -->
@@ -417,6 +390,7 @@
 </div>
 
 <!-- JS Core -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/js/selfService.js"></script>
 </body>
