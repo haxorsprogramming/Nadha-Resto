@@ -16,6 +16,17 @@ var cart = new Vue({
         nama : 'Luar biasa',
         listItem : [],
         totalHarga : 0
+    },
+    methods : {
+        hapusItem : function(kdMenu)
+        {
+            pesanUmumApp('success', 'success', 'Item menu dihapus dari pesanan ... ');
+            let cekPos = kdMenuDipesan.indexOf(kdMenu);
+            //cari total harga item yang dipilih
+            let tHargaItem = this.listItem[cekPos].harga;
+            this.totalHarga = parseInt(this.totalHarga) - parseInt(tHargaItem);
+            this.listItem.splice(cekPos, 1);
+        }
     }
 });
 //inisialisasi
@@ -31,7 +42,7 @@ function addMenu(kdMenu, nama, harga)
         cart.totalHarga = parseInt(cart.totalHarga) + parseInt(harga);
     }else{
         kdMenuDipesan.push(kdMenu);
-        cart.listItem.push({nama : nama, harga : harga, qt : 1, hargaAt : harga});
+        cart.listItem.push({nama : nama, harga : harga, qt : 1, hargaAt : harga, kdMenu:kdMenu});
         cart.totalHarga = parseInt(cart.totalHarga) + parseInt(harga);
     }
     console.log(kdMenuDipesan);

@@ -243,7 +243,7 @@
                             <td class="price">(@) Rp. {{ Number(li.hargaAt).toLocaleString() }}</td>
                             <td class="price">Total Rp. {{ Number(li.harga).toLocaleString() }}</td>
                             <td class="actions">
-                                <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
+                                <a href="#!" class="action-icon" @click="hapusItem(li.kdMenu)"><i class="ti ti-close"></i></a>
                             </td>
                         </tr>
                     </table>
