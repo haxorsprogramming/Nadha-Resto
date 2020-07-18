@@ -18,12 +18,12 @@
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@100;200;400;500&display=swap" rel="stylesheet">
-
 <!-- CSS Core -->
-<link rel="stylesheet" href="dist/css/core.css" />
-
+<link rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/core.css" />
 <!-- CSS Theme -->
-<link id="theme" rel="stylesheet" href="dist/css/theme-beige.css" />
+<link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/theme-beige.css" />
+<!-- Vue JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
 
@@ -607,21 +607,7 @@
     </div>
 </div>
 
-<!-- Cookies Bar -->
-<div id="cookies-bar" class="body-bar cookies-bar">
-    <div class="body-bar-container container">
-        <div class="body-bar-text">
-            <h4 class="mb-2">Cookies & GDPR</h4>
-            <p>This is a sample Cookies / GDPR information. You can use it easily on your site and even add link to <a href="#">Privacy Policy</a>.</p>
-        </div>
-        <div class="body-bar-action">
-            <button class="btn btn-primary" data-accept="cookies"><span>Accept</span></button>
-        </div>
-    </div>
-</div>
-
-<!-- JS Core -->
-<script src="dist/js/core.js"></script>
+<script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
 
 </body>
 
