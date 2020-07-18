@@ -20,4 +20,9 @@ class home extends Route{
         $this -> bind('/home/selfService', $data);
     }
 
+    public function checkOut()
+    {
+        $this -> bind('/home/checkout');
+    }
+
 }

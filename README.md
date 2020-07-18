@@ -18,6 +18,7 @@
 <li>Backend : Uinsu Web Framework - Base php MVC tutorial pak Sandhika Galih(Web Programming Unpas)</li>
 <li>Javascript : Vue JS, Native Javascript, & Jquery</li>
 <li>Bootstrap Theme By <a href='https://demo.getstisla.com/index.html'>[Stisla]</a></li>
+<li>Node Js</li>
 <li>Cloud Serverless : Firebase</li>
 </ul>
 <br/>
@@ -26,6 +27,7 @@
 <li>Axios (Resfull API Client)</li>
 <li>Domp PDF (Report for PDF document)</li>
 <li>PHP Mailer (Mail sender)</li>
+<li>Socket Io</li>
 <li>AWS Serveless (Coming soon)</li>
 </ul>
 <br/>

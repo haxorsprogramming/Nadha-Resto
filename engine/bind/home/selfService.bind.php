@@ -218,7 +218,7 @@
                     <tr v-for='li in listItem'>
                         <td class="title">
                             <span class="name"><a href="#!">{{li.nama}}</a></span>
-                            <span class="caption text-muted">Large (500g)</span>
+                            <span class="caption">Qt x {{li.qt}}</span>
                         </td>
                         <td class="price">Rp. {{ Number(li.harga).toLocaleString() }}</td>
                         <td class="actions">
@@ -228,7 +228,7 @@
                 </table>
             </div>
         </div>
-        <a href="#!" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+        <a href="<?=HOMEBASE; ?>home/checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
     </div>
 
     <!-- Panel Mobile -->
