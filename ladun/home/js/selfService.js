@@ -14,7 +14,8 @@ var cart = new Vue({
     el : '#divCartFinal',
     data : {
         nama : 'Luar biasa',
-        listItem : []
+        listItem : [],
+        totalHarga : 0
     }
 });
 //inisialisasi
@@ -26,9 +27,12 @@ function addMenu(kdMenu, nama, harga)
     if(cekArray === true){
         let cekPos = kdMenuDipesan.indexOf(kdMenu);
         cart.listItem[cekPos].qt = parseInt(cart.listItem[cekPos].qt) + 1;
+        cart.listItem[cekPos].harga = parseInt(cart.listItem[cekPos].harga) + parseInt(harga);
+        cart.totalHarga = parseInt(cart.totalHarga) + parseInt(harga);
     }else{
         kdMenuDipesan.push(kdMenu);
-        cart.listItem.push({nama : nama, harga : harga, qt : 1});
+        cart.listItem.push({nama : nama, harga : harga, qt : 1, hargaAt : harga});
+        cart.totalHarga = parseInt(cart.totalHarga) + parseInt(harga);
     }
     console.log(kdMenuDipesan);
     let total = new Intl.NumberFormat().format(divMenu.totalHarga);
