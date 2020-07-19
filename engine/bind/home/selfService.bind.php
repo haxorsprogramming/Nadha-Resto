@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Meta -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,23 +22,21 @@
     <link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/theme-beige.css" />
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-
     <!-- Body Wrapper -->
     <div id="body-wrapper" class="animsition">
-
         <!-- Header -->
         <header id="header" class="light">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <!-- Logo -->
                         <div class="module module-logo dark">
-                            <a href="index.html">
+                            <a href="<?=HOMEBASE; ?>home">
                                 <img src="<?=HOMEBASE; ?>ladun/logo.png" alt="" style="width: 200px;">
                             </a>
                         </div>
@@ -71,48 +68,39 @@
                     </div>
                 </div>
             </div>
-
         </header>
         <!-- Header / End -->
-
-        <!-- Header -->
+        <!-- Header mobile-->
         <header id="header-mobile" class="light">
-
             <div class="module module-nav-toggle">
-                <a href="#" id="nav-toggle"
-                    data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
+                <a href="#" id="nav-toggle" data-toggle="panel-mobile">
+                    <span></span><span></span><span></span><span></span>
+                </a>
             </div>
-
             <div class="module module-logo">
                 <a href="index.html">
-                    <img src="assets/img/logo-horizontal-dark.svg" alt="">
+                    <img src="<?=HOMEBASE; ?>ladun/logo.png" alt="">
                 </a>
                 <a href="#" class="module module-cart" data-toggle="panel-cart">
                     <i class="ti ti-shopping-cart"></i>
                     <span class="notification" data-cart-qty="" style="display: none;">2</span>
                 </a>
             </div>
-
-
-
         </header>
         <!-- Header / End -->
-
         <!-- Content -->
         <div id="content">
-
             <!-- Page Title -->
             <div class="page-title bg-light">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-4">
                             <h1 class="mb-0">Menu Resto</h1>
-                            <h4 class="text-muted mb-0">Some informations about our restaurant</h4>
+                            <h4 class="text-muted mb-0">Pilih berbagai menu yang ada di resto kami</h4>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- Page Content -->
             <div class="page-content" id='divMenu'>
                 <div class="container">
@@ -129,14 +117,14 @@
                         </div>
                         <div class="col-md-9">
                             <?php foreach($data['kategoriMenu'] as $km) : 
-                      $kdMenu = $km['id'];
-                      $menu = $this -> state('homeData') -> getMenuWithKategori($kdMenu);  
-                    ?>
+                                $kdMenu = $km['id'];
+                                $menu = $this -> state('homeData') -> getMenuWithKategori($kdMenu);  
+                            ?>
                             <!-- Menu Category / Burgers -->
                             <div id="<?=$km['nama'];?>" class="menu-category">
                                 <div class="menu-category-title">
-                                    <div class="bg-image"><img
-                                            src="http://assets.suelo.pl/soup/img/photos/menu-title-burgers.jpg" alt="">
+                                    <div class="bg-image">
+                                        <img src="http://assets.suelo.pl/soup/img/photos/menu-title-burgers.jpg" alt="<?=$km['nama'];?>">
                                     </div>
                                     <h2 class="title"><?=$km['nama'];?></h2>
                                 </div>
@@ -146,20 +134,15 @@
                                         <div class="col-lg-4 col-6">
                                             <!-- Menu Item -->
                                             <div class="menu-item menu-grid-item">
-                                                <img class="mb-4"
-                                                    src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$mn['pic']; ?>" alt="">
+                                                <img class="mb-4" src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$mn['pic']; ?>" alt="">
                                                 <h6 class="mb-0"><?=$mn['nama']; ?></h6>
                                                 <span class="text-muted text-sm"><?=$mn['deks']; ?></span>
                                                 <div class="row align-items-center mt-4">
-                                                    <div class="col-sm-6"><span class="text-md mr-4"><span
-                                                                class="text-muted">Rp.
-                                                                <strong><?=number_format($mn['harga']); ?></strong></span>
+                                                    <div class="col-sm-6"><span class="text-md mr-4">
+                                                        <span class="text-muted">Rp. <strong><?=number_format($mn['harga']); ?></strong></span>
                                                     </div>
                                                     <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
-                                                        <a href='#!'
-                                                            class="btn btn-outline-secondary btn-sm module module-cart"
-                                                            data-toggle="panel-cart"
-                                                            onclick='addMenu("<?=$mn['kd_menu']; ?>", "<?=$mn['nama']; ?>", "<?=$mn['harga']; ?>")'><span>Add</span></a>
+                                                        <a href='#!' class="btn btn-outline-secondary btn-sm module module-cart" data-toggle="panel-cart" onclick='addMenu("<?=$mn['kd_menu']; ?>", "<?=$mn['nama']; ?>", "<?=$mn['harga']; ?>")'><span>Add</span></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,16 +156,15 @@
                     </div>
                 </div>
             </div>
-
             <!-- Footer -->
             <footer id="footer" class="bg-dark dark">
-
                 <div class="container">
                     <!-- Footer 1st Row -->
                     <div class="footer-first-row row">
                         <div class="col-lg-3 text-center">
-                            <a href="index.html"><img src="assets/img/logo-light.svg" alt="" width="88"
-                                    class="mt-5 mb-5"></a>
+                            <a href="index.html">
+                                <img src="assets/img/logo-light.svg" alt="" width="88" class="mt-5 mb-5">
+                            </a>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <h5 class="text-muted">Promo terbaru</h5>
@@ -209,16 +191,12 @@
                         <span class="text-sm text-muted">NadhaResto <br> Develop By Haxorsprogramming</span>
                     </div>
                 </div>
-
                 <!-- Back To Top -->
                 <button id="back-to-top" class="back-to-top"><i class="ti ti-angle-up"></i></button>
-
             </footer>
             <!-- Footer / End -->
-
         </div>
         <!-- Content / End -->
-
         <!-- Panel Cart -->
         <div id="panel-cart">
             <div class="panel-cart-container">
@@ -245,11 +223,10 @@
                     </div>
                 </div>
             </div>
-            <a href="#!" class="panel-cart-action btn btn-secondary btn-block btn-lg">
+            <a href="#!" class="panel-cart-action btn btn-secondary btn-block btn-lg" onclick='checkOut()'>
                 <span>Go to checkout</span>
             </a>
         </div>
-
         <!-- Panel Mobile -->
         <nav id="panel-mobile">
             <div class="module module-logo bg-dark dark">
@@ -268,20 +245,16 @@
                 <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
             </div>
         </nav>
-
         <!-- Body Overlay -->
         <div id="body-overlay"></div>
-
     </div>
     </div>
     </div>
     </div>
     </div>
-
     <!-- JS Core -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
     <script src="<?=HOMEBASE; ?>ladun/home/js/selfService.js"></script>
 </body>
-
 </html>

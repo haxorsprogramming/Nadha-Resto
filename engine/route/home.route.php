@@ -21,7 +21,28 @@ class home extends Route{
         $this -> bind('/home/selfService', $data);
     }
 
-    public function checkOut()
+    public function getKdTemp()
+    {
+        $data['kdTemp'] = $this -> rnstr(20);
+        $this -> toJson($data);
+    }
+
+    public function saveTemp()
+    {
+        // {'kdMenu':kdMenu, 'hargaAt':hargaAt, 'qt':qt, 'total':total, 'kdTemp':kdTemp}
+        $kdTemp = $this -> inp('kdTemp');
+        $kdMenu = $this -> inp('kdMenu');
+        $hargaAt = $this -> inp('hargaAt');
+        $qt = $this -> inp('qt');
+        $total = $this -> inp('total');
+        $this -> state($this -> sn) -> saveTemp($kdTemp, $kdMenu, $qt, $hargaAt, $total);
+        $data['status'] = 'sukses';
+        $this -> setses('cartLess', TRUE);
+        $this -> setses('cartLessKd', $kdTemp);
+        $this -> toJson($data);
+    }
+
+    public function checkOut($kdTemp)
     {
         $this -> bind('/home/checkout');
     }

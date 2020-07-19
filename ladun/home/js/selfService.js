@@ -1,3 +1,4 @@
+const server = 'http://localhost/Nadha-Resto/';
 //vue utama
 var divMenu = new Vue({
     el : '#divMenu',
@@ -28,10 +29,41 @@ var cart = new Vue({
             let tHargaItem = this.listItem[cekPos].harga;
             this.totalHarga = parseInt(this.totalHarga) - parseInt(tHargaItem);
             this.listItem.splice(cekPos, 1);
+        },
+        checkOutAtc : function()
+        {
+            let pjgItem = this.listItem.length;
+            if(pjgItem > 0){
+                //buat kode temp dulu 
+                $.post('getKdTemp', function(data){
+                    let obj = JSON.parse(data);
+                    let kdTemp = obj.kdTemp;
+                    cart.listItem.forEach(renderItem);
+                    function renderItem(item, index)
+                    {
+                        let kdMenu = cart.listItem[index].kdMenu;
+                        let hargaAt = cart.listItem[index].hargaAt;
+                        let qt = cart.listItem[index].qt;
+                        let total = cart.listItem[index].harga;
+                        let dataSend = {'kdMenu':kdMenu, 'hargaAt':hargaAt, 'qt':qt, 'total':total, 'kdTemp':kdTemp}
+                        $.post('saveTemp', dataSend, function(data){
+                            window.location.assign('checkOut/'+kdTemp);
+                        });
+                    }
+                });
+                
+            }else{
+                pesanUmumApp('warning', 'No item', 'Tidak ada pesanan!!');
+            }
         }
     }
 });
 //inisialisasi
+function checkOut()
+{
+    cart.checkOutAtc();
+}
+
 function addMenu(kdMenu, nama, harga)
 {
     pesanUmumApp('success', 'Item ditambah', 'Berhasil menambahkan menu, silahkah lihat cart pesanan');

@@ -39,4 +39,11 @@ class homeData{
         return $this -> st -> queryAll();
     }
 
+    public function saveTemp($kdTemp, $kdMenu, $qt, $hargaAt, $total)
+    {
+        $query = "INSERT INTO tbl_temp_self_service VALUES(null, '$kdTemp','$kdMenu','$qt','$hargaAt','$total');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
