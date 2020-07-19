@@ -46,7 +46,13 @@ class home extends Route{
         $data['kdCaps'] = substr(strtoupper($kdTemp), 0, 7);
         $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $dataTemp = $this -> state($this -> sn) -> getCheckoutItem($kdTemp);
-        $data['totalHarga'] = $this -> state($this -> sn) -> getTotalPesanan($kdTemp);
+        $totalHarga = $this -> state($this -> sn) -> getTotalPesanan($kdTemp);
+        $tax = $this -> state($this -> su) -> getSettingResto('tax');
+        $taxCharge = ($totalHarga * $tax) / 100;
+        $data['hargaAfterTax'] = $totalHarga + $taxCharge;
+        $data['totalHarga'] = $totalHarga;
+        $data['taxCharge'] = $taxCharge;
+        $data['tax'] = $tax;
         $data['promo'] = $this -> state($this -> sn) -> getPromo();
         foreach($dataTemp as $dt){
             $kdItem = $dt['kd_item'];

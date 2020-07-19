@@ -108,6 +108,12 @@
                                 <tr>
                                     <th>Total</th><th>Rp. <?=number_format($data['totalHarga']); ?></th>
                                 </tr>
+                                <tr>
+                                    <th>Tax (<?=$data['tax']; ?>%)</th><th>Rp. <?=number_format($data['taxCharge']); ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Total Final</th><th>Rp. <?=number_format($data['hargaAfterTax']); ?></th>
+                                </tr>
                             </table>
                         </div>
                     </div>
