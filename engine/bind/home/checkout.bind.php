@@ -87,7 +87,7 @@
         <!-- Section -->
         <section class="section bg-light">
 
-            <div class="container">
+            <div class="container" id='divCart'>
                 <div class="row">
                     <div class="col-xl-4 col-lg-5">
                         <div class="cart-details shadow bg-white stick-to-content mb-4">
@@ -137,19 +137,19 @@
                                 <div class="row mb-5">
                                     <div class="form-group col-sm-6">
                                         <label>Nama Lengkap</label>
-                                        <input type="text" class="form-control" id='txtNamaLengkapDo'>
+                                        <input type="text" class="form-control" id='txtNamaLengkapPd'>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>No Hp</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id='txtHpPd'>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Alamat Pengiriman</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id='txtAlamatPd'>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Email</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id='txtEmailPd'>
                                     </div>
                                 </div>
                                 <div>
@@ -160,35 +160,22 @@
                                     </ul>
                                 </div>
                             </div>
-                           
-
                             <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Pembayaran</h4>
                             <div class="row text-lg">
-                                <div class="col-md-4 col-sm-6 form-group">
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="payment_type" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Gopay</span>
-                                    </label>
-                                </div>
-                                <div class="col-md-4 col-sm-6 form-group">
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="payment_type" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Ovo</span>
-                                    </label>
-                                </div>
-                                <div class="col-md-4 col-sm-6 form-group">
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="payment_type" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Cash</span>
-                                    </label>
-                                </div>
+                            <div class="form-group col-sm-6">
+                            <div class="select-container">
+                                        <select class="form-control" id="txtTipePembayaran">
+                                            <option value='none'>-- Pilih tipe pembayaran --</option>
+                                            <option value="cash">Cash On Delivery</option>
+                                            <option value="ovo">Ovo</option>
+                                            <option value="gopay">Gopay</option>
+                                        </select>
+                                    </div>
+                            </div>
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary btn-lg"><span>Pesan Sekarang</span></button>
+                            <button class="btn btn-primary btn-lg" @click='pesanAtc'><span>Pesan Sekarang</span></button>
                         </div>
                     </div>
                 </div>
