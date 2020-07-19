@@ -6,6 +6,7 @@ use Dompdf\Dompdf;
 class cetak extends Route{
 
     private $sn = 'cetakData';
+    private $su = 'utilityData';
 
     public function invoicePembelianBb($kdInvoice)
     {

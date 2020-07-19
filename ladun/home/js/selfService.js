@@ -13,7 +13,9 @@ var kdMenuDipesan = [];
 var cart = new Vue({
     el : '#divCartFinal',
     data : {
-        nama : 'Luar biasa',
+        nama : '',
+        alamat : '',
+        noHp : '',
         listItem : [],
         totalHarga : 0
     },

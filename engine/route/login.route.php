@@ -3,7 +3,8 @@
 class login extends Route{
 
     private $sn = 'loginData';
-
+    private $su = 'utilityData';
+    
     public function index()
     {   
         $data['pic'] = $this -> state($this -> sn) -> getLogo();    

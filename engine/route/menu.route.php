@@ -3,7 +3,8 @@
 class menu extends Route{
 
     private $sn = 'menuData';
-
+    private $su = 'utilityData';
+    
     public function index()
     {
         $data['menu'] = $this -> state($this -> sn) -> getMenu(); 

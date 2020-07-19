@@ -3,6 +3,7 @@
 class bahanBaku extends Route{
 
     private $sn = 'bahanBakuData';
+    private $su = 'utilityData';
 
     public function index()
     {

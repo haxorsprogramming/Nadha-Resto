@@ -3,7 +3,8 @@
 class meja extends Route{
 
     private $sn = 'mejaData';
-
+    private $su = 'utilityData';
+    
     public function index()
     {   $data['meja'] = $this -> state($this -> sn) -> getDataMeja();     
         $this -> bind('dasbor/meja/meja', $data);
