@@ -38,6 +38,7 @@ function setNGoDelivery()
             pesanUmumApp('warning', 'Pilih pembayaran!!', 'Pilih metode pembayaran!!');
         }else{
             
+            // $.post('')
         }
     }
 }

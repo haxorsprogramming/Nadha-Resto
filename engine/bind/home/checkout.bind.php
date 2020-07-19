@@ -197,7 +197,7 @@
                         <ul class="list-posts">
                                  <?php foreach($data['promo'] as $dp) : ?>
                                     <li>
-                                        <a href="blog-post.html" class="title"><?=$dp['nama']; ?></a>
+                                        <a href="#!" class="title"><?=$dp['nama']; ?></a>
                                         <span class="date"><?=$dp['deks']; ?></span>
                                     </li>
                                 <?php endforeach; ?>
