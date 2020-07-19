@@ -47,6 +47,7 @@ class home extends Route{
         $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $dataTemp = $this -> state($this -> sn) -> getCheckoutItem($kdTemp);
         $data['totalHarga'] = $this -> state($this -> sn) -> getTotalPesanan($kdTemp);
+        $data['promo'] = $this -> state($this -> sn) -> getPromo();
         foreach($dataTemp as $dt){
             $kdItem = $dt['kd_item'];
             $arrTemp['kdItem'] = $kdItem;
