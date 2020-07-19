@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-4">
                         <h1 class="mb-0">Checkout</h1>
-                        <h4 class="text-muted mb-0">Some informations about our restaurant</h4>
+                        <h4 class="text-muted mb-0">Silahkan isi data pemesanan anda</h4>
                     </div>
                 </div>
             </div>
@@ -127,32 +127,31 @@
                                 </div>
                             </div>
                             <div id='txtDeliveryInfo'>
-                                <h4 class="border-bottom pb-4"><i class="ti ti-user mr-3 text-primary"></i>Basic informations</h4>
+                                <h4 class="border-bottom pb-4"><i class="ti ti-user mr-3 text-primary"></i>Informasi Pemesanan</h4>
                                 <div class="row mb-5">
                                     <div class="form-group col-sm-6">
-                                        <label>Name:</label>
+                                        <label>Nama Lengkap</label>
+                                        <input type="text" class="form-control" id='txtNamaLengkapDo'>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label>No Hp</label>
                                         <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label>Surename:</label>
+                                        <label>Alamat Pengiriman</label>
                                         <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label>Street and number:</label>
+                                        <label>Email</label>
                                         <input type="text" class="form-control">
                                     </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>City:</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>Phone number:</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>E-mail address:</label>
-                                        <input type="email" class="form-control">
-                                    </div>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li><i>Apabila anda sudah menjadi pelanggan, masukkan nomor handphone yang sudah terdaftar</i></li>
+                                        <li><i>Pastikan alamat pengiriman benar</i></li>
+                                        <li><i>Kode pemesanan akan dikirim melalui email &amp; nomor handphone, untuk itu pastikan email yang anda masukkan valid</i></li>
+                                    </ul>
                                 </div>
                             </div>
                            
@@ -255,16 +254,12 @@
             <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
         </div>
     </nav>
-
     <!-- Body Overlay -->
     <div id="body-overlay"></div>
-
 </div>
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/js/checkout.js"></script>
 </body>
-
 </html>

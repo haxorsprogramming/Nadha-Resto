@@ -35,6 +35,7 @@
 <ul>
 <li>Monitoring Aktivitas Restoran</li>
 <li>Sistem Pemesanan Mandiri (Lewat front end)</li>
+<li>Sistem Delivery Order</li>
 <li>Manajemen Pesanan</li>
 <li>Manajemen Pelanggan</li>
 <li>Manajemen Meja</li>
