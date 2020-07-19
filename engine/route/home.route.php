@@ -23,28 +23,40 @@ class home extends Route{
 
     public function getKdTemp()
     {
-        $data['kdTemp'] = $this -> rnstr(20);
+        $data['kdTemp'] = $this -> rnstr(15);
         $this -> toJson($data);
     }
 
     public function saveTemp()
     {
-        // {'kdMenu':kdMenu, 'hargaAt':hargaAt, 'qt':qt, 'total':total, 'kdTemp':kdTemp}
         $kdTemp = $this -> inp('kdTemp');
         $kdMenu = $this -> inp('kdMenu');
         $hargaAt = $this -> inp('hargaAt');
         $qt = $this -> inp('qt');
         $total = $this -> inp('total');
+        //cek apakah status cart
         $this -> state($this -> sn) -> saveTemp($kdTemp, $kdMenu, $qt, $hargaAt, $total);
         $data['status'] = 'sukses';
-        $this -> setses('cartLess', TRUE);
-        $this -> setses('cartLessKd', $kdTemp);
         $this -> toJson($data);
     }
 
     public function checkOut($kdTemp)
     {
-        $this -> bind('/home/checkout');
+        $data['kdTemp'] = $kdTemp;
+        $data['kdCaps'] = substr(strtoupper($kdTemp), 0, 7);
+        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $dataTemp = $this -> state($this -> sn) -> getCheckoutItem($kdTemp);
+        $data['totalHarga'] = $this -> state($this -> sn) -> getTotalPesanan($kdTemp);
+        foreach($dataTemp as $dt){
+            $kdItem = $dt['kd_item'];
+            $arrTemp['kdItem'] = $kdItem;
+            $arrTemp['namaMenu'] = $this -> state($this -> su) -> getNamaMenu($kdItem);
+            $arrTemp['qt'] = $dt['qt'];
+            $arrTemp['total'] = $dt['total'];
+            $arrTemp['hargaAt'] = $dt['harga_at'];
+            $data['itemPesanan'][]  = $arrTemp; 
+        }
+        $this -> bind('/home/checkout', $data);
     }
 
 }

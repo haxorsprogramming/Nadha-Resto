@@ -46,4 +46,17 @@ class homeData{
         $this -> st -> queryRun();
     }
 
+    public function getCheckoutItem($kdTemp)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_self_service WHERE kd_temp='$kdTemp';");
+        return $this -> st -> queryAll();
+    }
+
+    public function getTotalPesanan($kdTemp)
+    {
+        $this -> st -> query("SELECT SUM(total) FROM tbl_temp_self_service WHERE kd_temp='$kdTemp';");
+        $q = $this -> st -> querySingle();
+        return $q['SUM(total)'];
+    }
+
 }

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- Title -->
-<title>Soup - Restaurant with Online Ordering System Template</title>
+<title>Checkout - <?=$data['namaResto']; ?></title>
 
 <!-- Favicons -->
 <link rel="shortcut icon" href="assets/img/favicon.png">
@@ -18,13 +18,14 @@
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@100;200;400;500&display=swap" rel="stylesheet">
-<!-- CSS Core -->
-<link rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/core.css" />
-<!-- CSS Theme -->
-<link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/theme-beige.css" />
-<!-- Vue JS -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+ <!-- CSS Core -->
+ <link rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/core.css" />
+    <!-- CSS Theme -->
+    <link id="theme" rel="stylesheet" href="<?=HOMEBASE; ?>ladun/home/dist/css/theme-beige.css" />
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -34,131 +35,44 @@
 
     <!-- Header -->
     <header id="header" class="light">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <!-- Logo -->
-                    <div class="module module-logo dark">
-                        <a href="index.html">
-                            <img src="assets/img/logo-light.svg" alt="" width="88">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- Logo -->
+                        <div class="module module-logo dark">
+                            <a href="<?=HOMEBASE; ?>home">
+                                <img src="<?=HOMEBASE; ?>ladun/logo.png" alt="" style="width: 200px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <!-- Navigation -->
+                        <nav class="module module-navigation left mr-4">
+                            <ul id="nav-main" class="nav nav-main">
+                                <li><a href="<?=HOMEBASE; ?>">Home</a></li>
+                                <li><a href="#!">About Resto</a></li>
+                                <li><a href="#!">Menu Resto</a></li>
+                                <li><a href="#!">Gallery Resto</a></li>
+                            </ul>
+                        </nav>
+                        <div class="module left">
+                            <a href="<?=HOMEBASE;?>home/selfservice"
+                                class="btn btn-outline-secondary"><span>Order</span></a>
+                            <a href="<?=HOMEBASE;?>login" class="btn btn-outline-secondary"><span>Login</span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="#!" class="module module-cart right" data-toggle="panel-cart">
+                            <span class="cart-icon">
+                                <i class="ti ti-shopping-cart"></i>
+                                <span class="notification">0</span>
+                            </span>
+                            <span class="cart-value">Rp. <span class="value" id='capJumlah'></span></span>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-7">
-                    <!-- Navigation -->
-                    <nav class="module module-navigation left mr-4">
-                        <ul id="nav-main" class="nav nav-main">
-                            <li class="has-dropdown">
-                                <a href="#">Home</a>
-                                <div class="dropdown-container">
-                                    <ul>
-                                        <li><a href="index.html">Home Basic</a></li>
-                                        <li><a href="index-burgers.html">Home Burgers</a></li>
-                                        <li><a href="index-slider.html">Home Fullwidth Slider</a></li>
-                                        <li><a href="index-video.html">Home Video</a></li>
-                                        <li><a href="index-fresh.html">Home Fresh <span class="badge badge-success">New</span></a></li>
-                                        <li><a href="index-dark.html">Home Dark <span class="badge badge-success">New</span></a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">About</a>
-                                <div class="dropdown-container">
-                                    <ul class="dropdown-mega">
-                                        <li><a href="page-about.html">About Us</a></li>
-                                        <li><a href="page-services.html">Services</a></li>
-                                        <li><a href="page-gallery.html">Gallery</a></li>
-                                        <li><a href="page-reviews.html">Reviews</a></li>
-                                        <li><a href="page-faq.html">FAQ</a></li>
-                                    </ul>
-                                    <div class="dropdown-image">
-                                        <img src="http://assets.suelo.pl/soup/img/photos/dropdown-about.jpg" alt="">
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="has-dropdown">
-                                <a href="#">Menu</a>
-                                <div class="dropdown-container">
-                                    <ul>
-                                        <li class="has-dropdown">
-                                            <a href="#">List</a>
-                                            <ul>
-                                                <li><a href="menu-list-navigation.html">Navigation</a></li>
-                                                <li><a href="menu-list-collapse.html">Collapse</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="#">Grid</a>
-                                            <ul>
-                                                <li><a href="menu-grid-navigation.html">Navigation</a></li>
-                                                <li><a href="menu-grid-collapse.html">Collapse</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="page-offers.html">Offers</a></li>
-                            <li><a href="page-contact.html">Contact</a></li>
-                            <li class="has-dropdown">
-                                <a href="#">More</a>
-                                <div class="dropdown-container">
-                                    <ul class="dropdown-mega">
-                                        <li><a href="page-offer-single.html">Offer single</a></li>
-                                        <li><a href="page-product.html">Product</a></li>
-                                        <li><a href="book-a-table.html">Book a table</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="confirmation.html">Confirmation</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-sidebar.html">Blog + Sidebar</a></li>
-                                        <li><a href="blog-post.html">Blog Post</a></li>
-                                        <li><a href="documentation/" target="_blank">Documentation</a></li>
-                                    </ul>
-                                    <div class="dropdown-image">
-                                        <img src="http://assets.suelo.pl/soup/img/photos/dropdown-more.jpg" alt="">
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="module left">
-                        <a href="menu-list-navigation.html" class="btn btn-outline-secondary"><span>Order</span></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <a href="#" class="module module-cart right" data-toggle="panel-cart">
-                        <span class="cart-icon">
-                            <i class="ti ti-shopping-cart"></i>
-                            <span class="notification">0</span>
-                        </span>
-                        <span class="cart-value">$<span class="value">0.00</span></span>
-                    </a>
-                </div>
             </div>
-        </div>
-
-    </header>
-    <!-- Header / End -->
-
-    <!-- Header -->
-    <header id="header-mobile" class="light">
-
-        <div class="module module-nav-toggle">
-            <a href="#" id="nav-toggle" data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
-        </div>
-
-        <div class="module module-logo">
-            <a href="index.html">
-                <img src="assets/img/logo-horizontal-dark.svg" alt="">
-            </a>
-        </div>
-
-        <a href="#" class="module module-cart" data-toggle="panel-cart">
-            <i class="ti ti-shopping-cart"></i>
-            <span class="notification">0</span>
-        </a>
-
-    </header>
+        </header>
     <!-- Header / End -->
 
     <!-- Content -->
@@ -186,67 +100,23 @@
                     <div class="col-xl-4 col-lg-5">
                         <div class="cart-details shadow bg-white stick-to-content mb-4">
                             <div class="bg-dark dark p-4"><h5 class="mb-0">You order</h5></div>
-                            <table class="cart-table">
+                            <table class="table">
                                 <tr>
-                                    <td class="title">
-                                        <span class="name"><a href="#product-modal" data-toggle="modal">Pizza Chicked BBQ</a></span>
-                                        <span class="caption text-muted">26”, deep-pan, thin-crust</span>
-                                    </td>
-                                    <td class="price">$9.82</td>
-                                    <td class="actions">
-                                        <a href="#product-modal" data-toggle="modal" class="action-icon"><i class="ti ti-pencil"></i></a>
-                                        <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
-                                    </td>
+                                    <th>Item</th><th>Total</th>
                                 </tr>
+                                <?php foreach($data['itemPesanan'] as $it): ?>
                                 <tr>
-                                    <td class="title">
-                                        <span class="name"><a href="#product-modal" data-toggle="modal">Beef Burger</a></span>
-                                        <span class="caption text-muted">Large (500g)</span>
+                                    <td style="text-align: left;padding-left:12px;">
+                                        <span><a href="#!"><?=$it['namaMenu']; ?></a></span><br/>
+                                        (@) Rp. <?=number_format($it['hargaAt']); ?> x <?=$it['qt']; ?>
                                     </td>
-                                    <td class="price">$9.82</td>
-                                    <td class="actions">
-                                        <a href="#product-modal" data-toggle="modal" class="action-icon"><i class="ti ti-pencil"></i></a>
-                                        <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
-                                    </td>
+                                    <td>Rp. <?=number_format($it['total']); ?></td>
                                 </tr>
+                                <?php endforeach; ?>
                                 <tr>
-                                    <td class="title">
-                                        <span class="name"><a href="#product-modal" data-toggle="modal">Extra Burger</a></span>
-                                        <span class="caption text-muted">Small (200g)</span>
-                                    </td>
-                                    <td class="price text-success">$0.00</td>
-                                    <td class="actions">
-                                        <a href="#product-modal" data-toggle="modal" class="action-icon"><i class="ti ti-pencil"></i></a>
-                                        <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="title">
-                                        <span class="name">Weekend 20% OFF</span>
-                                    </td>
-                                    <td class="price text-success">-$8.22</td>
-                                    <td class="actions"></td>
+                                    <th>Total</th><th>Rp. <?=number_format($data['totalHarga']); ?></th>
                                 </tr>
                             </table>
-                            <div class="cart-summary">
-                                <div class="row">
-                                    <div class="col-7 text-right text-muted">Order total:</div>
-                                    <div class="col-5"><strong>$<span class="cart-products-total">0.00</span></strong></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-7 text-right text-muted">Devliery:</div>
-                                    <div class="col-5"><strong>$<span class="cart-delivery">0.00</span></strong></div>
-                                </div>
-                                <hr class="hr-sm">
-                                <div class="row text-lg">
-                                    <div class="col-7 text-right text-muted">Total:</div>
-                                    <div class="col-5"><strong>$<span class="cart-total">0.00</span></strong></div>
-                                </div>
-                            </div>
-                            <div class="cart-empty">
-                                <i class="ti ti-shopping-cart"></i>
-                                <p>Your cart is empty...</p>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7 order-lg-first">
@@ -319,7 +189,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary btn-lg"><span>Order now!</span></button>
+                            <button class="btn btn-primary btn-lg"><span>Pesan Sekarang</span></button>
                         </div>
                     </div>
                 </div>
