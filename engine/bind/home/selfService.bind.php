@@ -87,6 +87,10 @@
                 <a href="index.html">
                     <img src="assets/img/logo-horizontal-dark.svg" alt="">
                 </a>
+                <a href="#" class="module module-cart" data-toggle="panel-cart">
+                    <i class="ti ti-shopping-cart"></i>
+                    <span class="notification" data-cart-qty="" style="display: none;">2</span>
+                </a>
             </div>
 
 
@@ -183,32 +187,21 @@
                         <div class="col-lg-4 col-md-6">
                             <h5 class="text-muted">Promo terbaru</h5>
                             <ul class="list-posts">
+                                <?php foreach($data['promo'] as $dp) : ?>
                                 <li>
-                                    <a href="blog-post.html" class="title">How to create effective webdeisign?</a>
-                                    <span class="date">February 14, 2015</span>
+                                    <a href="blog-post.html" class="title"><?=$dp['nama']; ?></a>
+                                    <span class="date"><?=$dp['deks']; ?></span>
                                 </li>
-                                <li>
-                                    <a href="blog-post.html" class="title">Awesome weekend in Polish mountains!</a>
-                                    <span class="date">February 14, 2015</span>
-                                </li>
-                                <li>
-                                    <a href="blog-post.html" class="title">How to create effective webdeisign?</a>
-                                    <span class="date">February 14, 2015</span>
-                                </li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                         <div class="col-lg-5 col-md-6">
                             <h5 class="text-muted mb-3">Social Media</h5>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i
-                                    class="fa fa-facebook"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-google"><i
-                                    class="fa fa-google"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-twitter"><i
-                                    class="fa fa-twitter"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-youtube"><i
-                                    class="fa fa-youtube"></i></a>
-                            <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
-                                    class="fa fa-instagram"></i></a>
+                            <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="icon icon-social icon-circle icon-sm icon-google"><i class="fa fa-google"></i></a>
+                            <a href="#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
+                            <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                     <!-- Footer 2nd Row -->
@@ -252,8 +245,9 @@
                     </div>
                 </div>
             </div>
-            <a href="#!" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go
-                    to checkout</span></a>
+            <a href="#!" class="panel-cart-action btn btn-secondary btn-block btn-lg">
+                <span>Go to checkout</span>
+            </a>
         </div>
 
         <!-- Panel Mobile -->
@@ -267,13 +261,11 @@
             <nav class="module module-navigation"></nav>
             <div class="module module-social">
                 <h6 class="text-sm mb-3">Follow Us!</h6>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i
-                        class="fa fa-facebook"></i></a>
+                <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i class="fa fa-facebook"></i></a>
                 <a href="#" class="icon icon-social icon-circle icon-sm icon-google"><i class="fa fa-google"></i></a>
                 <a href="#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
                 <a href="#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
-                <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
-                        class="fa fa-instagram"></i></a>
+                <a href="#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
             </div>
         </nav>
 

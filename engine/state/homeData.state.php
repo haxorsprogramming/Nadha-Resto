@@ -33,4 +33,10 @@ class homeData{
         return $this -> st -> queryAll();
     }
 
+    public function getPromo()
+    {
+        $this -> st -> query("SELECT * FROM tbl_promo LIMIT 0,4;");
+        return $this -> st -> queryAll();
+    }
+
 }
