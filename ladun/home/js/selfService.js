@@ -79,7 +79,7 @@ function addMenu(kdMenu, nama, harga)
         cart.listItem.push({nama : nama, harga : harga, qt : 1, hargaAt : harga, kdMenu:kdMenu});
         cart.totalHarga = parseInt(cart.totalHarga) + parseInt(harga);
     }
-    console.log(kdMenuDipesan);
+    // console.log(kdMenuDipesan);
     let total = new Intl.NumberFormat().format(divMenu.totalHarga);
     document.getElementById('capJumlah').innerHTML = total;
 }
