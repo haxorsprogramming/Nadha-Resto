@@ -23,13 +23,9 @@ var divCart = new Vue({
 $('#txtDeliveryInfo').hide();
 divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
 var socket = io('http://localhost:2501');
-    
-// });
-
 
 function setNGoDelivery()
 {
-   
     divCart.pd[0].email = document.getElementById('txtEmailPd').value;
     divCart.pd[0].nama = document.getElementById('txtNamaLengkapPd').value;
     divCart.pd[0].alamat = document.getElementById('txtAlamatPd').value;

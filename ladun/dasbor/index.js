@@ -138,4 +138,5 @@ function pesanUmumApp(icon, title, text)
 
 socket.on('status', function(data){
   pesanUmumApp('info', 'Pesanan baru', 'Ada pesanan baru masuk ...');
+  $('#capNotif').addClass('beep');
 });
