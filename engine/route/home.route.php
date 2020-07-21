@@ -76,9 +76,10 @@ class home extends Route{
         $tipePembayaran = $this -> inp('tipePembayaran');
         $kdPesanan = $this -> inp('kdPesanan');
         //save ke tbl_deliveri order
-        // $kdPesanan = $this -> rnstr(12);
-
-        $data['status'] = $kdPesanan;
+        //cari pelanggan dari nomor hp
+        
+        // $query = "INSERT INTO tbl_delivery ORDER VALUES(null, '$kdPesanan','$);";
+        $data['status'] = '200';
         $this -> toJson($data);
     }
 
