@@ -18,7 +18,7 @@ var cart = new Vue({
         alamat : '',
         noHp : '',
         listItem : [],
-        totalHarga : 0
+        totalHarga : 0,
     },
     methods : {
         hapusItem : function(kdMenu)
@@ -45,6 +45,7 @@ var cart = new Vue({
                         let hargaAt = cart.listItem[index].hargaAt;
                         let qt = cart.listItem[index].qt;
                         let total = cart.listItem[index].harga;
+                       
                         let dataSend = {'kdMenu':kdMenu, 'hargaAt':hargaAt, 'qt':qt, 'total':total, 'kdTemp':kdTemp}
                         $.post('saveTemp', dataSend, function(data){
                             window.location.assign('checkOut/'+kdTemp);
@@ -61,6 +62,7 @@ var cart = new Vue({
 //inisialisasi
 function checkOut()
 {
+    
     cart.checkOutAtc();
 }
 

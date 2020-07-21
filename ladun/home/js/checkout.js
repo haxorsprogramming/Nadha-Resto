@@ -1,9 +1,12 @@
+const server = 'http://localhost/Nadha-Resto/';
+
 var divCart = new Vue({
     el : '#divCart',
     data : {
         tipePesanan : 'none',
         tipePembayaran : 'none',
-        pd : [{nama : '', hp : '', alamat : '', email : ''}]
+        pd : [{nama : '', hp : '', alamat : '', email : ''}],
+        kdPesanan : ''
     },
     methods : {
         pesanAtc : function()
@@ -18,6 +21,7 @@ var divCart = new Vue({
 });
 //inisialisasi 
 $('#txtDeliveryInfo').hide();
+divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
 
 function setNGoDelivery()
 {
@@ -31,14 +35,18 @@ function setNGoDelivery()
     let alamat = divCart.pd[0].alamat;
     let hp = divCart.pd[0].hp;
     let tipePembayaran = divCart.tipePembayaran;
+    let kdPesanan = divCart.kdPesanan;
     if(email === '' || nama === '' || alamat === '' || hp === ''){
         pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
     }else{
         if(tipePembayaran === 'none'){
             pesanUmumApp('warning', 'Pilih pembayaran!!', 'Pilih metode pembayaran!!');
         }else{
-            
-            // $.post('')
+            let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
+            $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
+                let obj = JSON.parse(data);
+                console.log(obj);
+            });
         }
     }
 }

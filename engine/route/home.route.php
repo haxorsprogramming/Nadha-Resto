@@ -66,4 +66,20 @@ class home extends Route{
         $this -> bind('/home/checkout', $data);
     }
 
+    public function deliveryOrderProses()
+    {
+        // {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran}
+        $email = $this -> inp('email');
+        $nama = $this -> inp('nama');
+        $alamat = $this -> inp('alamat');
+        $hp = $this -> inp('hp');
+        $tipePembayaran = $this -> inp('tipePembayaran');
+        $kdPesanan = $this -> inp('kdPesanan');
+        //save ke tbl_deliveri order
+        // $kdPesanan = $this -> rnstr(12);
+
+        $data['status'] = $kdPesanan;
+        $this -> toJson($data);
+    }
+
 }

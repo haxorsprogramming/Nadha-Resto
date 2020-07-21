@@ -176,6 +176,7 @@
                         </div>
                         <div class="text-center">
                             <button class="btn btn-primary btn-lg" @click='pesanAtc'><span>Pesan Sekarang</span></button>
+                            <input type="hidden" value="<?=$data['kdTemp']; ?>" id='txtKdPesananHidden'>
                         </div>
                     </div>
                 </div>
