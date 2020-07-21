@@ -1,8 +1,8 @@
-
-{ 
-  "url" : "https://github.com/haxorsprogramming/Uinsu-Web-Framework",
-  "email" : "hpc@haxorsprogrammingclub.id"
+{
+  "url": "https://github.com/haxorsprogramming/Uinsu-Web-Framework",
+  "email": "hpc@haxorsprogrammingclub.id",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
 }
-
-
-

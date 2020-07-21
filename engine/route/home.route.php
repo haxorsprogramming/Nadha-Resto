@@ -75,11 +75,26 @@ class home extends Route{
         $hp = $this -> inp('hp');
         $tipePembayaran = $this -> inp('tipePembayaran');
         $kdPesanan = $this -> inp('kdPesanan');
-        //save ke tbl_deliveri order
+        $waktu = $this -> waktu();
         //cari pelanggan dari nomor hp
-        
-        // $query = "INSERT INTO tbl_delivery ORDER VALUES(null, '$kdPesanan','$);";
-        $data['status'] = '200';
+        $cekHp = $this -> state($this -> sn) -> cekPelangganWithHp($hp);
+        //jika true, maka ambil kd pelanggan, jika false, buat pelanggn baru 
+        if($cekHp === true){
+            $kdPelanggan = $this -> state($this -> sn) -> getPelangganDataWithHp($hp);
+            $data['kdPelanggan'] = $kdPelanggan;
+            //save ke tabel delivery order
+           $this -> state($this -> sn) -> createOrder($kdPesanan, $kdPelanggan, $tipePembayaran, $alamat, $waktu);
+        }else{
+            $idPelanggan = $this -> rnint(8);
+            $data['kdPelanggan'] = $idPelanggan;
+            //buat pelanggan baru 
+            $this -> state($this -> sn) -> createPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $waktu);
+            //save ke tabel delivery order
+            $this -> state($this -> sn) -> createOrder($kdPesanan, $idPelanggan, $tipePembayaran, $alamat, $waktu);
+        }
+        //save ke tbl_deliveri order
+
+        $data['status'] = $cekHp;
         $this -> toJson($data);
     }
 

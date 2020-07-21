@@ -1,5 +1,7 @@
 const server = 'http://localhost/Nadha-Resto/';
 
+
+
 var divCart = new Vue({
     el : '#divCart',
     data : {
@@ -20,35 +22,48 @@ var divCart = new Vue({
     }
 });
 //inisialisasi 
-$('#txtDeliveryInfo').hide();
-divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
+
+    $('#txtDeliveryInfo').hide();
+    divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
+    var socket = io('http://localhost:2501');
+
+    socket.on('status', function(data){
+        window.alert("Ada pesanan masuk");
+    });
+    
+// });
+
 
 function setNGoDelivery()
 {
-    divCart.pd[0].email = document.getElementById('txtEmailPd').value;
-    divCart.pd[0].nama = document.getElementById('txtNamaLengkapPd').value;
-    divCart.pd[0].alamat = document.getElementById('txtAlamatPd').value;
-    divCart.pd[0].hp = document.getElementById('txtHpPd').value;
-    //grab the all value
-    let email =  divCart.pd[0].email;
-    let nama = divCart.pd[0].nama;
-    let alamat = divCart.pd[0].alamat;
-    let hp = divCart.pd[0].hp;
-    let tipePembayaran = divCart.tipePembayaran;
-    let kdPesanan = divCart.kdPesanan;
-    if(email === '' || nama === '' || alamat === '' || hp === ''){
-        pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
-    }else{
-        if(tipePembayaran === 'none'){
-            pesanUmumApp('warning', 'Pilih pembayaran!!', 'Pilih metode pembayaran!!');
-        }else{
-            let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
-            $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
-                let obj = JSON.parse(data);
-                console.log(obj);
-            });
-        }
-    }
+    console.log("tes trigger");
+    let status = 'masuk';
+
+    socket.emit('status', status);
+    // divCart.pd[0].email = document.getElementById('txtEmailPd').value;
+    // divCart.pd[0].nama = document.getElementById('txtNamaLengkapPd').value;
+    // divCart.pd[0].alamat = document.getElementById('txtAlamatPd').value;
+    // divCart.pd[0].hp = document.getElementById('txtHpPd').value;
+    // //grab the all value
+    // let email =  divCart.pd[0].email;
+    // let nama = divCart.pd[0].nama;
+    // let alamat = divCart.pd[0].alamat;
+    // let hp = divCart.pd[0].hp;
+    // let tipePembayaran = divCart.tipePembayaran;
+    // let kdPesanan = divCart.kdPesanan;
+    // if(email === '' || nama === '' || alamat === '' || hp === ''){
+    //     pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
+    // }else{
+    //     if(tipePembayaran === 'none'){
+    //         pesanUmumApp('warning', 'Pilih pembayaran!!', 'Pilih metode pembayaran!!');
+    //     }else{
+    //         let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
+    //         $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
+    //             let obj = JSON.parse(data);
+    //             console.log(obj);
+    //         });
+    //     }
+    // }
 }
 
 document.getElementById('txtTipePesanan').addEventListener("change", function(){

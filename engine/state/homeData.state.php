@@ -59,4 +59,36 @@ class homeData{
         return $q['SUM(total)'];
     }
 
+    public function cekPelangganWithHp($hp)
+    {
+        $this -> st -> query("SELECT id FROM tbl_pelanggan WHERE no_hp='$hp';");
+        $tp = $this -> st -> numRow();
+        if($tp > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getPelangganDataWithHp($hp)
+    {
+        $this -> st -> query("SELECT id_pelanggan FROM tbl_pelanggan WHERE no_hp='$hp';");
+        $q = $this -> st -> querySingle();
+        return $q['id_pelanggan'];
+    }
+
+    public function createPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $waktu)
+    {
+        $query = "INSERT INTO tbl_pelanggan VALUES(null, '$idPelanggan','$nama','$alamat','$hp','$email','$waktu');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function createOrder($kdPesanan, $kdPelanggan, $tipePembayaran, $alamat, $waktu)
+    {
+        $query = "INSERT INTO tbl_delivery_order VALUES(null, '$kdPesanan','$kdPelanggan','','order_masuk','$tipePembayaran','','','$alamat','$waktu')";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
