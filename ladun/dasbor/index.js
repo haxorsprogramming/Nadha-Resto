@@ -14,6 +14,7 @@ const mitra = 'mitra';
 const pengeluaran = 'pengeluaran';
 const arusKas = 'arusKas';
 const laporanTransaksi = 'laporanTransaksi';
+const bantuan = 'bantuan';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -116,6 +117,11 @@ var divMenu = new Vue({
     {
       renderMenu(arusKas);
       divJudul.judulForm = "Arus Kas";
+    },
+    bantuanAtc : function()
+    {
+      renderMenu('bantuan/tesServerSide');
+      divJudul.judulForm = "Bantuan";
     }
   }
 });
