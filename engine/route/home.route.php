@@ -70,8 +70,6 @@ class home extends Route{
             }
             $this -> bind('/home/checkout', $data);
         }
-        
-        
     }
 
     public function deliveryOrderProses()
@@ -92,6 +90,8 @@ class home extends Route{
             $data['kdPelanggan'] = $kdPelanggan;
             //save ke tabel delivery order
             $this -> state($this -> sn) -> createOrder($kdPesanan, $kdPelanggan, $tipePembayaran, $alamat, $waktu);
+            //kode kirim email (phpmailer msh bermasalah)
+            
         }else{
             $idPelanggan = $this -> rnint(8);
             $data['kdPelanggan'] = $idPelanggan;

@@ -4,6 +4,8 @@ date_default_timezone_set("Asia/Jakarta");
 //import library php mailer (untuk mengirimkan email)
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
 require_once 'lib/phpmailer/library/PHPMailer.php';
 require_once 'lib/phpmailer/library/Exception.php';
 require_once 'lib/phpmailer/library/OAuth.php';
@@ -280,7 +282,7 @@ class Route{
         $mail = new PHPMailer(false);  
         try {
             //Server settings
-            $mail->SMTPDebug  = 0;                                  // Enable verbose debug output
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                                   // Enable verbose debug output
             $mail->isSMTP();                                        // Set mailer to use SMTP
             $mail->Host       = 'smtp.gmail.com';                   // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                               // Enable SMTP authentication
@@ -289,17 +291,16 @@ class Route{
             $mail->SMTPSecure = 'tls';                              // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                      // TCP port to connect to
             //Recipients
-            $mail->setFrom($emailHost, 'Haxors Uinsu');
+            $mail->setFrom($emailHost, 'NadhaResto');
             $mail->addAddress($penerima, $nama);                    // Add a recipient
             //Content
             $mail->isHTML(true);                                    // Set email format to HTML
             $mail->Subject = $judul;
             $mail->Body    = $isi;
             $mail->AltBody = $isi;
-
             $mail->send();
             return 'sukses';
-        } catch (Exception $e) {
+        }catch(Exception $e){
           return 'error';
         }
     }
