@@ -91,4 +91,15 @@ class homeData{
         $this -> st -> queryRun();
     }
 
+    public function cekPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT id FROM tbl_delivery_order WHERE kd_pesanan='$kdPesanan';");
+        $tp = $this -> st -> numRow();
+        if($tp > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

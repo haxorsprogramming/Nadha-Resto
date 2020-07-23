@@ -43,27 +43,35 @@ class home extends Route{
     public function checkOut($kdTemp)
     {
         $data['kdTemp'] = $kdTemp;
-        $data['kdCaps'] = substr(strtoupper($kdTemp), 0, 7);
-        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
-        $dataTemp = $this -> state($this -> sn) -> getCheckoutItem($kdTemp);
-        $totalHarga = $this -> state($this -> sn) -> getTotalPesanan($kdTemp);
-        $tax = $this -> state($this -> su) -> getSettingResto('tax');
-        $taxCharge = ($totalHarga * $tax) / 100;
-        $data['hargaAfterTax'] = $totalHarga + $taxCharge;
-        $data['totalHarga'] = $totalHarga;
-        $data['taxCharge'] = $taxCharge;
-        $data['tax'] = $tax;
-        $data['promo'] = $this -> state($this -> sn) -> getPromo();
-        foreach($dataTemp as $dt){
-            $kdItem = $dt['kd_item'];
-            $arrTemp['kdItem'] = $kdItem;
-            $arrTemp['namaMenu'] = $this -> state($this -> su) -> getNamaMenu($kdItem);
-            $arrTemp['qt'] = $dt['qt'];
-            $arrTemp['total'] = $dt['total'];
-            $arrTemp['hargaAt'] = $dt['harga_at'];
-            $data['itemPesanan'][]  = $arrTemp; 
+         //cek apakah kode pesanan valid atau tidak 
+        $cp = $this -> state($this -> sn) -> cekPesanan($kdTemp);
+        if($cp === true){
+            $this -> goto('../');
+        }else{
+            $data['kdCaps'] = substr(strtoupper($kdTemp), 0, 7);
+            $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
+            $dataTemp = $this -> state($this -> sn) -> getCheckoutItem($kdTemp);
+            $totalHarga = $this -> state($this -> sn) -> getTotalPesanan($kdTemp);
+            $tax = $this -> state($this -> su) -> getSettingResto('tax');
+            $taxCharge = ($totalHarga * $tax) / 100;
+            $data['hargaAfterTax'] = $totalHarga + $taxCharge;
+            $data['totalHarga'] = $totalHarga;
+            $data['taxCharge'] = $taxCharge;
+            $data['tax'] = $tax;
+            $data['promo'] = $this -> state($this -> sn) -> getPromo();
+            foreach($dataTemp as $dt){
+                $kdItem = $dt['kd_item'];
+                $arrTemp['kdItem'] = $kdItem;
+                $arrTemp['namaMenu'] = $this -> state($this -> su) -> getNamaMenu($kdItem);
+                $arrTemp['qt'] = $dt['qt'];
+                $arrTemp['total'] = $dt['total'];
+                $arrTemp['hargaAt'] = $dt['harga_at'];
+                $data['itemPesanan'][]  = $arrTemp; 
+            }
+            $this -> bind('/home/checkout', $data);
         }
-        $this -> bind('/home/checkout', $data);
+        
+        
     }
 
     public function deliveryOrderProses()
@@ -83,24 +91,26 @@ class home extends Route{
             $kdPelanggan = $this -> state($this -> sn) -> getPelangganDataWithHp($hp);
             $data['kdPelanggan'] = $kdPelanggan;
             //save ke tabel delivery order
-        //    $this -> state($this -> sn) -> createOrder($kdPesanan, $kdPelanggan, $tipePembayaran, $alamat, $waktu);
+            $this -> state($this -> sn) -> createOrder($kdPesanan, $kdPelanggan, $tipePembayaran, $alamat, $waktu);
         }else{
             $idPelanggan = $this -> rnint(8);
             $data['kdPelanggan'] = $idPelanggan;
             //buat pelanggan baru 
-            // $this -> state($this -> sn) -> createPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $waktu);
+            $this -> state($this -> sn) -> createPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $waktu);
             //save ke tabel delivery order
-            // $this -> state($this -> sn) -> createOrder($kdPesanan, $idPelanggan, $tipePembayaran, $alamat, $waktu);
+            $this -> state($this -> sn) -> createOrder($kdPesanan, $idPelanggan, $tipePembayaran, $alamat, $waktu);
         }
-        //save ke tbl_deliveri order
-
         $data['status'] = $cekHp;
         $this -> toJson($data);
     }
 
+    public function invoice()
+    {
+
+    }
+
     public function firebase()
     {
-        
         $this ->  bind('/home/firebase');
     }
 

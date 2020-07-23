@@ -1,4 +1,6 @@
+//ganti sesuai alamat server anda
 const server = 'http://localhost/Nadha-Resto/';
+var socket = io('http://localhost:2501');
 
 var divCart = new Vue({
     el : '#divCart',
@@ -22,7 +24,7 @@ var divCart = new Vue({
 //inisialisasi 
 $('#txtDeliveryInfo').hide();
 divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
-var socket = io('http://localhost:2501');
+
 
 function setNGoDelivery()
 {
@@ -43,13 +45,26 @@ function setNGoDelivery()
         if(tipePembayaran === 'none'){
             pesanUmumApp('warning', 'Pilih pembayaran!!', 'Pilih metode pembayaran!!');
         }else{
-            let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
-            $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
-                let obj = JSON.parse(data);
-                let status = 'masuk';
-                socket.emit('status', status);
-                // console.log(obj);
-            });
+            Swal.fire({
+                title: "Konfirmasi",
+                text: "Apakah data data anda sudah benar? Proses transaksi?",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya",
+                cancelButtonText: "Tidak",
+              }).then((result) => {
+                if (result.value) {
+                    let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
+                    $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
+                        let obj = JSON.parse(data);
+                        let status = 'masuk';
+                        socket.emit('status', status);
+                        pesanUmumApp('success','Pemesanan sukses', 'Pemesanan anda telah di proses, silahkan cek email anda untuk mendapatkan informasi pemesanan');
+                    });
+                }
+              });
         }
     }
 }
