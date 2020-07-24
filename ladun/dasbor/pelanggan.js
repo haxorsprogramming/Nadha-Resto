@@ -1,7 +1,7 @@
 var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
-
+        dataPelanggan : []
     },
     methods : {
         tambahPelangganAtc : function()
@@ -22,8 +22,7 @@ var divPelanggan = new Vue({
         },
         paginasiAtc : function(page)
         {
-            renderMenu('pelanggan/'+page);
-            divJudul.judulForm = "Daftar Pelanggan";
+            getPelanggan(page);
         }
     }
 });
@@ -56,7 +55,23 @@ var divFormTambahPelanggan = new Vue({
 
 $('#divFormTambahPelanggan').hide();
 // $('#tblPelanggan').DataTable();
+getPelanggan('1');
 
+function getPelanggan(page)
+{
+    //clear data pelanggan di vue object 
+    
+    $.post('pelanggan/getDataPelanggan/'+page, function(data){
+        let obj = JSON.parse(data);
+        let pelanggan = obj.pelanggan;
+        pelanggan.forEach(rPelanggan);
+        function rPelanggan(item, index){
+            divPelanggan.dataPelanggan.push({
+                nama : pelanggan[index].nama
+            });
+        }
+    });
+}
 document.getElementById('btnKembali').addEventListener("click", function(){
     divPelanggan.kembaliAtc();
 });

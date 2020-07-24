@@ -43,7 +43,7 @@ Nama : <input type="text" id='txtNama'> | Email : <input type="text" id='txtEmai
   var divBacotan = new Vue({
     el : '#divBacotan',
     data : {
-      bacotan : []
+      bacotan : [{nama : 'Memuat ...', bacotan : 'Memuat ...', key : '...'}]
     },
     methods : {
       hapus: function(key)

@@ -18,26 +18,15 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                $startPage = 1 * $data['pageNow'] * 10 - 10 + 1;
-
-                foreach($data['pelanggan'] as $pelanggan) : 
-                    
-                ?>
-                <tr>
-                    <td><?=$startPage; ?></td>
-                    <td><strong><?=$pelanggan['nama']; ?></strong></td>
-                    <td><?=$pelanggan['alamat']; ?></td>
-                    <td><?=$pelanggan['no_hp']; ?></td>
-                    <td><?=$pelanggan['last_visit']; ?></td>
-                    <td></td>
-                    <td>
-                        <a href='#!' class="btn btn-primary btn-sm btn-icon ico-left" v-on:click='detailAtc("<?=$pelanggan['id_pelanggan']; ?>")'>
-                            <i class='fas fa-info-circle'></i> Detail
-                        </a>
-                    </td>
+                <tr v-for='p in dataPelanggan'>
+                    <th></th>
+                    <th>{{p.nama}}</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
-                <?php $startPage++; endforeach; ?>
             </tbody>
         </table>
         <div>

@@ -16,6 +16,12 @@ class pelanggan extends Route{
       $this -> bind('dasbor/pelanggan/pelanggan', $data);
     }
 
+    public function getDataPelanggan($page)
+    {
+      $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan($page);
+      $this -> toJson($data);
+    }
+
     public function prosesTambahPelanggan()
     {
       $nama           = $this -> inp('nama');
