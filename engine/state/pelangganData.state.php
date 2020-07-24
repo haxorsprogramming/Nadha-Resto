@@ -12,10 +12,10 @@ class pelangganData{
     public function getPelanggan($page)
     {
         $totalPage = 10;
-        if($page == 1){
+        if($page === 1){
             $startPage = 0;
         }else{
-            $startPage = $totalPage * $page;
+            $startPage = $totalPage * $page - 10;
         }
         $this -> st -> query("SELECT * FROM tbl_pelanggan LIMIT $startPage, $totalPage;");
         return $this -> st -> queryAll();

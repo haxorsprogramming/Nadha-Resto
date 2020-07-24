@@ -8,6 +8,7 @@
         <table id='tblPelanggan' class='table table-hover table-bordered table-stripped'>
             <thead>
                 <tr>
+                    <th>#</th>
                     <th style="text-align: center;">Pelanggan</th>
                     <th>Alamat</th>
                     <th>Hp</th>
@@ -17,8 +18,14 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($data['pelanggan'] as $pelanggan) : ?>
+                <?php 
+                $startPage = 1 * $data['pageNow'] * 10 - 10 + 1;
+
+                foreach($data['pelanggan'] as $pelanggan) : 
+                    
+                ?>
                 <tr>
+                    <td><?=$startPage; ?></td>
                     <td><strong><?=$pelanggan['nama']; ?></strong></td>
                     <td><?=$pelanggan['alamat']; ?></td>
                     <td><?=$pelanggan['no_hp']; ?></td>
@@ -30,7 +37,7 @@
                         </a>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+                <?php $startPage++; endforeach; ?>
             </tbody>
         </table>
         <div>
@@ -40,7 +47,7 @@
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
                 <?php 
-                    for($x = 1;$x <=$data['jlhPaginasi']; $x++){
+                    for($x = 1;$x <=$data['jlhPaginasi']+1; $x++){
                         if($x == $data['pageNow']){
                             $bs = 'active';
                         }else{
@@ -48,7 +55,7 @@
                         }
                         ?> 
                         <li class="page-item <?=$bs; ?>">
-                            <a class="page-link" href="#!" @click='paginasiAtc()'><?=$x; ?></a>
+                            <a class="page-link" href="#!" @click="paginasiAtc('<?=$x; ?>')"><?=$x; ?></a>
                         </li>
                         <?php
                     }

@@ -22,7 +22,8 @@ var divPelanggan = new Vue({
         },
         paginasiAtc : function(page)
         {
-            window.alert(page);
+            renderMenu('pelanggan/'+page);
+            divJudul.judulForm = "Daftar Pelanggan";
         }
     }
 });
