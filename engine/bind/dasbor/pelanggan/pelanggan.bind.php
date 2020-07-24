@@ -4,6 +4,7 @@
             <i class="fas fa-plus-circle"></i> Tambah Pelanggan
         </a>
     </div>
+    
     <div class="row" style="padding-left:20px;margin-right:10px;">
         <table id='tblPelanggan' class='table table-hover table-bordered table-stripped'>
             <thead>
@@ -19,13 +20,13 @@
             </thead>
             <tbody>
                 <tr v-for='p in dataPelanggan'>
-                    <th></th>
-                    <th>{{p.nama}}</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <td><div class="post"><div class="line"></div></div></td>
+                    <td><div class="post"><div class="line">{{p.nama}}</div></div></td>
+                    <td><div class="post"><div class="line">{{p.alamat}}</div></div></td>
+                    <td><div class="post"><div class="line"></div></div></td>
+                    <td><div class="post"><div class="line"></div></div></td>
+                    <td><div class="post"><div class="line"></div></div></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -43,7 +44,7 @@
                             $bs = '';
                         }
                         ?> 
-                        <li class="page-item <?=$bs; ?>">
+                        <li class="page-item <?=$bs; ?>" id='pg<?=$x; ?>'>
                             <a class="page-link" href="#!" @click="paginasiAtc('<?=$x; ?>')"><?=$x; ?></a>
                         </li>
                         <?php

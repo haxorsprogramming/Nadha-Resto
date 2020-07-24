@@ -1,7 +1,18 @@
 var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
-        dataPelanggan : []
+        dataPelanggan : [
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''},
+            {nama : '', alamat : ''}
+        ]
     },
     methods : {
         tambahPelangganAtc : function()
@@ -22,6 +33,8 @@ var divPelanggan = new Vue({
         },
         paginasiAtc : function(page)
         {
+            $('.page-item').removeClass('active');
+            $('#pg'+page).addClass('active');
             getPelanggan(page);
         }
     }
@@ -55,20 +68,20 @@ var divFormTambahPelanggan = new Vue({
 
 $('#divFormTambahPelanggan').hide();
 // $('#tblPelanggan').DataTable();
-getPelanggan('1');
+// getPelanggan('1');
+var startPage = 1;
+setTimeout(function(){getPelanggan(startPage);}, 500);
 
 function getPelanggan(page)
 {
-    //clear data pelanggan di vue object 
-    
     $.post('pelanggan/getDataPelanggan/'+page, function(data){
         let obj = JSON.parse(data);
         let pelanggan = obj.pelanggan;
-        pelanggan.forEach(rPelanggan);
-        function rPelanggan(item, index){
-            divPelanggan.dataPelanggan.push({
-                nama : pelanggan[index].nama
-            });
+        let pjg = pelanggan.length;
+        var i;
+        for(i = 0; i < pjg; i++){
+            divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
+            divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
         }
     });
 }
