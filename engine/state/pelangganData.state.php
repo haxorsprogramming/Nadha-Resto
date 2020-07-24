@@ -9,9 +9,15 @@ class pelangganData{
         $this -> st = new state;
     }
 
-    public function getPelanggan()
+    public function getPelanggan($page)
     {
-        $this -> st -> query("SELECT * FROM tbl_pelanggan;");
+        $totalPage = 10;
+        if($page == 1){
+            $startPage = 0;
+        }else{
+            $startPage = $totalPage * $page;
+        }
+        $this -> st -> query("SELECT * FROM tbl_pelanggan LIMIT $startPage, $totalPage;");
         return $this -> st -> queryAll();
     }
 

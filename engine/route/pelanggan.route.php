@@ -5,11 +5,14 @@ class pelanggan extends Route{
     private $sn = 'pelangganData';
     private $su = 'utilityData';
 
-    public function index()
+    public function index($page)
     {
       $jlhPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
-      $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan();
+      $jlhPaginasi = $jlhPelanggan / 10;
+      $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan($page);
       $data['jlhPelanggan'] = $jlhPelanggan;
+      $data['jlhPaginasi'] = $jlhPaginasi;
+      $data['pageNow'] = $page;
       $this -> bind('dasbor/pelanggan/pelanggan', $data);
     }
 

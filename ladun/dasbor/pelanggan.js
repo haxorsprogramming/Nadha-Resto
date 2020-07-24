@@ -19,6 +19,10 @@ var divPelanggan = new Vue({
         detailAtc : function(kdPelanggan)
         {
             //event to detail pelanggan
+        },
+        paginasiAtc : function(page)
+        {
+            window.alert(page);
         }
     }
 });

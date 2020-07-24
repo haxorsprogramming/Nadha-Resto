@@ -33,9 +33,27 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div>
+            Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - <?=$data['pageNow']; ?>
+        </div>
+        <hr/>
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                <li class="page-item">
+                <?php 
+                    for($x = 1;$x <=$data['jlhPaginasi']; $x++){
+                        if($x == $data['pageNow']){
+                            $bs = 'active';
+                        }else{
+                            $bs = '';
+                        }
+                        ?> 
+                        <li class="page-item <?=$bs; ?>">
+                            <a class="page-link" href="#!" @click='paginasiAtc()'><?=$x; ?></a>
+                        </li>
+                        <?php
+                    }
+                ?>
+                <!-- <li class="page-item">
                     <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
                 </li>
                 <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
@@ -46,7 +64,7 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>
