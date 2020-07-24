@@ -1,18 +1,7 @@
 var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
-        dataPelanggan : [
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''},
-            {nama : '', alamat : ''}
-        ]
+        dataPelanggan : []
     },
     methods : {
         tambahPelangganAtc : function()
@@ -68,22 +57,46 @@ var divFormTambahPelanggan = new Vue({
 
 $('#divFormTambahPelanggan').hide();
 // $('#tblPelanggan').DataTable();
-// getPelanggan('1');
+var pt;
+for(pt = 0; pt < 10; pt++){
+    divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : ''});
+}
 var startPage = 1;
-setTimeout(function(){getPelanggan(startPage);}, 500);
+setTimeout(function(){getPelanggan(startPage);}, 300);
 
 function getPelanggan(page)
 {
-    $.post('pelanggan/getDataPelanggan/'+page, function(data){
-        let obj = JSON.parse(data);
-        let pelanggan = obj.pelanggan;
-        let pjg = pelanggan.length;
-        var i;
-        for(i = 0; i < pjg; i++){
-            divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
-            divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
-        }
-    });
+    //tampilkan skeleton screen 
+    var j;
+    for(j = 0; j < 10; j++){
+        divPelanggan.dataPelanggan[j].nama = '';
+        divPelanggan.dataPelanggan[j].alamat = '';
+        divPelanggan.dataPelanggan[j].hp = '';
+    }
+    setTimeout(function(){
+        $.post('pelanggan/getDataPelanggan/'+page, function(data){
+            let obj = JSON.parse(data);
+            let pelanggan = obj.pelanggan;
+            let pjg = pelanggan.length;
+            console.log(pjg);
+            var i;
+            let jSpam = 10 - parseInt(pjg);
+            var h;
+            //hapus tabel jika 
+            for(h = 0; h < parseInt(pjg); h++){
+                divPelanggan.dataPelanggan.splice(0, 1);
+            }
+            var ut;
+            for(ut = 0; ut < parseInt(pjg); ut++){
+                divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : ''});
+            }
+            for(i = 0; i < parseInt(pjg); i++){
+                divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
+                divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
+                divPelanggan.dataPelanggan[i].hp = pelanggan[i].no_hp;
+            }
+        });
+    }, 200);
 }
 document.getElementById('btnKembali').addEventListener("click", function(){
     divPelanggan.kembaliAtc();

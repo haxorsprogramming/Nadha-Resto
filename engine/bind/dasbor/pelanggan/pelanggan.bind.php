@@ -23,7 +23,7 @@
                     <td><div class="post"><div class="line"></div></div></td>
                     <td><div class="post"><div class="line">{{p.nama}}</div></div></td>
                     <td><div class="post"><div class="line">{{p.alamat}}</div></div></td>
-                    <td><div class="post"><div class="line"></div></div></td>
+                    <td><div class="post"><div class="line">{{p.hp}}</div></div></td>
                     <td><div class="post"><div class="line"></div></div></td>
                     <td><div class="post"><div class="line"></div></div></td>
                     <td></td>
