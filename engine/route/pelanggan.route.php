@@ -3,10 +3,13 @@
 class pelanggan extends Route{
 
     private $sn = 'pelangganData';
+    private $su = 'utilityData';
 
     public function index()
     {
+      $jlhPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
       $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan();
+      $data['jlhPelanggan'] = $jlhPelanggan;
       $this -> bind('dasbor/pelanggan/pelanggan', $data);
     }
 

@@ -15,6 +15,12 @@ class pelangganData{
         return $this -> st -> queryAll();
     }
 
+    public function getJlhPelanggan()
+    {
+        $this -> st -> query("SELECT id FROM tbl_pelanggan;");
+        return $this -> st -> numRow();
+    }
+
     public function tambahPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $visit)
     {
         $query = "INSERT INTO tbl_pelanggan VALUES(null, '$idPelanggan','$nama','$alamat','$hp','$email','$visit');";

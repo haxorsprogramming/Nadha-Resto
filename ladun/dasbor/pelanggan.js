@@ -50,7 +50,7 @@ var divFormTambahPelanggan = new Vue({
 });
 
 $('#divFormTambahPelanggan').hide();
-$('#tblPelanggan').DataTable();
+// $('#tblPelanggan').DataTable();
 
 document.getElementById('btnKembali').addEventListener("click", function(){
     divPelanggan.kembaliAtc();
