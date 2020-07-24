@@ -6,24 +6,77 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
 
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+<button onclick="tesSimpan()">Tes</button>
 
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
-</body>
+<hr/>
+<div id='divBacotan'>
+<h4>Bacotan</h4>
+<p>
+  <ul>
+    <li v-for='b in bacotan'>Nama : {{b.nama}} - Bacotan : {{b.bacotan}}</li>
+  </ul>
+</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-database.js"></script>
 <script>
-    // TODO: Replace the following with your app's Firebase project configuration
-    var firebaseConfig = {
-      // ...
-    };
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAueZTSpNcbl7XGou5y0kwVaWpwHiScVPY",
+    authDomain: "nadhamedia.firebaseapp.com",
+    databaseURL: "https://nadhamedia.firebaseio.com",
+    projectId: "nadhamedia",
+    storageBucket: "nadhamedia.appspot.com",
+    messagingSenderId: "368827698714",
+    appId: "1:368827698714:web:696bfe0e10abd1f477cba3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.database();
+  var bacotanCol = db.ref('bacotanKita'); 
+  //vue object 
+  var divBacotan = new Vue({
+    el : '#divBacotan',
+    data : {
+      bacotan : []
+    }
+  });
+  
+  bacotanCol.on('value', function(renderData){
+    renderData.forEach(function(dataBacotan){
+      var uniqueId = dataBacotan.key;
+      var dataB = dataBacotan.val();
+      divBacotan.bacotan.push({
+        nama : dataB['nama'],
+        bacotan : dataB['bacot']
+      });
+    });
+  });
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+  function tesSimpan()
+  {
+    let uid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    db.ref('bacotanKita/'+uid).set({
+      email : 'dindananinda@gmail.com',
+      nama : 'Dinda yakali',
+      bacot : 'Ah bisa ajaa'
+    });
+  }
+
+  function sukses(items)
+  {
+   
+  }
+
+  function gagal()
+  {
+
+  }
+</script>
+  </body>
 </html>
