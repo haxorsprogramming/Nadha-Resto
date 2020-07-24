@@ -47,7 +47,6 @@ function simpan()
         pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
     }else{
         let dataSend = {'nama':nama, 'deks':deks, 'satuan':satuan, 'kategori':kategori, 'stok':stok}
-        // console.log(dataSend);
         $.post('bahanBaku/tambahBahanBaku', dataSend, function(data){
             let obj = JSON.parse(data);
             if(obj.status === 'error'){

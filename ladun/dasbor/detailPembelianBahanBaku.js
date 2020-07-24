@@ -25,7 +25,7 @@ var divDetailPembelianBb = new Vue({
 
 //inisialisasi 
 divDetailPembelianBb.kdPembelian = document.getElementById('txtKdPembelian').innerHTML;
-setTimeout(renderHeader, 400);
+setTimeout(renderHeader, 300);
 
 function renderHeader()
 {
