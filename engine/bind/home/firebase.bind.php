@@ -6,15 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-
-<button onclick="tesSimpan()">Tes</button>
+Nama : <input type="text" id='txtNama'> | Email : <input type="text" id='txtEmail'> | Bacotan : <input type="text"  id='txtBacotan'> <br/><br/>
+<button onclick="tesSimpan()">Simpan</button>
 
 <hr/>
 <div id='divBacotan'>
 <h4>Bacotan</h4>
 <p>
   <ul>
-    <li v-for='b in bacotan'>Nama : {{b.nama}} - Bacotan : {{b.bacotan}}</li>
+    <li v-for='b in bacotan'>Nama : {{b.nama}} - Bacotan : {{b.bacotan}} | <a href='#!' @click='hapus(b.key)'>Hapus</a></li>
   </ul>
 </p>
 </div>
@@ -44,27 +44,46 @@
     el : '#divBacotan',
     data : {
       bacotan : []
+    },
+    methods : {
+      hapus: function(key)
+      {
+        hapusRecord(key);
+      }
     }
   });
-  
+
   bacotanCol.on('value', function(renderData){
+    let jlhData = divBacotan.bacotan.length;
+    var i;
+    for(i = 0; i < jlhData; i++){
+      divBacotan.bacotan.splice(0,1);
+    }
     renderData.forEach(function(dataBacotan){
       var uniqueId = dataBacotan.key;
       var dataB = dataBacotan.val();
       divBacotan.bacotan.push({
         nama : dataB['nama'],
-        bacotan : dataB['bacot']
+        bacotan : dataB['bacot'],
+        key : uniqueId
       });
     });
   });
 
+  function hapusRecord(key){
+    db.ref('bacotanKita/'+key).remove();
+  }
+
   function tesSimpan()
   {
     let uid = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    let nama = document.getElementById('txtNama').value;
+    let email = document.getElementById('txtEmail').value;
+    let bacotan = document.getElementById('txtBacotan').value;
     db.ref('bacotanKita/'+uid).set({
-      email : 'dindananinda@gmail.com',
-      nama : 'Dinda yakali',
-      bacot : 'Ah bisa ajaa'
+      email : email,
+      nama : nama,
+      bacot : bacotan
     });
   }
 
