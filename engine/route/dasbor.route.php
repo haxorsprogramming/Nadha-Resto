@@ -1,7 +1,7 @@
 <?php
 
 class dasbor extends Route{
-
+    //inisialisasi state
     public function __construct()
     {
         $this -> st = new state;

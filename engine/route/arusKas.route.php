@@ -1,7 +1,7 @@
 <?php
 
 class arusKas extends Route{
-
+    //inisialisasi state
     private $sn = 'arusKasData';
     private $su = 'utilityData';
 

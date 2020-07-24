@@ -1,10 +1,10 @@
 <?php
-
+//include library dompdf
 require_once 'lib/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
 class cetak extends Route{
-
+    //inisialisasi state
     private $sn = 'cetakData';
     private $su = 'utilityData';
 

@@ -1,7 +1,7 @@
 <?php
 
 class pengeluaran extends Route{
-    //inisialisai nama state
+    //inisialisai state
     private $sn = 'pengeluaranData';
     private $su = 'utilityData';
 
@@ -15,15 +15,15 @@ class pengeluaran extends Route{
     public function prosesPengeluaran()
     {
         //buat kode pengeluaran
-        $kdPengeluaran = $this -> rnstr(20);
+        $kdPengeluaran  = $this -> rnstr(20);
         //ambil post data dari form
-        $nama = $this -> inp('nama');
-        $deks = $this -> inp('deks');
-        $kategori = $this -> inp('kategori');
+        $nama           = $this -> inp('nama');
+        $deks           = $this -> inp('deks');
+        $kategori       = $this -> inp('kategori');
         //clearkan tanda (.) pada nilai total
-        $total = str_replace('.', '', $this -> inp('total'));
-        $waktu = $this -> waktu();
-        $operator = $this -> getses('userSes');
+        $total          = str_replace('.', '', $this -> inp('total'));
+        $waktu          = $this -> waktu();
+        $operator       = $this -> getses('userSes');
         //simpan data pengeluaran
         $this -> state($this -> sn) -> prosesPengeluaran($kdPengeluaran, $nama, $deks, $kategori, $total, $operator, $waktu);
         //simpan ke arus kas 

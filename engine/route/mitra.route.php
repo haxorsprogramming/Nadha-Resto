@@ -1,8 +1,9 @@
 <?php
 
 class mitra extends Route{
-
+    //inisialisasi state
     private $sn = 'mitraData';
+    private $su = 'utilityData';
     
     public function index()
     {
@@ -12,7 +13,6 @@ class mitra extends Route{
 
     public function tambahMitra()
     {
-        // {'nama':nama, 'deks':deks, 'pemilik':pemilik, 'alamat':alamat, 'hp':hp, 'tipe':tipe}
         $nama = $this -> inp('nama');
         $deks = $this -> inp('deks');
         $pemilik = $this -> inp('pemilik');
