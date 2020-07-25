@@ -57,7 +57,7 @@
             </tbody>
         </table>
         <div>
-            Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - {{pageNow}}
+            <i>Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - {{pageNow}} | Total halaman : {{pageMax}}</i>
         </div>
         <hr />
         <nav class="d-inline-block">

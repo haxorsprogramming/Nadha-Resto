@@ -16,6 +16,14 @@ class pelanggan extends Route{
       $this -> bind('dasbor/pelanggan/pelanggan', $data);
     }
 
+    public function getMaxPagePelanggan()
+    {
+      $jlhPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
+      $jlhPaginasi = ceil($jlhPelanggan / 10);
+      $data['jlhPaginasi'] = $jlhPaginasi;
+      $this -> toJson($data);
+    }
+
     public function getDataPelanggan($page)
     {
       $qPelanggan = $this -> state($this -> sn) -> getPelanggan($page);

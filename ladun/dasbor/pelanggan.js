@@ -3,13 +3,8 @@ var divPelanggan = new Vue({
     data : {
         dataPelanggan : [],
         pageNow : 1,
-        halaman : [
-            {no : 1, status : ''},
-            {no : 2, status : ''},
-            {no : 3, status : ''},
-            {no : 4, status : ''},
-            {no : 5, status : ''},
-        ]
+        halaman : [{no : 1},{no : 2},{no : 3},{no : 4},{no : 5}],
+        pageMax : 0
     },
     methods : {
         tambahPelangganAtc : function()
@@ -31,18 +26,27 @@ var divPelanggan = new Vue({
         paginasiAtc : function(page)
         {
             this.pageNow = page;
-            $('.page-item').removeClass('active');
-            $('#pg'+page).addClass('active');
-            if(page > 4){
-                var i;
-                for(i = 0; i < 5; i++){
-                    let halNow = this.halaman[i].no;
-                    let halUp = parseInt(halNow) + 1;
-                    this.halaman[i].no = halUp;
-                }
-            }else{
 
+            if(page < 4){
+                $('.page-item').removeClass('active');
+                $('#pg'+page).addClass('active');
+            }else{
+                let startPage = parseInt(page) - 2;
+                let lastPage = parseInt(page) + 2;
+                console.log(lastPage+"-"+this.pageMax);
+                if(parseInt(lastPage) >= parseInt(this.pageMax)){
+                    $('#liNext').hide();
+                }else{
+                    var w;
+                    for(w = 0; w < 5; w++){
+                        this.halaman[w].no = parseInt(startPage) + w;
+                    }
+                    let pgp = parseInt(page) - 1;
+                    $('.page-item').removeClass('active');
+                    $('#pg'+pgp).addClass('active');
+                }
             }
+
             if(page > 1){
                 $('#liPrev').show();
             }else{
@@ -116,7 +120,11 @@ for(pt = 0; pt < 10; pt++){
 //getPelanggan
 var startPage = 1;
 setTimeout(function(){getPelanggan(startPage);}, 300);
-
+//get max pelanggan
+$.post('pelanggan/getMaxPagePelanggan', function(data){
+    let obj = JSON.parse(data);
+    divPelanggan.pageMax = obj.jlhPaginasi;
+});
 function getPelanggan(page)
 {
     //tampilkan skeleton screen 
