@@ -52,12 +52,12 @@
                             <div class="line">{{p.totalTransaksi}}</div>
                         </div>
                     </td>
-                    <td><a href='#!' class="btn btn-primary btn-sm">Detail</a></td>
+                    <td><a href='#!' class="btn btn-primary btn-sm" @click='detailAtc(p.idPelanggan)'><i class='fas fa-info-circle'></i> Detail</a></td>
                 </tr>
             </tbody>
         </table>
         <div>
-            Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - <?=$data['pageNow']; ?>
+            Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - {{pageNow}}
         </div>
         <hr />
         <nav class="d-inline-block">

@@ -3,6 +3,13 @@
   height: 40px;
 }
 
+.tblNadha{
+  border-left : 2px solid #636e72;
+  border-right :2px solid #636e72;
+  border-top : 2px solid #636e72;
+  border-bottom : 2px solid #636e72;
+}
+
 .post .line:empty {
   float: left;
   width: 100%;

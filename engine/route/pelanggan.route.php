@@ -24,6 +24,7 @@ class pelanggan extends Route{
         $arrTemp['alamat'] = $pel['alamat'];
         $arrTemp['no_hp'] = $pel['no_hp'];
         $arrTemp['last_visit'] = $pel['last_visit'];
+        $arrTemp['id_pelanggan'] = $pel['id_pelanggan'];
         $arrTemp['total_transaksi'] = $this -> state($this -> sn) -> totalTransaksi($pel['id_pelanggan']);
         $data['pelanggan'][] = $arrTemp;
       }
