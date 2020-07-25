@@ -10,19 +10,18 @@ console.log(urlLoginProses);
 var loginForm = new Vue({
   el: "#login-app",
   data: {
-    userInput: "",
-    passwordInput: ""
+    userInput: '',
+    passwordInput: ''
   },
   methods: {
     klikSaya: function() {
       if (this.userInput === "" || this.passwordInput === "") {
         isiField();
-      } else {
+      }else{
         let xhr = new XMLHttpRequest();
         let params = "username="+this.userInput+"&password="+this.passwordInput;
         xhr.open('POST', urlLoginProses, true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
         xhr.onload = function(){
           let obj = JSON.parse(this.responseText);
           console.log(obj);
@@ -32,15 +31,11 @@ var loginForm = new Vue({
               gagalLogin(); 
             }
         }
-
         xhr.send(params);
-               
       }
     }
   }
 });
-
-// let data = { username : }
 
 function suksesLogin() {
   iziToast.info({
