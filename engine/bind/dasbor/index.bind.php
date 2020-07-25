@@ -119,8 +119,6 @@
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/jquery.nicescroll.min.js"></script>
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/moment.min.js"></script>
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/stisla.js"></script>
-    <!-- Socket IO -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js'></script>
    <!-- JS Libraies -->
 
    <!-- <script src="https://demo.getstisla.com/asset/modules/jquery.simpleWeather.min.js"></script> -->

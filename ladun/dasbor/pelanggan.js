@@ -3,7 +3,7 @@ var divPelanggan = new Vue({
     data : {
         dataPelanggan : [],
         pageNow : 1,
-        halaman : [{no : 1},{no : 2},{no : 3},{no : 4},{no : 5}],
+        halaman : [],
         pageMax : 0
     },
     methods : {
@@ -26,33 +26,62 @@ var divPelanggan = new Vue({
         paginasiAtc : function(page)
         {
             this.pageNow = page;
-
-            if(page < 4){
+            //default event 
+            if(page <= 1){
+                //event jika nilai satu
+                getPelanggan(page);
                 $('.page-item').removeClass('active');
                 $('#pg'+page).addClass('active');
+                $('#liPrev').hide();
             }else{
-                let startPage = parseInt(page) - 2;
-                let lastPage = parseInt(page) + 2;
-                console.log(lastPage+"-"+this.pageMax);
-                if(parseInt(lastPage) >= parseInt(this.pageMax)){
-                    $('#liNext').hide();
-                }else{
-                    var w;
-                    for(w = 0; w < 5; w++){
-                        this.halaman[w].no = parseInt(startPage) + w;
-                    }
-                    let pgp = parseInt(page) - 1;
+                //event jika nilai lbh dari satu 
+                if(page < 4){
+                    //event jika nilai dibawah 4
+                    getPelanggan(page);
                     $('.page-item').removeClass('active');
-                    $('#pg'+pgp).addClass('active');
+                    $('#pg'+page).addClass('active');
+                    $('#liPrev').show();
+                }else{
+                    //event jika nilai diatas 4
+                    let pn = page;
+                    let sp = parseInt(page) - 2;
+                    let lp = parseInt(page) + 2;
+                    //konfigurasi nilai paginasi 
+                    var np;
+                    for(np = 0; np < 5; np++){
+                        let nn = sp + np;
+                        this.halaman[np].no = nn;
+                        console.log("array ke : "+np+" bernilai "+nn);
+                    }
+                    console.log("paginasi awal : "+sp+" - paginasi akhir : "+lp);
                 }
             }
+            // if(page < 4){
+            //     $('.page-item').removeClass('active');
+            //     $('#pg'+page).addClass('active');
+            // }else{
+            //     let startPage = parseInt(page) - 2;
+            //     let lastPage = parseInt(page) + 2;
+            //     console.log(lastPage+"-"+this.pageMax);
+            //     if(parseInt(lastPage) >= parseInt(this.pageMax)){
+            //         $('#liNext').hide();
+            //     }else{
+            //         var w;
+            //         for(w = 0; w < 5; w++){
+            //             this.halaman[w].no = parseInt(startPage) + w;
+            //         }
+            //         let pgp = parseInt(page) - 1;
+            //         $('.page-item').removeClass('active');
+            //         $('#pg'+pgp).addClass('active');
+            //     }
+            // }
 
-            if(page > 1){
-                $('#liPrev').show();
-            }else{
-                $('#liPrev').hide();
-            }
-            getPelanggan(page);
+            // if(page > 1){
+            //     $('#liPrev').show();
+            // }else{
+            //     $('#liPrev').hide();
+            // }
+            // getPelanggan(page);
         },
         prevAtc : function()
         {
@@ -111,7 +140,8 @@ var divFormTambahPelanggan = new Vue({
 //inisialisasi
 $('#divFormTambahPelanggan').hide();
 $('#liPrev').hide();
-$('#pg1').addClass('active');
+
+
 //table preparation
 var pt;
 for(pt = 0; pt < 10; pt++){
@@ -124,7 +154,22 @@ setTimeout(function(){getPelanggan(startPage);}, 300);
 $.post('pelanggan/getMaxPagePelanggan', function(data){
     let obj = JSON.parse(data);
     divPelanggan.pageMax = obj.jlhPaginasi;
+    if(divPelanggan.pageMax >= 5){
+        //buat tombol paginasi
+        var lp;
+        for(lp = 1; lp <= 5; lp++){
+            divPelanggan.halaman.push({no: lp});
+        }
+    }else{
+        //buat paginasi sesuai jumlah halaman
+    }
+    setTimeout(function(){
+        $('#pg1').addClass('active');
+    }, 200);
+    
 });
+
+//list fungsi
 function getPelanggan(page)
 {
     //tampilkan skeleton screen 

@@ -19,7 +19,6 @@ const bantuan = 'bantuan';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
-var socket = io('http://localhost:2501');
 NProgress.configure({ showSpinner: false });
 
 // fungsi pertama kali dijalankan
@@ -141,8 +140,3 @@ function pesanUmumApp(icon, title, text)
     text : text
   });
 }
-
-socket.on('status', function(data){
-  pesanUmumApp('info', 'Pesanan baru', 'Ada pesanan baru masuk ...');
-  $('#capNotif').addClass('beep');
-});

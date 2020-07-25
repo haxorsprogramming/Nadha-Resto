@@ -19,7 +19,7 @@
 <li>Javascript : Vue JS, Native Javascript, & Jquery</li>
 <li>Bootstrap Theme By <a href='https://demo.getstisla.com/index.html'>[Stisla]</a></li>
 <li>Node Js</li>
-<li>Cloud Serverless : Firebase</li>
+<li>Cloud Serverless & Realtime Event : Firebase</li>
 </ul>
 <br/>
 <b>Library</b>
