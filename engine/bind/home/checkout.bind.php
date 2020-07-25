@@ -253,7 +253,10 @@
     <!-- Body Overlay -->
     <div id="body-overlay"></div>
 </div>
-
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-database.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/js/checkout.js"></script>

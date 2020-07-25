@@ -1,6 +1,19 @@
-//ganti sesuai alamat server anda
 const server = 'http://localhost/Nadha-Resto/';
-var socket = io('http://localhost:2501');
+// Your web app's Firebase configuration -> ganti dengan settingan firebase anda
+var firebaseConfig = {
+    apiKey: "AIzaSyAueZTSpNcbl7XGou5y0kwVaWpwHiScVPY",
+    authDomain: "nadhamedia.firebaseapp.com",
+    databaseURL: "https://nadhamedia.firebaseio.com",
+    projectId: "nadhamedia",
+    storageBucket: "nadhamedia.appspot.com",
+    messagingSenderId: "368827698714",
+    appId: "1:368827698714:web:696bfe0e10abd1f477cba3"
+  };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+var db = firebase.database();
+var pesananCol = db.ref('pesanan'); 
 
 var divCart = new Vue({
     el : '#divCart',
@@ -59,8 +72,10 @@ function setNGoDelivery()
                     let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
                     $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
                         let obj = JSON.parse(data);
-                        let status = 'masuk';
-                        socket.emit('status', status);
+                        db.ref('pesanan/'+kdPesanan).set({
+                            kd : kdPesanan,
+                            email : email
+                          });
                         pesanUmumApp('success','Pemesanan sukses', 'Pemesanan anda telah di proses, silahkan cek email anda untuk mendapatkan informasi pemesanan');
                     });
                 }
