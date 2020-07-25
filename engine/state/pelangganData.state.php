@@ -40,4 +40,10 @@ class pelangganData{
         return $this -> st -> numRow();
     }
 
+    public function totalTransaksi($idPelanggan)
+    {
+        $this -> st -> query("SELECT id FROM tbl_pesanan WHERE pelanggan='$idPelanggan';");
+        return $this -> st -> numRow();
+    }
+
 }

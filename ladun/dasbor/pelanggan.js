@@ -59,7 +59,7 @@ $('#divFormTambahPelanggan').hide();
 // $('#tblPelanggan').DataTable();
 var pt;
 for(pt = 0; pt < 10; pt++){
-    divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : ''});
+    divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : ''});
 }
 var startPage = 1;
 setTimeout(function(){getPelanggan(startPage);}, 300);
@@ -72,6 +72,8 @@ function getPelanggan(page)
         divPelanggan.dataPelanggan[j].nama = '';
         divPelanggan.dataPelanggan[j].alamat = '';
         divPelanggan.dataPelanggan[j].hp = '';
+        divPelanggan.dataPelanggan[j].lastVisit = '';
+        divPelanggan.dataPelanggan[j].totalTransaksi = '';
     }
     setTimeout(function(){
         $.post('pelanggan/getDataPelanggan/'+page, function(data){
@@ -87,7 +89,7 @@ function getPelanggan(page)
             //push skeleton screen 
             var ut;
             for(ut = 0; ut < parseInt(pjg); ut++){
-                divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : ''});
+                divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : ''});
             }
             //push data
             var i;
@@ -95,6 +97,8 @@ function getPelanggan(page)
                 divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
                 divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
                 divPelanggan.dataPelanggan[i].hp = pelanggan[i].no_hp;
+                divPelanggan.dataPelanggan[i].lastVisit = pelanggan[i].last_visit;
+                divPelanggan.dataPelanggan[i].totalTransaksi = pelanggan[i].total_transaksi;
             }            
         });
     }, 200);

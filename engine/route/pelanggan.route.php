@@ -18,7 +18,15 @@ class pelanggan extends Route{
 
     public function getDataPelanggan($page)
     {
-      $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan($page);
+      $qPelanggan = $this -> state($this -> sn) -> getPelanggan($page);
+      foreach($qPelanggan as $pel){
+        $arrTemp['nama'] = $pel['nama'];
+        $arrTemp['alamat'] = $pel['alamat'];
+        $arrTemp['no_hp'] = $pel['no_hp'];
+        $arrTemp['last_visit'] = $pel['last_visit'];
+        $arrTemp['total_transaksi'] = $this -> state($this -> sn) -> totalTransaksi($pel['id_pelanggan']);
+        $data['pelanggan'][] = $arrTemp;
+      }
       $this -> toJson($data);
     }
 

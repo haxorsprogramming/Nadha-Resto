@@ -44,12 +44,12 @@
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{p.lastVisit}}</div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{p.totalTransaksi}}</div>
                         </div>
                     </td>
                     <td><a href='#!' class="btn btn-primary btn-sm">Detail</a></td>
