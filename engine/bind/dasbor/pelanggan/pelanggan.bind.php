@@ -8,8 +8,8 @@
     <div class="row" style="padding-left:20px;margin-right:10px;">
         <div class="form-inline">
             <div class="form-group">
-                <div class="input-group mb-3" style="margin-bottom: 15px;">
-                    <input type="text" class="form-control" placeholder="Cari pelanggan" id='txtPelangganCari'>
+                <div class="input-group mb-3" style="margin-bottom: 15px;width:300px;">
+                    <input type="text" class="form-control" placeholder="Cari pelanggan (nama / ho hp)" id='txtPelangganCari'>
                     <div class="input-group-append">
                         <button href='#!' class="btn btn-primary btn-icon iconleft" @click='cariPelangganAtc'>
                             <i class="fas fa-search"></i>
@@ -81,8 +81,8 @@
                     <a class="page-link" href="#!"><i class="fas fa-chevron-left"></i></a>
                 </li>
 
-                <li class="page-item" v-for='h in halaman' :id="'pg'+h.no">
-                    <a class="page-link" href="#!" @click="paginasiAtc(h.no)">{{h.no}}</a>
+                <li class="page-item active" v-for='h in halaman' :id="'pg'+h.no">
+                    <a class="page-link" href="#!" >{{h.no}}</a>
                 </li>
 
                 <li class="page-item" @click='nextAtc' id='liNext'>

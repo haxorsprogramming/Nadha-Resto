@@ -60,7 +60,7 @@ class pelangganData{
 
     public function cariPelanggan($nama)
     {
-        $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE nama LIKE '%$nama%';");
+        $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE (nama LIKE '%$nama%' OR no_hp LIKE '%$nama%');");
         return $this -> st -> queryAll();
     }
 

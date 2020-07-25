@@ -5,8 +5,6 @@ $(document).ready(function(){
   document.getElementById("txtUsername").focus();
 });
 
-console.log(urlLoginProses);
-
 var loginForm = new Vue({
   el: "#login-app",
   data: {

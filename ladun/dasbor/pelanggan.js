@@ -166,7 +166,11 @@ function cariPelanggan()
     let pelanggan = document.getElementById('txtPelangganCari').value;
     $.post('pelanggan/cariPelanggan', {'nama':pelanggan}, function(data){
         let obj = JSON.parse(data);
-        
+        //clear table
+        var i;
+        for(i = 0; i < 10; i++){
+            divPelanggan.dataPelanggan.splice(0, 1);
+        }
     });
 }
 
