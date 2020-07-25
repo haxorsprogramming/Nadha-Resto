@@ -3,7 +3,7 @@ var divPelanggan = new Vue({
     data : {
         dataPelanggan : [],
         pageNow : 1,
-        halaman : [],
+        halaman : [{no : 1}],
         pageMax : 0
     },
     methods : {
@@ -25,89 +25,44 @@ var divPelanggan = new Vue({
         },
         paginasiAtc : function(page)
         {
-            this.pageNow = page;
-            //default event 
-            if(page <= 1){
-                //event jika nilai satu
-                getPelanggan(page);
-                $('.page-item').removeClass('active');
-                $('#pg'+page).addClass('active');
-                $('#liPrev').hide();
-            }else{
-                //event jika nilai lbh dari satu 
-                if(page < 4){
-                    //event jika nilai dibawah 4
-                    getPelanggan(page);
-                    $('.page-item').removeClass('active');
-                    $('#pg'+page).addClass('active');
-                    $('#liPrev').show();
-                }else{
-                    //event jika nilai diatas 4
-                    let pn = page;
-                    let sp = parseInt(page) - 2;
-                    let lp = parseInt(page) + 2;
-                    //konfigurasi nilai paginasi 
-                    var np;
-                    for(np = 0; np < 5; np++){
-                        let nn = sp + np;
-                        this.halaman[np].no = nn;
-                        console.log("array ke : "+np+" bernilai "+nn);
-                    }
-                    console.log("paginasi awal : "+sp+" - paginasi akhir : "+lp);
-                }
-            }
-            // if(page < 4){
-            //     $('.page-item').removeClass('active');
-            //     $('#pg'+page).addClass('active');
-            // }else{
-            //     let startPage = parseInt(page) - 2;
-            //     let lastPage = parseInt(page) + 2;
-            //     console.log(lastPage+"-"+this.pageMax);
-            //     if(parseInt(lastPage) >= parseInt(this.pageMax)){
-            //         $('#liNext').hide();
-            //     }else{
-            //         var w;
-            //         for(w = 0; w < 5; w++){
-            //             this.halaman[w].no = parseInt(startPage) + w;
-            //         }
-            //         let pgp = parseInt(page) - 1;
-            //         $('.page-item').removeClass('active');
-            //         $('#pg'+pgp).addClass('active');
-            //     }
-            // }
-
-            // if(page > 1){
-            //     $('#liPrev').show();
-            // }else{
-            //     $('#liPrev').hide();
-            // }
-            // getPelanggan(page);
+            
         },
         prevAtc : function()
         {
             let pagePrev = this.pageNow - 1;
-            $('.page-item').removeClass('active');
-            $('#pg'+pagePrev).addClass('active');
-            if(pagePrev > 1){
-                $('#liPrev').show();
-            }else{
+            $('#liNext').show();
+            this.halaman[0].no = pagePrev;
+            getPelanggan(pagePrev);
+            this.pageNow = parseInt(this.pageNow) - 1;
+            if(this.pageNow <= 1){
                 $('#liPrev').hide();
             }
-            getPelanggan(pagePrev);
-            this.pageNow = pagePrev;
         },
         nextAtc : function()
         {
             let pageNext = this.pageNow + 1;
-            $('.page-item').removeClass('active');
-            $('#pg'+pageNext).addClass('active');
-            if(pageNext > 1){
+            let pnn = parseInt(pageNext) + 1;   
+            console.log(pageNext);
+            console.log(this.pageMax);
+
+            this.halaman[0].no = pageNext;
+            getPelanggan(pageNext);
+            this.pageNow = parseInt(this.pageNow) + 1;
+
+
+            if(this.pageNow >= 2){
                 $('#liPrev').show();
             }else{
-                $('#liPrev').hide();
+
             }
-            getPelanggan(pageNext);
-            this.pageNow = pageNext;
+
+            if(this.pageNow === this.pageMax){
+                $('#liNext').hide();
+                $('#liPrev').show();
+            }else{
+
+            }
+
         }
     }
 });
@@ -154,15 +109,7 @@ setTimeout(function(){getPelanggan(startPage);}, 300);
 $.post('pelanggan/getMaxPagePelanggan', function(data){
     let obj = JSON.parse(data);
     divPelanggan.pageMax = obj.jlhPaginasi;
-    if(divPelanggan.pageMax >= 5){
-        //buat tombol paginasi
-        var lp;
-        for(lp = 1; lp <= 5; lp++){
-            divPelanggan.halaman.push({no: lp});
-        }
-    }else{
-        //buat paginasi sesuai jumlah halaman
-    }
+   
     setTimeout(function(){
         $('#pg1').addClass('active');
     }, 200);
@@ -220,6 +167,7 @@ function getPelanggan(page)
             }
         });
     }, 200);
+    
 }
 
 document.getElementById('btnKembali').addEventListener("click", function(){
