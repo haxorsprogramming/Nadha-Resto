@@ -2,7 +2,14 @@ var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
         dataPelanggan : [],
-        pageNow : 1
+        pageNow : 1,
+        halaman : [
+            {no : 1, status : ''},
+            {no : 2, status : ''},
+            {no : 3, status : ''},
+            {no : 4, status : ''},
+            {no : 5, status : ''},
+        ]
     },
     methods : {
         tambahPelangganAtc : function()
@@ -26,7 +33,25 @@ var divPelanggan = new Vue({
             this.pageNow = page;
             $('.page-item').removeClass('active');
             $('#pg'+page).addClass('active');
+            if(page > 1){
+                $('#liPrev').show();
+            }else{
+                $('#liPrev').hide();
+            }
             getPelanggan(page);
+        },
+        prevAtc : function()
+        {
+            let pagePrev = this.pageNow - 1;
+            $('.page-item').removeClass('active');
+            $('#pg'+pagePrev).addClass('active');
+            if(pagePrev > 1){
+                $('#liPrev').show();
+            }else{
+                $('#liPrev').hide();
+            }
+            getPelanggan(pagePrev);
+            this.pageNow = pagePrev;
         }
     }
 });
@@ -59,6 +84,7 @@ var divFormTambahPelanggan = new Vue({
 //inisialisasi
 $('#divFormTambahPelanggan').hide();
 $('#liPrev').hide();
+$('#pg1').addClass('active');
 //table preparation
 var pt;
 for(pt = 0; pt < 10; pt++){
@@ -80,11 +106,7 @@ function getPelanggan(page)
         divPelanggan.dataPelanggan[j].totalTransaksi = '';
         divPelanggan.dataPelanggan[j].idPelanggan = '';
     }
-    if(page > 4){
-        $('#liPrev').show();
-    }else{
-        $('#liPrev').hide();
-    }
+    
     setTimeout(function(){
         $.post('pelanggan/getDataPelanggan/'+page, function(data){
             let obj = JSON.parse(data);

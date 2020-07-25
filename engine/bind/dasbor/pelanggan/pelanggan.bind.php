@@ -62,24 +62,15 @@
         <hr />
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                <li class="page-item" id='liPrev'>
+                <li class="page-item" @click='prevAtc' id='liPrev'>
                     <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
                 </li>
-                <?php 
-                    for($x = 1;$x <=$data['jlhPaginasi']; $x++){
-                        if($x == $data['pageNow']){
-                            $bs = 'active';
-                        }else{
-                            $bs = '';
-                        }
-                        ?>
-                <li class="page-item <?=$bs; ?>" id='pg<?=$x; ?>'>
-                    <a class="page-link" href="#!" @click="paginasiAtc('<?=$x; ?>')"><?=$x; ?></a>
+
+                <li class="page-item" v-for='h in halaman' :id="'pg'+h.no">
+                    <a class="page-link" href="#!" @click="paginasiAtc(h.no)">{{h.no}}</a>
                 </li>
-                <?php
-                    }
-                ?>
-                <li class="page-item">
+
+                <li class="page-item" id='liNext'>
                     <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                 </li>
                 <!-- 
