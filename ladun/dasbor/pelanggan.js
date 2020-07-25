@@ -33,6 +33,16 @@ var divPelanggan = new Vue({
             this.pageNow = page;
             $('.page-item').removeClass('active');
             $('#pg'+page).addClass('active');
+            if(page > 4){
+                var i;
+                for(i = 0; i < 5; i++){
+                    let halNow = this.halaman[i].no;
+                    let halUp = parseInt(halNow) + 1;
+                    this.halaman[i].no = halUp;
+                }
+            }else{
+
+            }
             if(page > 1){
                 $('#liPrev').show();
             }else{
@@ -52,6 +62,19 @@ var divPelanggan = new Vue({
             }
             getPelanggan(pagePrev);
             this.pageNow = pagePrev;
+        },
+        nextAtc : function()
+        {
+            let pageNext = this.pageNow + 1;
+            $('.page-item').removeClass('active');
+            $('#pg'+pageNext).addClass('active');
+            if(pageNext > 1){
+                $('#liPrev').show();
+            }else{
+                $('#liPrev').hide();
+            }
+            getPelanggan(pageNext);
+            this.pageNow = pageNext;
         }
     }
 });

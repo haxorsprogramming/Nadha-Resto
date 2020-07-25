@@ -63,25 +63,16 @@
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
                 <li class="page-item" @click='prevAtc' id='liPrev'>
-                    <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
+                    <a class="page-link" href="#!"><i class="fas fa-chevron-left"></i></a>
                 </li>
 
                 <li class="page-item" v-for='h in halaman' :id="'pg'+h.no">
                     <a class="page-link" href="#!" @click="paginasiAtc(h.no)">{{h.no}}</a>
                 </li>
 
-                <li class="page-item" id='liNext'>
-                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                <li class="page-item" @click='nextAtc' id='liNext'>
+                    <a class="page-link" href="#!"><i class="fas fa-chevron-right"></i></a>
                 </li>
-                <!-- 
-                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                </li> -->
             </ul>
         </nav>
     </div>
