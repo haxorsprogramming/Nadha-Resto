@@ -26,6 +26,15 @@
   background-color: #ddd;
 }
 
+.nama{
+  font-size: 18px;
+}
+
+.frmCari{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
 @keyframes shine-lines {
   0% {
     background-position: -100px;

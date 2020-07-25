@@ -4,12 +4,19 @@
             <i class="fas fa-plus-circle"></i> Tambah Pelanggan
         </a>
     </div>
-    
+
     <div class="row" style="padding-left:20px;margin-right:10px;">
+        <div class="frmCari">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Cari pelanggan">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary btn-lg"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+        </div>
         <table id='tblPelanggan' class='table table-hover table-bordered table-stripped'>
             <thead>
                 <tr>
-                    <th>#</th>
                     <th style="text-align: center;">Pelanggan</th>
                     <th>Alamat</th>
                     <th>Hp</th>
@@ -20,20 +27,39 @@
             </thead>
             <tbody>
                 <tr v-for='p in dataPelanggan'>
-                    <td><div class="post"><div class="line"></div></div></td>
-                    <td><div class="post"><div class="line">{{p.nama}}</div></div></td>
-                    <td><div class="post"><div class="line">{{p.alamat}}</div></div></td>
-                    <td><div class="post"><div class="line">{{p.hp}}</div></div></td>
-                    <td><div class="post"><div class="line"></div></div></td>
-                    <td><div class="post"><div class="line"></div></div></td>
-                    <td></td>
+                    <td>
+                        <div class="post">
+                            <div class="line nama">{{p.nama}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line">{{p.alamat}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line">{{p.hp}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td><a href='#!' class="btn btn-primary btn-sm">Detail</a></td>
                 </tr>
             </tbody>
         </table>
         <div>
             Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - <?=$data['pageNow']; ?>
         </div>
-        <hr/>
+        <hr />
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
                 <?php 
@@ -43,11 +69,11 @@
                         }else{
                             $bs = '';
                         }
-                        ?> 
-                        <li class="page-item <?=$bs; ?>" id='pg<?=$x; ?>'>
-                            <a class="page-link" href="#!" @click="paginasiAtc('<?=$x; ?>')"><?=$x; ?></a>
-                        </li>
-                        <?php
+                        ?>
+                <li class="page-item <?=$bs; ?>" id='pg<?=$x; ?>'>
+                    <a class="page-link" href="#!" @click="paginasiAtc('<?=$x; ?>')"><?=$x; ?></a>
+                </li>
+                <?php
                     }
                 ?>
                 <!-- <li class="page-item">

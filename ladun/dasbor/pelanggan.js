@@ -68,7 +68,7 @@ function getPelanggan(page)
 {
     //tampilkan skeleton screen 
     var j;
-    for(j = 0; j < 10; j++){
+    for(j = 0; j < parseInt(divPelanggan.dataPelanggan.length); j++){
         divPelanggan.dataPelanggan[j].nama = '';
         divPelanggan.dataPelanggan[j].alamat = '';
         divPelanggan.dataPelanggan[j].hp = '';
@@ -78,23 +78,24 @@ function getPelanggan(page)
             let obj = JSON.parse(data);
             let pelanggan = obj.pelanggan;
             let pjg = pelanggan.length;
-            console.log(pjg);
-            var i;
-            let jSpam = 10 - parseInt(pjg);
+            let pjgArr = divPelanggan.dataPelanggan.length;
+            //clear tabel sebelumnya 
             var h;
-            //hapus tabel jika 
-            for(h = 0; h < parseInt(pjg); h++){
+            for(h = 0; h < parseInt(pjgArr); h++){
                 divPelanggan.dataPelanggan.splice(0, 1);
             }
+            //push skeleton screen 
             var ut;
             for(ut = 0; ut < parseInt(pjg); ut++){
                 divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : ''});
             }
+            //push data
+            var i;
             for(i = 0; i < parseInt(pjg); i++){
                 divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
                 divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
                 divPelanggan.dataPelanggan[i].hp = pelanggan[i].no_hp;
-            }
+            }            
         });
     }, 200);
 }
