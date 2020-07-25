@@ -6,13 +6,26 @@
     </div>
 
     <div class="row" style="padding-left:20px;margin-right:10px;">
-        <div class="frmCari">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Cari pelanggan">
-                    <div class="input-group-btn">
-                        <button class="btn btn-primary btn-lg"><i class="fas fa-search"></i></button>
+        <div class="form-inline">
+            <div class="form-group">
+                <div class="input-group mb-3" style="margin-bottom: 15px;">
+                    <input type="text" class="form-control" placeholder="Cari pelanggan" id='txtPelangganCari'>
+                    <div class="input-group-append">
+                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='cariPelangganAtc'>
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
+                <div class="input-group mb-3" style="margin-bottom: 15px;margin-left:30px;">
+                <label>Ke halaman&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="Masukkan nomor halaman">
+                    <div class="input-group-append">
+                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='keHalamanAtc'>
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
         <table id='tblPelanggan' class='table table-hover table-bordered table-stripped'>
             <thead>
@@ -52,12 +65,14 @@
                             <div class="line">{{p.totalTransaksi}}</div>
                         </div>
                     </td>
-                    <td><a href='#!' class="btn btn-primary btn-sm" @click='detailAtc(p.idPelanggan)'><i class='fas fa-info-circle'></i> Detail</a></td>
+                    <td><a href='#!' class="btn btn-primary btn-sm" @click='detailAtc(p.idPelanggan)'><i
+                                class='fas fa-info-circle'></i> Detail</a></td>
                 </tr>
             </tbody>
         </table>
         <div>
-            <i>Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - {{pageNow}} | Total halaman : {{pageMax}}</i>
+            <i>Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - {{pageNow}} | Total
+                halaman : {{pageMax}}</i>
         </div>
         <hr />
         <nav class="d-inline-block">

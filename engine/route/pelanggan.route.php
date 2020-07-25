@@ -46,6 +46,12 @@ class pelanggan extends Route{
       $this -> toJson($data);
     }
 
+    public function cariPelanggan(){
+      $nama = $this -> inp('nama');
+      $pelanggan = $this -> state($this -> sn) -> cariPelanggan($nama);
+      $this -> toJson($pelanggan);
+    }
+
     public function prosesTambahPelanggan()
     {
       $nama           = $this -> inp('nama');

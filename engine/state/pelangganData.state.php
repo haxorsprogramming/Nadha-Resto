@@ -58,4 +58,10 @@ class pelangganData{
         return $this -> st -> numRow();
     }
 
+    public function cariPelanggan($nama)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE nama LIKE '%$nama%';");
+        return $this -> st -> queryAll();
+    }
+
 }

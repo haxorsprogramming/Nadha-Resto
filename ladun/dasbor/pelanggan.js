@@ -4,7 +4,8 @@ var divPelanggan = new Vue({
         dataPelanggan : [],
         pageNow : 1,
         halaman : [{no : 1}],
-        pageMax : 0
+        pageMax : 0,
+        pelangganCari : ''
     },
     methods : {
         tambahPelangganAtc : function()
@@ -23,10 +24,6 @@ var divPelanggan = new Vue({
         {
             window.alert(kdPelanggan);
         },
-        paginasiAtc : function(page)
-        {
-            
-        },
         prevAtc : function()
         {
             let pagePrev = this.pageNow - 1;
@@ -42,26 +39,24 @@ var divPelanggan = new Vue({
         {
             let pageNext = this.pageNow + 1;
             let pnn = parseInt(pageNext) + 1;   
-            console.log(pageNext);
-            console.log(this.pageMax);
-
             this.halaman[0].no = pageNext;
             getPelanggan(pageNext);
             this.pageNow = parseInt(this.pageNow) + 1;
 
-
             if(this.pageNow >= 2){
                 $('#liPrev').show();
-            }else{
-
             }
-
             if(this.pageNow === this.pageMax){
                 $('#liNext').hide();
                 $('#liPrev').show();
-            }else{
-
             }
+        },
+        cariPelangganAtc: function()
+        {
+            cariPelanggan();
+        },
+        keHalamanAtc : function()
+        {
 
         }
     }
@@ -95,8 +90,6 @@ var divFormTambahPelanggan = new Vue({
 //inisialisasi
 $('#divFormTambahPelanggan').hide();
 $('#liPrev').hide();
-
-
 //table preparation
 var pt;
 for(pt = 0; pt < 10; pt++){
@@ -113,9 +106,7 @@ $.post('pelanggan/getMaxPagePelanggan', function(data){
     setTimeout(function(){
         $('#pg1').addClass('active');
     }, 200);
-    
 });
-
 //list fungsi
 function getPelanggan(page)
 {
@@ -168,6 +159,15 @@ function getPelanggan(page)
         });
     }, 200);
     
+}
+
+function cariPelanggan()
+{
+    let pelanggan = document.getElementById('txtPelangganCari').value;
+    $.post('pelanggan/cariPelanggan', {'nama':pelanggan}, function(data){
+        let obj = JSON.parse(data);
+        
+    });
 }
 
 document.getElementById('btnKembali').addEventListener("click", function(){
