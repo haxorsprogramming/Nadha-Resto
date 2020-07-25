@@ -62,6 +62,9 @@
         <hr />
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
+                <li class="page-item" id='liPrev'>
+                    <a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a>
+                </li>
                 <?php 
                     for($x = 1;$x <=$data['jlhPaginasi']; $x++){
                         if($x == $data['pageNow']){
@@ -76,11 +79,11 @@
                 <?php
                     }
                 ?>
-                <!-- <li class="page-item">
-                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                <li class="page-item">
+                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                 </li>
-                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                </li>
+                <!-- 
+                <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
                 <li class="page-item">
                     <a class="page-link" href="#">2</a>
                 </li>

@@ -2,7 +2,7 @@ var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
         dataPelanggan : [],
-        pageNow : '1'
+        pageNow : 1
     },
     methods : {
         tambahPelangganAtc : function()
@@ -56,13 +56,15 @@ var divFormTambahPelanggan = new Vue({
         }
     }
 });
-
+//inisialisasi
 $('#divFormTambahPelanggan').hide();
-// $('#tblPelanggan').DataTable();
+$('#liPrev').hide();
+//table preparation
 var pt;
 for(pt = 0; pt < 10; pt++){
     divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : '', idPelanggan : ''});
 }
+//getPelanggan
 var startPage = 1;
 setTimeout(function(){getPelanggan(startPage);}, 300);
 
@@ -77,6 +79,11 @@ function getPelanggan(page)
         divPelanggan.dataPelanggan[j].lastVisit = '';
         divPelanggan.dataPelanggan[j].totalTransaksi = '';
         divPelanggan.dataPelanggan[j].idPelanggan = '';
+    }
+    if(page > 4){
+        $('#liPrev').show();
+    }else{
+        $('#liPrev').hide();
     }
     setTimeout(function(){
         $.post('pelanggan/getDataPelanggan/'+page, function(data){
@@ -116,6 +123,7 @@ function getPelanggan(page)
         });
     }, 200);
 }
+
 document.getElementById('btnKembali').addEventListener("click", function(){
     divPelanggan.kembaliAtc();
 });
