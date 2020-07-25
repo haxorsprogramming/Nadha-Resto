@@ -81,29 +81,38 @@ function getPelanggan(page)
     setTimeout(function(){
         $.post('pelanggan/getDataPelanggan/'+page, function(data){
             let obj = JSON.parse(data);
-            let pelanggan = obj.pelanggan;
-            let pjg = pelanggan.length;
-            let pjgArr = divPelanggan.dataPelanggan.length;
-            //clear tabel sebelumnya 
-            var h;
-            for(h = 0; h < parseInt(pjgArr); h++){
-                divPelanggan.dataPelanggan.splice(0, 1);
+            let status = obj.status;
+
+            if(status === 'success'){
+                let pelanggan = obj.pelanggan;
+                let pjg = pelanggan.length;
+                let pjgArr = divPelanggan.dataPelanggan.length;
+                //clear tabel sebelumnya 
+                var h;
+                for(h = 0; h < parseInt(pjgArr); h++){
+                    divPelanggan.dataPelanggan.splice(0, 1);
+                }
+                //push skeleton screen 
+                var ut;
+                for(ut = 0; ut < parseInt(pjg); ut++){
+                    divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : '', idPelanggan : ''});
+                }
+                //push data
+                var i;
+                for(i = 0; i < parseInt(pjg); i++){
+                    divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
+                    divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
+                    divPelanggan.dataPelanggan[i].hp = pelanggan[i].no_hp;
+                    divPelanggan.dataPelanggan[i].lastVisit = pelanggan[i].last_visit;
+                    divPelanggan.dataPelanggan[i].totalTransaksi = pelanggan[i].total_transaksi;
+                    divPelanggan.dataPelanggan[i].idPelanggan = pelanggan[i].id_pelanggan;
+                }  
+            }else{
+                var k;
+                for(k = 0; k < 10; k++){
+                    divPelanggan.dataPelanggan.splice(0, 1);
+                }
             }
-            //push skeleton screen 
-            var ut;
-            for(ut = 0; ut < parseInt(pjg); ut++){
-                divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : '', idPelanggan : ''});
-            }
-            //push data
-            var i;
-            for(i = 0; i < parseInt(pjg); i++){
-                divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
-                divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
-                divPelanggan.dataPelanggan[i].hp = pelanggan[i].no_hp;
-                divPelanggan.dataPelanggan[i].lastVisit = pelanggan[i].last_visit;
-                divPelanggan.dataPelanggan[i].totalTransaksi = pelanggan[i].total_transaksi;
-                divPelanggan.dataPelanggan[i].idPelanggan = pelanggan[i].id_pelanggan;
-            }            
         });
     }, 200);
 }
@@ -136,7 +145,8 @@ function prosesTambahPelanggan()
         messageSukses();
         $('#btnSimpan').removeClass('disabled');
        }else{
-        pesanUmumApp('error', 'Gagal', 'Gagal menambahkan pelanggan baru, periksa apakah pelanggan sudah terdaftar!!');  
+        pesanUmumApp('error', 'Gagal', 'Gagal menambahkan pelanggan baru, periksa apakah pelanggan sudah terdaftar!!');
+        $('#btnSimpan').removeClass('disabled');  
        }
     });
 }

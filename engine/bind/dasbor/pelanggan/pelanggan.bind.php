@@ -63,7 +63,7 @@
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
                 <?php 
-                    for($x = 1;$x <=$data['jlhPaginasi']+1; $x++){
+                    for($x = 1;$x <=$data['jlhPaginasi']; $x++){
                         if($x == $data['pageNow']){
                             $bs = 'active';
                         }else{

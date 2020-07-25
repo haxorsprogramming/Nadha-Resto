@@ -8,7 +8,7 @@ class pelanggan extends Route{
     public function index($page)
     {
       $jlhPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
-      $jlhPaginasi = $jlhPelanggan / 10;
+      $jlhPaginasi = ceil($jlhPelanggan / 10);
       $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan($page);
       $data['jlhPelanggan'] = $jlhPelanggan;
       $data['jlhPaginasi'] = $jlhPaginasi;
@@ -19,14 +19,21 @@ class pelanggan extends Route{
     public function getDataPelanggan($page)
     {
       $qPelanggan = $this -> state($this -> sn) -> getPelanggan($page);
-      foreach($qPelanggan as $pel){
-        $arrTemp['nama'] = $pel['nama'];
-        $arrTemp['alamat'] = $pel['alamat'];
-        $arrTemp['no_hp'] = $pel['no_hp'];
-        $arrTemp['last_visit'] = $pel['last_visit'];
-        $arrTemp['id_pelanggan'] = $pel['id_pelanggan'];
-        $arrTemp['total_transaksi'] = $this -> state($this -> sn) -> totalTransaksi($pel['id_pelanggan']);
-        $data['pelanggan'][] = $arrTemp;
+      //cek jumlah data
+      $jlhPelanggan = $this -> state($this -> sn) -> cekJumlahPelanggan($page);
+      if($jlhPelanggan > 0){
+        foreach($qPelanggan as $pel){
+          $arrTemp['nama'] = $pel['nama'];
+          $arrTemp['alamat'] = $pel['alamat'];
+          $arrTemp['no_hp'] = $pel['no_hp'];
+          $arrTemp['last_visit'] = $pel['last_visit'];
+          $arrTemp['id_pelanggan'] = $pel['id_pelanggan'];
+          $arrTemp['total_transaksi'] = $this -> state($this -> sn) -> totalTransaksi($pel['id_pelanggan']);
+          $data['pelanggan'][] = $arrTemp;
+        }
+        $data['status'] = 'success';
+      }else{
+        $data['status'] = 'no_data';
       }
       $this -> toJson($data);
     }

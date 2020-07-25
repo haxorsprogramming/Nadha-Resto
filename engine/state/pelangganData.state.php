@@ -21,6 +21,18 @@ class pelangganData{
         return $this -> st -> queryAll();
     }
 
+    public function cekJumlahPelanggan($page)
+    {
+        $totalPage = 10;
+        if($page === 1){
+            $startPage = 0;
+        }else{
+            $startPage = $totalPage * $page - 10;
+        }
+        $this -> st -> query("SELECT id FROM tbl_pelanggan LIMIT $startPage, $totalPage");
+        return $this -> st -> numRow();
+    }
+
     public function getJlhPelanggan()
     {
         $this -> st -> query("SELECT id FROM tbl_pelanggan;");
