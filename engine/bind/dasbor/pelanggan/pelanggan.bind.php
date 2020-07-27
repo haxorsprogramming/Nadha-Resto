@@ -18,9 +18,9 @@
                 </div>
                 <div class="input-group mb-3" style="margin-bottom: 15px;margin-left:30px;">
                 <label>Ke halaman&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="Masukkan nomor halaman">
+                    <input type="number" class="form-control" placeholder="Masukkan nomor halaman" id='txtNomorHalaman'>
                     <div class="input-group-append">
-                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='keHalamanAtc'>
+                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='toNomorHalamanAtc'>
                             <i class="fas fa-search"></i>
                         </button>
                     </div>

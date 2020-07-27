@@ -58,6 +58,17 @@ var divPelanggan = new Vue({
         keHalamanAtc : function()
         {
 
+        },
+        toNomorHalamanAtc : function()
+        {
+            let nomorHal = document.getElementById('txtNomorHalaman').value;
+            if(nomorHal < 1 || nomorHal > this.pageMax){
+                pesanUmumApp('warning', 'Periksa field!!', 'Masukkan nomor yang benar');
+            }else{
+                getPelanggan(nomorHal);
+                this.pageNow = parseInt(nomorHal);
+                this.halaman[0].no = nomorHal;
+            }
         }
     }
 });
