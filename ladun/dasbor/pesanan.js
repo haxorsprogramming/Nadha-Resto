@@ -289,12 +289,14 @@ document.getElementById('btnDineIn').addEventListener('click', function(){
     divPilihPesanan.cap = 'Pilih meja & pelanggan';
     $('#divPesananDineIn').show();
     $('#btnPilihPesanan').hide();
+    $('#divGambarPenggoda').hide();
 });
 
 document.getElementById('btnTakeHome').addEventListener('click', function(){
     divPilihPesanan.cap = 'Detail Pesanan';
     $('#divPesananTakeHome').show();
     $('#btnPilihPesanan').hide();
+    $('#divGambarPenggoda').hide();
 });
 
 function setMenuKategori()

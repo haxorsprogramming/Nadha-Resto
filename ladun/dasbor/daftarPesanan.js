@@ -105,9 +105,14 @@ function getPesanan(page){
                 for(i = 0; i < parseInt(pjg); i++){
                     let kdPesanan = pesanan[i].kdPesanan;
                     let pesananCap = kdPesanan.toUpperCase();
+                    let tipe = pesanan[i].tipe;
+                    if(tipe === 'dine_in'){
+                        divPesanan.dataPesanan[i].tipe = "Makan di tempat (Dine in)";
+                    }else{
+                        divPesanan.dataPesanan[i].tipe = "Bawa pulang (Take away)";
+                    }
                     divPesanan.dataPesanan[i].pesanan = pesanan[i].kdPesanan;
                     divPesanan.dataPesanan[i].pelanggan = pesanan[i].namaPelanggan;
-                    divPesanan.dataPesanan[i].tipe = pesanan[i].tipe;
                     divPesanan.dataPesanan[i].meja = pesanan[i].meja;
                     divPesanan.dataPesanan[i].waktu = pesanan[i].waktuMasuk;
                     divPesanan.dataPesanan[i].pembayaran = pesanan[i].namaPelanggan;

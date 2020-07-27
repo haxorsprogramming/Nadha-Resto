@@ -51,10 +51,26 @@
                             <div class="line">{{dp.operator}}</div>
                         </div>
                     </td>
-                    <td>
-                        <a href='#!' class="btn btn-primary btn-sm">
+                    <td v-if="dp.status === 'done'">
+                        <a href='#!' class="btn btn-primary btn-sm" @click='detailPesanan(dp.pesanan)'>
                             <i class='fas fa-info-circle'></i> Detail
                         </a>
+                    </td>
+                    <td v-else-if="dp.status === 'active'">
+                    <div class="dropdown d-inline mr-2">
+                      <button class="btn btn-primary dropdown-toggle btn-icon btn-sm icon-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class='fas fa-sliders-h'></i> Aksi
+                      </button>
+                      <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <a class="dropdown-item" href="#!" @click='updatePesanan(dp.pesanan)'>Update Pesanan</a>
+                        <a class="dropdown-item" href="#!" @click=''>Bayar</a>
+                        <a class="dropdown-item" href="#!" @click=''>Batalkan Pesanan</a>
+                      </div>
+                    </td>
+                    <td v-else>
+                        <div class="post">
+                            <div class="line">{{dp.operator}}</div>
+                        </div>
                     </td>
                 </tr>
             </tbody>

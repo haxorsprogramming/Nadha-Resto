@@ -8,7 +8,7 @@ class pesananData{
     {
         $this -> st = new state;
     }
-    
+
     public function getDataPesanan($page)
     {
         $totalPage = 10;
@@ -17,7 +17,7 @@ class pesananData{
         }else{
             $startPage = $totalPage * $page - 10;
         }
-        $this -> st -> query("SELECT * FROM tbl_pesanan LIMIT $startPage, $totalPage;;");
+        $this -> st -> query("SELECT * FROM tbl_pesanan ORDER BY id DESC LIMIT $startPage, $totalPage;;");
         return $this -> st -> queryAll();
     }
 
