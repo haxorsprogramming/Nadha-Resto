@@ -8,11 +8,23 @@ class pesananData{
     {
         $this -> st = new state;
     }
-
-    public function getDataPesanan()
+    
+    public function getDataPesanan($page)
     {
-        $this -> st -> query("SELECT * FROM tbl_pesanan;");
+        $totalPage = 10;
+        if($page === 1){
+            $startPage = 0;
+        }else{
+            $startPage = $totalPage * $page - 10;
+        }
+        $this -> st -> query("SELECT * FROM tbl_pesanan LIMIT $startPage, $totalPage;;");
         return $this -> st -> queryAll();
+    }
+
+    public function getJlhPesanan()
+    {
+        $this -> st -> query("SELECT id FROM tbl_pesanan;");
+        return $this -> st -> numRow();
     }
 
     public function getDataMeja()

@@ -3,10 +3,15 @@
 class pesanan extends Route{
 
     private $sn = 'pesananData';
+    private $su = 'utilityData';
 
-    public function index()
+    public function index($page)
     {
-        $data['daftarPesanan'] = $this -> state($this -> sn) -> getDataPesanan();
+        $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
+        $jlhPaginasi = ceil($jlhPesanan / 10);
+        $data['jlhPesanan'] = $jlhPesanan;
+        $data['jlhPaginasi'] = $jlhPaginasi;
+        $data['pageNow'] = $page;
         $this -> bind('dasbor/pesanan/pesanan', $data);
     }
 

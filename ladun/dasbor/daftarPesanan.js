@@ -24,7 +24,7 @@ var divPesanan = new Vue({
 });
 
 //inisialisasi
-$('#tblDaftarPesanan').dataTable({"order": [[ 4, "desc" ]]});
+// $('#tblDaftarPesanan').dataTable({"order": [[ 4, "desc" ]]});
 
 function konfirmBatalkanPesan(kdPesanan)
 {
