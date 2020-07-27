@@ -164,14 +164,31 @@ function getPelanggan(page)
 function cariPelanggan()
 {
     let pelanggan = document.getElementById('txtPelangganCari').value;
-    $.post('pelanggan/cariPelanggan', {'nama':pelanggan}, function(data){
-        let obj = JSON.parse(data);
-        //clear table
-        var i;
-        for(i = 0; i < 10; i++){
-            divPelanggan.dataPelanggan.splice(0, 1);
-        }
-    });
+    let pjg = pelanggan.length;
+    if(pjg < 4){
+        pesanUmumApp('warning', 'error', 'Harus di atas 4 karakter..');
+        document.getElementById('txtPelangganCari').focus;
+    }else{
+        $.post('pelanggan/cariPelanggan', {'nama':pelanggan}, function(data){
+            let obj = JSON.parse(data);
+            let pjgPelanggan = divPelanggan.dataPelanggan.length;
+            console.log(obj);
+            //clear table
+            var i;
+            for(i = 0; i < pjgPelanggan; i++){
+                divPelanggan.dataPelanggan.splice(0, 1);
+            }
+            //render table 
+            obj.forEach(renderCariPelanggan);
+            function renderCariPelanggan(item, index)
+            {
+                divPelanggan.dataPelanggan.push({
+                    nama : obj[index].nama,
+                    alamat : obj[index].alamat
+                });
+            }
+        });
+    }
 }
 
 document.getElementById('btnKembali').addEventListener("click", function(){
