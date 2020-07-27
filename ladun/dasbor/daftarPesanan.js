@@ -1,7 +1,7 @@
 var divPesanan = new Vue({
     el : '#divPesanan',
     data : {
-        pageNow : 0,
+        pageNow : 1,
         pageMax : 0,
         halaman : [{no : 1}],
         dataPesanan : []
@@ -9,11 +9,28 @@ var divPesanan = new Vue({
     methods : {
         prevAtc : function()
         {
-
+            let pagePrev = this.pageNow - 1;
+            $('#liNext').show();
+            this.halaman[0].no = pagePrev;
+            getPesanan(pagePrev);
+            this.pageNow = parseInt(this.pageNow) - 1;
+            if(this.pageNow <= 1){
+                $('#liPrev').hide();
+            }
         },
         nextAtc : function()
         {
-            
+            let pageNext = this.pageNow + 1; 
+            this.halaman[0].no = pageNext;
+            getPesanan(pageNext);
+            this.pageNow = parseInt(this.pageNow) + 1;
+            if(this.pageNow >= 2){
+                $('#liPrev').show();
+            }
+            if(this.pageNow === this.pageMax){
+                $('#liNext').hide();
+                $('#liPrev').show();
+            }
         },
         bayarPesanan : function(kdPesanan)
         {
@@ -36,10 +53,17 @@ var divPesanan = new Vue({
 
 //inisialisasi
 // $('#tblDaftarPesanan').dataTable({"order": [[ 4, "desc" ]]});
+$('#liPrev').hide();
+
 var pt;
 for(pt = 0; pt < 10; pt++){
-    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : ''});
+    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : ''});
 }
+//get max pesanan 
+$.post('pesanan/getMaxPagePesanan', function(data){
+    let obj = JSON.parse(data);
+    divPesanan.pageMax = obj.jlhPaginasi;
+});
 
 var startPage = 1;
 setTimeout(function(){getPesanan(startPage);}, 300);
@@ -54,6 +78,8 @@ function getPesanan(page){
         divPesanan.dataPesanan[j].waktu = '';
         divPesanan.dataPesanan[j].pembayaran = '';
         divPesanan.dataPesanan[j].pelanggan = '';
+        divPesanan.dataPesanan[j].status = '';
+        divPesanan.dataPesanan[j].operator = '';
     }
     setTimeout(function(){
         $.post('pesanan/getPesanan/'+page, function(data){
@@ -64,7 +90,6 @@ function getPesanan(page){
                 let pesanan = obj.pesanan;
                 let pjg = obj.pesanan.length;
                 let pjgArr = divPesanan.dataPesanan.length;
-                console.log(pesanan);
                 //clear tabel sebelumnya 
                 var h;
                 for(h = 0; h < parseInt(pjgArr); h++){
@@ -73,13 +98,23 @@ function getPesanan(page){
                 //push skeleton screen 
                 var ut;
                 for(ut = 0; ut < parseInt(pjg); ut++){
-                    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : ''});
+                    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : ''});
                 }
                 //push data
                 var i;
                 for(i = 0; i < parseInt(pjg); i++){
+                    let kdPesanan = pesanan[i].kdPesanan;
+                    let pesananCap = kdPesanan.toUpperCase();
                     divPesanan.dataPesanan[i].pesanan = pesanan[i].kdPesanan;
                     divPesanan.dataPesanan[i].pelanggan = pesanan[i].namaPelanggan;
+                    divPesanan.dataPesanan[i].tipe = pesanan[i].tipe;
+                    divPesanan.dataPesanan[i].meja = pesanan[i].meja;
+                    divPesanan.dataPesanan[i].waktu = pesanan[i].waktuMasuk;
+                    divPesanan.dataPesanan[i].pembayaran = pesanan[i].namaPelanggan;
+                    divPesanan.dataPesanan[i].tamu = pesanan[i].jumlahTamu;
+                    divPesanan.dataPesanan[i].status = pesanan[i].status;
+                    divPesanan.dataPesanan[i].operator = pesanan[i].operator;
+                    divPesanan.dataPesanan[i].kdPesananCap = pesananCap;
                 }  
             }else{
                 var k;

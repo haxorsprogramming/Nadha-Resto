@@ -15,40 +15,40 @@
             </thead>
             <tbody>
             <tr v-for='dp in dataPesanan'>
-            <!-- divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : ''}); -->
+            <!-- {pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : ''} -->
                     <td>
                         <div class="post">
-                            <div class="line nama"><span style="font-size:10px;">{{dp.pesanan}}</span><br/>{{dp.pelanggan}} </div>
+                            <div class="line nama"><span style="font-size:13px;">{{dp.kdPesananCap}}</span><br/>{{dp.pelanggan}} </div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{dp.tipe}}</div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{dp.meja}}</div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{dp.tamu}}</div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{dp.pembayaran}}</div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{dp.status}}</div>
                         </div>
                     </td>
                     <td>
                         <div class="post">
-                            <div class="line"></div>
+                            <div class="line">{{dp.operator}}</div>
                         </div>
                     </td>
                     <td>

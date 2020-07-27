@@ -37,8 +37,7 @@ var divPelanggan = new Vue({
         },
         nextAtc : function()
         {
-            let pageNext = this.pageNow + 1;
-            let pnn = parseInt(pageNext) + 1;   
+            let pageNext = this.pageNow + 1; 
             this.halaman[0].no = pageNext;
             getPelanggan(pageNext);
             this.pageNow = parseInt(this.pageNow) + 1;

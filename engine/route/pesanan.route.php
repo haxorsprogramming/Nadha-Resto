@@ -30,7 +30,7 @@ class pesanan extends Route{
                 $arrTemp['jumlahTamu'] = $ps['jumlah_tamu'];
                 $arrTemp['waktuMasuk'] = $ps['waktu_masuk'];
                 $arrTemp['waktuSelesai'] = $ps['waktu_selesai'];
-                $arrTemp['meja'] = $ps['meja'];
+                $arrTemp['meja'] = $this -> state($this -> su) -> getNamaMeja($ps['meja']);
                 $arrTemp['status'] = $ps['status'];
                 $arrTemp['operator'] = $ps['operator'];
                 $data['pesanan'][] = $arrTemp;
