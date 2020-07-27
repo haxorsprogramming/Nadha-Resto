@@ -27,6 +27,18 @@ class pesananData{
         return $this -> st -> numRow();
     }
 
+    public function cariPesanan($char)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pesanan WHERE (kd_pesanan LIKE '%$char%');");
+        return $this -> st -> numRow();
+    }
+
+    public function getDataPesananCari($char)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pesanan WHERE(kd_pesanan LIKE '%$char%')");
+        return $this -> st -> queryAll();
+    }
+
     public function getDataMeja()
     {
         $this -> st -> query("SELECT * FROM tbl_meja;");

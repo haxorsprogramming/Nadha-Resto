@@ -47,6 +47,21 @@ var divPesanan = new Vue({
         batalkanPesanan : function(kdPesanan)
         {
             konfirmBatalkanPesan(kdPesanan);
+        },
+        toNomorHalamanAtc : function()
+        {
+            let nomorHal = document.getElementById('txtNomorHalaman').value;
+            if(nomorHal < 1 || nomorHal > this.pageMax){
+                pesanUmumApp('warning', 'Periksa field!!', 'Masukkan nomor yang benar');
+            }else{
+                getPesanan(nomorHal);
+                this.pageNow = parseInt(nomorHal);
+                this.halaman[0].no = nomorHal;
+            }
+        },
+        cariPesananAtc : function()
+        {
+            cariPesanan();
         }
     }
 });
@@ -57,7 +72,7 @@ $('#liPrev').hide();
 
 var pt;
 for(pt = 0; pt < 10; pt++){
-    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : ''});
+    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : '', kdPesananCap : ''});
 }
 //get max pesanan 
 $.post('pesanan/getMaxPagePesanan', function(data){
@@ -80,6 +95,7 @@ function getPesanan(page){
         divPesanan.dataPesanan[j].pelanggan = '';
         divPesanan.dataPesanan[j].status = '';
         divPesanan.dataPesanan[j].operator = '';
+        divPesanan.dataPesanan[j].kdPesananCap = '';
     }
     setTimeout(function(){
         $.post('pesanan/getPesanan/'+page, function(data){
@@ -98,7 +114,7 @@ function getPesanan(page){
                 //push skeleton screen 
                 var ut;
                 for(ut = 0; ut < parseInt(pjg); ut++){
-                    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : ''});
+                    divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : '', kdPesananCap : ''});
                 }
                 //push data
                 var i;
@@ -108,18 +124,20 @@ function getPesanan(page){
                     let tipe = pesanan[i].tipe;
                     if(tipe === 'dine_in'){
                         divPesanan.dataPesanan[i].tipe = "Makan di tempat (Dine in)";
+                        divPesanan.dataPesanan[i].meja = pesanan[i].meja;
                     }else{
                         divPesanan.dataPesanan[i].tipe = "Bawa pulang (Take away)";
+                        divPesanan.dataPesanan[i].meja = "-";
                     }
                     divPesanan.dataPesanan[i].pesanan = pesanan[i].kdPesanan;
                     divPesanan.dataPesanan[i].pelanggan = pesanan[i].namaPelanggan;
-                    divPesanan.dataPesanan[i].meja = pesanan[i].meja;
+                    
                     divPesanan.dataPesanan[i].waktu = pesanan[i].waktuMasuk;
                     divPesanan.dataPesanan[i].pembayaran = pesanan[i].namaPelanggan;
                     divPesanan.dataPesanan[i].tamu = pesanan[i].jumlahTamu;
                     divPesanan.dataPesanan[i].status = pesanan[i].status;
                     divPesanan.dataPesanan[i].operator = pesanan[i].operator;
-                    divPesanan.dataPesanan[i].kdPesananCap = pesananCap;
+                    divPesanan.dataPesanan[i].kdPesananCap = pesananCap+"<br/>"+pesanan[i].namaPelanggan;
                 }  
             }else{
                 var k;
@@ -129,6 +147,53 @@ function getPesanan(page){
             }
         });
     }, 200);
+}
+
+function cariPesanan()
+{
+    let kdPesanan = document.getElementById('txtPesananCari').value;
+    let pjg = kdPesanan.length;
+    if(pjg < 4){
+        pesanUmumApp('warning', 'Error', 'Minimal kd pencarian adalah 4');
+    }else{
+        $.post('pesanan/cariPesanan', {'char':kdPesanan}, function(data){
+            let obj = JSON.parse(data);
+            if(obj.status === 'error'){
+                pesanUmumApp('warning', 'No record!!', 'Tidak ada pesanan sesuai kode yang dimasukkan!!');
+            }else{
+                let pesanan = obj.pesanan;
+                //clear pesanan di vue 
+                let pjg = divPesanan.dataPesanan.length;
+                var o;
+                for(o = 0; o < pjg; o++){
+                    divPesanan.dataPesanan.splice(0,1);
+                }
+                pesanan.forEach(renderPesanan);
+                function renderPesanan(item, index){
+                    let kdPesanan = pesanan[index].kdPesanan;
+                    let pesananCap = kdPesanan.toUpperCase();
+                    let tipe = pesanan[index].tipe;
+                    if(tipe === 'dine_in'){
+                        let tipeCap = "Makan di tempat (Dine in)";
+                        let mejaCap = pesanan[index].meja;
+                    }else{
+                        let tipeCap = "Bawa pulang (Take away)";
+                        let mejaCap = "-";
+                    }
+                    divPesanan.dataPesanan.push({
+                        pesanan : pesanan[index].kdPesanan,
+                        pelanggan : pesanan[index].namaPelanggan,
+                        waktu : pesanan[index].waktuMasuk,
+                        pembayaran : pesanan[index].kdPesanan,
+                        tamu : pesanan[index].jumlahTamu,
+                        status : pesanan[index].status,
+                        operator : pesanan[index].operator,
+                        kdPesananCap : pesananCap+"<br/>"+pesanan[index].namaPelanggan
+                    });
+            }
+        }
+        });
+    }
 }
 
 function konfirmBatalkanPesan(kdPesanan)

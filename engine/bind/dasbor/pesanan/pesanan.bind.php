@@ -1,5 +1,26 @@
 <div id='divPesanan'>
     <div class="row" id='' style="padding-left:20px;margin-right:10px;">
+    <div class="form-inline">
+            <div class="form-group">
+                <div class="input-group mb-3" style="margin-bottom: 15px;width:300px;">
+                    <input type="text" class="form-control" placeholder="Cari pesanan (kd pesanan)" id='txtPesananCari'>
+                    <div class="input-group-append">
+                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='cariPesananAtc'>
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group mb-3" style="margin-bottom: 15px;margin-left:30px;">
+                <label>Ke halaman&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="Masukkan nomor halaman" id='txtNomorHalaman'>
+                    <div class="input-group-append">
+                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='toNomorHalamanAtc'>
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <table id='tblDaftarPesanan' class='table table-hover table-bordered table-stripped'>
             <thead>
                 <tr>
@@ -15,10 +36,9 @@
             </thead>
             <tbody>
             <tr v-for='dp in dataPesanan'>
-            <!-- {pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : ''} -->
                     <td>
                         <div class="post">
-                            <div class="line nama"><span style="font-size:13px;">{{dp.kdPesananCap}}</span><br/>{{dp.pelanggan}} </div>
+                            <div class="line" v-html="dp.kdPesananCap"></div>
                         </div>
                     </td>
                     <td>
@@ -63,8 +83,8 @@
                       </button>
                       <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                         <a class="dropdown-item" href="#!" @click='updatePesanan(dp.pesanan)'>Update Pesanan</a>
-                        <a class="dropdown-item" href="#!" @click=''>Bayar</a>
-                        <a class="dropdown-item" href="#!" @click=''>Batalkan Pesanan</a>
+                        <a class="dropdown-item" href="#!" @click='bayarPesanan(dp.pesanan)'>Bayar</a>
+                        <a class="dropdown-item" href="#!" @click='batalkanPesanan(dp.pesanan)'>Batalkan Pesanan</a>
                       </div>
                     </td>
                     <td v-else>

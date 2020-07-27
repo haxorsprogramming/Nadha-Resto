@@ -48,6 +48,33 @@ class pesanan extends Route{
         $this -> toJson($data);
     }
 
+    public function cariPesanan()
+    {
+        $char = $this -> inp('char');
+        //cek kd pesanan 
+        $jlhPesanan = $this -> state($this -> sn) -> cariPesanan($char);
+        if($jlhPesanan == 0){
+            $data['status'] = 'error';
+        }else{
+            $pesanan = $this -> state($this -> sn) -> getDataPesananCari($char);
+            foreach($pesanan as $ps){
+                $arrTemp['kdPesanan'] = $ps['kd_pesanan'];
+                $arrTemp['kdPelanggan'] = $ps['pelanggan'];
+                $arrTemp['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($ps['pelanggan']);
+                $arrTemp['tipe'] = $ps['tipe'];
+                $arrTemp['jumlahTamu'] = $ps['jumlah_tamu'];
+                $arrTemp['waktuMasuk'] = $ps['waktu_masuk'];
+                $arrTemp['waktuSelesai'] = $ps['waktu_selesai'];
+                $arrTemp['meja'] = $this -> state($this -> su) -> getNamaMeja($ps['meja']);
+                $arrTemp['status'] = $ps['status'];
+                $arrTemp['operator'] = $ps['operator'];
+                $data['pesanan'][] = $arrTemp;
+            }
+            $data['status'] = 'success';
+        }
+        $this -> toJson($data);
+    }
+
     public function detailPesanan($kdPesanan)
     {
         $this -> bind('dasbor/pesanan/detailPesanan');
