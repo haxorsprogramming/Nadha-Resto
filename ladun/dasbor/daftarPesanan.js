@@ -173,12 +173,14 @@ function cariPesanan()
                     let kdPesanan = pesanan[index].kdPesanan;
                     let pesananCap = kdPesanan.toUpperCase();
                     let tipe = pesanan[index].tipe;
+                    let tipeCap = '';
+                    let mejaCap = '';
                     if(tipe === 'dine_in'){
-                        let tipeCap = "Makan di tempat (Dine in)";
-                        let mejaCap = pesanan[index].meja;
+                        tipeCap = "Makan di tempat (Dine in)";
+                        mejaCap = pesanan[index].meja;
                     }else{
-                        let tipeCap = "Bawa pulang (Take away)";
-                        let mejaCap = "-";
+                        tipeCap = "Bawa pulang (Take away)";
+                        mejaCap = "-";
                     }
                     divPesanan.dataPesanan.push({
                         pesanan : pesanan[index].kdPesanan,
@@ -188,6 +190,8 @@ function cariPesanan()
                         tamu : pesanan[index].jumlahTamu,
                         status : pesanan[index].status,
                         operator : pesanan[index].operator,
+                        tipe : tipeCap,
+                        meja : mejaCap,
                         kdPesananCap : pesananCap+"<br/>"+pesanan[index].namaPelanggan
                     });
             }
