@@ -15,6 +15,39 @@ class pesanan extends Route{
         $this -> bind('dasbor/pesanan/pesanan', $data);
     }
 
+    public function getPesanan($page)
+    {
+        $pesanan = $this -> state($this -> sn) -> getDataPesanan($page);
+        $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
+        if($jlhPesanan < 1){
+            $data['status'] = 'no_data';
+        }else{
+            foreach($pesanan as $ps){
+                $arrTemp['kdPesanan'] = $ps['kd_pesanan'];
+                $arrTemp['kdPelanggan'] = $ps['pelanggan'];
+                $arrTemp['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($ps['pelanggan']);
+                $arrTemp['tipe'] = $ps['tipe'];
+                $arrTemp['jumlahTamu'] = $ps['jumlah_tamu'];
+                $arrTemp['waktuMasuk'] = $ps['waktu_masuk'];
+                $arrTemp['waktuSelesai'] = $ps['waktu_selesai'];
+                $arrTemp['meja'] = $ps['meja'];
+                $arrTemp['status'] = $ps['status'];
+                $arrTemp['operator'] = $ps['operator'];
+                $data['pesanan'][] = $arrTemp;
+            }
+            $data['status'] = 'success';
+        }
+        $this -> toJson($data);
+    }
+
+    public function getMaxPagePesanan()
+    {
+        $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
+        $jlhPaginasi = ceil($jlhPesanan / 10);
+        $data['jlhPaginasi'] = $jlhPaginasi;
+        $this -> toJson($data);
+    }
+
     public function detailPesanan($kdPesanan)
     {
         $this -> bind('dasbor/pesanan/detailPesanan');

@@ -14,59 +14,71 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($data['daftarPesanan'] as $dp) :
-                    $kdPesanan = $dp['kd_pesanan'];
-                    $kdPelanggan = $dp['pelanggan'];
-                    $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
-                    $namaMeja = $this -> state('utilityData') -> getNamaMeja($dp['meja']);
-                    $kdPesananCap = strtoupper(substr($kdPesanan, 0, 4))."..."; 
-                    $tipe = $dp['tipe'];
-                    $sp = $dp['status'];
-
-                    if($tipe === 'dine_in'){
-                        $capTipe = 'Makan di tempat';
-                    }else{
-                        $capTipe = 'Bawa pulang';
-                    }
-                    if($sp === 'done'){
-                        $capPembayaran = 'Selesai';
-                        $colPayment = '#55efc4';
-                    }else{
-                        $capPembayaran = 'Pending';
-                        $colPayment = '#fab1a0';
-                    }
-                ?>
-                    <tr>
-                    <td><a href='#!' style="font-size:14px;"><?=$kdPesananCap; ?></a><br/>
-                    <?=$namaPelanggan; ?>
-                    </td>
-                    <td><?=$capTipe; ?></td>
-                    <td><?=$namaMeja; ?></td>
-                    <td><?=$dp['jumlah_tamu']; ?></td>
-                    <td>Masuk : <?=$dp['waktu_masuk']; ?><br/>Selesai : <?=$dp['waktu_selesai']; ?></td>
-                    <td style="background-color: <?=$colPayment; ?>;"><?=$capPembayaran; ?></td>
-                    <td><?=$dp['operator']; ?></td>
+            <tr v-for='dp in dataPesanan'>
+            <!-- divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : ''}); -->
                     <td>
-                    <?php if($sp === 'done'){ ?> 
-                        <a href='#!' class="btn btn-info btn-icon icon-left" @click='detailPesanan("<?=$kdPesanan; ?>")'><i class='fas fa-info-circle'></i>Detail</a>
-                    <?php }else{ ?>
-                        <div class="dropdown d-inline mr-2">
-                      <button class="btn btn-primary dropdown-toggle btn-icon icon-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class='fas fa-sliders-h'></i> Aksi
-                      </button>
-                      <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                        <a class="dropdown-item" href="#!" @click='updatePesanan("<?=$kdPesanan; ?>")'>Update Pesanan</a>
-                        <a class="dropdown-item" href="#!" @click='bayarPesanan("<?=$kdPesanan; ?>")'>Bayar</a>
-                        <a class="dropdown-item" href="#!" @click='batalkanPesanan("<?=$kdPesanan; ?>")'>Batalkan Pesanan</a>
-                      </div>
-                    </div>
-                        
-                    <?php }?>
+                        <div class="post">
+                            <div class="line nama"><span style="font-size:10px;">{{dp.pesanan}}</span><br/>{{dp.pelanggan}} </div>
+                        </div>
                     </td>
-                    </tr>
-                <?php endforeach; ?>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="post">
+                            <div class="line"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href='#!' class="btn btn-primary btn-sm">
+                            <i class='fas fa-info-circle'></i> Detail
+                        </a>
+                    </td>
+                </tr>
             </tbody>
-        </table> 
+        </table>
+        <div>
+            <i>Ditampilkan 10 dari total <?=$data['jlhPesanan']; ?> pesanan | Halaman ke - {{pageNow}} | Total
+                halaman : {{pageMax}}</i>
+        </div>
+        <hr />
+        <nav class="d-inline-block">
+            <ul class="pagination mb-0">
+                <li class="page-item" @click='prevAtc' id='liPrev'>
+                    <a class="page-link" href="#!"><i class="fas fa-chevron-left"></i></a>
+                </li>
+
+                <li class="page-item active" v-for='h in halaman' :id="'pg'+h.no">
+                    <a class="page-link" href="#!" >{{h.no}}</a>
+                </li>
+
+                <li class="page-item" @click='nextAtc' id='liNext'>
+                    <a class="page-link" href="#!"><i class="fas fa-chevron-right"></i></a>
+                </li>
+            </ul>
+        </nav> 
     </div>
 </div>
 <script src="<?=STYLEBASE; ?>/dasbor/daftarPesanan.js"></script> 
