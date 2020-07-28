@@ -3,7 +3,8 @@
 class promo extends Route{
 
     private $sn = 'promoData';
-
+    private $su = 'utilityData';
+    
     public function index()
     {
         $data['promo'] = $this -> state($this -> sn) -> getPromoData();

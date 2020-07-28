@@ -3,7 +3,8 @@
 class monitoring extends Route{
 
     private $sn = 'monitoringData';
-
+    private $su = 'utilityData';
+    
     public function index()
     {
         $data['meja'] = $this -> state($this -> sn) -> getDataMeja();

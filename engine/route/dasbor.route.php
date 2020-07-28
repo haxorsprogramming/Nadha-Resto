@@ -2,6 +2,9 @@
 
 class dasbor extends Route{
     //inisialisasi state
+
+    private $su = 'utilityData';
+
     public function __construct()
     {
         $this -> st = new state;

@@ -15,4 +15,5 @@ class arusKasData{
         return $this -> st -> queryAll();
     }
 
+
 }
