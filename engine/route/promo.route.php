@@ -4,7 +4,7 @@ class promo extends Route{
 
     private $sn = 'promoData';
     private $su = 'utilityData';
-    
+
     public function index()
     {
         $data['promo'] = $this -> state($this -> sn) -> getPromoData();
@@ -13,7 +13,6 @@ class promo extends Route{
 
     public function tambahPromo()
     {
-        // {'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota}
         $kdPromo            = $this -> rnint(6);
         $namaPromo          = $_POST['namaPromo'];
         $deks               = $_POST['deks'];

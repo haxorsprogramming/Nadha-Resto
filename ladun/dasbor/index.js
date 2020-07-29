@@ -1,3 +1,5 @@
+//alamat server, ganti sesuai dengan konfigurasi alamat server anda
+const server = 'http://localhost/Nadha-Resto/';
 //inisialisasi variabel lokal
 const beranda = 'dasbor/beranda';
 const monitoring = 'monitoring';
@@ -128,7 +130,7 @@ var divMenu = new Vue({
 function renderMenu(halaman) {
   NProgress.start();
   $('#divUtama').html("Memuat form ..");
-  $('#divUtama').load(halaman);
+  $('#divUtama').load(server+halaman);
   NProgress.done();
 }
 

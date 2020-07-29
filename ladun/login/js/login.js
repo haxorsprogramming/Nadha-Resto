@@ -1,4 +1,8 @@
-const urlLoginProses = document.getElementById('txtHomebase').value+"login/prosesLogin";
+//alamat server, ganti sesuai dengan konfigurasi alamat server anda
+const server = 'http://localhost/Nadha-Resto/';
+//login url 
+const loginUrl = server+'login/prosesLogin';
+//inisialisasi variabel lokal
 const awalLogin = true;
 
 $(document).ready(function(){
@@ -18,11 +22,10 @@ var loginForm = new Vue({
       }else{
         let xhr = new XMLHttpRequest();
         let params = "username="+this.userInput+"&password="+this.passwordInput;
-        xhr.open('POST', urlLoginProses, true);
+        xhr.open('POST', loginUrl, true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.onload = function(){
-          let obj = JSON.parse(this.responseText);
-          console.log(obj);
+            let obj = JSON.parse(this.responseText);
             if (obj.status_login === 'sukses') {
               suksesLogin();
             } else {
