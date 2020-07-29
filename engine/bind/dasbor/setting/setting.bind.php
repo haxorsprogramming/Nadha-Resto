@@ -19,9 +19,14 @@
                             aria-controls="contact" aria-selected="false">Keuangan</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" id="firebase-tab" data-toggle="tab" href="#firebase" role="tab"
+                            aria-controls="firebase" aria-selected="false">Firebase Setting</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
                             aria-controls="other" aria-selected="false">Lainnya</a>
                     </li>
+                    
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -79,6 +84,36 @@
                             <input type="number" class="form-control" id='txtPajak' v-model='tax' disabled>
                         </div>
 
+                    </div>
+                    <div class="tab-pane fade" id="firebase" role="tabpanel" aria-labelledby="firebase-tab">
+                        <div class="form-group">
+                            <label>API Key</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Auth Domain</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Database URL</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Project Id</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Storage Bucket</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Messaging Sender Id</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>App Id</label>
+                            <input type="number" class="form-control" id='' disabled>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
                         <div class="form-group">

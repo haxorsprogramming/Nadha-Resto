@@ -1,16 +1,30 @@
 //alamat server, ganti sesuai dengan konfigurasi alamat server anda
 const server = 'http://localhost/Nadha-Resto/';
-// Your web app's Firebase configuration -> ganti dengan settingan firebase anda
+const routeToFirebaseSetting = server+"utility/getFirebaseSetting";
+// Your web app's Firebase configuration
+var apiKey;
+var authDomain;
+var databaseURL;
+var projectId;
+var storageBucket;
+var messagingSenderId;
+var appId;
+
+$.post(routeToFirebaseSetting, function(data){
+    let obj = JSON.parse(data);
+    apiKey = obj.apiKey;
+});
+
 var firebaseConfig = {
-    apiKey: "AIzaSyAueZTSpNcbl7XGou5y0kwVaWpwHiScVPY",
+    apiKey: apiKey,
     authDomain: "nadhamedia.firebaseapp.com",
     databaseURL: "https://nadhamedia.firebaseio.com",
     projectId: "nadhamedia",
     storageBucket: "nadhamedia.appspot.com",
     messagingSenderId: "368827698714",
     appId: "1:368827698714:web:696bfe0e10abd1f477cba3"
-  };
-
+};
+console.log(firebaseConfig);
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();

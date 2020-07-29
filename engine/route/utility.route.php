@@ -22,5 +22,17 @@ class utility extends Route{
       $data['menu']   = $this -> state($this -> sn) -> getDataMenuKategori($kdKategori);
       $this -> toJson($data);
     }
+
+    public function getFirebaseSetting()
+    {
+      $data['apiKey'] = $this -> state($this -> sn) -> getFirebaseSetting('apiKey');
+      $data['authDomain'] = $this -> state($this -> sn) -> getFirebaseSetting('authDomain');
+      $data['databaseURL'] = $this -> state($this -> sn) -> getFirebaseSetting('databaseURL');
+      $data['projectId'] = $this -> state($this -> sn) -> getFirebaseSetting('projectId');
+      $data['storageBucket'] = $this -> state($this -> sn) -> getFirebaseSetting('storageBucket');
+      $data['messagingSenderId'] = $this -> state($this -> sn) -> getFirebaseSetting('messagingSenderId');
+      $data['appId'] = $this -> state($this -> sn) -> getFirebaseSetting('appId');
+      $this -> toJson($data);
+    }
     
 }

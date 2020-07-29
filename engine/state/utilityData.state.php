@@ -106,6 +106,11 @@ class utilityData{
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
-    //fungsi ambil 
-
+    //fungsi ambil settingan firebase 
+    public function getFirebaseSetting($kdSetting)
+    {
+        $this -> st -> query("SELECT value FROM tbl_firebase_config WHERE kd_setting='$kdSetting';");
+        $q = $this -> st -> querySingle();
+        return $q['value'];
+    }
 }
