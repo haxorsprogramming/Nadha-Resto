@@ -1,4 +1,7 @@
-const server = 'http://localhost/Nadha-Resto/';
+//alamat server, ganti sesuai dengan konfigurasi alamat server anda
+const server = "http://localhost/Nadha-Resto/";
+const route = server+"home/";
+const routeGetKdTemp = route+"getKdtemp";
 //vue utama
 var divMenu = new Vue({
     el : '#divMenu',
@@ -35,7 +38,7 @@ var cart = new Vue({
             let pjgItem = this.listItem.length;
             if(pjgItem > 0){
                 //buat kode temp dulu 
-                $.post('getKdTemp', function(data){
+                $.post(routeGetKdTemp, function(data){
                     let obj = JSON.parse(data);
                     let kdTemp = obj.kdTemp;
                     cart.listItem.forEach(renderItem);
@@ -52,7 +55,6 @@ var cart = new Vue({
                         });
                     }
                 });
-                
             }else{
                 pesanUmumApp('warning', 'No item', 'Tidak ada pesanan!!');
             }

@@ -1,7 +1,7 @@
 //alamat server, ganti sesuai dengan konfigurasi alamat server anda
-const server = 'http://localhost/Nadha-Resto/';
+const server = "http://localhost/Nadha-Resto/";
 //login url 
-const loginUrl = server+'login/prosesLogin';
+const loginUrl = server+"login/prosesLogin";
 //inisialisasi variabel lokal
 const awalLogin = true;
 
@@ -17,7 +17,7 @@ var loginForm = new Vue({
   },
   methods: {
     klikSaya: function() {
-      let xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
         let params = "username="+this.userInput+"&password="+this.passwordInput;
         xhr.open('POST', loginUrl, true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
