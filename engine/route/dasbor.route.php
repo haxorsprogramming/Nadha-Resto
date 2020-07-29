@@ -2,7 +2,7 @@
 
 class dasbor extends Route{
     //inisialisasi state
-
+    private $sn = 'dasborData';
     private $su = 'utilityData';
 
     public function __construct()
@@ -17,12 +17,13 @@ class dasbor extends Route{
 
     public function beranda()
     {
-        //get jumlah pengunjung
-        $data['jlhPengunjung'] = $this -> state('utilityData') -> getJlhPengunjung();
-        //get jumlah pelanggan
-        $data['jlhPelanggan'] = $this -> state('utilityData') -> getJlhPelanggan();
-        //render to view 
-        $this -> bind('/dasbor/beranda', $data);   
+        $this -> bind('/dasbor/beranda');   
+    }
+
+    public function getJlhPengunjung()
+    {
+        $data['pengunjung'] = $this -> state($this -> su) -> getJlhPengunjung();
+        $this -> toJson($data);
     }
 
     public function getMenuTerlaris()

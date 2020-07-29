@@ -1,13 +1,24 @@
 //inisialisasi route
 var routeGetMenuTerlaris = server+"dasbor/getMenuTerlaris";
 var routeGetTransaksiTerakhir = server+"dasbor/getTransaksiTerakhir";
+var routeGetJlhPengunjung = server+"dasbor/getJlhPengunjung";
 
 var divBeranda = new Vue({
     el : '#divBeranda',
     data : {
         menuFavorit : [],
-        lastTs : []
+        lastTs : [],
+        pengunjung : '...',
+        pelanggan : '...',
+        profit : '...',
+        transaksi : '...'
     }
+});
+
+//get jumlah pengunjung 
+$.post(routeGetJlhPengunjung, function(data){
+    let obj = JSON.parse(data);
+    divBeranda.pengunjung = obj.pengunjung;
 });
 
 //get menu terlaris
