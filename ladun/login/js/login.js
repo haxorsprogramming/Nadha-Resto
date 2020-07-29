@@ -17,10 +17,7 @@ var loginForm = new Vue({
   },
   methods: {
     klikSaya: function() {
-      if (this.userInput === "" || this.passwordInput === "") {
-        isiField();
-      }else{
-        let xhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
         let params = "username="+this.userInput+"&password="+this.passwordInput;
         xhr.open('POST', loginUrl, true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -33,7 +30,6 @@ var loginForm = new Vue({
             }
         }
         xhr.send(params);
-      }
     }
   }
 });
