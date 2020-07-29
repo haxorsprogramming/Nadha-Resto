@@ -1,3 +1,7 @@
+//inisialisasi route
+var routeGetMenuTerlaris = server+"dasbor/getMenuTerlaris";
+var routeGetTransaksiTerakhir = server+"dasbor/getTransaksiTerakhir";
+
 var divBeranda = new Vue({
     el : '#divBeranda',
     data : {
@@ -7,7 +11,7 @@ var divBeranda = new Vue({
 });
 
 //get menu terlaris
-$.post('dasbor/getMenuTerlaris', function(data){
+$.post(routeGetMenuTerlaris, function(data){
     let obj = JSON.parse(data);
     let dt = obj.menuTerlaris;
     dt.forEach(renderMenu);
@@ -22,7 +26,7 @@ $.post('dasbor/getMenuTerlaris', function(data){
 });
 
 //get transaksi terakhir
-$.post('dasbor/getTransaksiTerakhir', function(data){
+$.post(routeGetTransaksiTerakhir, function(data){
     let obj = JSON.parse(data);
     let lts = obj.lt;
     lts.forEach(renderLs);

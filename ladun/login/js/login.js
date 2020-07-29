@@ -1,13 +1,7 @@
 //alamat server, ganti sesuai dengan konfigurasi alamat server anda
 const server = "http://localhost/Nadha-Resto/";
-//login url 
-const loginUrl = server+"login/prosesLogin";
 //inisialisasi variabel lokal
-const awalLogin = true;
-
-$(document).ready(function(){
-  document.getElementById("txtUsername").focus();
-});
+const routeToLogin = server+"login/prosesLogin/";
 
 var loginForm = new Vue({
   el: "#login-app",
@@ -17,19 +11,16 @@ var loginForm = new Vue({
   },
   methods: {
     klikSaya: function() {
-        let xhr = new XMLHttpRequest();
-        let params = "username="+this.userInput+"&password="+this.passwordInput;
-        xhr.open('POST', loginUrl, true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onload = function(){
-            let obj = JSON.parse(this.responseText);
-            if (obj.status_login === 'sukses') {
-              suksesLogin();
-            } else {
-              gagalLogin(); 
-            }
+      $('#btnMasuk').addClass('disabled');
+      $.post(routeToLogin, {username : 'admin', password : 'admin'}, function(data){
+        let obj = JSON.parse(data);
+        if(obj.status_login === 'sukses'){
+          suksesLogin();
+        }else{
+          gagalLogin();
+          $('#btnMasuk').removeClass('disabled'); 
         }
-        xhr.send(params);
+      });
     }
   }
 });

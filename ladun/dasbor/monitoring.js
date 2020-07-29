@@ -1,3 +1,7 @@
+//inisialisasi route
+var routeSetLeave = server+"monitoring/setLeave";
+var routeSetActive = server+"monitoring/setActive";
+
 var divMonitoring = new Vue({
     el : '#divMonitoring',
     data : {
@@ -17,7 +21,7 @@ var divMonitoring = new Vue({
 //inisialisai fungsi 
 function setLeave(kdMeja)
 {
-    $.post('monitoring/setLeave', {'kdMeja':kdMeja}, function(data){
+    $.post(routeSetLeave, {'kdMeja':kdMeja}, function(data){
         let obj = JSON.parse(data);
         pesanUmumApp('success', 'Sukses', 'Meja di set ke leave..');
         renderMenu(monitoring);
@@ -27,7 +31,7 @@ function setLeave(kdMeja)
 
 function setActive(kdMeja)
 {
-    $.post('monitoring/setActive', {'kdMeja':kdMeja}, function(data){
+    $.post(routeSetActive, {'kdMeja':kdMeja}, function(data){
         let obj = JSON.parse(data);
         pesanUmumApp('success', 'Sukses', 'Meja di set ke aktif..');
         renderMenu(monitoring);
