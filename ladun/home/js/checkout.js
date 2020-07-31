@@ -1,34 +1,6 @@
 //alamat server, ganti sesuai dengan konfigurasi alamat server anda
 const server = 'http://localhost/Nadha-Resto/';
 const routeToFirebaseSetting = server+"utility/getFirebaseSetting";
-// Your web app's Firebase configuration
-var apiKey;
-var authDomain;
-var databaseURL;
-var projectId;
-var storageBucket;
-var messagingSenderId;
-var appId;
-
-$.post(routeToFirebaseSetting, function(data){
-    let obj = JSON.parse(data);
-    apiKey = obj.apiKey;
-});
-
-var firebaseConfig = {
-    apiKey: apiKey,
-    authDomain: "nadhamedia.firebaseapp.com",
-    databaseURL: "https://nadhamedia.firebaseio.com",
-    projectId: "nadhamedia",
-    storageBucket: "nadhamedia.appspot.com",
-    messagingSenderId: "368827698714",
-    appId: "1:368827698714:web:696bfe0e10abd1f477cba3"
-};
-console.log(firebaseConfig);
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var db = firebase.database();
-var pesananCol = db.ref('pesanan'); 
 
 var divCart = new Vue({
     el : '#divCart',
@@ -36,7 +8,14 @@ var divCart = new Vue({
         tipePesanan : 'none',
         tipePembayaran : 'none',
         pd : [{nama : '', hp : '', alamat : '', email : ''}],
-        kdPesanan : ''
+        kdPesanan : '',
+        apiKey : '',
+        authDomain : '',
+        databaseURL : '',
+        projectId : '',
+        storageBucket : '',
+        messagingSenderId : '',
+        appId : ''
     },
     methods : {
         pesanAtc : function()
@@ -53,9 +32,35 @@ var divCart = new Vue({
 $('#txtDeliveryInfo').hide();
 divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
 
+$.post(routeToFirebaseSetting, function(data){
+    let obj = JSON.parse(data);
+    divCart.apiKey = obj.apiKey;
+    divCart.authDomain = obj.authDomain;
+    divCart.databaseURL = obj.databaseURL;
+    divCart.projectId = obj.projectId;
+    divCart.storageBucket = obj.storageBucket;
+    divCart.messagingSenderId = obj.messagingSenderId;
+    divCart.appId = obj.appId;
+});
+
 
 function setNGoDelivery()
 {
+    //firebase inisialisasi
+    var firebaseConfig = {
+        apiKey: divCart.apiKey,
+        authDomain: divCart.authDomain,
+        databaseURL: divCart.databaseURL,
+        projectId: divCart.projectId,
+        storageBucket: divCart.storageBucket,
+        messagingSenderId: divCart.messagingSenderId,
+        appId: divCart.appId
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.database();
+    var pesananCol = db.ref('pesanan'); 
+
     divCart.pd[0].email = document.getElementById('txtEmailPd').value;
     divCart.pd[0].nama = document.getElementById('txtNamaLengkapPd').value;
     divCart.pd[0].alamat = document.getElementById('txtAlamatPd').value;

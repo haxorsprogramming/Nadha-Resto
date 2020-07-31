@@ -1,3 +1,5 @@
+//route 
+
 //vue object
 var divFormTambahMenu = new Vue({
     el : '#divFormTambahMenu',
