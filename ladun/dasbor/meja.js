@@ -1,3 +1,6 @@
+//inisialisasi route 
+var routeToTambahMeja = server+"meja/prosesTambahMeja";
+
 var divMeja = new Vue({
     el : '#divMeja',
     data : {
@@ -43,7 +46,7 @@ function prosesSimpan()
     let namaMeja = divMeja.namaMeja;
     let deks = divMeja.deks;
     let dataSend = {'namaMeja':namaMeja, 'deks':deks}
-    $.post('meja/prosesTambahMeja', dataSend,  function(data){
+    $.post(routeToTambahMeja, dataSend,  function(data){
         let obj = JSON.parse(data);
         if(obj.status === 'meja_name_error'){
             pesanUmumApp('error', 'Error !!', 'Nama meja sudah digunakan!!');

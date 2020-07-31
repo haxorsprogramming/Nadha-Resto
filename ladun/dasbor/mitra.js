@@ -1,3 +1,6 @@
+//inisialisasi route
+var routeToTambahMitra = server+"mitra/tambahMitra";
+
 var divMitra = new Vue({
     el : '#divMitra',
     data : {
@@ -54,7 +57,7 @@ function simpan() {
     if(nama === '' || pemilik === '' || alamat === '' || hp === '' || tipe ===''){
         pesanUmumApp('warning', 'Isi field!!', 'Harap isi field!!');
     }else{
-        $.post('mitra/tambahMitra', dataSend, function(data){
+        $.post(routeToTambahMitra, dataSend, function(data){
             let obj = JSON.parse(data);
             if(obj.status === 'sukses'){
                 pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan mitra baru..');

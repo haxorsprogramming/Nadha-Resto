@@ -1,3 +1,7 @@
+//inisialisasi route 
+var routeToSimpanPesanan = server+"pesanan/buatPesanan";
+var routeToUpdateTempPesanan = server+"pesanan/updateTempPesanan";
+//vue objek div pilih pesanan
 var divPilihPesanan = new Vue({
     el : '#divPilihPesanan',
     data : {
@@ -254,10 +258,11 @@ var divMenuCheckout = new Vue({
             if(divMenuCheckout.totalHarga < 1){
                 pesanUmumApp('warning', 'Pilih item', 'Belum ada item dipilih..');
             }else{
-                let dataSend = { 'pelanggan': divMenuCheckout.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': divMenuCheckout.jlhTamu, 'mejaId': divMenuCheckout.mejaId }
+                // let dataSend = { 'pelanggan': divMenuCheckout.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': divMenuCheckout.jlhTamu, 'mejaId': divMenuCheckout.mejaId }
                 
-                $.post('pesanan/buatPesanan', dataSend, function(data){
+                $.post(routeToSimpanPesanan, {'pelanggan':divMenuCheckout.kdPelanggan, 'tipe':'dine_in', 'jlhTamu':divMenuCheckout.jlhTamu, 'mejaId':divMenuCheckout.mejaId}, function(data){
                     let obj = JSON.parse(data);
+                    console.log(obj);
                     if(obj.status === 'sukses'){
                         let kdPesanan = obj.kdPesanan;
                         //save to data temp pesanan
@@ -265,8 +270,8 @@ var divMenuCheckout = new Vue({
                         dtm.forEach(sendTempPesanan);
                         function sendTempPesanan(item, index){
                             let dataSend = {'kdMenu':dtm[index].menu, 'kdPesanan':kdPesanan, 'hargaAt':dtm[index].harga, 'qt':dtm[index].qt, 'total':dtm[index].total}
-                            $.post('pesanan/updateTempPesanan', dataSend, function(data){
-                               
+                            $.post(routeToUpdateTempPesanan, dataSend, function(data){
+                               console.log("Send");
                             });
                         }
                         renderMenu('pembayaran/formPembayaran/'+kdPesanan);
