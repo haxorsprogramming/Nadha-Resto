@@ -37,7 +37,7 @@
                                     <div>
                                         <div class="pt-3">
                                             <div class="form-group">
-                                                <input v-model='userInput' type='text' class='form-control' id='txtUsername' placeholder='Username'>
+                                                <input v-model='userInput' type='text' class='form-control' autofocus id='txtUsername' placeholder='Username'>
                                             </div>
                                             <div class="form-group">
                                                 <input v-model='passwordInput' class="form-control" type='password' id="txtPassword" placeholder="Password">

@@ -251,10 +251,10 @@ var divMenuCheckout = new Vue({
         },
         bayarAtc : function()
         {
-            if(this.totalHarga < 1){
+            if(divMenuCheckout.totalHarga < 1){
                 pesanUmumApp('warning', 'Pilih item', 'Belum ada item dipilih..');
             }else{
-                let dataSend = {'pelanggan': this.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': this.jlhTamu, 'mejaId': this.mejaId}
+                let dataSend = { 'pelanggan': divMenuCheckout.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': divMenuCheckout.jlhTamu, 'mejaId': divMenuCheckout.mejaId }
                 
                 $.post('pesanan/buatPesanan', dataSend, function(data){
                     let obj = JSON.parse(data);
@@ -317,5 +317,4 @@ function setPelanggan()
    let bp = bahanPelanggan.split("-");
    divPesananDineIn.kdPelanggan = bp[0];
    divPesananDineIn.namaPelanggan = bp[1];
-//    console.log(bp);
 }
