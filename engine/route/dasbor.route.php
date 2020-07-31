@@ -20,9 +20,12 @@ class dasbor extends Route{
         $this -> bind('/dasbor/beranda');   
     }
 
-    public function getJlhPengunjung()
+    public function getDataBar()
     {
         $data['pengunjung'] = $this -> state($this -> su) -> getJlhPengunjung();
+        $data['pelanggan'] = $this -> state($this -> su) -> getJlhPelanggan();
+        $data['rasioProfit'] = 0;
+        $data['transaksiHarian'] = 0;
         $this -> toJson($data);
     }
 

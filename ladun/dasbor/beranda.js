@@ -1,7 +1,7 @@
 //inisialisasi route
 var routeGetMenuTerlaris = server+"dasbor/getMenuTerlaris";
 var routeGetTransaksiTerakhir = server+"dasbor/getTransaksiTerakhir";
-var routeGetJlhPengunjung = server+"dasbor/getJlhPengunjung";
+var routeGetDataBar = server+"dasbor/getDataBar";
 
 var divBeranda = new Vue({
     el : '#divBeranda',
@@ -12,13 +12,28 @@ var divBeranda = new Vue({
         pelanggan : '...',
         profit : '...',
         transaksi : '...'
+    },
+    methods : {
+        menuShowAtc : function()
+        {
+            renderMenu(menu);
+            divJudul.judulForm = "Menu Restoran";
+        },
+        pesananTerakhirShowAtc : function()
+        {
+            renderMenu(pesanan);
+            divJudul.judulForm = "Daftar Pesanan"; 
+        }
     }
 });
 
 //get jumlah pengunjung 
-$.post(routeGetJlhPengunjung, function(data){
+$.post(routeGetDataBar, function(data){
     let obj = JSON.parse(data);
     divBeranda.pengunjung = obj.pengunjung;
+    divBeranda.pelanggan = obj.pelanggan;
+    divBeranda.profit = obj.rasioProfit;
+    divBeranda.transaksi = obj.transaksiHarian;
 });
 
 //get menu terlaris

@@ -75,7 +75,7 @@
                 <div class="card-header">
                     <h4>Menu Terlaris</h4>
                     <div class="card-header-action">
-                        <a href="#" class="btn btn-primary">Semua</a>
+                        <a href="#!" class="btn btn-primary" @click='menuShowAtc'>Semua</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -83,7 +83,7 @@
                         <li class="media" v-for='mv in menuFavorit'>
                             <img class="mr-3" width="170" style="border-radius:6px;" :src="'<?=STYLEBASE; ?>/dasbor/img/menu/'+mv.pic" alt="avatar">
                             <div class="media-body">
-                                <div class="float-right text-primary">Detail</div>
+                                
                                 <div class="media-title">{{mv.judul}}</div>
                                 <span class="text-small text-muted">
                                     {{mv.deks}}
@@ -99,9 +99,9 @@
         <div class="col-lg-6 col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="d-inline">Transaksi terakhir</h4>
+                    <h4 class="d-inline">Pesanan terakhir</h4>
                     <div class="card-header-action">
-                        <a href="#" class="btn btn-primary">Semua</a>
+                        <a href="#!" class="btn btn-primary" @click='pesananTerakhirShowAtc'>Semua</a>
                     </div>
                 </div>
                 <div class="card-body">
