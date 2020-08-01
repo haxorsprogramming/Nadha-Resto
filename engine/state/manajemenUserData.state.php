@@ -15,4 +15,16 @@ class manajemenUserData{
         return $this -> st -> queryAll();
     }
 
+    public function cekUsername($username)
+    {
+        $this -> st -> query("SELECT id FROM tbl_user WHERE username='$username';");
+        $nr = $this -> st -> numRow();
+        if($nr <= 1)
+        {
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 }
