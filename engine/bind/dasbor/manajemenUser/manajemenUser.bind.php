@@ -20,7 +20,7 @@
                 <tbody>
                     <?php foreach($data['user'] as $du) : ?>
                         <tr>
-                            <td><b><?=$du['username']; ?></b><br/><?=$du['nama']; ?></td>
+                            <td><a href="#!"><b><?=$du['username']; ?></b></a><br/><?=$du['nama']; ?></td>
                             <td><?=$du['tipe']; ?></td>
                             <td><?=$du['last_login']; ?></td>
                             <td><a href='#!' class="btn btn-sm btn-primary btn-icon icon-left" @click="editUserAtc('<?=$du['username']; ?>')"><i class='far fa-edit'></i> Edit</a></td>

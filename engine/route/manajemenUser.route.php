@@ -13,7 +13,6 @@ class manajemenUser extends Route{
 
     public function tambahUser()
     {
-        // {username : this.username, password : this.password, tipeUser : this.tipeUser, nama : this.nama}
         $username = $this -> inp('username');
         $password = $this -> inp('password');
         $nama = $this -> inp('nama');
@@ -27,6 +26,14 @@ class manajemenUser extends Route{
         }else{
             $data['status'] = 'error';
         }
+        $this -> toJson($data);
+    }
+
+    public function getUser()
+    {
+        $username = $this -> inp('username');
+        $data['user'] = $this -> state($this -> sn) -> getDataUser($username);
+        $data['status'] = 'sukses';
         $this -> toJson($data);
     }
 

@@ -1,5 +1,6 @@
 //route proses
 var routeToTambahUser = server+'manajemenUser/tambahUser';
+var routeToGetDataUser = server+'manajemenUser/getUser';
 
 //main vue objek
 var divManajemenUser = new Vue({
@@ -8,7 +9,10 @@ var divManajemenUser = new Vue({
         username : '',
         password : '',
         nama : '',
-        tipeUser : ''
+        tipeUser : '',
+        usernameUp : '',
+        namaUp : '',
+        passwordUp : ''
     },
     methods : {
         tambahUserAtc : function()
@@ -50,6 +54,10 @@ var divManajemenUser = new Vue({
             $('#divDataUser').hide();
             $('#divEditUser').show();
             divJudul.judulForm = "Edit User "+username;
+            $.post(routeToGetDataUser, {'username':username}, function(data){
+                let obj = JSON.parse(data);
+                console.log(obj);
+            });
         }
     }
 });
