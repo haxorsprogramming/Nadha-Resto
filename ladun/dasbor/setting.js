@@ -18,8 +18,14 @@ var divSetting = new Vue({
         koneksiPrinter : '',
         emailHost : '',
         emailHostPassword : '',
-        logo : 'def.jpg'       
-
+        logo : 'def.jpg',       
+        f_apiKey : '',
+        f_authDomain : '',
+        f_databaseURL : '',
+        f_projectId : '',
+        f_storageBucket : '',
+        f_messagingSenderId : '',
+        f_appId : ''
     },
     methods : {
         updateAtc : function()
@@ -69,16 +75,23 @@ $.post('setting/getDataRestoran', function(data){
     divSetting.alamatResto = obj.alamatResto;
     divSetting.namaOwner = obj.namaOwner;
     divSetting.tax = obj.tax;
-    divSetting.ipAddressPrintKasir = obj.ipAddressPrintKasir,
-    divSetting.ipAddressPrintKichen = obj.ipAddressPrintKichen,
-    divSetting.ipAddressPrintOther = obj.ipAddressPrintOther,
-    divSetting.emailResto = obj.emailResto,
-    divSetting.awalPembukuan = obj.awalPembukuan,
-    divSetting.apiWaResponder = obj.apiWaResponder,
-    divSetting.saldoAwal = obj.saldoAwal,
-    divSetting.nomorHandphone = obj.nomorHandphone,
-    divSetting.koneksiPrinter = obj.koneksiPrinter,
-    divSetting.emailHost = obj.emailHost,
-    divSetting.emailHostPassword = obj.emailHostPassword,
-    divSetting.logo = obj.logo
+    divSetting.ipAddressPrintKasir = obj.ipAddressPrintKasir;
+    divSetting.ipAddressPrintKichen = obj.ipAddressPrintKichen;
+    divSetting.ipAddressPrintOther = obj.ipAddressPrintOther;
+    divSetting.emailResto = obj.emailResto;
+    divSetting.awalPembukuan = obj.awalPembukuan;
+    divSetting.apiWaResponder = obj.apiWaResponder;
+    divSetting.saldoAwal = obj.saldoAwal;
+    divSetting.nomorHandphone = obj.nomorHandphone;
+    divSetting.koneksiPrinter = obj.koneksiPrinter;
+    divSetting.emailHost = obj.emailHost;
+    divSetting.emailHostPassword = obj.emailHostPassword;
+    divSetting.logo = obj.logo;
+    divSetting.f_apiKey = obj.f_apiKey;
+    divSetting.f_authDomain = obj.f_authDomain;
+    divSetting.f_databaseURL = obj.f_databaseURL;
+    divSetting.f_projectId = obj.f_projectId;
+    divSetting.f_storageBucket = obj.f_storageBucket;
+    divSetting.f_messagingSenderId = obj.f_messagingSenderId;
+    divSetting.f_appId = obj.f_appId;
 });

@@ -88,31 +88,34 @@
                     <div class="tab-pane fade" id="firebase" role="tabpanel" aria-labelledby="firebase-tab">
                         <div class="form-group">
                             <label>API Key</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_apiKey' id='txtApiKeyF' disabled>
                         </div>
                         <div class="form-group">
                             <label>Auth Domain</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_authDomain' id='txtAuthDomain' disabled>
                         </div>
                         <div class="form-group">
                             <label>Database URL</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_databaseURL' id='txtDatabaseUrl' disabled>
                         </div>
                         <div class="form-group">
                             <label>Project Id</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_projectId' id='txtProjectId' disabled>
                         </div>
                         <div class="form-group">
                             <label>Storage Bucket</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_storageBucket' id='txtStorageBucket' disabled>
                         </div>
                         <div class="form-group">
                             <label>Messaging Sender Id</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_messagingSenderId' id='txtMessagingSenderId' disabled>
                         </div>
                         <div class="form-group">
                             <label>App Id</label>
-                            <input type="number" class="form-control" id='' disabled>
+                            <input type="text" class="form-control" v-model='f_appId' id='txtAppId' disabled>
+                        </div>
+                        <div>
+                            <i>Jika tidak dapat mengubah pengaturan firebase darisini, silahkan ubah manual di database (tabel : tbl_firebase_config)</i>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">

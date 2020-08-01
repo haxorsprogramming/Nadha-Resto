@@ -26,7 +26,14 @@ class setting extends Route{
         $data['koneksiPrinter']         = $this -> state($this -> sn) -> getSettingData('koneksi_printer');
         $data['emailHost']              = $this -> state($this -> sn) -> getSettingData('email_host');
         $data['emailHostPassword']      = $this -> state($this -> sn) -> getSettingData('email_host_password');
-        $data['logo']                   = $this -> state($this -> sn) -> getSettingData('logo_resto');                         
+        $data['logo']                   = $this -> state($this -> sn) -> getSettingData('logo_resto');
+        $data['f_apiKey']               = $this -> state($this -> sn) -> getFirebaseConfig('apiKey');
+        $data['f_authDomain']           = $this -> state($this -> sn) -> getFirebaseConfig('authDomain');
+        $data['f_databaseURL']          = $this -> state($this -> sn) -> getFirebaseConfig('databaseURL');
+        $data['f_projectId']            = $this -> state($this -> sn) -> getFirebaseConfig('projectId');
+        $data['f_storageBucket']        = $this -> state($this -> sn) -> getFirebaseConfig('storageBucket');
+        $data['f_messagingSenderId']    = $this -> state($this -> sn) -> getFirebaseConfig('messagingSenderId');
+        $data['f_appId']                = $this -> state($this -> sn) -> getFirebaseConfig('appId');           
         $this -> toJson($data);
     }
     
