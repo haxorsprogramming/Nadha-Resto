@@ -1,11 +1,10 @@
+//route
+var routeToGetDataPelanggan = server+"pelanggan/getDataPelanggan";
+
 var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
-        dataPelanggan : [],
-        pageNow : 1,
-        halaman : [{no : 1}],
-        pageMax : 0,
-        pelangganCari : ''
+
     },
     methods : {
         tambahPelangganAtc : function()
@@ -23,51 +22,6 @@ var divPelanggan = new Vue({
         detailAtc : function(kdPelanggan)
         {
             window.alert(kdPelanggan);
-        },
-        prevAtc : function()
-        {
-            let pagePrev = this.pageNow - 1;
-            $('#liNext').show();
-            this.halaman[0].no = pagePrev;
-            getPelanggan(pagePrev);
-            this.pageNow = parseInt(this.pageNow) - 1;
-            if(this.pageNow <= 1){
-                $('#liPrev').hide();
-            }
-        },
-        nextAtc : function()
-        {
-            let pageNext = this.pageNow + 1; 
-            this.halaman[0].no = pageNext;
-            getPelanggan(pageNext);
-            this.pageNow = parseInt(this.pageNow) + 1;
-
-            if(this.pageNow >= 2){
-                $('#liPrev').show();
-            }
-            if(this.pageNow === this.pageMax){
-                $('#liNext').hide();
-                $('#liPrev').show();
-            }
-        },
-        cariPelangganAtc: function()
-        {
-            cariPelanggan();
-        },
-        keHalamanAtc : function()
-        {
-
-        },
-        toNomorHalamanAtc : function()
-        {
-            let nomorHal = document.getElementById('txtNomorHalaman').value;
-            if(nomorHal < 1 || nomorHal > this.pageMax){
-                pesanUmumApp('warning', 'Periksa field!!', 'Masukkan nomor yang benar');
-            }else{
-                getPelanggan(nomorHal);
-                this.pageNow = parseInt(nomorHal);
-                this.halaman[0].no = nomorHal;
-            }
         }
     }
 });
@@ -99,107 +53,19 @@ var divFormTambahPelanggan = new Vue({
 });
 //inisialisasi
 $('#divFormTambahPelanggan').hide();
-$('#liPrev').hide();
-//table preparation
-var pt;
-for(pt = 0; pt < 10; pt++){
-    divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : '', idPelanggan : ''});
-}
-//getPelanggan
-var startPage = 1;
-setTimeout(function(){getPelanggan(startPage);}, 300);
-//get max pelanggan
-$.post('pelanggan/getMaxPagePelanggan', function(data){
-    let obj = JSON.parse(data);
-    divPelanggan.pageMax = obj.jlhPaginasi;
-   
-    setTimeout(function(){
-        $('#pg1').addClass('active');
-    }, 200);
+
+$('#tblPelanggan').dataTable({
+    "searching" : false,
+    "processing" : true,
+    "serverSide": true,
+    "ajax":{
+        url : routeToGetDataPelanggan,
+        type: "post",
+        error: function(){
+            pesanUmumApp('warning', 'Error', 'Error menampilkan data');
+        }
+    }
 });
-//list fungsi
-function getPelanggan(page)
-{
-    //tampilkan skeleton screen 
-    var j;
-    for(j = 0; j < parseInt(divPelanggan.dataPelanggan.length); j++){
-        divPelanggan.dataPelanggan[j].nama = '';
-        divPelanggan.dataPelanggan[j].alamat = '';
-        divPelanggan.dataPelanggan[j].hp = '';
-        divPelanggan.dataPelanggan[j].lastVisit = '';
-        divPelanggan.dataPelanggan[j].totalTransaksi = '';
-        divPelanggan.dataPelanggan[j].idPelanggan = '';
-    }
-    
-    setTimeout(function(){
-        $.post('pelanggan/getDataPelanggan/'+page, function(data){
-            let obj = JSON.parse(data);
-            let status = obj.status;
-
-            if(status === 'success'){
-                let pelanggan = obj.pelanggan;
-                let pjg = pelanggan.length;
-                let pjgArr = divPelanggan.dataPelanggan.length;
-                //clear tabel sebelumnya 
-                var h;
-                for(h = 0; h < parseInt(pjgArr); h++){
-                    divPelanggan.dataPelanggan.splice(0, 1);
-                }
-                //push skeleton screen 
-                var ut;
-                for(ut = 0; ut < parseInt(pjg); ut++){
-                    divPelanggan.dataPelanggan.push({nama : '', alamat : '', hp : '', lastVisit : '', totalTransaksi : '', idPelanggan : ''});
-                }
-                //push data
-                var i;
-                for(i = 0; i < parseInt(pjg); i++){
-                    divPelanggan.dataPelanggan[i].nama = pelanggan[i].nama;
-                    divPelanggan.dataPelanggan[i].alamat = pelanggan[i].alamat;
-                    divPelanggan.dataPelanggan[i].hp = pelanggan[i].no_hp;
-                    divPelanggan.dataPelanggan[i].lastVisit = pelanggan[i].last_visit;
-                    divPelanggan.dataPelanggan[i].totalTransaksi = pelanggan[i].total_transaksi;
-                    divPelanggan.dataPelanggan[i].idPelanggan = pelanggan[i].id_pelanggan;
-                }  
-            }else{
-                var k;
-                for(k = 0; k < 10; k++){
-                    divPelanggan.dataPelanggan.splice(0, 1);
-                }
-            }
-        });
-    }, 200);
-    
-}
-
-function cariPelanggan()
-{
-    let pelanggan = document.getElementById('txtPelangganCari').value;
-    let pjg = pelanggan.length;
-    if(pjg < 4){
-        pesanUmumApp('warning', 'error', 'Harus di atas 4 karakter..');
-        document.getElementById('txtPelangganCari').focus;
-    }else{
-        $.post('pelanggan/cariPelanggan', {'nama':pelanggan}, function(data){
-            let obj = JSON.parse(data);
-            let pjgPelanggan = divPelanggan.dataPelanggan.length;
-            console.log(obj);
-            //clear table
-            var i;
-            for(i = 0; i < pjgPelanggan; i++){
-                divPelanggan.dataPelanggan.splice(0, 1);
-            }
-            //render table 
-            obj.forEach(renderCariPelanggan);
-            function renderCariPelanggan(item, index)
-            {
-                divPelanggan.dataPelanggan.push({
-                    nama : obj[index].nama,
-                    alamat : obj[index].alamat
-                });
-            }
-        });
-    }
-}
 
 document.getElementById('btnKembali').addEventListener("click", function(){
     divPelanggan.kembaliAtc();

@@ -5,7 +5,7 @@ class arusKas extends Route{
     private $sn = 'arusKasData';
     private $su = 'utilityData';
 
-    public function index($page)
+    public function index()
     {
         $this -> bind('dasbor/arusKas/arusKas');
     }
@@ -25,7 +25,6 @@ class arusKas extends Route{
             $nestedData[] = $ak['tipe'];
             $nestedData[] = $ak['arus'];
             $nestedData[] = "Rp.". number_format($ak['total']);
-
             $data[] = $nestedData;
         }
 

@@ -9,15 +9,10 @@ class pelangganData{
         $this -> st = new state;
     }
 
-    public function getPelanggan($page)
+    public function getDataPelanggan($requestData)
     {
-        $totalPage = 10;
-        if($page === 1){
-            $startPage = 0;
-        }else{
-            $startPage = $totalPage * $page - 10;
-        }
-        $this -> st -> query("SELECT * FROM tbl_pelanggan LIMIT $startPage, $totalPage;");
+        $columns = array(0 => 'nama', 1 => 'alamat', 2 => 'no_hp', 3 => 'last_visit');
+        $this -> st -> query("SELECT * FROM tbl_pelanggan ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length'].";");
         return $this -> st -> queryAll();
     }
 

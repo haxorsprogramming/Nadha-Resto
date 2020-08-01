@@ -6,27 +6,7 @@
     </div>
 
     <div class="row" style="padding-left:20px;margin-right:10px;">
-        <div class="form-inline">
-            <div class="form-group">
-                <div class="input-group mb-3" style="margin-bottom: 15px;width:300px;">
-                    <input type="text" class="form-control" placeholder="Cari pelanggan (nama / ho hp)" id='txtPelangganCari'>
-                    <div class="input-group-append">
-                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='cariPelangganAtc'>
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="input-group mb-3" style="margin-bottom: 15px;margin-left:30px;">
-                <label>Ke halaman&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="Masukkan nomor halaman" id='txtNomorHalaman'>
-                    <div class="input-group-append">
-                        <button href='#!' class="btn btn-primary btn-icon iconleft" @click='toNomorHalamanAtc'>
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <table id='tblPelanggan' class='table table-hover table-bordered table-stripped'>
             <thead>
                 <tr>
@@ -38,58 +18,8 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr v-for='p in dataPelanggan'>
-                    <td>
-                        <div class="post">
-                            <div class="line nama">{{p.nama}}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="post">
-                            <div class="line">{{p.alamat}}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="post">
-                            <div class="line">{{p.hp}}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="post">
-                            <div class="line">{{p.lastVisit}}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="post">
-                            <div class="line">{{p.totalTransaksi}}</div>
-                        </div>
-                    </td>
-                    <td><a href='#!' class="btn btn-primary btn-sm" @click='detailAtc(p.idPelanggan)'><i
-                                class='fas fa-info-circle'></i> Detail</a></td>
-                </tr>
-            </tbody>
         </table>
-        <div>
-            <i>Ditampilkan 10 dari total <?=$data['jlhPelanggan']; ?> pelanggan | Halaman ke - {{pageNow}} | Total
-                halaman : {{pageMax}}</i>
-        </div>
-        <hr />
-        <nav class="d-inline-block">
-            <ul class="pagination mb-0">
-                <li class="page-item" @click='prevAtc' id='liPrev'>
-                    <a class="page-link" href="#!"><i class="fas fa-chevron-left"></i></a>
-                </li>
-
-                <li class="page-item active" v-for='h in halaman' :id="'pg'+h.no">
-                    <a class="page-link" href="#!" >{{h.no}}</a>
-                </li>
-
-                <li class="page-item" @click='nextAtc' id='liNext'>
-                    <a class="page-link" href="#!"><i class="fas fa-chevron-right"></i></a>
-                </li>
-            </ul>
-        </nav>
+        
     </div>
 </div>
 <div id='divFormTambahPelanggan'>

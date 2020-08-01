@@ -1,4 +1,4 @@
-var routeToGetData = server+'arusKas/getArusKas';
+var routeToGetDataArusKas = server+'arusKas/getArusKas';
 
 var divArusKas = new Vue({
     el : '#divArusKas',
@@ -13,7 +13,7 @@ $('#tblArusKas').dataTable({
     "processing" : true,
     "serverSide": true,
     "ajax":{
-        url : routeToGetData,
+        url : routeToGetDataArusKas,
         type: "post",
         error: function(){
             pesanUmumApp('warning', 'Error', 'Error menampilkan data');

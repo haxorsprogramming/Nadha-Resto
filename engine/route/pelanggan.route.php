@@ -5,51 +5,36 @@ class pelanggan extends Route{
     private $sn = 'pelangganData';
     private $su = 'utilityData';
 
-    public function index($page)
+    public function index()
     {
-      $jlhPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
-      $jlhPaginasi = ceil($jlhPelanggan / 10);
-      $data['pelanggan'] = $this -> state($this -> sn) -> getPelanggan($page);
-      $data['jlhPelanggan'] = $jlhPelanggan;
-      $data['jlhPaginasi'] = $jlhPaginasi;
-      $data['pageNow'] = $page;
-      $this -> bind('dasbor/pelanggan/pelanggan', $data);
+      $this -> bind('dasbor/pelanggan/pelanggan');
     }
 
-    public function getMaxPagePelanggan()
+    public function getDataPelanggan()
     {
-      $jlhPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
-      $jlhPaginasi = ceil($jlhPelanggan / 10);
-      $data['jlhPaginasi'] = $jlhPaginasi;
-      $this -> toJson($data);
-    }
+      $requestData= $_REQUEST;
+      $totalPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
+      $dataPelanggan = $this -> state($this -> sn) -> getDataPelanggan($requestData);
+      $data = array();
 
-    public function getDataPelanggan($page)
-    {
-      $qPelanggan = $this -> state($this -> sn) -> getPelanggan($page);
-      //cek jumlah data
-      $jlhPelanggan = $this -> state($this -> sn) -> cekJumlahPelanggan($page);
-      if($jlhPelanggan > 0){
-        foreach($qPelanggan as $pel){
-          $arrTemp['nama'] = $pel['nama'];
-          $arrTemp['alamat'] = $pel['alamat'];
-          $arrTemp['no_hp'] = $pel['no_hp'];
-          $arrTemp['last_visit'] = $pel['last_visit'];
-          $arrTemp['id_pelanggan'] = $pel['id_pelanggan'];
-          $arrTemp['total_transaksi'] = $this -> state($this -> sn) -> totalTransaksi($pel['id_pelanggan']);
-          $data['pelanggan'][] = $arrTemp;
-        }
-        $data['status'] = 'success';
-      }else{
-        $data['status'] = 'no_data';
+      foreach($dataPelanggan as $dp){
+        $nestedData = array();
+        $nestedData[] = $dp['nama'];
+        $nestedData[] = $dp['alamat'];
+        $nestedData[] = $dp['hp'];
+        $nestedData[] = $dp['last_visit'];
+        $nestedData[] = "0";
+        $nestedData[] = "<a href='#!' class='btn btn-sm btn-primary'>Edit</a>";
+        $data[] = $nestedData;
       }
-      $this -> toJson($data);
-    }
 
-    public function cariPelanggan(){
-      $nama = $this -> inp('nama');
-      $pelanggan = $this -> state($this -> sn) -> cariPelanggan($nama);
-      $this -> toJson($pelanggan);
+      $json_data = array(
+        "draw"            => intval( $requestData['draw'] ),  
+        "recordsTotal"    => intval( $totalPelanggan ), 
+        "recordsFiltered" => intval( $totalPelanggan ), 
+        "data"            => $data );
+
+      echo json_encode($json_data);
     }
 
     public function prosesTambahPelanggan()
@@ -70,7 +55,5 @@ class pelanggan extends Route{
       }
       $this -> toJson($data);
     }
-
-   
 
 }
