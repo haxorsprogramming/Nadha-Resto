@@ -4,22 +4,11 @@
             <tr>
                 <th>Kd Transaksi</th>
                 <th>Waktu</th>
-                <th>Asal</th>
+                <th>Tipe</th>
                 <th>Arus</th>
                 <th>Total</th>
-                <th>Saldo</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
     </table>
 </div>
 

@@ -9,9 +9,10 @@ class arusKasData{
         $this -> st = new state;
     }
 
-    public function getDataArusKas()
+    public function getDataArusKas($requestData)
     {
-        $this -> st -> query("SELECT * FROM tbl_arus_kas;");
+        $columns = array(0 => 'kd_transaksi', 1 => 'waktu', 2 => 'tipe', 3 => 'arus', 4 => 'total');
+        $this -> st -> query("SELECT * FROM tbl_arus_kas ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ;");
         return $this -> st -> queryAll();
     }
 
