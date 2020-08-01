@@ -40,4 +40,11 @@ class manajemenUserData{
         return $this -> st -> querySingle();
     }
 
+    public function updateUser($nama, $passHash, $tipe, $username)
+    {
+        $query = "UPDATE tbl_user SET nama='$nama', password='$passHash', tipe='$tipe' WHERE username='$username';";
+        $this -> st -> query($query);
+        $this -> st -> queryAll();
+    }
+
 }

@@ -106,8 +106,6 @@
                 </div>
                 <div>
                     <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnUpdate'><i class='fas fa-save'></i>Update</a>
-                    &nbsp;&nbsp;
-                    <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearFormUpdate'><i class='fas fa-i-cursor'></i> Clear</a>
                 </div>
             </div>
         </div>

@@ -38,13 +38,12 @@ class manajemenUser extends Route{
 
     public function updateUserProses()
     {
-        // {'username':this.usernameUp, 'password':this.passwordUp, 'tipe':this.tipeUp, 'nama':this.namaUp}
         $username = $this -> inp('username');
         $password = $this -> inp('password');
         $tipe = $this -> inp('tipe');
         $nama = $this -> inp('nama');
         $passHash = $this -> hashPassword($password);
-        
+        $this -> state($this -> sn) -> updateUser($nama, $passHash, $tipe, $username);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
