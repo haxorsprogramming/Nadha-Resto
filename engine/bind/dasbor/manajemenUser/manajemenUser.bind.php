@@ -1,4 +1,6 @@
 <div id='divManajemenUser'>
+
+    <!-- DIV TABEL USER  -->
     <div id='divDataUser'>
         <div style='margin-bottom:15px;'>
             <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahUserAtc'>
@@ -21,13 +23,15 @@
                             <td><b><?=$du['username']; ?></b><br/><?=$du['nama']; ?></td>
                             <td><?=$du['tipe']; ?></td>
                             <td><?=$du['last_login']; ?></td>
-                            <td><a href='#!' class="btn btn-sm btn-primary btn-icon icon-left">Edit</a></td>
+                            <td><a href='#!' class="btn btn-sm btn-primary btn-icon icon-left" @click="editUserAtc('<?=$du['username']; ?>')"><i class='far fa-edit'></i> Edit</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <!-- DIV TAMBAH USER  -->
     <div id='divTambahUser'>
         <div>
             <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'>
@@ -63,6 +67,47 @@
                     <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan'><i class='fas fa-save'></i>Simpan</a>
                     &nbsp;&nbsp;
                     <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearForm'><i class='fas fa-i-cursor'></i> Clear</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIV EDIT USER  -->
+    <div id="divEditUser">
+        <div>
+            <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'>
+                <i class='fas fa-reply'></i>Kembali
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+            <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" id='txtUsernameUp'>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id='txtPasswordUp'>
+                </div>
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" class="form-control" id='txtNamaUp'>
+                </div>
+                <div class="form-group">
+                    <label>Tipe User</label>
+                    <select class="form-control" id='txtTipeUserUp'>
+                        <option value="none">-- Pilih tipe user ---</option>
+                        <option value="admin">Administrator</option>
+                        <option value="kasir">Kasir</option>
+                        <option value="Waiters">Waiters</option>
+                        <option value="kurir">Kurir Delivery Order</option>
+                        <option value="kitchen">Dapur</option>
+                    </select>
+                </div>
+                <div>
+                    <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnUpdate'><i class='fas fa-save'></i>Update</a>
+                    &nbsp;&nbsp;
+                    <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearFormUpdate'><i class='fas fa-i-cursor'></i> Clear</a>
                 </div>
             </div>
         </div>

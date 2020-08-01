@@ -36,7 +36,7 @@
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" @click='pengaturanUmumAtc'>Pengaturan Umum</a></li>
       <li><a class="nav-link" href="#!" @click='manajemenUserAtc'>Manajemen User</a></li>
-      <li><a class="nav-link" href="#!" @click=''>Backup & Restore Data</a></li>
+      <li><a class="nav-link" href="#!" @click='backupRestoreDataAtc'>Backup & Restore Data</a></li>
     </ul>
   </li>
   <li class="dropdown">

@@ -129,6 +129,10 @@ var divMenu = new Vue({
     {
       renderMenu(manajemenUser);
       divJudul.judulForm = "Manajemen User";
+    },
+    backupRestoreDataAtc : function()
+    {
+      pesanUmumApp('info', 'Contact Haxors', 'Silahkan kontak haxorsprogramming untuk mengaktifkan fungsi ini');
     }
   }
 });

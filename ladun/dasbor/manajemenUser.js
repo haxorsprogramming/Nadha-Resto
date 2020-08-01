@@ -15,6 +15,7 @@ var divManajemenUser = new Vue({
         {
             $('#divDataUser').hide();
             $('#divTambahUser').show();
+            divJudul.judulForm = "Tambah User";
             document.getElementById('txtUsername').focus();
         },
         kembaliAtc : function()
@@ -30,19 +31,32 @@ var divManajemenUser = new Vue({
                     pesanUmumApp('warning', 'Isi field!!', 'Minimal username & password 4 karakter!!');
                 }else{
                     //go proses brooo
-                    let dataSend = {username : this.username, password : this.password, tipeUser : this.tipeUser, nama : this.nama}
-                    $.post(routeToTambahUser, dataSend,  function(data){
+                    let dataSend = {'username':this.username, 'password':this.password, 'tipeUser':this.tipeUser, 'nama':this.nama}
+                    $.post(routeToTambahUser, dataSend, function(data){
                         let obj = JSON.parse(data);
-                        console.log(obj);
+                        if(obj.status === 'sukses'){
+                            pesanUmumApp('success', 'Sukses', 'Sukses menambahkan user baru');
+                            divMenu.manajemenUserAtc();
+                        }else{
+                            pesanUmumApp('warning', 'Error username', 'Username sudah digunakan!!');
+                        }
                     });
                 }
            }
+        },
+        editUserAtc: function(username)
+        {
+            $('#divTambahUser').hide();
+            $('#divDataUser').hide();
+            $('#divEditUser').show();
+            divJudul.judulForm = "Edit User "+username;
         }
     }
 });
 
 //inisialisasi 
 $('#divTambahUser').hide();
+$('#divEditUser').hide();
 $('#tblUser').dataTable();
 
 document.getElementById('btnSimpan').addEventListener("click", function(){
@@ -51,4 +65,11 @@ document.getElementById('btnSimpan').addEventListener("click", function(){
     divManajemenUser.nama = document.getElementById('txtNama').value;
     divManajemenUser.tipeUser = document.getElementById('txtTipeUser').value;
     divManajemenUser.tambahAtc();
+});
+
+document.getElementById('btnClearForm').addEventListener("click", function(){
+    document.getElementById('txtUsername').value = '';
+    document.getElementById('txtPassword').value = '';
+    document.getElementById('txtNama').value = '';
+    document.getElementById('txtUsername').focus();
 });
