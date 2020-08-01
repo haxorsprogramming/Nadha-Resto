@@ -58,7 +58,7 @@
                         <option value="none">-- Pilih tipe user ---</option>
                         <option value="admin">Administrator</option>
                         <option value="kasir">Kasir</option>
-                        <option value="Waiters">Waiters</option>
+                        <option value="waiters">Waiters</option>
                         <option value="kurir">Kurir Delivery Order</option>
                         <option value="kitchen">Dapur</option>
                     </select>
@@ -99,7 +99,7 @@
                         <option value="none">-- Pilih tipe user ---</option>
                         <option value="admin">Administrator</option>
                         <option value="kasir">Kasir</option>
-                        <option value="Waiters">Waiters</option>
+                        <option value="waiters">Waiters</option>
                         <option value="kurir">Kurir Delivery Order</option>
                         <option value="kitchen">Dapur</option>
                     </select>

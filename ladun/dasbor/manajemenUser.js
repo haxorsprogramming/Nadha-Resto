@@ -1,7 +1,7 @@
 //route proses
 var routeToTambahUser = server+'manajemenUser/tambahUser';
 var routeToGetDataUser = server+'manajemenUser/getUser';
-
+var routToUpdateUser = server+'manajemenUser/updateUserProses';
 //main vue objek
 var divManajemenUser = new Vue({
     el : '#divManajemenUser',
@@ -64,6 +64,23 @@ var divManajemenUser = new Vue({
                 divManajemenUser.tipeUp = userObj.tipe;
             });
             document.getElementById('txtUsernameUp').focus();
+        },
+        updateUserAtc : function()
+        {
+            if(this.usernameUp === '' || this.passwordUp === '' || this.tipeUp === 'none' || this.tipeUp === '' || this.namaUp === ''){
+                pesanUmumApp('warning', 'Isi field!!', 'Harap isi field!!!');
+            }else{
+                if(this.usernameUp.length < 4 || this.passwordUp.length < 4){
+                    pesanUmumApp('warning', 'Isi field!!', 'Minimal username & password 4 karakter!!');
+                }else{
+                    //go proses brooo
+                    let dataSend = {'username':this.usernameUp, 'password':this.passwordUp, 'tipe':this.tipeUp, 'nama':this.namaUp}
+                    $.post(routToUpdateUser, dataSend, function(data){
+                        let obj = JSON.parse(data);
+                        console.log(obj);
+                    });
+                }
+            }
         }
     }
 });
@@ -82,7 +99,7 @@ document.getElementById('btnSimpan').addEventListener("click", function(){
 });
 
 document.getElementById('btnUpdate').addEventListener("click", function(){
-    
+    divManajemenUser.updateUserAtc();
 });
 
 document.getElementById('btnClearForm').addEventListener("click", function(){

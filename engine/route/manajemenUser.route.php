@@ -36,4 +36,10 @@ class manajemenUser extends Route{
         $this -> toJson($data);
     }
 
+    public function updateUserProses()
+    {
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }
