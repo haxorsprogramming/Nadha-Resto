@@ -1,3 +1,6 @@
+//route 
+var routeToGetDataPembelianBahanBaku = server+'pembelianBahanBaku/getDataPembelianBahanBaku';
+
 var arrItemDipilih = [];
 var divPembelian = new Vue({
     el : '#divPembelian',
@@ -45,7 +48,20 @@ var divPembelian = new Vue({
 $('#pembelianBaru').hide();
 $(".select2").select2();
 var nominal = document.getElementById('txtNominal');
-$('#tblHistoryPembelian').dataTable();
+
+$('#tblHistoryPembelian').dataTable({
+    "searching" : false,
+    "processing" : true,
+    "serverSide": true,
+    "ajax":{
+        url : routeToGetDataPembelianBahanBaku,
+        type: "post",
+        error: function(){
+            pesanUmumApp('warning', 'Error', 'Error menampilkan data');
+        }
+    }
+});
+
 
 function proses()
 {

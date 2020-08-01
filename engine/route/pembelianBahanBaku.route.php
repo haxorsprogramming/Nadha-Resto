@@ -1,23 +1,40 @@
 <?php
 
-class pembelianBb extends Route{
+class pembelianBahanBaku extends Route{
 
-    private $sn = 'pembelianBbData';
+    private $sn = 'pembelianBahanBakuData';
     private $su = 'utilityData';
 
-    public function pembelianBahanBaku()
+    public function index()
     {
-        $data['mitra']  = $this -> state($this -> sn) -> getMitra();
-        $dataHistory    = $this -> state($this -> sn) -> getHistory();
-        foreach($dataHistory as $dh){
-            $arrTemp['kdMitra']         = $dh['mitra'];
-            $arrTemp['kdPembelian']     = $dh['kd_pembelian'];
-            $arrTemp['waktu']           = $dh['waktu'];
-            $arrTemp['namaMitra']       = $this -> state($this -> sn) -> getNamaMitra($dh['mitra']);
-            $arrTemp['total']           = $dh['total'];
-            $data['historyPembelian'][] = $arrTemp; 
+        $this -> bind('dasbor/pembelianBahanBaku/pembelianBahanBaku');
+    }
+
+    public function getDataPembelianBahanBaku()
+    {
+        $requestData = $_REQUEST;
+        $totalPembelian = $this -> state($this -> sn) -> getTotalPembelianBahanBaku();
+        $dataPembelianBahanBaku = $this -> state($this -> sn) -> getDataPembelianBahanBaku($requestData);
+        $data = array();
+
+        foreach($dataPembelianBahanBaku as $dp){
+            $nestedData = array();
+            $nestedData[] = $dp['kd_pembelian'];
+            $nestedData[] = $dp['mitra'];
+            $nestedData[] = $dp['total'];
+            $nestedData[] = $dp['waktu'];
+            $nestedData[] = "<a href='#!' class='btn btn-primary btn-icon icon-left'>Detail</a>";
+            $data[] = $nestedData;
         }
-        $this -> bind('dasbor/pembelianBb/pembelianBahanBaku', $data);
+
+        $json_data = array(
+            "draw"            => intval( $requestData['draw'] ),  
+            "recordsTotal"    => intval( $totalPembelian ), 
+            "recordsFiltered" => intval( $totalPembelian ), 
+            "data"            => $data );
+    
+          $this -> toJson($json_data);
+
     }
 
     public function getDetailPembelian()

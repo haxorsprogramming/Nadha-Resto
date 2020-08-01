@@ -9,10 +9,17 @@ class pembelianBbData{
         $this -> st = new state;
     }
     
-    public function getHistory()
+    public function getDataPembelianBahanBaku($requestData)
     {
-        $this -> st -> query("SELECT * FROM tbl_pembelian_bahan_baku;");
+        $columns = array(0 => 'kd_pembelian', 1 => 'mitra', 2 => 'total', 3 => 'waktu');
+        $this -> st -> query("SELECT * FROM tbl_pembelian_bahan_baku ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length'].";");
         return $this -> st -> queryAll();
+    }
+
+    public function getTotalPembelianBahanBaku()
+    {
+        $this -> st -> query("SELECT id FROM tbl_pembelian_bahan_baku");
+        return $this -> st -> numRow();
     }
 
     public function getMitra()

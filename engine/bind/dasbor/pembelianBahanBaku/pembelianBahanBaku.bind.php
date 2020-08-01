@@ -14,17 +14,6 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                <?php foreach($data['historyPembelian'] as $hp) : ?>
-                    <tr>
-                        <td><?=strtoupper($hp['kdPembelian']); ?></td>
-                        <td><?=$hp['namaMitra']; ?></td>
-                        <td>Rp. <?=number_format($hp['total']); ?></td>
-                        <td><?=$hp['waktu']; ?></td>
-                        <td><a href="#!" class="btn btn-sm btn-primary btn-icon icon-left" @click='detailAtc("<?=$hp['kdPembelian']; ?>")'><i class='fas fa-info-circle'></i> Detail</a></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
         </table>
         </div>
     </div>
