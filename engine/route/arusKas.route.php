@@ -5,11 +5,12 @@ class arusKas extends Route{
     private $sn = 'arusKasData';
     private $su = 'utilityData';
 
-    public function index()
+    public function index($page)
     {
-        $data['arusKas'] = $this -> state($this -> sn) -> getDataArusKas();
-        $data['saldoAwal'] = $this -> state($this -> su) -> getSettingResto('saldo_awal');
-        $this -> bind('dasbor/arusKas/arusKas', $data);
+        $jlhArusKas = $this -> state($this -> sn) ->  getJlhArusKas();
+        $jlhPaginasi = ceil($jlhArusKas / 10);
+        $data['arusKas'] = '';
+        $this -> bind('dasbor/arusKas/arusKas');
     }
 
 }

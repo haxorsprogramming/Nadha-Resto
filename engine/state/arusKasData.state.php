@@ -15,5 +15,10 @@ class arusKasData{
         return $this -> st -> queryAll();
     }
 
+    public function getJlhArusKas()
+    {
+        $this -> st -> query("SELECT * FROM tbl_arus_kas;");
+        return $this -> st -> numRow();
+    }
 
 }

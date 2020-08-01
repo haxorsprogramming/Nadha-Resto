@@ -6,4 +6,3 @@ var divArusKas = new Vue({
 });
 
 //inisialisasi 
-$('#tblArusKas').dataTable({"order": [[ 2, "asc" ]]});
