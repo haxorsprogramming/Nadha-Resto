@@ -2,12 +2,13 @@
 
 class manajemenUser extends Route{
 
-    private $sn = 'manajemenUser';
+    private $sn = 'manajemenUserData';
     private $su = 'utilityData';
 
     public function index()
     {
-        $this -> bind('dasbor/manajemenUser/manajemenUser');
+        $data['user'] = $this -> state($this -> sn) -> getUser();
+        $this -> bind('dasbor/manajemenUser/manajemenUser', $data);
     }
 
 }
