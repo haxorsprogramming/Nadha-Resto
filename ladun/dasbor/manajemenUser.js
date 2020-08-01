@@ -56,7 +56,9 @@ var divManajemenUser = new Vue({
             divJudul.judulForm = "Edit User "+username;
             $.post(routeToGetDataUser, {'username':username}, function(data){
                 let obj = JSON.parse(data);
-                console.log(obj);
+                let userObj = obj.user;
+                divManajemenUser.usernameUp = userObj.username;
+                divManajemenUser.namaUp = userObj.nama;
             });
         }
     }

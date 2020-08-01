@@ -33,7 +33,6 @@ class manajemenUser extends Route{
     {
         $username = $this -> inp('username');
         $data['user'] = $this -> state($this -> sn) -> getDataUser($username);
-        $data['status'] = 'sukses';
         $this -> toJson($data);
     }
 

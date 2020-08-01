@@ -83,7 +83,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
             <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control" id='txtUsernameUp'>
+                    <input type="text" class="form-control" id='txtUsernameUp' v-model='usernameUp'>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
