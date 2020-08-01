@@ -121,7 +121,7 @@ var divMenu = new Vue({
     },
     bantuanAtc : function()
     {
-      renderMenu('bantuan/tesServerSide');
+      renderMenu(bantuan);
       divJudul.judulForm = "Bantuan";
     }
   }

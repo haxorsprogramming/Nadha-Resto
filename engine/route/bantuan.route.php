@@ -5,10 +5,10 @@ class bantuan extends Route{
     private $sn = 'bantuanData';
     private $su = 'utilityData';
 
-    public function tesServerSide()
+    public function index()
     {
         
-        $this -> bind('dasbor/bantuan/tesServerSide');
+        $this -> bind('dasbor/bantuan/bantuan');
     }
 
 }

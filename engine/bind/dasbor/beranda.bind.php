@@ -83,7 +83,6 @@
                         <li class="media" v-for='mv in menuFavorit'>
                             <img class="mr-3" width="170" style="border-radius:6px;" :src="'<?=STYLEBASE; ?>/dasbor/img/menu/'+mv.pic" alt="avatar">
                             <div class="media-body">
-                                
                                 <div class="media-title">{{mv.judul}}</div>
                                 <span class="text-small text-muted">
                                     {{mv.deks}}

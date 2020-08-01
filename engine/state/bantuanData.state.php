@@ -9,9 +9,4 @@ class bantuanData{
         $this -> st = new state;
     }
 
-    public function getDataPemesanan()
-    {
-        
-    }
-
 }
