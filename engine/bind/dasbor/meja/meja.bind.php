@@ -56,9 +56,7 @@
                 <h4 class="card-title">Tentang manajemen meja</h4>
                 </div>
                 <div class="card-body">
-                    <ul>
-                        
-                    </ul>
+                    <ul></ul>
                 </div>
             </div>
         </div>

@@ -35,7 +35,36 @@
             </a>
         </div>
         <div class="row">
-            
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" id='txtUsername'>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id='txtPassword'>
+                </div>
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" class="form-control" id='txtNama'>
+                </div>
+                <div class="form-group">
+                    <label>Tipe User</label>
+                    <select class="form-control" id='txtTipeUser'>
+                        <option value="none">-- Pilih tipe user ---</option>
+                        <option value="admin">Administrator</option>
+                        <option value="kasir">Kasir</option>
+                        <option value="Waiters">Waiters</option>
+                        <option value="kurir">Kurir Delivery Order</option>
+                        <option value="kitchen">Dapur</option>
+                    </select>
+                </div>
+                <div>
+                    <a href='#!' class="btn btn-lg btn-primary btn-icon icon-left" id='btnSimpan'><i class='fas fa-save'></i>Simpan</a>
+                    &nbsp;&nbsp;
+                    <a href='#!' class="btn btn-lg btn-info btn-icon icon-left" id='btnClearForm'><i class='fas fa-i-cursor'></i> Clear</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
