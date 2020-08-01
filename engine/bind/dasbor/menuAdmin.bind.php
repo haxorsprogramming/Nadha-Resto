@@ -35,7 +35,7 @@
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="	fas fa-cogs"></i> <span>Setting Resto</span></a>
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" @click='pengaturanUmumAtc'>Pengaturan Umum</a></li>
-      <li><a class="nav-link" href="#!" @click=''>Manajemen User</a></li>
+      <li><a class="nav-link" href="#!" @click='manajemenUserAtc'>Manajemen User</a></li>
       <li><a class="nav-link" href="#!" @click=''>Backup & Restore Data</a></li>
     </ul>
   </li>

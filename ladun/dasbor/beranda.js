@@ -23,6 +23,10 @@ var divBeranda = new Vue({
         {
             renderMenu(pesanan);
             divJudul.judulForm = "Daftar Pesanan"; 
+        },
+        detailPesananAtc : function(kdPesanan)
+        {
+            window.alert(kdPesanan);
         }
     }
 });
@@ -60,7 +64,8 @@ $.post(routeGetTransaksiTerakhir, function(data){
         divBeranda.lastTs.push({
             total : lts[index].total,
             waktu : lts[index].waktu,
-            namaPelanggan : lts[index].namaPelanggan
+            namaPelanggan : lts[index].namaPelanggan,
+            kdPesanan : lts[index].kdPesanan
         });
     }
 });

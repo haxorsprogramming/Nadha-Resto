@@ -17,6 +17,7 @@ const pengeluaran = 'pengeluaran';
 const arusKas = 'arusKas';
 const laporanTransaksi = 'laporanTransaksi';
 const bantuan = 'bantuan';
+const manajemenUser = 'manajemenUser';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -123,6 +124,11 @@ var divMenu = new Vue({
     {
       renderMenu(bantuan);
       divJudul.judulForm = "Bantuan";
+    },
+    manajemenUserAtc : function()
+    {
+      renderMenu(manajemenUser);
+      divJudul.judulForm = "Manajemen User";
     }
   }
 });

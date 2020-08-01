@@ -46,6 +46,7 @@ class dasbor extends Route{
             $arrTemp['namaPelanggan'] = $namaPelanggan;
             $arrTemp['total'] = $gt['total_final'];
             $arrTemp['waktu'] = $gt['waktu'];
+            $arrTemp['kdPesanan'] = $kdPesanan;
             $data['lt'][] = $arrTemp;
         }
         $this -> toJson($data);

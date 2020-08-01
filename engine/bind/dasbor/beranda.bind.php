@@ -111,7 +111,7 @@
                             </a>
                             <div class="media-body">
                                 <div class="media-right">Rp. {{ Number(lt.total).toLocaleString() }}</div>
-                                <div class="media-title"><a href="#">{{lt.namaPelanggan}}</a></div>
+                                <div class="media-title"><a href="#!" @click='detailPesananAtc(lt.kdPesanan)'>{{lt.namaPelanggan}}</a></div>
                                 <div class="text-muted text-small">Dine in <a href="#"></a>
                                     <div class="bullet"></div> {{lt.waktu}}
                                 </div>
