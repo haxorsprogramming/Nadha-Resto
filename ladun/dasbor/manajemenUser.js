@@ -77,7 +77,8 @@ var divManajemenUser = new Vue({
                     let dataSend = {'username':this.usernameUp, 'password':this.passwordUp, 'tipe':this.tipeUp, 'nama':this.namaUp}
                     $.post(routToUpdateUser, dataSend, function(data){
                         let obj = JSON.parse(data);
-                        console.log(obj);
+                        pesanUmumApp('success', 'Sukses', 'Sukses mengupdate data user..');
+                        divMenu.manajemenUserAtc();
                     });
                 }
             }
