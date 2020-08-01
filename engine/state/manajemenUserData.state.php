@@ -36,7 +36,7 @@ class manajemenUserData{
 
     public function getDataUser($username)
     {
-        $this -> st -> query("SELECT username, nama FROM tbl_user WHERE username='$username';");
+        $this -> st -> query("SELECT username, nama, tipe FROM tbl_user WHERE username='$username';");
         return $this -> st -> querySingle();
     }
 

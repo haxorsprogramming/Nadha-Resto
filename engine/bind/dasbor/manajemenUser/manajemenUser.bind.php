@@ -87,15 +87,15 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id='txtPasswordUp'>
+                    <input type="password" class="form-control" id='txtPasswordUp' v-model='passwordUp'>
                 </div>
                 <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" id='txtNamaUp'>
+                    <input type="text" class="form-control" id='txtNamaUp' v-model='namaUp'>
                 </div>
                 <div class="form-group">
                     <label>Tipe User</label>
-                    <select class="form-control" id='txtTipeUserUp'>
+                    <select class="form-control" id='txtTipeUserUp' v-model='tipeUp'>
                         <option value="none">-- Pilih tipe user ---</option>
                         <option value="admin">Administrator</option>
                         <option value="kasir">Kasir</option>

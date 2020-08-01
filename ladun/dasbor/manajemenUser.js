@@ -12,6 +12,8 @@ var divManajemenUser = new Vue({
         tipeUser : '',
         usernameUp : '',
         namaUp : '',
+        passwordUp : '',
+        tipeUp : '',
         passwordUp : ''
     },
     methods : {
@@ -59,7 +61,9 @@ var divManajemenUser = new Vue({
                 let userObj = obj.user;
                 divManajemenUser.usernameUp = userObj.username;
                 divManajemenUser.namaUp = userObj.nama;
+                divManajemenUser.tipeUp = userObj.tipe;
             });
+            document.getElementById('txtUsernameUp').focus();
         }
     }
 });
@@ -75,6 +79,10 @@ document.getElementById('btnSimpan').addEventListener("click", function(){
     divManajemenUser.nama = document.getElementById('txtNama').value;
     divManajemenUser.tipeUser = document.getElementById('txtTipeUser').value;
     divManajemenUser.tambahAtc();
+});
+
+document.getElementById('btnUpdate').addEventListener("click", function(){
+    
 });
 
 document.getElementById('btnClearForm').addEventListener("click", function(){
