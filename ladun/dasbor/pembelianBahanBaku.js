@@ -1,5 +1,6 @@
 //route 
 var routeToGetDataPembelianBahanBaku = server+'pembelianBahanBaku/getDataPembelianBahanBaku';
+var routeToDetailPembelianBahanBaku = server+'pembelianBahanBaku/detailPembelian/';
 
 var arrItemDipilih = [];
 var divPembelian = new Vue({
@@ -14,7 +15,7 @@ var divPembelian = new Vue({
     methods : {
         detailAtc : function(kdPembelian)
         {
-            renderMenu('pembelianBb/detailPembelian/'+kdPembelian);
+            renderMenu('pembelianBahanBaku/detailPembelian/'+kdPembelian);
             divJudul.judulForm = "Detail pembelian bahan baku";
         },
         tambahPembelianAtc : function()
@@ -40,6 +41,10 @@ var divPembelian = new Vue({
         prosesAtc : function()
         {
             proses();
+        },
+        tesAtc : function()
+        {
+            window.alert("haloo");
         }
     }
 });
@@ -62,6 +67,10 @@ $('#tblHistoryPembelian').dataTable({
     }
 });
 
+$('#historyPembelian').on('click', '.btnDetail', function(){
+    let kdPembelian = $(this).data('id');
+    divPembelian.detailAtc(kdPembelian);
+});
 
 function proses()
 {

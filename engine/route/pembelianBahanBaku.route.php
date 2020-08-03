@@ -23,7 +23,7 @@ class pembelianBahanBaku extends Route{
             $nestedData[] = $dp['mitra'];
             $nestedData[] = "Rp. ".number_format($dp['total']);
             $nestedData[] = $dp['waktu'];
-            $nestedData[] = "<a href='#!' class='btn btn-primary btn-icon icon-left'>Detail</a>";
+            $nestedData[] = "<a href='#!' class='btn btn-primary btn-icon icon-left btnDetail' data-id='".$dp['kd_pembelian']."'><i class='fas fa-info-circle'></i> Detail</a>";
             $data[] = $nestedData;
         }
 
@@ -86,7 +86,7 @@ class pembelianBahanBaku extends Route{
     public function detailPembelian($kdPembelian)
     {
         $data['kdPembelian'] = $kdPembelian;
-        $this -> bind('dasbor/pembelianBb/detailPembelianBahanBaku', $data);
+        $this -> bind('dasbor/pembelianBahanBaku/detailPembelianBahanBaku', $data);
     }
 
     public function getDataBahanBakuKategori()
