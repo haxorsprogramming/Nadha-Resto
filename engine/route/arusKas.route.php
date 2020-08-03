@@ -25,6 +25,7 @@ class arusKas extends Route{
             $nestedData[] = $ak['tipe'];
             $nestedData[] = $ak['arus'];
             $nestedData[] = "Rp.". number_format($ak['total']);
+            $nestedData[] = "<a class='btn btn-primary btn-sm' href='#!'>Detail</a>";
             $data[] = $nestedData;
         }
 

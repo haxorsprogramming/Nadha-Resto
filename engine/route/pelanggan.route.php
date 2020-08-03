@@ -21,9 +21,9 @@ class pelanggan extends Route{
         $nestedData = array();
         $nestedData[] = $dp['nama'];
         $nestedData[] = $dp['alamat'];
-        $nestedData[] = $dp['hp'];
+        $nestedData[] = $dp['no_hp'];
         $nestedData[] = $dp['last_visit'];
-        $nestedData[] = "0";
+        $nestedData[] = $this -> state($this -> sn) -> totalTransaksi($dp['id_pelanggan']);
         $nestedData[] = "<a href='#!' class='btn btn-sm btn-primary'>Edit</a>";
         $data[] = $nestedData;
       }

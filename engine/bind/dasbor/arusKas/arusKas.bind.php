@@ -7,6 +7,7 @@
                 <th>Tipe</th>
                 <th>Arus</th>
                 <th>Total</th>
+                <th></th>
             </tr>
         </thead>
     </table>
