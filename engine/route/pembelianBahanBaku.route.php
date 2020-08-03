@@ -21,7 +21,7 @@ class pembelianBahanBaku extends Route{
             $nestedData = array();
             $nestedData[] = $dp['kd_pembelian'];
             $nestedData[] = $dp['mitra'];
-            $nestedData[] = $dp['total'];
+            $nestedData[] = "Rp. ".number_format($dp['total']);
             $nestedData[] = $dp['waktu'];
             $nestedData[] = "<a href='#!' class='btn btn-primary btn-icon icon-left'>Detail</a>";
             $data[] = $nestedData;
