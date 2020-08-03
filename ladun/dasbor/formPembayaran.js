@@ -1,3 +1,6 @@
+//route 
+var routeToGetPesanan = server;
+
 var divFormPembayaran = new Vue({
     el : '#divFormPembayaran',
     data : {
@@ -17,7 +20,12 @@ var divFormPembayaran = new Vue({
         kembali : '',
         hargaAfterTax : '',
         taxPrice : '',
-        valuePromo : ''
+        valuePromo : '',
+        pelangganData : [
+            {username : 'aditiadarmanst', total : 90000, qt : 12},
+            {username : 'hanifahmutiara', total : 80000, qt : 20},
+            {username : 'hasnahnurardita', total : 20000, qt : 20}
+        ]
     },
     methods : {
         cekPromoAtc : function()
