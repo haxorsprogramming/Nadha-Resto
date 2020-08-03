@@ -25,7 +25,7 @@ class pengeluaran extends Route{
             $nestedData[] = $dp['kategori'];
             $nestedData[] = "Rp.".number_format($dp['total']);
             $nestedData[] = $dp['operator'];
-            $nestedData[] = '';
+            $nestedData[] = "<a href='".HOMEBASE."cetak/invoicePengeluaranResto/".$dp['kd_pengeluaran']."' target='new' class='btn btn-sm btn-primary btn-icon icon-left'><i class='fas fa-print'></i> Cetak</a>";
             $data[] = $nestedData;
         }
 

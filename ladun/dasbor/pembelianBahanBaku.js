@@ -55,6 +55,7 @@ $(".select2").select2();
 var nominal = document.getElementById('txtNominal');
 
 $('#tblHistoryPembelian').dataTable({
+    "order" : [[3, "desc"]],
     "searching" : false,
     "processing" : true,
     "serverSide": true,

@@ -50,4 +50,9 @@ class cetak extends Route{
         $dompdf->stream('invoice_pembelian.pdf', array("Attachment" => false));
     }
 
+    public function invoicePengeluaranResto($kdPengeluaran)
+    {
+        echo $kdPengeluaran;
+    }
+
 }
