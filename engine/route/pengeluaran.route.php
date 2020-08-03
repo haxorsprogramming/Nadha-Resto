@@ -8,8 +8,34 @@ class pengeluaran extends Route{
     public function index()
     {
         //get data pengeluaran
-        $data['pengeluaran'] = $this -> state($this -> sn) -> getDataPengeluaran();
-        $this -> bind('dasbor/pengeluaran/pengeluaran', $data);
+        $this -> bind('dasbor/pengeluaran/pengeluaran');
+    }
+
+    public function getDataPengeluaran()
+    {
+        $requestData = $_REQUEST;
+        $totalPengeluaran = $this -> state($this -> sn) ->  totalPengeluaran();
+        $dataPengeluaran = $this -> state($this -> sn) -> getDataPengeluaran($requestData);
+        $data = array();
+
+        foreach($dataPengeluaran as $dp){
+            $nestedData = array();
+            $nestedData[] = $dp['nama'];
+            $nestedData[] = $dp['deks'];
+            $nestedData[] = $dp['kategori'];
+            $nestedData[] = "Rp.".number_format($dp['total']);
+            $nestedData[] = $dp['operator'];
+            $nestedData[] = '';
+            $data[] = $nestedData;
+        }
+
+        $json_data = array(
+            "draw"            => intval( $requestData['draw'] ),  
+            "recordsTotal"    => intval( $totalPengeluaran ), 
+            "recordsFiltered" => intval( $totalPengeluaran ), 
+            "data"            => $data );
+    
+          $this -> toJson($json_data);
     }
 
     public function prosesPengeluaran()

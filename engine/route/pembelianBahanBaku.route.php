@@ -20,7 +20,7 @@ class pembelianBahanBaku extends Route{
         foreach($dataPembelianBahanBaku as $dp){
             $nestedData = array();
             $nestedData[] = $dp['kd_pembelian'];
-            $nestedData[] = $dp['mitra'];
+            $nestedData[] = $this -> state($this -> sn) -> getNamaMitra($dp['mitra']);
             $nestedData[] = "Rp. ".number_format($dp['total']);
             $nestedData[] = $dp['waktu'];
             $nestedData[] = "<a href='#!' class='btn btn-primary btn-icon icon-left btnDetail' data-id='".$dp['kd_pembelian']."'><i class='fas fa-info-circle'></i> Detail</a>";

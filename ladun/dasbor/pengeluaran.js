@@ -1,3 +1,6 @@
+//route 
+var routeToGetPengeluaran = server+'pengeluaran/getDataPengeluaran';
+
 var divPengeluaran = new Vue({
     el : '#divPengeluaran',
     data : {
@@ -24,7 +27,18 @@ var divPengeluaran = new Vue({
 
 
 //inisialisasi 
-$('#tblHistoryPengeluaran').dataTable();
+$('#tblHistoryPengeluaran').dataTable({
+    "searching" : false,
+    "processing" : true,
+    "serverSide": true,
+    "ajax":{
+        url : routeToGetPengeluaran,
+        type: "post",
+        error: function(){
+            pesanUmumApp('warning', 'Error', 'Error menampilkan data');
+        }
+    }
+});
 $('#divTambahPengeluaran').hide();
 var total = document.getElementById('txtTotal');
 
