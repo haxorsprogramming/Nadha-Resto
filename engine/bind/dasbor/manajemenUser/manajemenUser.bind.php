@@ -23,7 +23,10 @@
                             <td><a href="#!"><b><?=$du['username']; ?></b></a><br/><?=$du['nama']; ?></td>
                             <td><?=$du['tipe']; ?></td>
                             <td><?=$du['last_login']; ?></td>
-                            <td><a href='#!' class="btn btn-sm btn-primary btn-icon icon-left" @click="editUserAtc('<?=$du['username']; ?>')"><i class='far fa-edit'></i> Edit</a></td>
+                            <td style="text-align: center;">
+                                <a href='#!' class="btn btn-sm btn-primary btn-icon icon-left" @click="editUserAtc('<?=$du['username']; ?>')"><i class='far fa-edit'></i> Edit</a>
+                                <a href='#!' class="btn btn-sm btn-warning btn-icon icon-left"><i class='fas fa-trash-alt'></i> Hapus</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

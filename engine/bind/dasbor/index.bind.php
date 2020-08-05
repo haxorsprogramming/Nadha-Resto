@@ -135,7 +135,9 @@
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/scripts.js"></script>
 
    <!-- Page Specific JS File -->
-
+   <script>
+     const server = "<?=HOMEBASE;?>";
+   </script>
    <script src="<?=STYLEBASE; ?>/dasbor/index.js"></script>
  </body>
  </html>

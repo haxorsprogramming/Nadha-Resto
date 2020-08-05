@@ -1,5 +1,3 @@
-//alamat server, ganti sesuai dengan konfigurasi alamat server anda
-const server = 'http://localhost/Nadha-Resto/';
 //inisialisasi variabel lokal
 const beranda = 'dasbor/beranda';
 const monitoring = 'monitoring';

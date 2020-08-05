@@ -7,7 +7,6 @@ class bantuan extends Route{
 
     public function index()
     {
-        
         $this -> bind('dasbor/bantuan/bantuan');
     }
 
