@@ -1,5 +1,6 @@
 //route
 var routeToGetDataPelanggan = server+"pelanggan/getDataPelanggan";
+var routeToDeletePelanggan = server+"pelanggan/hapusPelanggan";
 
 var divPelanggan = new Vue({
     el : '#divPelanggan',
@@ -22,6 +23,33 @@ var divPelanggan = new Vue({
         detailAtc : function(kdPelanggan)
         {
             window.alert(kdPelanggan);
+        },
+        hapusAtc : function(kdPelanggan)
+        {
+            let pchPel = kdPelanggan.split('|');
+            let kdPel = pchPel[0];
+            let namaPel = pchPel[1];
+
+            Swal.fire({
+                title: "Hapus pelanggan?",
+                text: "Yakin menghapus pelanggan "+namaPel+" ... ?",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya",
+                cancelButtonText: "Tidak",
+              }).then((result) => {
+                if (result.value) {
+                   $.post(routeToDeletePelanggan, {'kdPelanggan':kdPel}, function(data){
+                       let obj = JSON.parse(data);
+                       if(obj.status === 'sukses'){
+                           pesanUmumApp('success', 'Sukses', 'Berhasil menghapus pelanggan!!');
+                           divMenu.pelangganAtc();
+                       }
+                   });
+                }
+              });
         }
     }
 });
@@ -117,3 +145,13 @@ function clearForm()
     document.getElementById('txtHp').value = '';
     document.getElementById('txtNama').focus();
 }
+
+$('#tblPelanggan').on('click', '.btnDetail', function(){
+    let kdPelanggan = $(this).data('id');
+    divPelanggan.detailAtc(kdPelanggan);
+});
+
+$('#tblPelanggan').on('click', '.btnHapus', function(){
+    let kdPelanggan = $(this).data('id');
+    divPelanggan.hapusAtc(kdPelanggan);
+});

@@ -18,13 +18,15 @@ class pelanggan extends Route{
       $data = array();
 
       foreach($dataPelanggan as $dp){
+        $btnDetail = "<a href='#!' class='btn btn-sm btn-primary btnDetail' data-id='".$dp['id_pelanggan']."'><i class='fas fa-info-circle'></i> Detail</a>";
+        $btnHapus = "<a href='#!' class='btn btn-sm btn-warning btnHapus' data-id='".$dp['id_pelanggan']."|".$dp['nama']."'><i class='fas fa-trash-alt'></i> Hapus</a>";
         $nestedData = array();
         $nestedData[] = $dp['nama'];
         $nestedData[] = $dp['alamat'];
         $nestedData[] = $dp['no_hp'];
         $nestedData[] = $dp['last_visit'];
         $nestedData[] = $this -> state($this -> sn) -> totalTransaksi($dp['id_pelanggan']);
-        $nestedData[] = "<a href='#!' class='btn btn-sm btn-primary'>Edit</a>";
+        $nestedData[] = $btnDetail."&nbsp;&nbsp;&nbsp;".$btnHapus;
         $data[] = $nestedData;
       }
 
@@ -53,6 +55,14 @@ class pelanggan extends Route{
         $this -> state($this -> sn) -> tambahPelanggan($idPelanggan, $nama, $alamat, $hp, $email, $visit);
         $data['status'] = 'sukses';
       }
+      $this -> toJson($data);
+    }
+
+    public function hapusPelanggan()
+    {
+      $kdPelanggan = $this -> inp('kdPelanggan');
+      $this -> state($this -> sn) -> hapusPelanggan($kdPelanggan);
+      $data['status'] = 'sukses';
       $this -> toJson($data);
     }
 

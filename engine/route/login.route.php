@@ -22,7 +22,6 @@ class login extends Route{
 
         if($checkPassword === true){
             $this -> setses('userSes', $user);
-            $this -> setses('admin', 'Adit looo');
             $this -> state($this -> sn) -> updateLogin($waktu, $user);
             $data['status_login'] = 'sukses';
         }else{

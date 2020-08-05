@@ -59,4 +59,11 @@ class pelangganData{
         return $this -> st -> queryAll();
     }
 
+    public function hapusPelanggan($kdPelanggan)
+    {
+        $query = "DELETE FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
