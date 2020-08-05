@@ -48,4 +48,15 @@ class manajemenUser extends Route{
         $this -> toJson($data);
     }
 
+    public function hapusUser()
+    {
+        $username = $this -> inp('username');
+        if($username === 'admin'){
+            $data['status'] = 'error';
+        }else{
+            $this -> state($this -> sn) -> hapusUser($username);
+            $data['status'] = 'sukses';
+        }
+        $this -> toJson($data);
+    }
 }

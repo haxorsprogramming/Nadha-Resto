@@ -1,7 +1,8 @@
 //route proses
 var routeToTambahUser = server+'manajemenUser/tambahUser';
 var routeToGetDataUser = server+'manajemenUser/getUser';
-var routToUpdateUser = server+'manajemenUser/updateUserProses';
+var routeToUpdateUser = server+'manajemenUser/updateUserProses';
+var routeToDeleteUser = server+'manajemenUser/hapusUser';
 //main vue objek
 var divManajemenUser = new Vue({
     el : '#divManajemenUser',
@@ -75,13 +76,38 @@ var divManajemenUser = new Vue({
                 }else{
                     //go proses brooo
                     let dataSend = {'username':this.usernameUp, 'password':this.passwordUp, 'tipe':this.tipeUp, 'nama':this.namaUp}
-                    $.post(routToUpdateUser, dataSend, function(data){
+                    $.post(routeToUpdateUser, dataSend, function(data){
                         let obj = JSON.parse(data);
                         pesanUmumApp('success', 'Sukses', 'Sukses mengupdate data user..');
                         divMenu.manajemenUserAtc();
                     });
                 }
             }
+        },
+        hapusUserAtc : function(username)
+        {
+            Swal.fire({
+                title: "Hapus user?",
+                text: "Yakin menghapus user "+username+" ... ?",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya",
+                cancelButtonText: "Tidak",
+              }).then((result) => {
+                if (result.value) {
+                   $.post(routeToDeleteUser, {'username':username}, function(data){
+                        let obj = JSON.parse(data);
+                        if(obj.status === 'error'){
+                            pesanUmumApp('warning', 'Fail action', 'Tidak boleh menghapus akun admin!!');
+                        }else{
+                            pesanUmumApp('success', 'Sukses', 'Berhasil menghapus user!!');
+                            divMenu.manajemenUserAtc();
+                        }
+                   });
+                }
+              });
         }
     }
 });

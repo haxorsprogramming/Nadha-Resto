@@ -47,4 +47,11 @@ class manajemenUserData{
         $this -> st -> queryAll();
     }
 
+    public function hapusUser($username)
+    {
+        $query = "DELETE FROM tbl_user WHERE username='$username';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
