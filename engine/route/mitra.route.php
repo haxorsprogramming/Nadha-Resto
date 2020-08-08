@@ -11,6 +11,11 @@ class mitra extends Route{
         $this -> bind('dasbor/mitra/mitra', $data);
     }
 
+    public function detailMitra($kdMitra)
+    {
+        $this -> bind('dasbor/mitra/detailMitra');
+    }
+
     public function tambahMitra()
     {
         $nama = $this -> inp('nama');

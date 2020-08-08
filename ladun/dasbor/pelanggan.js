@@ -148,12 +148,12 @@ function clearForm()
     document.getElementById('txtNama').focus();
 }
 
-// $('#tblPelanggan').on('click', '.btnDetail', function(){
-//     let kdPelanggan = $(this).data('id');
-//     divPelanggan.detailAtc(kdPelanggan);
-// });
+$('#tblPelanggan').on('click', '.btnDetail', function(){
+    let kdPelanggan = $(this).data('id');
+    divPelanggan.detailAtc(kdPelanggan);
+});
 
-// $('#tblPelanggan').on('click', '.btnHapus', function(){
-//     let kdPelanggan = $(this).data('id');
-//     divPelanggan.hapusAtc(kdPelanggan);
-// });
+$('#tblPelanggan').on('click', '.btnHapus', function(){
+    let kdPelanggan = $(this).data('id');
+    divPelanggan.hapusAtc(kdPelanggan);
+});

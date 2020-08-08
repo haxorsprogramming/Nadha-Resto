@@ -12,6 +12,11 @@ var divMitra = new Vue({
         tipe : ''
     },
     methods : {
+        detailAtc: function(kdMitra)
+        {
+            renderMenu('mitra/detailMitra/'+kdMitra);
+            divJudul.judulForm = "Detail Mitra";
+        },
         tambahMitraAtc : function()
         {
             tambahMitra();
@@ -69,10 +74,6 @@ function simpan() {
         });
     }
 }
-
-$('#tblMitra').on('click','.btnDetail', function(){
-    console.log("abouuttt");
-});
 
 function tambahMitra()
 {

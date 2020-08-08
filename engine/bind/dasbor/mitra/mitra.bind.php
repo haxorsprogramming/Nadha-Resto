@@ -24,7 +24,7 @@
                     <td><?=$dm['alamat']; ?></td>
                     <td><?=$dm['hp']; ?></td>
                     <td><?=$dm['tipe']; ?></td>
-                    <td><a href='#!' class="btn btn-primary btn-icon icon-left btnDetail" data-id=""><i class='fas fa-info-circle'></i> Detail</a></td>
+                    <td><a href='#!' class="btn btn-primary btn-icon icon-left" @click='detailAtc("<?=$dm['kd_mitra']; ?>")'><i class='fas fa-info-circle'></i> Detail</a></td>
                 </tr>
                <?php endforeach; ?>
             </tbody>
