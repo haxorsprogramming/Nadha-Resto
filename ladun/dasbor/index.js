@@ -16,6 +16,7 @@ const arusKas = 'arusKas/1';
 const laporanTransaksi = 'laporanTransaksi';
 const bantuan = 'bantuan';
 const manajemenUser = 'manajemenUser';
+const tentangAplikasi = 'tentangAplikasi';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -131,6 +132,11 @@ var divMenu = new Vue({
     backupRestoreDataAtc : function()
     {
       pesanUmumApp('info', 'Contact Haxors', 'Silahkan kontak haxorsprogramming untuk mengaktifkan fungsi ini');
+    },
+    tentangAplikasiAtc : function()
+    {
+      renderMenu(tentangAplikasi);
+      divJudul.judulForm = "Tentang Aplikasi";
     }
   }
 });

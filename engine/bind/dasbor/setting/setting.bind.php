@@ -186,8 +186,6 @@
                 <tr>
                     <td>Pajak</td><td style="text-align: left;">{{tax}}</td>
                 </tr>
-                
-
             </table>
         </div>
     </div>    
