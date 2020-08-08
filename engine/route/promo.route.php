@@ -31,4 +31,9 @@ class promo extends Route{
         $this -> toJson($data);
     }
 
+    public function detailPromo($kdPromo)
+    {
+        
+    }
+
 }

@@ -23,6 +23,7 @@ var divPelanggan = new Vue({
         },
         detailAtc : function(kdPelanggan)
         {
+            divJudul.judulForm = "Detail Pelanggan";
             renderMenu('pelanggan/detailPelanggan/'+kdPelanggan);
         },
         hapusAtc : function(kdPelanggan)
@@ -33,7 +34,7 @@ var divPelanggan = new Vue({
 
             Swal.fire({
                 title: "Hapus pelanggan?",
-                text: "Yakin menghapus pelanggan "+namaPel+" ... ?",
+                text: "Yakin menghapus "+namaPel+" dari list pelanggan ... ?",
                 icon: "info",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",

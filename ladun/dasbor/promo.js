@@ -34,6 +34,10 @@ var divPromo = new Vue({
                 prosesTambah();
             }
         },
+        detailAtc : function(kdPromo)
+        {
+            
+        },
         kembaliAtc : function()
         {
             renderMenu(promo);

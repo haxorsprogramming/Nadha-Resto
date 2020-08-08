@@ -34,7 +34,9 @@
                         <td><?=$capTipe; ?></td>
                         <td><?=$dp['status']; ?> / <?=$dp['kuota']; ?></td>
                         <td><?=$dp['tanggal_expired']; ?></td>
-                        <td><a href='#!' class="btn btn-primary btn-sm btn-icon ico-left"><i class='fas fa-info-circle'></i> Detail</a></td>
+                        <td>
+                            <a href='#!' class="btn btn-primary btn-sm btn-icon ico-left" @click='detailAtc("<?=$dp['kd_promo']; ?>")'><i class='fas fa-info-circle'></i> Detail</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
