@@ -1,6 +1,7 @@
 //route
 var routeToGetDataPelanggan = server+"pelanggan/getDataPelanggan";
 var routeToDeletePelanggan = server+"pelanggan/hapusPelanggan";
+var routeToDetailPelanggan = server+"pelanggan/detailPelanggan/";
 
 var divPelanggan = new Vue({
     el : '#divPelanggan',
@@ -22,7 +23,7 @@ var divPelanggan = new Vue({
         },
         detailAtc : function(kdPelanggan)
         {
-            window.alert(kdPelanggan);
+            renderMenu('pelanggan/detailPelanggan/'+kdPelanggan);
         },
         hapusAtc : function(kdPelanggan)
         {

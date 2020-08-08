@@ -12,7 +12,7 @@ class pelanggan extends Route{
 
     public function getDataPelanggan()
     {
-      $requestData= $_REQUEST;
+      $requestData = $_REQUEST;
       $totalPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
       $dataPelanggan = $this -> state($this -> sn) -> getDataPelanggan($requestData);
       $data = array();
@@ -56,6 +56,11 @@ class pelanggan extends Route{
         $data['status'] = 'sukses';
       }
       $this -> toJson($data);
+    }
+
+    public function detailPelanggan($kdPelanggan)
+    {
+      $this -> bind('dasbor/pelanggan/detailPelanggan');
     }
 
     public function hapusPelanggan()
