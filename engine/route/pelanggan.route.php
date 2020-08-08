@@ -18,7 +18,7 @@ class pelanggan extends Route{
       $data = array();
 
       foreach($dataPelanggan as $dp){
-        $btnDetail = "<a href='#!' class='btn btn-sm btn-primary btnDetail' data-id='".$dp['id_pelanggan']."'><i class='fas fa-info-circle'></i> Detail</a>";
+        $btnDetail = "<a href='#!' class='btn btn-sm btn-primary btnDetail' @click='detailAtc(".$dp['id_pelanggan'].")' data-id='".$dp['id_pelanggan']."'><i class='fas fa-info-circle'></i> Detail</a>";
         $btnHapus = "<a href='#!' class='btn btn-sm btn-warning btnHapus' data-id='".$dp['id_pelanggan']."|".$dp['nama']."'><i class='fas fa-trash-alt'></i> Hapus</a>";
         $nestedData = array();
         $nestedData[] = $dp['nama'];

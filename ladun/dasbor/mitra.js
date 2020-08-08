@@ -70,6 +70,10 @@ function simpan() {
     }
 }
 
+$('#tblMitra').on('click','.btnDetail', function(){
+    console.log("abouuttt");
+});
+
 function tambahMitra()
 {
     divJudul.judulForm = "Tambah Mitra";

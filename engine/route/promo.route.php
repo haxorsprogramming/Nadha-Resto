@@ -33,7 +33,7 @@ class promo extends Route{
 
     public function detailPromo($kdPromo)
     {
-        
+        $xssClear = htmlspecialchars($kdPromo);
     }
 
 }

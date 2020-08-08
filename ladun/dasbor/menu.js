@@ -8,6 +8,10 @@ var divMenuResto = new Vue({
         {
             renderMenu('menu/tambahMenu');
             divJudul.judulForm = "Tambah Menu Restoran"; 
+        },
+        detailAtc : function()
+        {
+            console.log("shippp");
         }
     }
 });
