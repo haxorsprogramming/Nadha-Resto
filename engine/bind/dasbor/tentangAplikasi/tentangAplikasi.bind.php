@@ -14,7 +14,7 @@
                       </div>
                     </li>
                     <li class="media">
-                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/adit.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/adit.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Adit">
                       <div class="media-body">
                         <div class="float-right text-primary">Backend Developer</div>
                         <div class="media-title">Aditia Darma Nst</div>
@@ -22,7 +22,7 @@
                       </div>
                     </li>
                     <li class="media">
-                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/anna.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/anna.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Anna">
                       <div class="media-body">
                         <div class="float-right text-primary">Asset & Documentation</div>
                         <div class="media-title">Anna Nikita DPS</div>
@@ -30,7 +30,7 @@
                       </div>
                     </li>
                     <li class="media">
-                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/adam.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/adam.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Adam">
                       <div class="media-body">
                         <div class="float-right text-primary">Dev Ops</div>
                         <div class="media-title">Adam Falizufa Sagara</div>
@@ -38,7 +38,7 @@
                       </div>
                     </li>
                     <li class="media">
-                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/hasnah_ardita.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/rizky.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Rizky">
                       <div class="media-body">
                         <div class="float-right text-primary">Microservice</div>
                         <div class="media-title">Muhammad Rizky</div>
@@ -48,9 +48,7 @@
                   </ul>
             </div>
         </div>
-    </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card card-primary">
             <div class="card-header"><h4>Daftar Kontributor</h4></div>
             <div class="card-body">
@@ -58,10 +56,32 @@
                     <i>Memuat daftar kontributor ..</i>
                 </p>
                 <p id='divKontributor'>
-                    Tertarik menjadi kontributor? Silahkan kunjungi <a href='https://github.com/haxorsprogramming/Haxors-Contributors' target="_new">Haxors Contributors Programs</a> 
+                    Terima kasih kepada teman teman yang telah membantu Haxorsprogramming club yang telah memberikan bantuan dalam bentuk apapun. Sedikit banyaknya bantuan dari teman teman, 
+                    sangat memberikan impact yang luar biasa kepada kami. 
+                    <br/>Tertarik menjadi kontributor? Silahkan kunjungi <a href='https://github.com/haxorsprogramming/Haxors-Contributors' target="_new">Haxors Contributors Programs</a> 
                 </p>
             </div>
         </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="card card-primary">
+            <div class="card-header"><h4>Tentang Aplikasi</h4></div>
+            <div class="card-body">
+                <div style="text-align: center;margin-bottom:15px;">
+                <img src="<?=STYLEBASE; ?>/login/images/nadha_resto.png" style="width: 200px;">
+                </div>
+                <p style="text-align: justify;">
+                <strong>NadhaResto</strong> adalah salah satu project aplikasi yang dikembangkan oleh Haxorsprogramming club.
+                Kami berkomitmen untuk selalu mengembangkan aplikasi yang dapat digunakan secara menyeluruh bagi pemilik usaha tanpa mengenal 
+                batasan batasan yang selama ini mungkin menjadi penghalan bagi pelaku usaha dalam melakukan proses digitalisasi dalam usaha mereka. Haxorsprogrammingclub 
+                juga akan selalu menerima kritik & saran dari teman teman baik itu pemilik usaha ataupun para developer developer lain yang mungkin bisa memberikan 
+                masukan atau saran kepada kami. Aplikasi yang dibuat oleh Haxorsprogrammingclub sepenuhnya berlisensi opensource (MIT) yang artinya dapat digunakan secara gratis, 
+                serta bagi teman teman yang ingin membantu pengembangan lebih lanjut, juga kami persilahkan untuk membedah & memperbaiki aplikasi yang kami kembangkan.
+                </p>
+            </div>
+    </div>
     </div>
 
 </div>
