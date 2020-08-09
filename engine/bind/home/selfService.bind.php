@@ -255,6 +255,9 @@
     <!-- JS Core -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
+    <script>
+        const server = "<?=HOMEBASE; ?>";
+    </script>
     <script src="<?=HOMEBASE; ?>ladun/home/js/selfService.js"></script>
 </body>
 </html>

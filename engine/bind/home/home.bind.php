@@ -334,6 +334,9 @@
 
 <!-- JS Core -->
 <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
+<script>
+const server = "<?=HOMEBASE; ?>";
+</script>
 <script src="<?=HOMEBASE; ?>ladun/home/js/home.js"></script>
 </body>
 

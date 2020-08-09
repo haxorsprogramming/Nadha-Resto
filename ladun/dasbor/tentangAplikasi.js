@@ -13,8 +13,8 @@ var divTentangAplikasi = new Vue({
 });
 
 var listKontributor = '* ';
-
 var statusKoneksi = navigator.onLine;
+$('#divKontributor').hide();
 
 if(statusKoneksi === false){
     setTimeout(function(){
@@ -33,6 +33,7 @@ if(statusKoneksi === false){
     setTimeout(function(){
         $('#capContributors').html(listKontributor);
     }, 500);
-    
+
+    $('#divKontributor').show();
 }
 

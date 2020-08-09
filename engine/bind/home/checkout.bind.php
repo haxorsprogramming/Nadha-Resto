@@ -259,6 +259,9 @@
 <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-database.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?=HOMEBASE; ?>ladun/home/dist/js/core.js"></script>
+<script>
+    const server = "<?=HOMEBASE; ?>";
+</script>
 <script src="<?=HOMEBASE; ?>ladun/home/js/checkout.js"></script>
 </body>
 </html>

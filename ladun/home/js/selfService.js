@@ -1,7 +1,6 @@
-//alamat server, ganti sesuai dengan konfigurasi alamat server anda
-const server = "http://localhost/Nadha-Resto/";
-const route = server+"home/";
-const routeGetKdTemp = route+"getKdtemp";
+//route
+const routeGetKdTemp = server+"home/getKdtemp";
+
 //vue utama
 var divMenu = new Vue({
     el : '#divMenu',

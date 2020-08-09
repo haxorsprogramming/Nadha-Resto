@@ -25,6 +25,9 @@
                 <p id='capContributors' style="text-align: justify;">
                     <i>Memuat daftar kontributor ..</i>
                 </p>
+                <p id='divKontributor'>
+                    Tertarik menjadi kontributor? Silahkan kunjungi <a href='https://github.com/haxorsprogramming/Haxors-Contributors' target="_new">Haxors Contributors Programs</a> 
+                </p>
             </div>
         </div>
     </div>
