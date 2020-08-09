@@ -1,6 +1,9 @@
 //route 
 var routeToGetDataPembelianBahanBaku = server+'pembelianBahanBaku/getDataPembelianBahanBaku';
 var routeToDetailPembelianBahanBaku = server+'pembelianBahanBaku/detailPembelian/';
+var routeToProsesPembelian = server+'pembelianBb/prosesPembelian';
+var routeToUpdateTemp = server+'pembelianBb/updateTempPembelian';
+var routeGetDataBahanBakuKategori = server+'pembelianBb/getDataBahanBakuKategori';
 
 var arrItemDipilih = [];
 var divPembelian = new Vue({
@@ -96,14 +99,14 @@ function proses()
             if(result.value) {
                 //buat pesanan 
                 // console.log(dataSend);
-              $.post('pembelianBb/prosesPembelian', dataSend, function(data){
+              $.post(routeToProsesPembelian, dataSend, function(data){
                 let obj = JSON.parse(data);
                 let kdPembelian = obj.kdPembelian;
                 let itemPesanan = divPembelian.itemDipilih;
                 itemPesanan.forEach(renderTemp);
                 function renderTemp(item, index){
                     let dts = {'kdPembelian':kdPembelian, 'kdItem':itemPesanan[index].kdBahan, 'qt':itemPesanan[index].value}
-                    $.post('pembelianBb/updateTempPembelian', dts, function(data){
+                    $.post(routeToUpdateTemp, dts, function(data){
                     });
                 }
                 //todo : tambahkan konfirmasi apakah ingin cetak struk ..
@@ -161,12 +164,11 @@ function tambahItem(kdBahan, satuan, nama)
             });
         }
     }
-    // console.log(arrItemDipilih);
 }
 
 function setItem(kategori)
 {
-    $.post('pembelianBb/getDataBahanBakuKategori', {'kategori':kategori}, function(data){
+    $.post(routeGetDataBahanBakuKategori, {'kategori':kategori}, function(data){
         let obj = JSON.parse(data);
         let bb = obj.bahanBaku;
         let pjgArray = divPembelian.itemBahanBaku.length;

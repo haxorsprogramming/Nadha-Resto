@@ -1,3 +1,6 @@
+//route 
+var routeToGetDataKategori = server+'utility/getDataKategori';
+
 var dataMenuUpdate = [];
 
 var divUpdatePesanan = new Vue({
@@ -43,7 +46,7 @@ setTimeout(getDataPesanan, 200);
 setTimeout(getTempMenuFirst, 200);
 
 //get data kategori
-$.post('utility/getDataKategori', function(data){
+$.post(routeToGetDataKategori, function(data){
     let obj = JSON.parse(data);
     let listKategori = obj.kategori;
     listKategori.forEach(renderKategori);
