@@ -1,5 +1,6 @@
 //route
 const routeToFirebaseSetting = server+"utility/getFirebaseSetting";
+const deliveryOrderProses = server+"home/deliveryOrderProses";
 
 var divCart = new Vue({
     el : '#divCart',
@@ -89,11 +90,12 @@ function setNGoDelivery()
               }).then((result) => {
                 if (result.value) {
                     let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
-                    $.post(server+'home/deliveryOrderProses', dataSend,  function(data){
+                    $.post(deliveryOrderProses, dataSend,  function(data){
                         let obj = JSON.parse(data);
                         db.ref('pesanan/'+kdPesanan).set({
                             kd : kdPesanan,
-                            email : email
+                            email : email,
+                            alamat : alamat
                           });
                         pesanUmumApp('success','Pemesanan sukses', 'Pemesanan anda telah di proses, silahkan cek email anda untuk mendapatkan informasi pemesanan');
                     });

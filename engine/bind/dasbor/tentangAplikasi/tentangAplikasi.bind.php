@@ -2,15 +2,47 @@
 
     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card card-primary">
-            <div class="card-header"><h4>Tim pengembang</h4></div>
+            <div class="card-header"><h4>Haxors Developer Team</h4></div>
             <div class="card-body">
             <ul class="list-unstyled list-unstyled-border">
-                    <li class="media" v-for='tp in timPengembang'>
-                      <img src="https://avatars0.githubusercontent.com/u/66120966?s=460&u=8392cc4234f8a24b5416d13ce160ac0536293983&v=4" class="mr-3 rounded-circle" width="50" src="" :alt="tp.nama">
+                    <li class="media">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/hasnah_ardita.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
                       <div class="media-body">
-                        <div class="float-right text-primary">{{tp.pos}}</div>
-                        <div class="media-title">{{tp.nama}}</div>
-                        <span class="text-small text-muted">{{tp.email}}</span>
+                        <div class="float-right text-primary">Project Manager & Front End Developer</div>
+                        <div class="media-title">Hasnah Nur Ardita</div>
+                        <span class="text-small text-muted">alditha.forum@gmail.com</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/adit.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <div class="media-body">
+                        <div class="float-right text-primary">Backend Developer</div>
+                        <div class="media-title">Aditia Darma Nst</div>
+                        <span class="text-small text-muted">abang@tukanglemari.my.id</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/anna.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <div class="media-body">
+                        <div class="float-right text-primary">Asset & Documentation</div>
+                        <div class="media-title">Anna Nikita DPS</div>
+                        <span class="text-small text-muted">alditha.forum@gmail.com</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/adam.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <div class="media-body">
+                        <div class="float-right text-primary">Dev Ops</div>
+                        <div class="media-title">Adam Falizufa Sagara</div>
+                        <span class="text-small text-muted">adammmfs@gmail.com</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img src="<?=STYLEBASE; ?>/dasbor/img/devTeam/hasnah_ardita.jpg" class="mr-3 rounded-circle" width="50" src="" alt="Hasnah">
+                      <div class="media-body">
+                        <div class="float-right text-primary">Microservice</div>
+                        <div class="media-title">Muhammad Rizky</div>
+                        <span class="text-small text-muted">mhd.rizky89@gmail.com</span>
                       </div>
                     </li>
                   </ul>

@@ -67,7 +67,7 @@
         </div>
 
         <div class="module module-logo">
-            <a href="index.html">
+            <a href="#!">
                 <img src="assets/img/logo-horizontal-dark.svg" alt="">
             </a>
         </div>
@@ -154,7 +154,7 @@
                         <div class="feature feature-1 mb-md-0">
                             <div class="feature-icon icon icon-primary"><i class="ti ti-shopping-cart"></i></div>
                             <div class="feature-content">
-                                <h4 class="mb-2"><a href="menu-list-collapse.html">Pick a dish</a></h4>
+                                <h4 class="mb-2"><a href="#!">Pick a dish</a></h4>
                                 <p class="text-muted mb-0">Vivamus volutpat leo dictum risus ullamcorper condimentum.</p>
                             </div>
                         </div>
@@ -265,9 +265,9 @@
             <?php foreach($data['dataMenu'] as $dm) : ?>
                 <!-- Menu Sample -->
                 <div class="menu-sample">
-                    <a href="menu-list-navigation.html#Burgers">
-                        <img src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$dm['pic']; ?>" alt="" class="image">
-                        <h5 class="title" style="font-size:35px;"><?=$dm['nama']; ?></h5>
+                    <a href="#!">
+                        <img src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$dm['pic']; ?>" style="filter: blur(5px);" alt="" class="image">
+                        <h5 class="title" style="font-size:30px;color:#2d3436;font-weight:bold;"><?=$dm['nama']; ?></h5>
                     </a>
                 </div>
             <?php endforeach; ?>
@@ -285,7 +285,7 @@
                         <span class="text-sm text-muted">NadhaResto <br> Develop By Haxorsprogramming</span>
                     </div>
                     <div class="col-lg-4 text-center">
-                        <a href="index.html"><img src="assets/img/logo-light.svg" alt="" width="88" class="mt-5 mb-5"></a>
+                        <a href="#!"><img src="assets/img/logo-light.svg" alt="" width="88" class="mt-5 mb-5"></a>
                     </div>
                     <div class="col-lg-4 col-md-6 text-center text-md-right">
                         <a href="#" class="icon icon-social icon-circle icon-sm icon-facebook"><i class="fa fa-facebook"></i></a>
