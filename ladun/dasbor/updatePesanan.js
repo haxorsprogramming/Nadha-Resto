@@ -1,5 +1,7 @@
 //route 
 var routeToGetDataKategori = server+'utility/getDataKategori';
+var routeToUpdateTemp = server+'pesanan/updateTempPesanan';
+var routeToGetDataMenuKategori = server+'utility/getDataMenuKategori';
 
 var dataMenuUpdate = [];
 
@@ -77,7 +79,7 @@ function updateProses()
                 'qt':listPesanan[index].qt, 
                 'total':listPesanan[index].total
             }
-            $.post('pesanan/updateTempPesanan', dataSend, function(){
+            $.post(routeToUpdateTempPesanan, dataSend, function(){
 
             });
         }
@@ -90,7 +92,7 @@ function updateProses()
 function updateMenu()
 {
     let kdKategori = divUpdatePesanan.kategoriDipilih;
-    $.post('utility/getDataMenuKategori', {'kdKategori':kdKategori}, function(data){
+    $.post(routeToGetDataMenuKategori, {'kdKategori':kdKategori}, function(data){
         let obj = JSON.parse(data);
         let md = obj.menu;
         //clear menu 

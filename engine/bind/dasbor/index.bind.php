@@ -106,11 +106,7 @@
 
      </div>
    </div>
- <footer class="main-footer" id='divFooter'>
-
-           Copyright &copy; {{tahun}} - {{author}}
-
-</footer>
+   <footer class="main-footer" id='divFooter'>Copyright &copy; {{tahun}} - {{author}}</footer>
    <!-- General JS Scripts -->
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -119,19 +115,14 @@
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/jquery.nicescroll.min.js"></script>
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/moment.min.js"></script>
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/stisla.js"></script>
-   <!-- JS Libraies -->
 
-   <!-- <script src="https://demo.getstisla.com/asset/modules/jquery.simpleWeather.min.js"></script> -->
-   <!-- <script src="https://demo.getstisla.com/asset/modules/Chart.min.js"></script> -->
-   <!-- <script src="https://demo.getstisla.com/asset/modules/jquery.vmap.min.js"></script> -->
-   <!-- <script src="https://demo.getstisla.com/asset/maps/jquery.vmap.world.js"></script> -->
-   <!-- <script src="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.js"></script> -->
-   <!-- <script src="https://demo.getstisla.com/asset/modules/jquery.chocolat.min.js"></script> -->
+      <!-- JS Libraries -->
      <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/datatables.min.js"></script>
      <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/iziToast.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-   <!-- Template JS File -->
+     <!-- Template JS File -->
+   
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/scripts.js"></script>
 
    <!-- Page Specific JS File -->

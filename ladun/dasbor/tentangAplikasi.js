@@ -1,3 +1,6 @@
+//route 
+var routeGetKontributor = 'http://api.haxors.or.id/haxors-product/contributors/getContributors.php';
+
 var divTentangAplikasi = new Vue({
     el : '#divTentangAplikasi',
     data : {
@@ -9,19 +12,27 @@ var divTentangAplikasi = new Vue({
     } 
 });
 
-var listKontributor = '';
+var listKontributor = '* ';
 
-$.post('http://api.haxors.or.id/haxors-product/contributors/getContributors.php', function(data){
-    let obj = JSON.parse(data);
-    console.log(obj);
-    obj.forEach(renderList);
+var statusKoneksi = navigator.onLine;
 
-    function renderList(item, index){
-        listKontributor = listKontributor + obj[index].nama + " - ";
-    }
+if(statusKoneksi === false){
+    setTimeout(function(){
+        $('#capContributors').html("Tidak ada koneksi.. pastikan koneksi anda aktif..");
+    }, 500);
+}else{
+    $.post(routeGetKontributor, function(data){
+        let obj = JSON.parse(data);
+        obj.forEach(renderList);
+    
+        function renderList(item, index){
+            listKontributor = listKontributor + obj[index].nama + " * ";
+        }
+    });
+    
+    setTimeout(function(){
+        $('#capContributors').html(listKontributor);
+    }, 500);
+    
+}
 
-});
-
-setTimeout(function(){
-    $('#capContributors').html(listKontributor);
-}, 500);

@@ -22,8 +22,8 @@
         <div class="card card-primary">
             <div class="card-header"><h4>Daftar Kontributor</h4></div>
             <div class="card-body">
-                <p id='capContributors'>
-
+                <p id='capContributors' style="text-align: justify;">
+                    <i>Memuat daftar kontributor ..</i>
                 </p>
             </div>
         </div>
