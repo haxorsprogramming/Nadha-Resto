@@ -7,7 +7,8 @@ class tentangAplikasi extends Route{
 
     public function index()
     {
-        $this -> bind('dasbor/tentangAplikasi/tentangAplikasi');
+        $data['waktu'] = $this -> waktu();
+        $this -> bind('dasbor/tentangAplikasi/tentangAplikasi', $data);
     }
 
 }

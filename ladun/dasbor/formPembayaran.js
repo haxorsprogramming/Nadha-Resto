@@ -21,11 +21,7 @@ var divFormPembayaran = new Vue({
         hargaAfterTax : '',
         taxPrice : '',
         valuePromo : '',
-        pelangganData : [
-            {username : 'aditiadarmanst', total : 90000, qt : 12},
-            {username : 'hanifahmutiara', total : 80000, qt : 20},
-            {username : 'hasnahnurardita', total : 20000, qt : 20}
-        ]
+        pelangganData : []
     },
     methods : {
         cekPromoAtc : function()
