@@ -6,6 +6,7 @@
 
 <span align="center">
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/139795be2c474f848c4994d7ecdc5924)](https://app.codacy.com/manual/haxorsprogramming/Nadha-Resto?utm_source=github.com&utm_medium=referral&utm_content=haxorsprogramming/Nadha-Resto&utm_campaign=Badge_Grade_Dashboard)
 ![CI](https://github.com/haxorsprogramming/Nadha-Resto/workflows/CI/badge.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/haxorsprogramming/Nadha-Resto.svg) ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/badges/shields.svg) [![License](https://img.shields.io/github/license/haxorsprogramming/Nadha-Laundry.svg)](LICENSE) 
 
 </span>
