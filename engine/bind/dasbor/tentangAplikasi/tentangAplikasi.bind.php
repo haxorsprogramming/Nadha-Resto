@@ -58,7 +58,8 @@
                 <p id='divKontributor'>
                     Terima kasih kepada teman teman yang telah membantu Haxorsprogramming club yang telah memberikan bantuan dalam bentuk apapun. Sedikit banyaknya bantuan dari teman teman, 
                     sangat memberikan impact yang luar biasa kepada kami. 
-                    <br/>Tertarik menjadi kontributor? Silahkan kunjungi <a href='https://github.com/haxorsprogramming/Haxors-Contributors' target="_new">Haxors Contributors Programs</a> 
+                    <br/>Tertarik menjadi kontributor? <br/>Silahkan kunjungi 
+                    <a href='https://github.com/haxorsprogramming/Haxors-Contributors' target="_new"><h4>Haxors Contributors Programs</h4></a> 
                 </p>
             </div>
         </div>
@@ -79,6 +80,12 @@
                 juga akan selalu menerima kritik & saran dari teman teman baik itu pemilik usaha ataupun para developer developer lain yang mungkin bisa memberikan 
                 masukan atau saran kepada kami. Aplikasi yang dibuat oleh Haxorsprogrammingclub sepenuhnya berlisensi opensource (MIT) yang artinya dapat digunakan secara gratis, 
                 serta bagi teman teman yang ingin membantu pengembangan lebih lanjut, juga kami persilahkan untuk membedah & memperbaiki aplikasi yang kami kembangkan.
+                </p>
+                <p style="text-align: justify;">
+                Apabila teman teman ingin bertanya tanya seputar project yang sedang dikembangkan oleh haxorsprogramming dapat menguhubungi : <br/>
+                Handphone / Whatsapp : <strong>082272177022</strong><br/>
+                Email : <strong>@gmail.com</strong><br/>
+                Instagram : <strong>haxorsprogramming</strong>
                 </p>
             </div>
     </div>

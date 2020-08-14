@@ -17,6 +17,7 @@ const laporanTransaksi = 'laporanTransaksi';
 const bantuan = 'bantuan';
 const manajemenUser = 'manajemenUser';
 const tentangAplikasi = 'tentangAplikasi';
+const frontEndSetting = 'frontEndSetting';
 
 const d = new Date();
 const tahun = d.getFullYear();
@@ -137,6 +138,11 @@ var divMenu = new Vue({
     {
       renderMenu(tentangAplikasi);
       divJudul.judulForm = "Tentang Aplikasi";
+    },
+    frontEndSettingAtc : function()
+    {
+      renderMenu(frontEndSetting);
+      divJudul.judulForm = "Setting Front End";
     }
   }
 });
