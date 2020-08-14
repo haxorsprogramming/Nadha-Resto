@@ -120,7 +120,7 @@ class Route{
     //fungsi untuk redirect halaman
     public function goto($page)
     {
-      header("Location:".$page);
+      header("Location:".HOMEBASE.$page);
       exit();
     }
     //fungsi untuk cek validasi format email
