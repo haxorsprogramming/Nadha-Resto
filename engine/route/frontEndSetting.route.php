@@ -17,7 +17,8 @@ class frontEndSetting extends Route{
 
     public function sliderUtama()
     {
-        $this -> bind('dasbor/frontEndSetting/slideUtama');
+        $data['slider'] = $this -> state($this -> sn) -> getDataSlider();
+        $this -> bind('dasbor/frontEndSetting/sliderUtama', $data);
     }
 
 }
