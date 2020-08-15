@@ -42,7 +42,7 @@
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-chalkboard"></i> <span>Setting Front End</span></a>
     <ul class="dropdown-menu">
-      <li><a class="nav-link" href="#!" @click='frontEndSettingAtc'>Slider Utama</a></li>
+      <li><a class="nav-link" href="#!" @click='sliderUtamaSettingAtc'>Slider Utama</a></li>
       <li><a class="nav-link" href="#!" @click=''>Special Offer</a></li>
       <li><a class="nav-link" href="#!" @click=''>Testimoni</a></li>
     </ul>

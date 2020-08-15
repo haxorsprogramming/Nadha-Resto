@@ -139,10 +139,10 @@ var divMenu = new Vue({
       renderMenu(tentangAplikasi);
       divJudul.judulForm = "Tentang Aplikasi";
     },
-    frontEndSettingAtc : function()
+    sliderUtamaSettingAtc : function()
     {
-      renderMenu(frontEndSetting);
-      divJudul.judulForm = "Setting Front End";
+      renderMenu(frontEndSetting+'/sliderUtama');
+      divJudul.judulForm = "Setting Slider Utama";
     }
   }
 });

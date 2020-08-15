@@ -12,7 +12,12 @@ class frontEndSetting extends Route{
 
     public function index()
     {     
-         
+        echo "<pre>Mooo ...</pre>";
+    }
+
+    public function sliderUtama()
+    {
+        $this -> bind('dasbor/frontEndSetting/slideUtama');
     }
 
 }
