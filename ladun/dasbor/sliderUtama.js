@@ -9,10 +9,27 @@ var divDataSlider = new Vue({
     methods: {
         tambahSliderAtc : function()
         {
-            console.log("Meaawwww...");
+            $('#divTambahSlider').show();
+            $('#divDataSlider').hide();
+            divJudul.judulForm = "Tambah Slider Baru";
+            document.querySelector('#txtJudul').focus();
+        }
+    }
+});
+
+var divTambahSlider = new Vue({
+    el : '#divTambahSlider',
+    data : {
+
+    },
+    methods : {
+        kembaliAtc : function()
+        {
+
         }
     }
 });
 
 
 $('#tblSlider').dataTable();
+$('#divTambahSlider').hide();
