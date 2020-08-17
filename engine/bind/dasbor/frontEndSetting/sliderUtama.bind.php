@@ -46,6 +46,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
                 <div class="card card-primary">
                     <div class="card-body">
+                    <form enctype="multipart/form-data" id='frmUpload'>
                         <div class="form-group">
                             <label>Judul</label>
                             <input type="text" class="form-control" id='txtJudul' v-model='judul'>
@@ -64,11 +65,12 @@
                         </div>
                         <div class="form-group">
                             <label>Foto</label>
-                            <input type="file" class="form-control" id='txtFoto' onchange="setFoto()">
+                            <input type="file" class="form-control" id="txtFoto" name="txtFoto" onchange="setFoto()">
                         </div>
                         <div>
-                            <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-save'></i> Simpan</a>
+                            <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-save'></i> Simpan</a>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>

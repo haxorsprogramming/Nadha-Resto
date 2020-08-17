@@ -58,7 +58,7 @@ $("#frmUpload").on('submit', function(e){
         cache: false,
         processData: false,
         beforeSend: function(){
-            blurButton()
+            blurButton();
         },
         success: function(data){
             switch(data.status){

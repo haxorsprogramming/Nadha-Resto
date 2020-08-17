@@ -1,5 +1,5 @@
 //route
-var routeToTambahSlider = server+'frontEndSetting/prosesTambahSlider';
+var routeToTambahSlider = server+'/frontEndSetting/prosesTambahSlider';
 
 var divDataSlider = new Vue({
     el : '#divDataSlider',
@@ -32,7 +32,13 @@ var divTambahSlider = new Vue({
         },
         simpanAtc : function()
         {
-
+            let foto = document.querySelector('#txtFoto').value;
+            if(divTambahSlider.judul === '' || divTambahSlider.subJudul === '' || divTambahSlider.capButton === '' || divTambahSlider.link === '' || foto === ''){
+                pesanUmumApp('warning', 'Isi Field!!!', 'Harap isi semua field!!');
+            }else{
+                //send request to server
+                $("#frmUpload").submit();
+            }
         }
     }
 });
@@ -40,6 +46,25 @@ var divTambahSlider = new Vue({
 //inisialisasi
 $('#tblSlider').dataTable();
 $('#divTambahSlider').hide();
+
+$("#frmUpload").on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: routeToTambahSlider,
+        data: new FormData(this),
+        dataType: 'json',
+        contentType: false,
+        cache: false,
+        processData: false,
+        beforeSend: function(){
+           
+        },
+        success: function(data){
+            console.log(data);
+        }
+    });
+});
 
 function setFoto()
 {
@@ -50,7 +75,6 @@ function setFoto()
 
     fileGambar.onload = function(e){
         let hasil = e.target.result;
-        console.log(hasil);
         imgPrev.src = hasil;
     }
 }

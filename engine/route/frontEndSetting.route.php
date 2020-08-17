@@ -23,7 +23,9 @@ class frontEndSetting extends Route{
 
     public function prosesTambahSlider()
     {
-
+        $data['status'] = 'sukses';
+        $data['foto'] = $this -> getTempFile('txtFoto');
+        $this -> toJson($data);
     }
 
 }
