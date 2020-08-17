@@ -48,27 +48,31 @@
                     <div class="card-body">
                     <form enctype="multipart/form-data" id='frmUpload'>
                         <div class="form-group">
+                            <label>Sub Header</label>
+                            <input type="text" class="form-control" id='txtSubHeader' name='txtSubHeader' v-model='subHeader'>
+                        </div>
+                        <div class="form-group">
                             <label>Judul</label>
-                            <input type="text" class="form-control" id='txtJudul' v-model='judul'>
+                            <input type="text" class="form-control" id='txtJudul' name='txtJudul' v-model='judul'>
                         </div>
                         <div class="form-group">
                             <label>Sub Judul</label>
-                            <input type="text" class="form-control" id='txtSubJudul' v-model='subJudul'>
+                            <input type="text" class="form-control" id='txtSubJudul' name='txtSubJudul' v-model='subJudul'>
                         </div>
                         <div class="form-group">
                             <label>Caption Button</label>
-                            <input type="text" class="form-control" id='txtCaptionButton' v-model='capButton'>
+                            <input type="text" class="form-control" id='txtCaptionButton' name='txtCaptionButton' v-model='capButton'>
                         </div>
                         <div class="form-group">
                             <label>Link</label>
-                            <input type="text" class="form-control" id='txtLink' v-model='link'>
+                            <input type="text" class="form-control" id='txtLink' name='txtLink' v-model='link'>
                         </div>
                         <div class="form-group">
                             <label>Foto</label>
                             <input type="file" class="form-control" id="txtFoto" name="txtFoto" onchange="setFoto()">
                         </div>
                         <div>
-                            <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-save'></i> Simpan</a>
+                            <a href='#!' id='btnSimpan' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-save'></i> Simpan</a>
                         </div>
                     </form>
                     </div>
@@ -84,6 +88,7 @@
                             <img src="<?=STYLEBASE; ?>/home/img/slider/default_img.png" id='txtImg' width="300">
                         </div>
                         <div style='margin-top:30px;'>
+                        <div class="profile-widget-name">Sub Header<br/> <div class="text-muted d-inline font-weight-normal"> <h5>{{subHeader}}</h5></div></div>
                         <div class="profile-widget-name">Judul<br/> <div class="text-muted d-inline font-weight-normal"> <h4>{{judul}}</h4></div></div>
                         <div class="profile-widget-name">Sub Judul<br/><div class="text-muted d-inline font-weight-normal"> <h5>{{subJudul}}</h5></div></div>
                         <div class="profile-widget-name">Cap Button<br/><div class="text-muted d-inline font-weight-normal"> <h5>{{capButton}}</h5></div></div>

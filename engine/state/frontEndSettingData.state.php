@@ -15,4 +15,11 @@ class frontEndSettingData{
         return $this -> st -> queryAll();
     }
 
+    public function saveSlider($subHeader, $judul, $subJudul, $picName, $capButton, $link)
+    {
+        $query = "INSERT INTO tbl_slider VALUES(null, '$subHeader','$judul','$subJudul','$picName','$capButton','$link');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

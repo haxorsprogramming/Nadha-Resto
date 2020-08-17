@@ -20,6 +20,7 @@ var divDataSlider = new Vue({
 var divTambahSlider = new Vue({
     el : '#divTambahSlider',
     data : {
+        subHeader : '-',
         judul : '-',
         subJudul : '-',
         capButton : '-',
@@ -33,11 +34,14 @@ var divTambahSlider = new Vue({
         simpanAtc : function()
         {
             let foto = document.querySelector('#txtFoto').value;
-            if(divTambahSlider.judul === '' || divTambahSlider.subJudul === '' || divTambahSlider.capButton === '' || divTambahSlider.link === '' || foto === ''){
+            if( divTambahSlider.subHeader === '' || divTambahSlider.judul === '' || divTambahSlider.subJudul === '' || divTambahSlider.capButton === '' || divTambahSlider.link === '' || foto === ''){
                 pesanUmumApp('warning', 'Isi Field!!!', 'Harap isi semua field!!');
             }else{
-                //send request to server
-                $("#frmUpload").submit();
+                if( divTambahSlider.subHeader.length < 5 || divTambahSlider.judul.length < 5 || divTambahSlider.subJudul.length < 5 || divTambahSlider.capButton.length < 5 || divTambahSlider.link.length < 5){
+                    pesanUmumApp('warning', 'Karakter !!!', 'Minimal karakter untuk tiap field adalah 5');
+                }else{
+                    $("#frmUpload").submit();
+                }
             }
         }
     }
@@ -50,18 +54,26 @@ $('#divTambahSlider').hide();
 $("#frmUpload").on('submit', function(e){
     e.preventDefault();
     $.ajax({
-        type: 'POST',
+        type: "POST",
         url: routeToTambahSlider,
         data: new FormData(this),
-        dataType: 'json',
+        dataType: "json",
         contentType: false,
         cache: false,
         processData: false,
         beforeSend: function(){
-           
+            blurButton();
         },
         success: function(data){
-            console.log(data);
+            if(data.status === 'error_tipe_file'){
+                pesanUmumApp('error', 'Error tipe file', 'Tipe file yang diperbolehkan JPG, PNG');
+                activeButton();
+            }else if(data.status === 'error_size_file'){
+                pesanUmumApp('error', 'Error size file', 'Ukuran foto yang diperbolehkan maksimal 2Mb');
+                activeButton();
+            }else{
+                sukses();
+            }
         }
     });
 });
@@ -77,4 +89,20 @@ function setFoto()
         let hasil = e.target.result;
         imgPrev.src = hasil;
     }
+}
+
+function blurButton()
+{
+    $('#btnSimpan').addClass('disabled');
+}
+
+function activeButton()
+{
+    $('#btnSimpan').removeClass('disabled');
+}
+
+function sukses()
+{
+    pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan slider baru');
+    divMenu.sliderUtamaSettingAtc();
 }
