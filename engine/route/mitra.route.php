@@ -13,19 +13,20 @@ class mitra extends Route{
 
     public function detailMitra($kdMitra)
     {
+        $data['kdMitra'] = $kdMitra;
         $this -> bind('dasbor/mitra/detailMitra');
     }
 
     public function tambahMitra()
     {
-        $nama = $this -> inp('nama');
-        $deks = $this -> inp('deks');
-        $pemilik = $this -> inp('pemilik');
-        $alamat = $this -> inp('alamat');
-        $hp = $this -> inp('hp');
-        $tipe = $this -> inp('tipe');
-        $kdMitra = $this -> rnint(8);
-        $cm = $this -> state($this -> sn) -> cekMitra($nama, $hp);
+        $nama       = $this -> inp('nama');
+        $deks       = $this -> inp('deks');
+        $pemilik    = $this -> inp('pemilik');
+        $alamat     = $this -> inp('alamat');
+        $hp         = $this -> inp('hp');
+        $tipe       = $this -> inp('tipe');
+        $kdMitra    = $this -> rnint(8);
+        $cm         = $this -> state($this -> sn) -> cekMitra($nama, $hp);
         if($cm == true){
             $this -> state($this -> sn) -> tambahMitra($kdMitra, $nama, $deks, $alamat, $pemilik, $hp, $tipe);
             $data['status'] = 'sukses';
