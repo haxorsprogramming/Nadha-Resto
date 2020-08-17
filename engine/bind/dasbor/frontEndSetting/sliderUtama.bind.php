@@ -64,7 +64,10 @@
                         </div>
                         <div class="form-group">
                             <label>Foto</label>
-                            <input type="file" class="form-control" id='txtFoto'>
+                            <input type="file" class="form-control" id='txtFoto' onchange="setFoto()">
+                        </div>
+                        <div>
+                            <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-save'></i> Simpan</a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +79,7 @@
                     </div>
                     <div class="card card-body">
                         <div style="text-align:center;">
-                            <img src="<?=STYLEBASE; ?>/home/img/slider/family_dinner.jpg" width="300">
+                            <img src="<?=STYLEBASE; ?>/home/img/slider/default_img.png" id='txtImg' width="300">
                         </div>
                         <div style='margin-top:30px;'>
                         <div class="profile-widget-name">Judul<br/> <div class="text-muted d-inline font-weight-normal"> <h4>{{judul}}</h4></div></div>

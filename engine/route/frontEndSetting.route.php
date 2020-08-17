@@ -21,4 +21,9 @@ class frontEndSetting extends Route{
         $this -> bind('dasbor/frontEndSetting/sliderUtama', $data);
     }
 
+    public function prosesTambahSlider()
+    {
+
+    }
+
 }

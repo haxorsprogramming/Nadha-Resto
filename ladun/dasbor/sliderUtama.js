@@ -1,5 +1,5 @@
 //route
-var routeToSaveSlider = '';
+var routeToTambahSlider = server+'frontEndSetting/prosesTambahSlider';
 
 var divDataSlider = new Vue({
     el : '#divDataSlider',
@@ -28,11 +28,29 @@ var divTambahSlider = new Vue({
     methods : {
         kembaliAtc : function()
         {
+            divMenu.sliderUtamaSettingAtc();
+        },
+        simpanAtc : function()
+        {
 
         }
     }
 });
 
-
+//inisialisasi
 $('#tblSlider').dataTable();
 $('#divTambahSlider').hide();
+
+function setFoto()
+{
+    var pic = document.querySelector('#txtFoto');
+    var imgPrev = document.querySelector('#txtImg');
+    var fileGambar = new FileReader();
+    fileGambar.readAsDataURL(pic.files[0]);
+
+    fileGambar.onload = function(e){
+        let hasil = e.target.result;
+        console.log(hasil);
+        imgPrev.src = hasil;
+    }
+}
