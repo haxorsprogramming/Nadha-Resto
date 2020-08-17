@@ -20,7 +20,10 @@ var divDataSlider = new Vue({
 var divTambahSlider = new Vue({
     el : '#divTambahSlider',
     data : {
-
+        judul : '-',
+        subJudul : '-',
+        capButton : '-',
+        link : '-'
     },
     methods : {
         kembaliAtc : function()
