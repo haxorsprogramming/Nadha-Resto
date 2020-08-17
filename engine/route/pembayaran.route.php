@@ -7,12 +7,11 @@ class pembayaran extends Route{
     
     public function index()
     {
-        echo "<pre>Meaowwww</pre>";
+        echo "<pre>Meaowww...</pre>";
     }
 
     public function formPembayaran($kdPesanan)
     {
-        //buat invoice
         $data['kdPesanan'] = $kdPesanan;
         $this -> bind('dasbor/pembayaran/formPembayaran', $data);
     }

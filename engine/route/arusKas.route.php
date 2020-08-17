@@ -12,7 +12,7 @@ class arusKas extends Route{
 
     public function getArusKas()
     {
-        $requestData= $_REQUEST;
+        $requestData = $_REQUEST;
         $totalArusKas = $this -> state($this -> sn) ->  getJlhArusKas();
         
         $arusKasData = $this -> state($this -> sn) ->  getDataArusKas($requestData);

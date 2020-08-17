@@ -3,6 +3,7 @@
 class setting extends Route{
 
     private $sn = 'settingData';
+    private $su = 'utilityData';
 
     public function index()
     {
@@ -37,7 +38,6 @@ class setting extends Route{
         $this -> toJson($data);
     }
     
-
     public function updateData()
     {
         $this -> state($this -> sn) -> updateData('tax', $this -> inp('tax'));

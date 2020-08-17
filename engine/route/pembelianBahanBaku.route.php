@@ -113,14 +113,13 @@ class pembelianBahanBaku extends Route{
 
     public function updateTempPembelian()
     {
-        // 'kdPembelian':kdPembelian, 'kdItem':itemPesanan[index].kdBahan, 'qt':itemPesanan[index].value
         $kdTemp = $this -> rnstr(20);
         $kdPembelian = $this -> inp('kdPembelian');
         $kdItem = $this -> inp('kdItem');
         $qt = $this -> inp('qt');
-        //update temp 
+        //update temp pembelian
         $this -> state($this -> sn) -> updateTemp($kdTemp, $kdPembelian, $kdItem, $qt);
-        //update stok 
+        //update stok pembelian
         $this -> state($this -> sn) ->  updateStok($kdItem, $qt);
         $data['status'] = 'sukses';
         $this -> toJson($data);

@@ -1,13 +1,12 @@
 <?php
 
 class pengeluaran extends Route{
-    //inisialisai state
+    
     private $sn = 'pengeluaranData';
     private $su = 'utilityData';
 
     public function index()
     {
-        //get data pengeluaran
         $this -> bind('dasbor/pengeluaran/pengeluaran');
     }
 
