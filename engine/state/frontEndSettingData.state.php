@@ -22,4 +22,18 @@ class frontEndSettingData{
         $this -> st -> queryRun();
     }
 
+    public function getPicName($idSlider)
+    {
+        $this -> st -> query("SELECT img FROM tbl_slider WHERE id='$idSlider';");
+        $q = $this -> st -> querySingle();
+        return $q['img'];
+    }
+
+    public function deleteSlider($idSlider)
+    {
+        $query = "DELETE FROM tbl_slider WHERE id='$idSlider';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

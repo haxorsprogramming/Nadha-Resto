@@ -27,7 +27,7 @@
                         </td>
                         <td><?=$ds['cap_button']; ?></td>
                         <td><?=$ds['link']; ?></td>
-                        <td><a href='#!' class="btn btn-primary btn-icon icon-left"><i class='far fa-edit'></i> Edit</a>
+                        <td><a href='#!' class="btn btn-primary btn-icon icon-left" @click="hapusAtc('<?=$ds['id']; ?>')"><i class='fas fa-trash-alt'></i> Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

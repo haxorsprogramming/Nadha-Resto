@@ -1,5 +1,6 @@
 //route
 var routeToTambahSlider = server+'/frontEndSetting/prosesTambahSlider';
+var routeToDeleteSlider = server+'/frontEndSetting/prosesHapusSlider';
 
 var divDataSlider = new Vue({
     el : '#divDataSlider',
@@ -13,6 +14,9 @@ var divDataSlider = new Vue({
             $('#divDataSlider').hide();
             divJudul.judulForm = "Tambah Slider Baru";
             document.querySelector('#txtJudul').focus();
+        },
+        hapusAtc : function(idSlider){
+            hapusSlider(idSlider);
         }
     }
 });
@@ -77,6 +81,32 @@ $("#frmUpload").on('submit', function(e){
         }
     });
 });
+
+function hapusSlider(idSlider)
+{
+    Swal.fire({
+        title: "Hapus Slider?",
+        text: "Yakin menghapus Slider ? ... ?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if(result.value){
+          $.post(routeToDeleteSlider, {'id':idSlider}, function(data){
+              let obj = JSON.parse(data);
+              if(obj.status === 'sukses'){
+                pesanUmumApp('success', 'Sukses', 'Berhasil menghapus slider...');
+                divMenu.sliderUtamaSettingAtc();
+              }else{
+                pesanUmumApp('error', 'Gagal', 'Gagal menghapus slider...');
+              }
+          });
+        }
+      });
+}
 
 function setFoto()
 {

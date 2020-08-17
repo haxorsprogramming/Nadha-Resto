@@ -38,8 +38,6 @@ class frontEndSetting extends Route{
         $capButton = $this -> inp('txtCaptionButton');
         $link = $this -> inp('txtLink');
 
-        
-
         if(in_array($tipeFile, $tipeGambar)){
             if($sizeFile < 2000){
                 $data['status'] = 'error_size_file';
@@ -52,6 +50,18 @@ class frontEndSetting extends Route{
             $data['status'] = 'error_tipe_file';
         }
         
+        $this -> toJson($data);
+    }
+
+    public function prosesHapusSlider()
+    {
+        $idSlider = $this -> inp('id');
+        $imgName = $this -> state($this -> sn) -> getPicName($idSlider);
+        $file = 'ladun/home/img/slider/'.$imgName;
+
+        $this -> state($this -> sn) -> deleteSlider($idSlider);
+        unlink($file);
+        $data['status'] = 'sukses';
         $this -> toJson($data);
     }
 
