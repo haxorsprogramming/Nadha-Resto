@@ -42,6 +42,12 @@ $('#tblHistoryPengeluaran').dataTable({
 $('#divTambahPengeluaran').hide();
 var total = document.getElementById('txtTotal');
 
+$('#tblHistoryPengeluaran').on('click', '.btnDetail', function(){
+    let kdTransaksi = $(this).data('id');
+    renderMenu("pengeluaran/detailPengeluaran/"+kdTransaksi);
+    divJudul.judulForm = "Detail Pengeluaran"; 
+});
+
 function konfirmasiSimpan()
 {
     divPengeluaran.namaPengeluaran = document.getElementById('txtNamaPengeluaran').value;

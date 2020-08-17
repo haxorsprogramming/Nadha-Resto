@@ -53,7 +53,6 @@
                         </div>
                         <div class="form-group">
                             <a href='#!' class="btn btn-primary btn-icon icon-left" @click='simpanAtc'><i class='fas fa-check-circle'></i> Simpan</a>
-
                         </div>
                     </div>
                 </div>
