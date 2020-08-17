@@ -25,7 +25,7 @@ class arusKas extends Route{
             $nestedData[] = $ak['tipe'];
             $nestedData[] = $ak['arus'];
             $nestedData[] = "Rp.". number_format($ak['total']);
-            $nestedData[] = "<a class='btn btn-primary btn-sm' href='#!'>Detail</a>";
+            $nestedData[] = '<a class="btn btn-primary btn-sm btnDetail" href="#!" data-id="'.$ak['kd_transaksi'].'"><i class="fas fa-info-circle"></i> Detail</a>';
             $data[] = $nestedData;
         }
 
@@ -36,6 +36,13 @@ class arusKas extends Route{
             "data"            => $data );
 
         echo json_encode($json_data);
+    }
+
+    public function detailArusKas($kdTransaksi)
+    {
+        //cek tipe arus kas 
+        
+        $this -> bind('dasbor/arusKas/detailArusKas');
     }
 
 }

@@ -22,4 +22,9 @@ class arusKasData{
         return $this -> st -> numRow();
     }
 
+    public function cekTipeArus($kdTransaksi)
+    {
+        $this -> st -> query("SELECT tipe FROM tbl_arus_kas WHERE kd_transaksi='$kdTransaksi';");
+    }
+
 }

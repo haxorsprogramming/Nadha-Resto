@@ -84,7 +84,7 @@
                 <p style="text-align: justify;">
                 Apabila teman teman ingin bertanya tanya seputar project yang sedang dikembangkan oleh haxorsprogramming dapat menguhubungi : <br/>
                 Handphone / Whatsapp : <strong>082272177022</strong><br/>
-                Email : <strong>@gmail.com</strong><br/>
+                Email : <strong>alditha.forum@gmail.com</strong><br/>
                 Instagram : <strong>haxorsprogramming</strong>
                 </p>
             </div>
