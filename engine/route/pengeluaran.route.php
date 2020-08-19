@@ -61,7 +61,9 @@ class pengeluaran extends Route{
 
     public function detailPengeluaran($kdTransaksi)
     {
-        $this -> bind('dasbor/pengeluaran/detailPengeluaran');
+        $data['pengeluaran'] = $this -> state($this -> sn) -> getDetailPengeluaran($kdTransaksi);
+        $data['kdTransaksi'] = $kdTransaksi;
+        $this -> bind('dasbor/pengeluaran/detailPengeluaran', $data);
     }
 
 }

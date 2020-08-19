@@ -58,7 +58,7 @@
                 <p id='divKontributor'>
                     Terima kasih kepada teman teman yang telah membantu Haxorsprogramming club yang telah memberikan bantuan dalam bentuk apapun. Sedikit banyaknya bantuan dari teman teman, 
                     sangat memberikan impact yang luar biasa kepada kami. 
-                    <br/>Tertarik menjadi kontributor? <br/>Silahkan kunjungi 
+                    <br/>Tertarik menjadi kontributor? ... Silahkan kunjungi 
                     <a href='https://github.com/haxorsprogramming/Haxors-Contributors' target="_new"><h4>Haxors Contributors Programs</h4></a> 
                 </p>
             </div>

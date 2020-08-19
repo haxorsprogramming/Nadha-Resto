@@ -28,4 +28,11 @@ class pengeluaranData{
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
+
+    public function getDetailPengeluaran($kdPengeluaran)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pengeluaran WHERE kd_pengeluaran='$kdPengeluaran';");
+        return $this -> st -> querySingle();
+    }
+
 }
