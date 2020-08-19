@@ -61,7 +61,7 @@ class pengeluaran extends Route{
 
     public function detailPengeluaran($kdTransaksi)
     {
-        echo $kdTransaksi;
+        $this -> bind('dasbor/pengeluaran/detailPengeluaran');
     }
 
 }
