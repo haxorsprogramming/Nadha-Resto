@@ -6,18 +6,21 @@ class utility extends Route{
 
     public function getDataMenu()
     {
+      $this -> state($this -> sn) -> csrfCek();
       $data['menu'] = $this -> state($this -> sn) -> getDataMenu();
       $this -> toJson($data);
     }
     
     public function getDataKategori()
     {
+      $this -> state($this -> sn) -> csrfCek();
       $data['kategori'] = $this -> state($this -> sn) -> getDataKategori();
       $this -> toJson($data);
     }
 
     public function getDataMenuKategori()
     {
+      $this -> state($this -> sn) -> csrfCek();
       $kdKategori     = $this -> inp('kdKategori');
       $data['menu']   = $this -> state($this -> sn) -> getDataMenuKategori($kdKategori);
       $this -> toJson($data);
@@ -25,6 +28,7 @@ class utility extends Route{
 
     public function getFirebaseSetting()
     {
+      $this -> state($this -> sn) -> csrfCek();
       $data['apiKey'] = $this -> state($this -> sn) -> getFirebaseSetting('apiKey');
       $data['authDomain'] = $this -> state($this -> sn) -> getFirebaseSetting('authDomain');
       $data['databaseURL'] = $this -> state($this -> sn) -> getFirebaseSetting('databaseURL');

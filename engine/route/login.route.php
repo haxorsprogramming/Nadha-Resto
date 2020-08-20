@@ -29,7 +29,6 @@ class login extends Route{
         }else{
             $data['status_login'] = 'gagal';
         }
-
         echo json_encode($data);
     }  
 

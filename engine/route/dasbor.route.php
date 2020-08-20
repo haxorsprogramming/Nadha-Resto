@@ -22,6 +22,7 @@ class dasbor extends Route{
 
     public function getDataBar()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['pengunjung'] = $this -> state($this -> su) -> getJlhPengunjung();
         $data['pelanggan'] = $this -> state($this -> su) -> getJlhPelanggan();
         $data['rasioProfit'] = 0;
@@ -31,12 +32,14 @@ class dasbor extends Route{
 
     public function getMenuTerlaris()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['menuTerlaris'] = $this -> state('utilityData') -> getMenuTerlaris();
         $this -> toJson($data);
     }
 
     public function getTransaksiTerakhir()
     {
+        $this -> state($this -> su) -> csrfCek();
         $gtt = $this -> state('utilityData') -> getTransaksiTerakhir();
         foreach($gtt as $gt){
             $kdPesanan = $gt['kd_pesanan'];

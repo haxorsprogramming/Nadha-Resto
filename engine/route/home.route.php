@@ -5,22 +5,6 @@ class home extends Route{
     private $sn = 'homeData';
     private $su = 'utilityData';
 
-    public function cekSecurity()
-    {
-        $this -> state($this -> su) -> csrfCek();
-        echo "Set halaman";
-    }
-
-    public function hapusToken()
-    {
-        $this -> clearCsrfToken();
-    }
-
-    public function tesPost()
-    {
-        $this -> state($this -> su) -> csrfCek();
-    }
-
     public function index()
     {   
         $this -> state($this -> su) -> csrfBuild();
@@ -32,6 +16,7 @@ class home extends Route{
 
     public function selfservice()
     {
+        $this -> state($this -> su) -> csrfBuild();
         $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $data['kategoriMenu'] = $this -> state($this -> sn) -> getKategoriMenu();
         $data['promo'] = $this -> state($this -> sn) -> getPromo();
@@ -47,6 +32,7 @@ class home extends Route{
 
     public function saveTemp()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdTemp = $this -> inp('kdTemp');
         $kdMenu = $this -> inp('kdMenu');
         $hargaAt = $this -> inp('hargaAt');
