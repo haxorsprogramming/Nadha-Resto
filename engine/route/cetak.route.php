@@ -21,7 +21,8 @@ class cetak extends Route{
         $qPembelian = $this -> state($this -> sn) -> getPembelianBb($kdInvoice);
         $totalPembelian = number_format($qPembelian['total']);
         $namaMitra = $this -> state($this -> sn) ->  getNamaMitra($qPembelian['mitra']);
-        //start PDF rendering
+        $waktu = date('d M Y', strtotime($qPembelian['waktu']));
+        //Insert HTML value
         $dompdf = new Dompdf();
         $html = "<table><tr><td><img src='ladun/".$logo."' style='width:150px'></td>"; 
         $html .= "<td><span style='font-size:30px;font-family:calibri;'>Invoice Pembelian Bahan Baku</span><br/> ".$namaResto.", ".$alamatResto."</td></tr></table>";
@@ -38,7 +39,7 @@ class cetak extends Route{
             $html .= "<tr><td style='padding-left:10px;'>".$qBahan['nama']."</td><td style='padding-left:10px;'>".$qBahan['satuan']."</td><td style='padding-left:10px;'>".$tp['qt']."</td></tr>";
         }
         $html .= "</table>";
-        $html .= "<div style='margin-top:20px;'>Medan 20 Maret 2020</div>";
+        $html .= "<div style='margin-top:20px;'>".$waktu."</div>";
         $html .= "<div style='margin-top:20px;'>".$namaResto."</div>";
         $dompdf->loadHtml($html);
         // Setting ukuran dan orientasi kertas
@@ -52,12 +53,27 @@ class cetak extends Route{
     public function invoicePengeluaranResto($kdPengeluaran)
     {
         $dompdf = new Dompdf();
+        //data pengeluaran 
+        $pengeluaran = $this -> state($this -> sn) -> getDataPengeluaran($kdPengeluaran);
+        $waktu = date('d M Y', strtotime($pengeluaran['waktu']));
         //data header 
         $logo = $this -> state($this -> sn) -> getSetting('logo_resto');
         $namaResto = $this -> state($this -> sn) -> getSetting('nama_resto');
         $alamatResto = $this -> state($this -> sn) -> getSetting('alamat_resto');
-        $html = "<table><tr><td><img src='ladun/".$logo."' style='width:150px'></td>"; 
+         //Insert HTML value
+        $html = "<table><tr><td><img src='ladun/".$logo."' style='width:150px'></td>";
+        $html .= "<td><span style='font-size:30px;font-family:calibri;'>Invoice Pengeluaran</span><br/> ".$namaResto.", ".$alamatResto."</td></tr></table>";
+        $html .= "<hr/>"; 
+        $html .= "<table border='1' style='margin-top:15px;border-collapse:collapse;border:0px;font-size:14px;width:50%;'>";
+        $html .= "<tr><td>Kode Transaksi</td><td>".strtoupper($kdPengeluaran)."</td></tr>";
+        $html .= "<tr><td>Kategori Pengeluaran</td><td>".$pengeluaran['kategori']."</td></tr>";
+        $html .= "<tr><td>Nama Pengeluaran</td><td>".$pengeluaran['nama']."</td></tr>";
+        $html .= "<tr><td>Deksripsi</td><td>".$pengeluaran['deks']."</td></tr>";
+        $html .= "<tr><td>Operator</td><td>".$pengeluaran['operator']."</td></tr>";
+        $html .= "<tr><td>Total Pengeluaran</td><td>Rp. ".number_format($pengeluaran['total'])."</td></tr>";
         $html .= "</table>";
+        $html .= "<div style='margin-top:20px;'>".$waktu."</div>";
+        $html .= "<div style='margin-top:20px;'>".$namaResto."</div>";
         //render HTML
         $dompdf->loadHtml($html);
         // Setting ukuran dan orientasi kertas

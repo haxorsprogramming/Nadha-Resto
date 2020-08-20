@@ -55,7 +55,7 @@ class dasbor extends Route{
     public function logOut()
     {
         $this -> destses();
-        $this -> goto(HOMEBASE.'login');
+        $this -> goto('login');
     }
 
 }

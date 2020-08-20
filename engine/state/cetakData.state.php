@@ -41,4 +41,10 @@ class cetakData{
         return $this -> st -> querySingle(); 
     }
 
+    public function getDataPengeluaran($kdTransaksi)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pengeluaran WHERE kd_pengeluaran='$kdTransaksi';");
+        return $this -> st -> querySingle();
+    }
+
 }
