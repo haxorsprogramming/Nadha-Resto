@@ -5,8 +5,25 @@ class home extends Route{
     private $sn = 'homeData';
     private $su = 'utilityData';
 
+    public function cekSecurity()
+    {
+        $this -> state($this -> su) -> csrfCek();
+        echo "Set halaman";
+    }
+
+    public function hapusToken()
+    {
+        $this -> clearCsrfToken();
+    }
+
+    public function tesPost()
+    {
+        $this -> state($this -> su) -> csrfCek();
+    }
+
     public function index()
     {   
+        $this -> state($this -> su) -> csrfBuild();
         $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $data['dataSlider'] = $this -> state($this -> sn) -> getDataSlider();
         $data['dataMenu']   = $this -> state($this -> sn) -> getDataMenu();  
@@ -23,6 +40,7 @@ class home extends Route{
 
     public function getKdTemp()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdTemp'] = $this -> rnstr(15);
         $this -> toJson($data);
     }
@@ -42,6 +60,7 @@ class home extends Route{
 
     public function checkOut($kdTemp)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdTemp'] = $kdTemp;
          //cek apakah kode pesanan valid atau tidak 
         $cp = $this -> state($this -> sn) -> cekPesanan($kdTemp);
@@ -74,6 +93,7 @@ class home extends Route{
 
     public function deliveryOrderProses()
     {
+        $this -> state($this -> su) -> csrfCek();
         // {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran}
         $email = $this -> inp('email');
         $nama = $this -> inp('nama');

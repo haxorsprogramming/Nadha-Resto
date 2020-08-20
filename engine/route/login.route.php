@@ -7,12 +7,14 @@ class login extends Route{
     
     public function index()
     {   
+        $this -> state($this -> su) -> csrfBuild();
         $data['pic'] = $this -> state($this -> sn) -> getLogo();    
         $this -> bind('/login/loginPage', $data);
     }
 
     public function prosesLogin()
     {
+        $this -> state($this -> su) -> csrfCek();
         $user           = $this -> inp('username');
         $password       = $this -> inp('password');
         $waktu          = $this -> waktu();

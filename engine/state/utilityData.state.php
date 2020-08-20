@@ -8,6 +8,29 @@ class utilityData{
     {
         $this -> st = new state;
     }
+    //CSRF security build 
+    public function csrfBuild()
+    {
+        $string = '1234567890poiuytrewqasdfghjklmnbvcxz';
+        $token = str_shuffle($string);
+
+        if(isset($_SESSION['csrf_token'])){
+          
+        }else{
+          $_SESSION['csrf_token'] = $token;
+        }
+    }
+    //CSRF security cek
+    public function csrfCek()
+    {
+        $data['status'] = 'no open to public';
+        if(isset($_SESSION['csrf_token'])){
+          
+        }else{
+          echo json_encode($data);
+          die();
+        }
+    }
     //fungsi ambil nilai pengaturan restoran dengan parameter kd_setting
     public function getSettingResto($kdSetting)
     {
