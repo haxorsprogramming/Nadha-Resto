@@ -130,4 +130,10 @@ class pesananData{
         return $this -> st -> querySingle();
     }
 
+    public function getPesananData($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_pesanan WHERE kd_pesanan='$kdPesanan';");
+        return $this -> st -> queryAll();
+    }
+
 } 

@@ -78,6 +78,7 @@ class pesanan extends Route{
     public function detailPesanan($kdPesanan)
     {
         $data['kdPesanan'] = $kdPesanan;
+        $data['pesanan'] = $this -> state($this -> sn) -> getPesananData($kdPesanan);
         $this -> bind('dasbor/pesanan/detailPesanan', $data);
     }
 
@@ -89,8 +90,18 @@ class pesanan extends Route{
         $pembayaran = $this -> state($this -> sn) -> detailPembayaran($kdPesanan);
         $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
         $data['kdInvoice'] = $pembayaran['kd_invoice'];
+        $data['waktuPembayaran'] = $pembayaran['waktu'];
+        $data['tipePesanan'] = $pesanan['tipe'];
+        $data['totalPembelian'] = $pembayaran['total'];
+        $data['totalHargaPesanan'] = $pembayaran['total'];
+        $data['kdPromo'] = $pembayaran['kd_promo'];
+        $data['diskon'] = $pembayaran['diskon'];
+        $data['tax'] = $pembayaran['tax'];
+        $data['totalFinal'] = $pembayaran['total_final'];
+        $data['tunai'] = $pembayaran['tunai'];
+        $data['kembali'] = $pembayaran['kembali'];
+        $data['operator'] = $pembayaran['operator'];
         //get detailPesanan
-
         $this -> toJson($data);
     }
 

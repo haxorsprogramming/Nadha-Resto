@@ -22,7 +22,7 @@
                             <div class="col-md-6 text-md-right">
                                 <address>
                                     <strong>Tipe Pesanan </strong><br>
-                                    <br>
+                                    {{tipePesanan}}<br>
                                     <br>
                                     <br> 
                                 </address>
@@ -38,7 +38,7 @@
                             <div class="col-md-6 text-md-right">
                                 <address>
                                     <strong>Tanggal Transaksi</strong><br>
-                                    <br><br>
+                                    {{waktuPesanan}}<br><br>
                                 </address>
                             </div>
                         </div>
@@ -56,20 +56,54 @@
                                         <th>Menu</th>
                                         <th class="text-center">Harga at</th>
                                         <th class="text-right">Qt</th>
+                                        <th class="text-right">Total</th>
                                     </tr>
+                                    <?php foreach($data['pesanan'] as $dp) : 
+                                        $namaMenu = $this -> state('utilityData') -> getNamaMenu($dp['kd_menu']);
+
+                                    ?>
                                     <tr>
                                         <td></td>
-                                        <td ></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-right"></td>
+                                        <td><span style='font-size:large;'><?=$namaMenu; ?></span></td>
+                                        <td class="text-center">Rp. <?=number_format($dp['harga_at']); ?></td>
+                                        <td class="text-right"><?=$d['qt']; ?></td>
+                                        <th class="text-right">Rp. <?=number_format($dp['total']); ?></th>
                                     </tr>
+                                    <?php endforeach; ?>
                             </table>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-lg-4 text-left">
+                            <div class="col-lg-6 text-left">
                                 <div class="invoice-detail-item">
-                                    <div class="invoice-detail-name">Total Pembelian</div>
-                                    <div class="invoice-detail-value">Rp.</div>
+                                    <div class="invoice-detail-name">Total Harga Pesanan</div>
+                                    <div class="invoice-detail-value"><small>Rp. {{ Number(totalPembelian).toLocaleString() }}</small></div>
+                                </div>
+                                
+                                <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name">Total Final</div>
+                                    <div class="invoice-detail-value">Rp. {{ Number(totalFinal).toLocaleString() }}</div>
+                                </div>
+                                <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name">Tunai</div>
+                                    <div class="invoice-detail-value"><small>Rp. {{ Number(tunai).toLocaleString() }}</small></div>
+                                </div>
+                                <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name">Kembali</div>
+                                    <div class="invoice-detail-value"><small>Rp. {{ Number(kembali).toLocaleString() }}</small></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-right">
+                            <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name">Tax (Pajak)</div>
+                                    <div class="invoice-detail-value"><small>+ Rp. {{ Number(tax).toLocaleString() }}</small></div>
+                                </div>
+                                <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name">Promo</div>
+                                    <div class="invoice-detail-value"><small>- Rp. {{ Number(diskon).toLocaleString() }}</small></div>
+                                </div>
+                                <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name">Operator</div>
+                                    <div class="invoice-detail-value"><small>{{operator}}</small></div>
                                 </div>
                             </div>
                         </div>
