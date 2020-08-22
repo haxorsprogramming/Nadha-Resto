@@ -77,7 +77,21 @@ class pesanan extends Route{
 
     public function detailPesanan($kdPesanan)
     {
-        $this -> bind('dasbor/pesanan/detailPesanan');
+        $data['kdPesanan'] = $kdPesanan;
+        $this -> bind('dasbor/pesanan/detailPesanan', $data);
+    }
+
+    public function detailPesananData()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $data['kdPesanan'] = $kdPesanan;
+        $pesanan = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
+        $pembayaran = $this -> state($this -> sn) -> detailPembayaran($kdPesanan);
+        $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
+        $data['kdInvoice'] = $pembayaran['kd_invoice'];
+        //get detailPesanan
+
+        $this -> toJson($data);
     }
 
     public function pesananBaru()

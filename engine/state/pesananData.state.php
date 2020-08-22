@@ -17,7 +17,7 @@ class pesananData{
         }else{
             $startPage = $totalPage * $page - 10;
         }
-        $this -> st -> query("SELECT * FROM tbl_pesanan ORDER BY id DESC LIMIT $startPage, $totalPage;;");
+        $this -> st -> query("SELECT * FROM tbl_pesanan ORDER BY id DESC LIMIT $startPage, $totalPage;");
         return $this -> st -> queryAll();
     }
 
@@ -122,6 +122,12 @@ class pesananData{
         $query = "DELETE FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';";
         $this -> st -> query($query);
         $this -> st -> queryRun();
+    }
+
+    public function detailPembayaran($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pembayaran WHERE kd_pesanan='$kdPesanan';");
+        return $this -> st -> querySingle();
     }
 
 } 

@@ -1,7 +1,7 @@
 <?php
 
 class dasbor extends Route{
-    //inisialisasi state
+    
     private $sn = 'dasborData';
     private $su = 'utilityData';
 
@@ -43,7 +43,7 @@ class dasbor extends Route{
         $gtt = $this -> state('utilityData') -> getTransaksiTerakhir();
         foreach($gtt as $gt){
             $kdPesanan = $gt['kd_pesanan'];
-            //ambil 
+            //ambil data customer
             $kdPelanggan = $this -> state('utilityData') -> getPelangganFromPesanan($kdPesanan);
             $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
             $arrTemp['namaPelanggan'] = $namaPelanggan;
