@@ -113,11 +113,8 @@
             <hr>
             <div class="text-md-right">
                 <div class="float-lg-left mb-lg-0 mb-3">
-                    <a class="btn btn-primary btn-icon icon-left" href="<?=HOMEBASE; ?>cetak/invoicePemesanan/<?=strtoupper($data['kdPembelian']); ?>" target="_new">
+                    <a class="btn btn-primary btn-icon icon-left" href="<?=HOMEBASE; ?>cetak/invoicePemesanan/<?=strtoupper($data['kdPesanan']); ?>" target="_new">
                         <i class="fas fa-print"></i> Cetak
-                    </a>
-                    <a class="btn btn-warning btn-icon icon-left" href='#!' @click='kembaliAtc'>
-                        <i class="fas fa-reply"></i> Kembali
                     </a>
                 </div>
             </div>

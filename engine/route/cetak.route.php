@@ -1,12 +1,23 @@
 <?php
 //include library dompdf
 require_once 'lib/dompdf/autoload.inc.php';
+require_once 'lib/escopos/autoload.php';
+
 use Dompdf\Dompdf;
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
+use Mike42\Escpos\EscposImage;
+use Mike42\Escpos\PrintConnectors\FilePrintConnector;
+use Mike42\Escpos\Printer;
+
 
 class cetak extends Route{
     //inisialisasi state
     private $sn = 'cetakData';
     private $su = 'utilityData';
+
+    private $connector;
+    private $printer;
 
     public function invoicePembelianBb($kdInvoice)
     {
@@ -82,6 +93,13 @@ class cetak extends Route{
         $dompdf->render();
         // Melakukan output file Pdf
         $dompdf->stream('invoice_pengeluaran.pdf', array("Attachment" => false));
+    }
+
+
+    public function invoicePemesanan($kdPembelian)
+    {
+        //cetak ke printer thermal
+        $this->connector = new NetworkPrintConnector("127.0.0.1", "3300");
     }
 
 }

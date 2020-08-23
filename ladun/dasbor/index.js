@@ -120,6 +120,11 @@ var divMenu = new Vue({
       renderMenu(arusKas);
       divJudul.judulForm = "Arus Kas";
     },
+    laporanTransaksiAtc : function()
+    {
+      renderMenu(laporanTransaksi);
+      divJudul.judulForm = "Laporan Transaksi";
+    },
     bantuanAtc : function()
     {
       renderMenu(bantuan);

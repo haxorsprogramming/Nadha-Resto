@@ -49,6 +49,10 @@ class arusKas extends Route{
             $data['pengeluaran'] = $this -> state('pengeluaranData') -> getDetailPengeluaran($kdTransaksi);
             $data['kdTransaksi'] = $kdTransaksi;
             $this -> bind('dasbor/pengeluaran/detailPengeluaran', $data);
+        }elseif($tipeArus === 'Pembayaran kasir'){
+            $data['kdPesanan'] = $kdTransaksi;
+            $data['pesanan'] = $this -> state('pesananData') -> getPesananData($kdTransaksi);
+            $this -> bind('dasbor/pesanan/detailPesanan', $data);
         }   
         // $this -> bind('dasbor/arusKas/detailArusKas');
     }

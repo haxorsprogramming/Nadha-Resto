@@ -27,7 +27,7 @@
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-chart-line"></i> <span>Laporan & Statistik</span></a>
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" @click='arusKasAtc'>Arus Kas</a></li>
-      <li><a class="nav-link" href="#!" @click=''>Laporan Transaksi</a></li>
+      <li><a class="nav-link" href="#!" @click='laporanTransaksiAtc'>Laporan Transaksi</a></li>
       <li><a class="nav-link" href="#!" @click=''>Statistik Resto</a></li>
     </ul>
   </li>

@@ -1,4 +1,4 @@
-<div id='divArusKas' class="row">
+<div id='divArusKas'>
     <table id='tblArusKas' class='table table-hover'>
         <thead>
             <tr>
