@@ -1,0 +1,1 @@
+$('#tblLaporanTahun').dataTable({"bSort" : false});

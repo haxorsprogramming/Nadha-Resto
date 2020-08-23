@@ -9,15 +9,15 @@ class laporanTransaksiData{
         $this -> st = new state;
     }
 
-    public function transaksiMasukTahun($tahunAwal, $tahunAkhir)
+    public function transaksiAwal($tahunAwal, $tahunAkhir, $tipe)
     {
-        $this -> st -> query("SELECT id FROM tbl_arus_kas WHERE(waktu BETWEEN '$tahunAwal' AND '$tahunAkhir') AND arus='masuk';");
+        $this -> st -> query("SELECT id FROM tbl_arus_kas WHERE(waktu BETWEEN '$tahunAwal' AND '$tahunAkhir') AND arus='$tipe';");
         return $this -> st -> numRow();
     }
 
-    public function nominalTransaksiMasukTahun($tahunAwal, $tahunAkhir)
+    public function nominalTransaksiAwal($tahunAwal, $tahunAkhir, $tipe)
     {
-        $this -> st -> query("SELECT SUM(total) FROM tbl_arus_kas WHERE(waktu BETWEEN'$tahunAwal' AND '$tahunAkhir') AND arus='masuk';");
+        $this -> st -> query("SELECT SUM(total) FROM tbl_arus_kas WHERE(waktu BETWEEN'$tahunAwal' AND '$tahunAkhir') AND arus='$tipe';");
         $q = $this -> st -> querySingle();
         return $q['SUM(total)'];
     }
