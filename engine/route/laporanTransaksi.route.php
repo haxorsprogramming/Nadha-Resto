@@ -17,4 +17,10 @@ class laporanTransaksi extends Route{
         $this -> bind('dasbor/laporanTransaksi/laporanTransaksiTahun', $data);
     }
 
+    public function laporanTransaksiBulan($tahun, $bulan){
+        $data['tahun'] = $tahun;
+        $data['bulan'] = $bulan;
+        $this -> bind('dasbor/laporanTransaksi/laporanTransaksiBulan', $data);
+    }
+
 }

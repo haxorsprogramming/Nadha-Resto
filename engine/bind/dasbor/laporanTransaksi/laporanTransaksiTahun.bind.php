@@ -37,7 +37,7 @@
                 <td><?=$jlhTransaksiKeluar; ?></td>
                 <td>Rp. <?=number_format($nominalTransaksiMasuk); ?></td>
                 <td>Rp. <?=number_format($nominalTransaksiKeluar); ?></td>
-                <td><a href='#!' class="btn btn-primary btn-icon icon-left"><i class='far fa-file-alt'></i> Detail</a></td>
+                <td><a href='#!' class="btn btn-primary btn-icon icon-left" @click="detailAtc('<?=$tahun; ?>', '<?=$blnFilterFromX; ?>', '<?=$blnCap; ?>')"><i class='far fa-file-alt'></i> Detail</a></td>
             </tr>
             <?php } ?>
         </tbody>
