@@ -20,7 +20,13 @@ class laporanTransaksi extends Route{
     public function laporanTransaksiBulan($tahun, $bulan){
         $data['tahun'] = $tahun;
         $data['bulan'] = $bulan;
+        $data['tHari'] = $this -> ambilHari($bulan);
         $this -> bind('dasbor/laporanTransaksi/laporanTransaksiBulan', $data);
+    }
+
+    public function laporanTransaksiTanggal($tahun, $bulan, $tanggal)
+    {
+        echo $tahun.$bulan.$tanggal;
     }
 
 }

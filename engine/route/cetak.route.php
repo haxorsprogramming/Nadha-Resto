@@ -12,10 +12,9 @@ use Mike42\Escpos\Printer;
 
 
 class cetak extends Route{
-    //inisialisasi state
+    //inisialisasi variabel & state
     private $sn = 'cetakData';
     private $su = 'utilityData';
-
     private $connector;
     private $printer;
 
@@ -147,6 +146,54 @@ class cetak extends Route{
         $dompdf->render();
         // Melakukan output file Pdf
         $dompdf->stream('invoice_pengeluaran.pdf', array("Attachment" => false));        
+    }
+
+    public function laporanTransaksiBulan($tahun, $bulan)
+    {
+        $dompdf = new Dompdf();
+        //data header 
+        $logo = $this -> state($this -> sn) -> getSetting('logo_resto');
+        $namaResto = $this -> state($this -> sn) -> getSetting('nama_resto');
+        $alamatResto = $this -> state($this -> sn) -> getSetting('alamat_resto');
+        $waktu = date('d M Y', strtotime($this -> waktu()));
+        $blnToArray = $bulan - 1;
+        $blnInt = $this -> getListBulanInt();
+        $bulanFix = $blnInt[$blnToArray];
+        $bulanIndo = $this -> bulanIndo($bulan);
+        $tHari = $this -> ambilHari($bulan);
+        //Insert HTML value
+        $html = "<table><tr><td><img src='ladun/".$logo."' style='width:150px'></td>";
+        $html .= "<td><span style='font-size:30px;font-family:calibri;'>Laporan Transaksi Bulanan</span><br/> ".$namaResto.", ".$alamatResto."</td></tr></table>";
+        $html .= "<hr/>";
+        $html .= "<h5>Bulan Laporan : ".$bulanIndo.", tahun :  ".$tahun."</h5>";
+
+        $html .= "<table border='1' style='margin-top:15px;border-collapse:collapse;border:0px;font-size:14px;width:100%;'>";
+        $html .= "<tr><th>Tanggal</th><th>Total Transaksi Masuk</th><th>Total Transaksi Keluar</th><th>Nominal Transaksi Masuk</th><th>Nominal Transaksi Keluar</th></tr>";
+        for($x = 0; $x < $tHari; $x++){
+            $tglFix = $x + 1;
+            $tglToCap = $this -> getTanggalBedaDigit($tglFix);
+            $tanggalFix = $tahun."-".$bulanFix."-".$tglToCap;
+            $start = $tanggalFix." 00:00:00";
+            $finish = $tanggalFix." 23:59:59";
+            //data transaksi 
+            $jlhTransaksiMasuk = $this -> state('laporanTransaksiData') -> transaksiAwal($start, $finish, 'masuk');
+            $nominalTransaksiMasuk = $this -> state('laporanTransaksiData') -> nominalTransaksiAwal($start, $finish, 'masuk');
+            $jlhTransaksiKeluar = $this -> state('laporanTransaksiData') -> transaksiAwal($start, $finish, 'keluar');
+            $nominalTransaksiKeluar = $this -> state('laporanTransaksiData') -> nominalTransaksiAwal($start, $finish, 'keluar'); 
+            $html .= "<tr>";
+            $html .= "<td>".$tglToCap."</td><td>".$jlhTransaksiMasuk."</td><td>".$jlhTransaksiKeluar."</td>";
+            $html .= "<td>Rp. ".number_format($nominalTransaksiMasuk)."</td><td>Rp. ".number_format($nominalTransaksiKeluar)."</td>";
+            $html .= "</tr>";
+        }
+        $html .= "</table>";
+        //render HTML
+        $dompdf->loadHtml($html);
+        // Setting ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'portait');
+        // Rendering dari HTML Ke PDF
+        $dompdf->render();
+        // Melakukan output file Pdf
+        $dompdf->stream('invoice_pengeluaran.pdf', array("Attachment" => false));
     }
 
 }
