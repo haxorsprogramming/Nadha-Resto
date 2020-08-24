@@ -6,7 +6,7 @@ var divLaporanTransaksiBulan = new Vue({
     methods : {
         detailAtc : function(tahun, bulan, tanggal){
             renderMenu('laporanTransaksi/laporanTransaksiTanggal/'+tahun+'/'+bulan+'/'+tanggal);
-            let judulNow = divJudul.judulForm+", tanggal "+tanggal;
+            let judulNow = divJudul.judulForm+", Tanggal "+tanggal;
             divJudul.judulForm = judulNow;
         }
     }

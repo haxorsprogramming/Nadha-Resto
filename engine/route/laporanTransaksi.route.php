@@ -29,7 +29,10 @@ class laporanTransaksi extends Route{
        $data['tahun'] = $tahun;
        $data['bulan'] = $bulan;
        $data['tanggal'] = $tanggal;
-       
+       $tanggalFix = $tahun."-".$bulan."-".$tanggal;
+       $start = $tanggalFix." 00:00:00";
+       $finish = $tanggalFix." 23:59:59";
+       $data['arusKas'] = $this -> state($this -> sn) -> getTransaksiTanggal($start, $finish);
        $this -> bind('dasbor/laporanTransaksi/laporanTransaksiTanggal', $data);
     }
 
