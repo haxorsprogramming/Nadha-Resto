@@ -26,7 +26,11 @@ class laporanTransaksi extends Route{
 
     public function laporanTransaksiTanggal($tahun, $bulan, $tanggal)
     {
-        echo $tahun.$bulan.$tanggal;
+       $data['tahun'] = $tahun;
+       $data['bulan'] = $bulan;
+       $data['tanggal'] = $tanggal;
+       
+       $this -> bind('dasbor/laporanTransaksi/laporanTransaksiTanggal', $data);
     }
 
 }

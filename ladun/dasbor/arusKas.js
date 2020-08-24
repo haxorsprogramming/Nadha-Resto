@@ -20,7 +20,14 @@ $('#tblArusKas').dataTable({
         error: function(){
             pesanUmumApp('warning', 'Error', 'Error menampilkan data');
         }
-    }
+    },
+    "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+        if (aData[3] == "masuk") {
+          $('td', nRow).css('background-color', '#dbffdf');
+        }else{
+          $('td', nRow).css('background-color', '#ffe8db');
+        }
+      }
 });
 
 

@@ -66,7 +66,7 @@
                                         <td></td>
                                         <td><span style='font-size:large;'><?=$namaMenu; ?></span></td>
                                         <td class="text-center">Rp. <?=number_format($dp['harga_at']); ?></td>
-                                        <td class="text-right"><?=$d['qt']; ?></td>
+                                        <td class="text-right"><?=$dp['qt']; ?></td>
                                         <th class="text-right">Rp. <?=number_format($dp['total']); ?></th>
                                     </tr>
                                     <?php endforeach; ?>

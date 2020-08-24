@@ -210,4 +210,9 @@ class cetak extends Route{
         $dompdf->stream('invoice_pengeluaran.pdf', array("Attachment" => false));
     }
 
+    public function laporanTransaksiTanggal($tahun, $bulan, $tanggal)
+    {
+        echo $tahun."-".$bulan."-".$tanggal;
+    }
+
 }
