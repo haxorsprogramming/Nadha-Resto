@@ -34,6 +34,10 @@ class menuData{
         return $this -> st -> numRow();
     }
 
-    
+    public function getDetailMenu($kdMenu)
+    {
+        $this -> st -> query("SELECT * FROM tbl_menu WHERE kd_menu='$kdMenu';");
+        return $this -> st -> querySingle();
+    }
 
 }

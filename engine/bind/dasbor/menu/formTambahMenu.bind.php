@@ -30,11 +30,13 @@
                     </ul>
                 </div>
                 <!-- <label>{{username}}{{namaLengkap}}{{alamat}}{{nomorHandphone}}{{email}}{{levelUser}}</label> -->
-                <a href='#!' id='btnSimpan' class="btn btn-lg btn-primary btn-icon icon-left" @click='prosesAtc'><i
-                        class='fas fa-save'></i> Simpan</a>
+                <a href='#!' id='btnSimpan' class="btn btn-lg btn-primary btn-icon icon-left" @click='prosesAtc'>
+                    <i class='fas fa-save'></i> Simpan
+                </a>
                 &nbsp;&nbsp;
-                <a href='#!' id='btnClear' class="btn btn-lg btn-info btn-icon icon-left" @click='clearFormAtc'><i
-                        class='fas fa-i-cursor'></i> Clear form</a>
+                <a href='#!' id='btnClear' class="btn btn-lg btn-info btn-icon icon-left" @click='clearFormAtc'>
+                    <i class='fas fa-i-cursor'></i> Clear form
+                </a>
                 &nbsp;&nbsp;
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -59,8 +61,7 @@
                         <a href='#!' v-on:click='lihatContohFotoAtc'>lihat contoh</a>
                     </small>
                     <div id='divGambarContoh' style="padding-top:10px;text-align:center;">
-                        <img src='<?=STYLEBASE; ?>/dasbor/img/menu/pic_contoh.jpg'
-                            style="width: 200px;border:2px solid #2c3e50;">
+                        <img src='<?=STYLEBASE; ?>/dasbor/img/menu/pic_contoh.jpg' style="width: 200px;border:2px solid #2c3e50;">
                     </div>
                 </div>
             </div>

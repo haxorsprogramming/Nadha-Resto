@@ -61,7 +61,10 @@ class menu extends Route{
 
     public function detailMenu($kdMenu)
     {
+        $data['satuan'] = array('porsi', 'paket', 'pcs');
         $data['kdMenu'] = $kdMenu;
+        $data['dataMenu'] = $this -> state($this -> sn) -> getDetailMenu($kdMenu);
+        $data['kategori'] = $this -> state($this -> su) -> getDataKategori();
         $this -> bind('dasbor/menu/detailMenu', $data);
     }
  
