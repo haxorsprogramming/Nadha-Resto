@@ -8,7 +8,7 @@ class menu extends Route{
     public function index()
     {
         $data['menu'] = $this -> state($this -> sn) -> getMenu(); 
-        $this -> bind('/dasbor/menu/menu', $data);
+        $this -> bind('dasbor/menu/menu', $data);
     }
 
     public function tambahMenu()
@@ -57,6 +57,12 @@ class menu extends Route{
             }
         }
         $this -> toJson($data);
+    }
+
+    public function detailMenu($kdMenu)
+    {
+        $data['kdMenu'] = $kdMenu;
+        $this -> bind('dasbor/menu/detailMenu', $data);
     }
  
 }

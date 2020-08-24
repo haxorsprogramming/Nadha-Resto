@@ -9,19 +9,12 @@ var divMenuResto = new Vue({
             renderMenu('menu/tambahMenu');
             divJudul.judulForm = "Tambah Menu Restoran"; 
         },
-        detailAtc : function()
+        detailAtc : function(kdMenu, namaMenu)
         {
-            console.log("shippp");
+            divJudul.judulForm = "Detail Menu "+ namaMenu;
+            renderMenu('menu/detailMenu/'+kdMenu);
         }
     }
 });
 
 $('#tblMenu').DataTable();
-
-// Notification.requestPermission(permission => {
-//     if(permission === 'granted'){
-//         const myNotif = new Notification('Selamat ulang tahun', {
-//             body : 'Ini notifikasi'
-//         });
-//     }
-// });

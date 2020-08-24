@@ -90,6 +90,13 @@ class utilityData{
         $qP = $this -> st -> querySingle();
         return $qP['nama'];
     }
+    //fungsi ambil nama kategori 
+    public function getNamaKategori($kdKategori)
+    {
+        $this -> st -> query("SELECT nama FROM tbl_kategori_menu WHERE id='$kdKategori';");
+        $qP = $this -> st -> querySingle();
+        return $qP['nama'];
+    }
     //fungsi ambil nama meja dengan parameter kd_meja
     public function getNamaMeja($kdMeja)
     {
