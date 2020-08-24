@@ -1,6 +1,6 @@
 <div id='divLaporanTransaksiTahun'>
     <div style='margin-bottom:20px;'>
-        <a href='#!' class="btn btn-primary btn-icon icon-left"><i class='fas fa-print'></i> Cetak Laporan Tahun</a>
+        <a href='<?=HOMEBASE; ?>cetak/laporanTransaksiTahun/<?=$data['tahun']; ?>' target="new" class="btn btn-primary btn-icon icon-left"><i class='fas fa-print'></i> Cetak Laporan Tahun</a>
     </div>
     <table id='tblLaporanTahun' class='table table-hover'>
         <thead>

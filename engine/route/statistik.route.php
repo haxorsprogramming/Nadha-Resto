@@ -7,7 +7,7 @@ class statistik extends Route{
 
     public function index()
     {
-        
+        $this -> bind('dasbor/statistik/statistik');
     }
 
 }

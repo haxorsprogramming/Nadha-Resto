@@ -102,4 +102,51 @@ class cetak extends Route{
         $this->connector = new NetworkPrintConnector("127.0.0.1", "3300");
     }
 
+    public function laporanTransaksiTahun($tahun)
+    {
+        $dompdf = new Dompdf();
+        //data header 
+        $logo = $this -> state($this -> sn) -> getSetting('logo_resto');
+        $namaResto = $this -> state($this -> sn) -> getSetting('nama_resto');
+        $alamatResto = $this -> state($this -> sn) -> getSetting('alamat_resto');
+        $waktu = date('d M Y', strtotime($this -> waktu()));
+        //Insert HTML value
+        $html = "<table><tr><td><img src='ladun/".$logo."' style='width:150px'></td>";
+        $html .= "<td><span style='font-size:30px;font-family:calibri;'>Laporan Transaksi Tahunan</span><br/> ".$namaResto.", ".$alamatResto."</td></tr></table>";
+        $html .= "<hr/>";
+        $html .= "<h5>Tahun Laporan : ".$tahun."</h5>";
+        
+        $html .= "<table border='1' style='margin-top:15px;border-collapse:collapse;border:0px;font-size:14px;width:100%;'>";
+        $html .= "<tr><th>Bulan</th><th>Total Transaksi Masuk</th><th>Total Transaksi Keluar</th><th>Nominal Transaksi Masuk</th><th>Nominal Transaksi Keluar</th></tr>";
+        for($x = 0; $x < 12; $x++){
+            $blnToListInt = $this -> getListBulanInt();
+            $bulanFixInt = $blnToListInt[$x];
+            $blnFilterFromX = $x + 1;
+            $blnCap = $this -> bulanIndo($bulanFixInt);
+            $jlhDay = $this -> ambilHari($blnFilterFromX);
+            //prepare data filter
+            $start =  $tahun."-".$bulanFixInt."-1 00:00:00";
+            $finish = $tahun."-".$bulanFixInt."-".$jlhDay." 23:59:59";
+            //data transaksi 
+            $jlhTransaksiMasuk = $this -> state('laporanTransaksiData') -> transaksiAwal($start, $finish, 'masuk');
+            $nominalTransaksiMasuk = $this -> state('laporanTransaksiData') -> nominalTransaksiAwal($start, $finish, 'masuk');
+            $jlhTransaksiKeluar = $this -> state('laporanTransaksiData') -> transaksiAwal($start, $finish, 'keluar');
+            $nominalTransaksiKeluar = $this -> state('laporanTransaksiData') -> nominalTransaksiAwal($start, $finish, 'keluar');
+            $html .= "<tr><td> ".$blnCap."</td><td> Rp.".$jlhTransaksiMasuk."</td><td> ".$jlhTransaksiKeluar."</td>";
+            $html .= "<td> Rp. ".number_format($nominalTransaksiMasuk)."</td><td> Rp.".number_format($nominalTransaksiKeluar)."</td></tr>";
+        }
+        $html .= "";
+        $html .= "</table>";
+        $html .= "<h6>Tanggal cetak ".$waktu."</h6><br/>"; 
+        $html .= "<div style='margin-top:20px;'>".$namaResto."</div>";
+        //render HTML
+        $dompdf->loadHtml($html);
+        // Setting ukuran dan orientasi kertas
+        $dompdf->setPaper('A4', 'portait');
+        // Rendering dari HTML Ke PDF
+        $dompdf->render();
+        // Melakukan output file Pdf
+        $dompdf->stream('invoice_pengeluaran.pdf', array("Attachment" => false));        
+    }
+
 }
