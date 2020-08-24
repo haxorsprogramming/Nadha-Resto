@@ -44,7 +44,11 @@
                     </div>
                     <div class="form-group">
                         <label>Harga</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="txtHarga" value="<?=number_format($data['dataMenu']['harga']); ?>" disabled>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left"><i class='fas fa-sliders-h'></i> Edit Menu</a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left"><i class='fas fa-trash-alt'></i> Hapus</a>
                     </div>
                 </div>
             </div>

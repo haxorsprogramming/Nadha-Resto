@@ -29,6 +29,7 @@
 <li>Domp PDF (Report for PDF document)</li>
 <li>PHP Mailer (Mail sender)</li>
 <li>Socket Io</li>
+<li>Google Chart</li>
 <li>AWS Serveless (Coming soon)</li>
 </ul>
 <br/>
