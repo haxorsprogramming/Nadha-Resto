@@ -28,7 +28,7 @@
     <ul class="dropdown-menu">
       <li><a class="nav-link" href="#!" @click='arusKasAtc'>Arus Kas</a></li>
       <li><a class="nav-link" href="#!" @click='laporanTransaksiAtc'>Laporan Transaksi</a></li>
-      <li><a class="nav-link" href="#!" @click=''>Statistik Resto</a></li>
+      <li><a class="nav-link" href="#!" @click='statistikAtc'>Statistik Resto</a></li>
     </ul>
   </li>
   <li class="dropdown">

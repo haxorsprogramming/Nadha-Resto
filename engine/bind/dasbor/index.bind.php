@@ -121,6 +121,7 @@
      <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/iziToast.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      <!-- Template JS File -->
    
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/scripts.js"></script>

@@ -136,4 +136,10 @@ class utilityData{
         $q = $this -> st -> querySingle();
         return $q['value'];
     }
+    //fungsi ambil data bantuan
+    public function getBantuan()
+    {
+        $this -> st -> query("SELECT * FROM tbl_bantuan;");
+        return $this -> st -> queryAll();
+    }
 }

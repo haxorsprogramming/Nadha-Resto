@@ -14,6 +14,7 @@ const mitra = 'mitra';
 const pengeluaran = 'pengeluaran';
 const arusKas = 'arusKas/1';
 const laporanTransaksi = 'laporanTransaksi';
+const statistik = 'statistik';
 const bantuan = 'bantuan';
 const manajemenUser = 'manajemenUser';
 const tentangAplikasi = 'tentangAplikasi';
@@ -124,6 +125,11 @@ var divMenu = new Vue({
     {
       renderMenu(laporanTransaksi);
       divJudul.judulForm = "Laporan Transaksi";
+    },
+    statistikAtc : function()
+    {
+      renderMenu(statistik);
+      divJudul.judulForm = "Statistik Resto";
     },
     bantuanAtc : function()
     {
