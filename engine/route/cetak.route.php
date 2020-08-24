@@ -169,6 +169,10 @@ class cetak extends Route{
 
         $html .= "<table border='1' style='margin-top:15px;border-collapse:collapse;border:0px;font-size:14px;width:100%;'>";
         $html .= "<tr><th>Tanggal</th><th>Total Transaksi Masuk</th><th>Total Transaksi Keluar</th><th>Nominal Transaksi Masuk</th><th>Nominal Transaksi Keluar</th></tr>";
+        $jTMasuk = 0;
+        $jTKeluar = 0;
+        $tTMasuk = 0;
+        $tTKeluar = 0;
         for($x = 0; $x < $tHari; $x++){
             $tglFix = $x + 1;
             $tglToCap = $this -> getTanggalBedaDigit($tglFix);
@@ -180,12 +184,22 @@ class cetak extends Route{
             $nominalTransaksiMasuk = $this -> state('laporanTransaksiData') -> nominalTransaksiAwal($start, $finish, 'masuk');
             $jlhTransaksiKeluar = $this -> state('laporanTransaksiData') -> transaksiAwal($start, $finish, 'keluar');
             $nominalTransaksiKeluar = $this -> state('laporanTransaksiData') -> nominalTransaksiAwal($start, $finish, 'keluar'); 
+            $jTMasuk = $jTMasuk + $jlhTransaksiMasuk;
+            $jTKeluar = $jTKeluar + $jlhTransaksiKeluar;
+            $tTMasuk = $tTMasuk + $nominalTransaksiMasuk;
+            $tTKeluar = $tTKeluar + $nominalTransaksiKeluar;
+            //render
             $html .= "<tr>";
             $html .= "<td>".$tglToCap."</td><td>".$jlhTransaksiMasuk."</td><td>".$jlhTransaksiKeluar."</td>";
             $html .= "<td>Rp. ".number_format($nominalTransaksiMasuk)."</td><td>Rp. ".number_format($nominalTransaksiKeluar)."</td>";
             $html .= "</tr>";
         }
+        $html .= "<tr>"; 
+        $html .= "<th>Total</th><th>".$jTMasuk."</th><th>".$jTKeluar."</th><th>Rp. ".number_format($tTMasuk)."</th><th>Rp. ".number_format($tTKeluar)."</th>"; 
+        $html .= "</tr>";
         $html .= "</table>";
+        $html .= "<h6>Tanggal cetak ".$waktu."</h6><br/>"; 
+        $html .= "<div style='margin-top:20px;'>".$namaResto."</div>";
         //render HTML
         $dompdf->loadHtml($html);
         // Setting ukuran dan orientasi kertas
