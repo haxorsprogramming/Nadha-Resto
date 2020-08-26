@@ -71,5 +71,5 @@ class pelangganData{
         $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
         return $this -> st -> querySingle();
     }
-
+    
 }

@@ -1,3 +1,4 @@
+<!-- LIST PELANGGAN  -->
 <div id='divPelanggan'>
     <div style='margin-bottom:15px;'>
         <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahPelangganAtc'>
@@ -22,6 +23,7 @@
         
     </div>
 </div>
+<!-- FORM TAMBAH PELANGGAN  -->
 <div id='divFormTambahPelanggan'>
     <div>
         <a href='#!' class="btn btn-primary btn-icon icon-left" id='btnKembali'><i class='fas fa-reply'></i> Kembali</a>
