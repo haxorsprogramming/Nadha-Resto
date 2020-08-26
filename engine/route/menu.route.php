@@ -63,6 +63,7 @@ class menu extends Route{
     {
         $data['satuan'] = array('porsi', 'paket', 'pcs');
         $data['kdMenu'] = $kdMenu;
+        $data['historyPemesanan'] = $this -> state($this -> sn) -> getPembelianMenu($kdMenu);
         $data['dataMenu'] = $this -> state($this -> sn) -> getDetailMenu($kdMenu);
         $data['kategori'] = $this -> state($this -> su) -> getDataKategori();
         $this -> bind('dasbor/menu/detailMenu', $data);
@@ -100,7 +101,6 @@ class menu extends Route{
         $destination    = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
 
         if($foto === ""){
-            $data['proses'] = 'Tanpa update gambar';
             $this -> state($this -> sn) -> updateMenu($namaMenu, $deksMenu, $kategori, $satuan, $hargaClear, $kdMenu);
             $data['status'] = 'success';
         }else{
@@ -108,7 +108,6 @@ class menu extends Route{
                 if($sizeFile < 2000){
                     $data['status'] = 'error_size_file';
                 }else{
-                    $this -> state($this -> sn) -> updateMenu($namaMenu, $deksMenu, $kategori, $satuan, $hargaClear, $kdMenu);
                     //hapus gambar sebelumnya
                     $dataMenu =  $this -> state($this -> sn) -> getDetailMenu($kdMenu);
                     $pic = $dataMenu['pic'];
@@ -116,6 +115,7 @@ class menu extends Route{
                     unlink($file);
                     //upload gambar
                     $this -> uploadFile($sourcePath, $destination);
+                    $this -> state($this -> sn) -> updateMenu($namaMenu, $deksMenu, $kategori, $satuan, $hargaClear, $kdMenu);
                     $data['status'] = 'success';
                 }
             }else{

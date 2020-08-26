@@ -60,15 +60,14 @@ $("#frmEditMenu").on('submit', function(e){
         cache: false,
         processData: false,
         beforeSend: function(){
-            // blurButton();
             $(".form-control").attr("disabled", "disabled");
         },
-        success:function(data){
-            let obj = JSON.parse(data);
-            console.log(obj);
-            if(obj.status === 'error_tipe_file'){
+        success: function(data){
+            let status = data.status;
+            // console.log(obj);
+            if(status === 'error_tipe_file'){
                 pesanUmumApp('warning', 'Error', 'Tipe file tidak diperbolehkan!!');
-            }else if(obj.status === 'error_size_file'){
+            }else if(status === 'error_size_file'){
                 pesanUmumApp('warning', 'Error', 'Ukuran foto tidak boleh lebih dari 2Mb!!!');
             }else{
                 pesanUmumApp('success', 'Sukses', 'Berhasil mengupdate menu ..');
@@ -77,7 +76,6 @@ $("#frmEditMenu").on('submit', function(e){
                 $(".form-control").attr("disabled", "disabled");
                 $("#divUploadFoto").hide();
             }
-                
         }
     });
 });

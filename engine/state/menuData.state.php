@@ -54,4 +54,10 @@ class menuData{
         $this -> st -> queryRun();
     }
 
+    public function getPembelianMenu($kdMenu)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_pesanan WHERE kd_menu='$kdMenu' LIMIT 0, 5;");
+        return $this -> st -> queryAll();
+    }
+
 }

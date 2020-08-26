@@ -75,20 +75,76 @@
                     <h4>Statistik Menu</h4>
                 </div>
                 <div class="card card-body">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-primary">
-                                <i class="far fa-user"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total Dipesan</h4>
+                    <!-- TOTAL DIPESAN & PEMBELIAN HARI INI  -->
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary">
+                                    <i class="fas fa-comment-dollar"></i>
                                 </div>
-                                <div class="card-body">
-                                    10
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Total Dipesan</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <?=$data['dataMenu']['total_dipesan']; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Pembelian hari ini</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        -
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!-- HISTORY PEMESANAN MENU  -->
+                    <div style="text-align: center;"><h6>History Pemesanan Menu</h6></div>
+                    <div class="row">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Pemesanan</th>
+                                    <th>Qt</th>
+                                    <th>Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($data['historyPemesanan'] as $hp) : ?>
+                                <?php 
+                                    $kdPesanan = $hp['kd_pesanan'];
+                                    $detailPesanan = $this -> state('pesananData') -> getDetailPesanan($kdPesanan);
+                                    $kdPelanggan = $this -> state('utilityData') -> getPelangganFromPesanan($kdPesanan);
+                                    $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
+                                    if($detailPesanan['tipe'] == 'dine_in'){
+                                        $tipe = 'Makan di tempat (dine in)';
+                                    }else{
+                                        $tipe = 'Bawa pulang (take home)';
+                                    } 
+                                ?>
+                                    <tr>
+                                        <td>
+                                            <small><?=substr(strtoupper($kdPesanan), 0, 5); ?></small><br/>
+                                            <?=$namaPelanggan; ?><br/>
+                                            <b><?=$tipe; ?></b>
+                                        </td>
+                                        <td><?=$hp['qt']; ?></td>
+                                        <td><?=$detailPesanan['waktu_masuk']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

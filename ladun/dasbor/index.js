@@ -143,7 +143,7 @@ var divMenu = new Vue({
     },
     backupRestoreDataAtc : function()
     {
-      pesanUmumApp('info', 'Contact Haxors', 'Silahkan kontak haxorsprogramming untuk mengaktifkan fungsi ini');
+      pesanUmumApp('info', 'Contact Haxors', 'Fitur ini membutuhkan service firebase, silahkan kontak haxorsprogramming untuk mengaktifkan fungsi ini');
     },
     tentangAplikasiAtc : function()
     {
