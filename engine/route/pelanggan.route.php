@@ -60,7 +60,9 @@ class pelanggan extends Route{
 
     public function detailPelanggan($kdPelanggan)
     {
-      $this -> bind('dasbor/pelanggan/detailPelanggan');
+      $data['kdPelanggan'] = $kdPelanggan;
+      $data['pelanggan'] = $this -> state($this -> sn) -> getDetailPelanggan($kdPelanggan);
+      $this -> bind('dasbor/pelanggan/detailPelanggan', $data);
     }
 
     public function hapusPelanggan()

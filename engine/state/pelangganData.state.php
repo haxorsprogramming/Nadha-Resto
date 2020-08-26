@@ -66,4 +66,10 @@ class pelangganData{
         $this -> st -> queryRun();
     }
 
+    public function getDetailPelanggan($kdPelanggan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
+        return $this -> st -> querySingle();
+    }
+
 }
