@@ -7,7 +7,11 @@
                 </div>
                 <div class="card-body">
                     <div style="text-align: center;">
-                        <img src="<?=STYLEBASE; ?>/dasbor/img/menu/pic_contoh.jpg" style="width: 300px;border-radius:20px;border:2px #959c96 solid;">
+                        <img src="<?=STYLEBASE; ?>/dasbor/img/menu/pic_contoh.jpg" id='txtFoto' name='txtFoto' style="width: 300px;border-radius:20px;border:2px #959c96 solid;">
+                        <div style='padding-top:10px;' id='divUploadFoto'>
+                            <small>Ganti Foto</small>
+                            <input type="file" id='txtFotoSrc' name='txtFotoSrc' onchange='imgPrev()' class="form-control">
+                        </div>
                     </div>
                     <hr/>
                     <div class="form-group">
@@ -47,7 +51,7 @@
                         <input type="text" class="form-control" id="txtHarga" value="<?=number_format($data['dataMenu']['harga']); ?>" disabled>
                     </div>
                     <div style="text-align: center;">
-                        <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left"><i class='fas fa-sliders-h'></i> Edit Menu</a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left" @click='editAtc'><i :class='btnClass'></i> {{btnCap}}</a>&nbsp;&nbsp;&nbsp;
                         <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left"><i class='fas fa-trash-alt'></i> Hapus</a>
                     </div>
                 </div>

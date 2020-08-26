@@ -1,14 +1,43 @@
 var divDetailMenu = new Vue({
     el : '#divDetailMenu',
     data : {
-
+        btnCap : 'Edit',
+        btnClass  : 'far fa-edit',
     },
     methods : {
-
+        editAtc : function()
+        {
+            if(divDetailMenu.btnCap === 'Edit'){
+                this.btnCap = 'Simpan';
+                this.btnClass = 'fas fa-save';
+                $(".form-control").removeAttr("disabled");
+                $("#divUploadFoto").show();
+            }else{
+                this.btnCap = 'Edit';
+                this.btnClass = 'far fa-edit';
+                $(".form-control").attr("disabled", "disabled");
+                $("#divUploadFoto").hide();
+            }
+            
+        }
     }
 });
 
+$("#divUploadFoto").hide();
 var rupiah = document.getElementById('txtHarga');
+
+function imgPrev()
+{
+    var foto = document.querySelector('#txtFotoSrc');
+    var imgPrev = document.querySelector('#txtFoto');
+    var fileGambar = new FileReader();
+    fileGambar.readAsDataURL(foto.files[0]);
+
+    fileGambar.onload = function(e){
+        let hasil = e.target.result;
+        imgPrev.src = hasil;
+    }
+}
 
 rupiah.addEventListener('keyup', function(e){
     rupiah.value = formatRupiah(this.value);

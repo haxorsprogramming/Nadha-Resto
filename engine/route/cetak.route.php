@@ -51,6 +51,7 @@ class cetak extends Route{
         $html .= "<table border='1' style='margin-top:15px;border-collapse:collapse;border:0px;font-size:14px;width:100%;'>";
         $html .= "<tr><th style='text-align:center'>Nama Bahan</th><th style='text-align:center'>Satuan</th><th style='text-align:center'>Qt</th></tr>";
         
+        // Insert data to tabel
         foreach($tempPembelian as $tp){
             $qBahan = $this -> state($this -> sn) -> getBahanData($tp['kd_item']);
             $html .= "<tr><td style='padding-left:10px;'>".$qBahan['nama']."</td><td style='padding-left:10px;'>".$qBahan['satuan']."</td><td style='padding-left:10px;'>".$tp['qt']."</td></tr>";
@@ -59,11 +60,16 @@ class cetak extends Route{
         $html .= "</table>";
         $html .= "<div style='margin-top:20px;'>".$waktu."</div>";
         $html .= "<div style='margin-top:20px;'>".$namaResto."</div>";
+
+        // Render html variabel to dompdf
         $dompdf -> loadHtml($html);
+
         // Setting ukuran dan orientasi kertas
         $dompdf -> setPaper('A4', 'landscape');
+        
         // Rendering dari HTML Ke PDF
         $dompdf -> render();
+        
         // Melakukan output file Pdf
         $dompdf -> stream('invoice_pembelian.pdf', array("Attachment" => false));
     }
