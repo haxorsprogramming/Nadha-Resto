@@ -79,5 +79,50 @@ class menu extends Route{
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
+
+    public function updateMenu()
+    {
+        $foto = $this -> getNameFile('txtFotoSrc');
+        $sourcePath = $this -> getTempFile('txtFotoSrc');
+        $kdMenu = $this -> inp('txtKdMenuHidden');
+        $namaMenu = $this -> inp('txtNamaMenu');
+        $deksMenu = $this -> inp('txtDeksMenu');
+        $kategori = $this -> inp('txtKategori');
+        $satuan = $this -> inp('txtSatuan');
+        $harga = $this -> inp('txtHarga');
+        $hargaClear = str_replace(",","",$harga);
+
+        $tipeGambar     = array('png', 'jpg', 'jpeg');
+        $namaFile       = $this -> getNameFile('txtFotoSrc');
+        $tipeFile       = $this -> getTypeFile($namaFile);
+        $sizeFile       = $_FILES['txtFotoSrc']['size'];
+
+        $destination    = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
+
+        if($foto === ""){
+            $data['proses'] = 'Tanpa update gambar';
+            $this -> state($this -> sn) -> updateMenu($namaMenu, $deksMenu, $kategori, $satuan, $hargaClear, $kdMenu);
+            $data['status'] = 'success';
+        }else{
+            if(in_array($tipeFile, $tipeGambar)){
+                if($sizeFile < 2000){
+                    $data['status'] = 'error_size_file';
+                }else{
+                    $this -> state($this -> sn) -> updateMenu($namaMenu, $deksMenu, $kategori, $satuan, $hargaClear, $kdMenu);
+                    //hapus gambar sebelumnya
+                    $dataMenu =  $this -> state($this -> sn) -> getDetailMenu($kdMenu);
+                    $pic = $dataMenu['pic'];
+                    $file = 'ladun/dasbor/img/menu/'.$pic;
+                    unlink($file);
+                    //upload gambar
+                    $this -> uploadFile($sourcePath, $destination);
+                    $data['status'] = 'success';
+                }
+            }else{
+                $data['status'] = 'error_tipe_file';
+            }
+        }
+        $this -> toJson($data);
+    }
  
 }

@@ -47,4 +47,11 @@ class menuData{
         $this -> st -> queryRun();
     }
 
+    public function updateMenu($namaMenu, $deksMenu, $kategori, $satuan, $hargaClear, $kdMenu)
+    {
+        $query = "UPDATE tbl_menu SET nama='$namaMenu', deks='$deksMenu', kategori='$kategori', satuan='$satuan', harga='$hargaClear' WHERE kd_menu='$kdMenu';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

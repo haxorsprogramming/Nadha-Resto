@@ -7,6 +7,7 @@
                     <h4>Detail Menu</h4>
                 </div>
                 <div class="card-body">
+                    <form enctype="multipart/form-data" id='frmEditMenu'>
                     <div style="text-align: center;">
                         <img src="<?=STYLEBASE; ?>/dasbor/img/menu/<?=$data['dataMenu']['pic']; ?>" id='txtFoto' name='txtFoto' style="width: 300px;border-radius:20px;border:2px #959c96 solid;">
                         <div style='padding-top:10px;' id='divUploadFoto'>
@@ -15,7 +16,7 @@
                         </div>
                     </div>
                     <hr />
-                    <form enctype="multipart/form-data" id='frmEditMenu'>
+                    <input type="hidden" value="<?=$data['kdMenu']; ?>" name="txtKdMenuHidden" id="txtKdMenuHidden">
                     <div class="form-group">
                         <label>Nama Menu</label>
                         <input type="text" class="form-control" id='txtNamaMenu' value="<?=$data['dataMenu']['nama']; ?>" name='txtNamaMenu' disabled>

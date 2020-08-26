@@ -23,7 +23,6 @@ var divDetailMenu = new Vue({
                 let kategori = document.querySelector('#txtKategori').value;
                 let satuan = document.querySelector('#txtSatuan').value;
                 let harga = document.querySelector('#txtHarga').value;
-                let foto = document.querySelector('#txtFotoSrc').value;
                 
                 if(namaMenu === '' || deksMenu === '' || kategori === '' || satuan === '' || harga === '')
                 {
@@ -50,7 +49,7 @@ $("#divUploadFoto").hide();
 var rupiah = document.getElementById('txtHarga');
 
 // FUNCTION 
-$("#frmUpload").on('submit', function(e){
+$("#frmEditMenu").on('submit', function(e){
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -61,14 +60,24 @@ $("#frmUpload").on('submit', function(e){
         cache: false,
         processData: false,
         beforeSend: function(){
-            blurButton();
+            // blurButton();
+            $(".form-control").attr("disabled", "disabled");
         },
-        success: function(data){
-                console.log(data);
+        success:function(data){
+            let obj = JSON.parse(data);
+            console.log(obj);
+            if(obj.status === 'error_tipe_file'){
+                pesanUmumApp('warning', 'Error', 'Tipe file tidak diperbolehkan!!');
+            }else if(obj.status === 'error_size_file'){
+                pesanUmumApp('warning', 'Error', 'Ukuran foto tidak boleh lebih dari 2Mb!!!');
+            }else{
+                pesanUmumApp('success', 'Sukses', 'Berhasil mengupdate menu ..');
                 divDetailMenu.btnCap = 'Edit';
                 divDetailMenu.btnClass = 'far fa-edit';
                 $(".form-control").attr("disabled", "disabled");
                 $("#divUploadFoto").hide();
+            }
+                
         }
     });
 });
