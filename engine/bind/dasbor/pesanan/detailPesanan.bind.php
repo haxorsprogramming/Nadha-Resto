@@ -60,7 +60,11 @@
                                     </tr>
                                     <?php foreach($data['pesanan'] as $dp) : 
                                         $namaMenu = $this -> state('utilityData') -> getNamaMenu($dp['kd_menu']);
+                                        if($namaMenu === null){
+                                            $namaMenu = '<small><i>Menu dihapus </i></small>';
+                                        }else{
 
+                                        }
                                     ?>
                                     <tr>
                                         <td></td>

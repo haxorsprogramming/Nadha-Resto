@@ -1,3 +1,8 @@
+// ROUTE
+var routeToHapusMenu = server+'menu/hapusMenu';
+var routeToUpdateMenu = server+'menu/updateMenu';
+
+// VUE OBJECT 
 var divDetailMenu = new Vue({
     el : '#divDetailMenu',
     data : {
@@ -13,18 +18,88 @@ var divDetailMenu = new Vue({
                 $(".form-control").removeAttr("disabled");
                 $("#divUploadFoto").show();
             }else{
-                this.btnCap = 'Edit';
-                this.btnClass = 'far fa-edit';
-                $(".form-control").attr("disabled", "disabled");
-                $("#divUploadFoto").hide();
+                let namaMenu = document.querySelector('#txtNamaMenu').value;
+                let deksMenu = document.querySelector('#txtDeksMenu').value;
+                let kategori = document.querySelector('#txtKategori').value;
+                let satuan = document.querySelector('#txtSatuan').value;
+                let harga = document.querySelector('#txtHarga').value;
+                let foto = document.querySelector('#txtFotoSrc').value;
+                
+                if(namaMenu === '' || deksMenu === '' || kategori === '' || satuan === '' || harga === '')
+                {
+                    pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
+                }else{
+                    $("#frmEditMenu").submit();
+                    
+                }
             }
-            
+        },
+        hapusMenuAtc : function(kdMenu)
+        {
+            konfirmasiHapus(kdMenu);
+        },
+        kembaliAtc : function()
+        {
+            divMenu.menuAtc();
         }
     }
 });
 
+//INISIALISASI
 $("#divUploadFoto").hide();
 var rupiah = document.getElementById('txtHarga');
+
+// FUNCTION 
+$("#frmUpload").on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: routeToUpdateMenu,
+        data: new FormData(this),
+        dataType: "json",
+        contentType: false,
+        cache: false,
+        processData: false,
+        beforeSend: function(){
+            blurButton();
+        },
+        success: function(data){
+                console.log(data);
+                divDetailMenu.btnCap = 'Edit';
+                divDetailMenu.btnClass = 'far fa-edit';
+                $(".form-control").attr("disabled", "disabled");
+                $("#divUploadFoto").hide();
+        }
+    });
+});
+
+
+
+function konfirmasiHapus(kdMenu)
+{
+    Swal.fire({
+        title: "Hapus menu?",
+        text: "Yakin menghapus ini ... ?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.value) {
+           $.post(routeToHapusMenu, {'kdMenu':kdMenu}, function(data){
+                let obj = JSON.parse(data);
+                if(obj.status === 'sukses'){
+                    pesanUmumApp('success', 'Sukses', 'Berhasil menghapus menu..');
+                    divMenu.menuAtc();
+                }else{
+
+                }
+           });
+        }
+      });
+}
 
 function imgPrev()
 {

@@ -40,4 +40,11 @@ class menuData{
         return $this -> st -> querySingle();
     }
 
+    public function hapusMenu($kdMenu)
+    {
+        $query = "DELETE FROM tbl_menu WHERE kd_menu='$kdMenu';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

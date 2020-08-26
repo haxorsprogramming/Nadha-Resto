@@ -1,7 +1,8 @@
-//route
+//ROUTE
 var routeToTambahSlider = server+'/frontEndSetting/prosesTambahSlider';
 var routeToDeleteSlider = server+'/frontEndSetting/prosesHapusSlider';
 
+// VUE OBJECT 
 var divDataSlider = new Vue({
     el : '#divDataSlider',
     data : {
@@ -51,10 +52,11 @@ var divTambahSlider = new Vue({
     }
 });
 
-//inisialisasi
+// INISIALISASI
 $('#tblSlider').dataTable();
 $('#divTambahSlider').hide();
 
+// FUNCTION 
 $("#frmUpload").on('submit', function(e){
     e.preventDefault();
     $.ajax({

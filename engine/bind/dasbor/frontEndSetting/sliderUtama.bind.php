@@ -1,5 +1,5 @@
 <div id='divSliderUtama'>
-
+    <!-- DIV DATA SLIDER  -->
     <div id='divDataSlider'>
         <div style='margin-bottom:15px;'>
             <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahSliderAtc'>
@@ -35,7 +35,7 @@
             </table>
         </div>
     </div>
-
+    <!-- DIV TAMBAH SLIDER  -->
     <div id='divTambahSlider'>
         <div>
             <a href='#!' class="btn btn-primary btn-icon icon-left" @click='kembaliAtc'>

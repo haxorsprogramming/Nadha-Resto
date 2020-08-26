@@ -67,5 +67,17 @@ class menu extends Route{
         $data['kategori'] = $this -> state($this -> su) -> getDataKategori();
         $this -> bind('dasbor/menu/detailMenu', $data);
     }
+
+    public function hapusMenu()
+    {
+        $kdMenu = $this -> inp('kdMenu');
+        $dataMenu = $this -> state($this -> sn) -> getDetailMenu($kdMenu);
+        $pic = $dataMenu['pic'];
+        $file = 'ladun/dasbor/img/menu/'.$pic;
+        $this -> state($this -> sn) -> hapusMenu($kdMenu);
+        unlink($file);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
  
 }
