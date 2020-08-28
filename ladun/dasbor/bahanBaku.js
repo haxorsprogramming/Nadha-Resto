@@ -33,9 +33,10 @@ var divBahanBaku = new Vue({
         {
             clear();
         },
-        editAtc : function(kdBahan)
+        detailAtc : function(kdBahan)
         {
-            console.log(kdBahan);
+            divJudul.judulForm = "Detail Bahan Baku";
+            renderMenu('bahanBaku/detailBahanBaku/'+kdBahan);
         }
     }
 });

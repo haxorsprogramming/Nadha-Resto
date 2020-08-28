@@ -39,4 +39,9 @@ class bahanBaku extends Route{
         $this -> toJson($data);
     }
 
+    public function detailBahanBaku($kdBahan)
+    {
+        $this -> bind('dasbor/bahanBaku/detailBahanBaku');
+    }
+
 }

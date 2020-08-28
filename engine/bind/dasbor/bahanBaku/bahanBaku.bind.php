@@ -24,8 +24,11 @@
                         <td><?=$bb['deks']; ?></td>
                         <td><?=$bb['kategori']; ?></td>
                         <td><?=$bb['stok']; ?> <?=$bb['satuan']; ?></td>
-                        <td><a href='#!' class="btn btn-primary btn-icon btn-sm icon-left"
-                                @click='editAtc("<?=$bb['kd_bahan']; ?>")'><i class='far fa-edit'></i> Edit</a></td>
+                        <td>
+                            <a href='#!' class="btn btn-primary btn-icon btn-sm icon-left" @click='detailAtc("<?=$bb['kd_bahan']; ?>")'>
+                                <i class='fas fa-info-circle'></i> Detail
+                            </a>
+                        </td>
                     </tr>
                     <?php 
                     endforeach; 
