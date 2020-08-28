@@ -7,7 +7,8 @@ class pembelianBahanBaku extends Route{
 
     public function index()
     {
-        $this -> bind('dasbor/pembelianBahanBaku/pembelianBahanBaku');
+        $data['mitra'] = $this -> state($this -> sn) -> getMitra();
+        $this -> bind('dasbor/pembelianBahanBaku/pembelianBahanBaku', $data);
     }
 
     public function getDataPembelianBahanBaku()

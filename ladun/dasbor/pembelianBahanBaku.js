@@ -1,9 +1,9 @@
 //route 
-var routeToGetDataPembelianBahanBaku = server+'pembelianBahanBaku/getDataPembelianBahanBaku';
-var routeToDetailPembelianBahanBaku = server+'pembelianBahanBaku/detailPembelian/';
-var routeToProsesPembelian = server+'pembelianBb/prosesPembelian';
-var routeToUpdateTemp = server+'pembelianBb/updateTempPembelian';
-var routeGetDataBahanBakuKategori = server+'pembelianBb/getDataBahanBakuKategori';
+var routeToGetDataPembelianBahanBaku = server + 'pembelianBahanBaku/getDataPembelianBahanBaku';
+var routeToDetailPembelianBahanBaku = server +'pembelianBahanBaku/detailPembelian';
+var routeToProsesPembelian = server + 'pembelianBahanBaku/prosesPembelian';
+var routeToUpdateTemp = server + 'pembelianBahanBaku/updateTempPembelian';
+var routeGetDataBahanBakuKategori = server + 'pembelianBahanBaku/getDataBahanBakuKategori';
 
 var arrItemDipilih = [];
 var divPembelian = new Vue({

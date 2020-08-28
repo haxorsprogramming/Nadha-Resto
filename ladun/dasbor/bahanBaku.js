@@ -1,3 +1,7 @@
+// ROUTE
+var routeToAddBahanBaku = server + "bahanBaku/tambahBahanBaku";
+
+// VUE OBJECT 
 var divBahanBaku = new Vue({
     el : '#divBahanBaku',
     data : {
@@ -5,7 +9,12 @@ var divBahanBaku = new Vue({
         deks : '',
         satuan : '',
         kategori : '',
-        stok : 0
+        stok : 0,
+        tentangBahan : [
+            {teks : 'Manajemen bahan baku digunakan untuk mendata stok bahan bahan untuk produk resto'},
+            {teks : 'Pembelian bahan baku akan menambah stok dari bahan baku'},
+            {teks : 'Lakukan update stok bahan baku seebelum melakukan pembelian bahan baku'}
+        ]
     },
     methods : {
         tambahBahanBakuAtc : function()
@@ -31,10 +40,11 @@ var divBahanBaku = new Vue({
     }
 });
 
-//inisialisasi 
+// INISIALISASI 
 $('#divTambahBahanBaku').hide();
 $('#tblBahanBakuAtc').dataTable();
 
+// FUNCTION 
 function simpan()
 {
     let nama = divBahanBaku.nama;
@@ -47,7 +57,7 @@ function simpan()
         pesanUmumApp('warning', 'Isi field!!', 'Harap isi semua field!!');
     }else{
         let dataSend = {'nama':nama, 'deks':deks, 'satuan':satuan, 'kategori':kategori, 'stok':stok}
-        $.post('bahanBaku/tambahBahanBaku', dataSend, function(data){
+        $.post(routeToAddBahanBaku, dataSend, function(data){
             let obj = JSON.parse(data);
             if(obj.status === 'error'){
                 pesanUmumApp('warning', 'Error', 'Nama bahan sudah ada!!');
