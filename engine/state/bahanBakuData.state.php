@@ -33,4 +33,10 @@ class bahanBakuData{
         }
     }
 
+    public function detailBahanBaku($kdBahan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_bahan_baku WHERE kd_bahan='$kdBahan';");
+        return $this -> st -> querySingle();
+    }
+
 }

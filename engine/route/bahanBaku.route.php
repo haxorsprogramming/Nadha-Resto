@@ -7,28 +7,20 @@ class bahanBaku extends Route{
 
     public function index()
     {
-        //data bahan baku send ke view
         $data['bahanBaku'] = $this -> state($this -> sn) -> getDataBahanBaku();
         $this -> bind('dasbor/bahanBaku/bahanBaku', $data);
     }
 
     public function tambahBahanBaku()
     {
-        //nama bahan baku
         $nama       = $this -> inp('nama');
-        //deksripsi bahan baku
         $deks       = $this -> inp('deks');
-        //satuan
         $satuan     = $this -> inp('satuan');
-        //kategori
         $kategori   = $this -> inp('kategori');
-        //stok
         $stok       = $this -> inp('stok');
-        //kd bahan
         $kdBahan    = $this -> rnint(4);
-        //cek kode bahan & nama 
-        $cek = $this -> state($this -> sn) -> cekNamaBahan($nama);
-        //cek status login
+        //cek nama bahan duplikat
+        $cek        = $this -> state($this -> sn) -> cekNamaBahan($nama);
         if($cek === true){
             $data['status'] = 'error';
         }else{
@@ -41,7 +33,9 @@ class bahanBaku extends Route{
 
     public function detailBahanBaku($kdBahan)
     {
-        $this -> bind('dasbor/bahanBaku/detailBahanBaku');
+        $data['bahanBaku'] = $this -> state($this -> sn) -> detailBahanBaku($kdBahan);
+        $data['kategori'] = $this -> state($this -> su) -> getDataKategori();
+        $this -> bind('dasbor/bahanBaku/detailBahanBaku', $data);
     }
 
 }

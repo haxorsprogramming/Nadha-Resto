@@ -1,6 +1,7 @@
-//route
+// ROUTE 
 var routeToGetDataArusKas = server+'arusKas/getArusKas';
 
+// VUE OBJECT 
 var divArusKas = new Vue({
     el : '#divArusKas',
     data : {
@@ -8,7 +9,7 @@ var divArusKas = new Vue({
     }
 });
 
-//inisialisasi 
+// INISIALISASI 
 $('#tblArusKas').dataTable({
     "order" : [[1, "desc"]],
     "searching" : false,
@@ -29,7 +30,6 @@ $('#tblArusKas').dataTable({
         }
       }
 });
-
 
 $('#tblArusKas').on('click', '.btnDetail', function(){
     let kdTransaksi = $(this).data('id');
