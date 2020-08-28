@@ -65,6 +65,18 @@ class pelanggan extends Route{
       $this -> bind('dasbor/pelanggan/detailPelanggan', $data);
     }
 
+    public function updatePelanggan()
+    {
+      $kdPelanggan = $this -> inp('kdPelanggan');
+      $nama = $this -> inp('nama');
+      $alamat = $this -> inp('alamat');
+      $nomorHp = $this -> inp('nomorHp');
+      $email = $this -> inp('email');
+      $this -> state($this -> sn) -> updatePelanggan($nama, $alamat, $nomorHp, $email, $kdPelanggan);
+      $data['status'] = 'sukses';
+      $this -> toJson($data);
+    }
+
     public function hapusPelanggan()
     {
       $kdPelanggan = $this -> inp('kdPelanggan');

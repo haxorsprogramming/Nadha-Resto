@@ -71,5 +71,12 @@ class pelangganData{
         $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
         return $this -> st -> querySingle();
     }
+
+    public function updatePelanggan($nama, $alamat, $nomorHp, $email, $kdPelanggan)
+    {
+        $query = "UPDATE tbl_pelanggan SET nama='$nama', alamat='$alamat', no_hp='$nomorHp', email='$email' WHERE id_pelanggan='$kdPelanggan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
     
 }
