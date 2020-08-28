@@ -51,21 +51,65 @@
                 <div class="card-body">
                     <!-- BAR  -->
                     <div class="row">
+                        <!-- TOTAL TRANSAKSI  -->
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="card card-statistic-1">
                                     <div class="card-icon bg-primary">
-                                        <i class="fas fa-comment-dollar"></i>
+                                        <i class="fas fa-tags"></i>
                                     </div>
                                     <div class="card-wrap">
                                         <div class="card-header">
-                                            <h4>Total Pemesanan</h4>
+                                            <h4>Total Transaksi</h4>
                                         </div>
                                         <div class="card-body">
-                                            <?=$data['dataMenu']['total_dipesan']; ?>
+                                            <?=$data['totalTransaksi']; ?>
                                         </div>
                                     </div>
                                 </div>
                         </div>
+                        <!-- NOMINAL TRANSAKSI  -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                    <div class="card-icon bg-primary">
+                                        <i class="fas fa-address-book"></i>
+                                    </div>
+                                    <div class="card-wrap">
+                                        <div class="card-header">
+                                            <h4>Kunjungan Terakhir</h4>
+                                        </div>
+                                        <div class="card-body">
+                                           <?=date('d M Y', strtotime($data['pelanggan']['last_visit'])); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- END BAR  -->
+                    <!-- HISTORY TRANSAKSI  -->
+                    <div style="text-align: center;"><h6>History Transaksi Pelanggan</h6></div>
+                    <div class="row">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Pesanan</th><th>Total</th><th>Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($data['historyPesanan'] as $hp) : ?>
+                                    <?php 
+                                        $nominalPembelian = $this -> state('pelangganData') -> getNominalPesanan($hp['kd_pesanan']);
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <small><?=strtoupper($hp['kd_pesanan']); ?></small><br/>
+                                            <strong><?=$hp['tipe']; ?></strong>
+                                        </td>
+                                        <td>Rp. <?=number_format($nominalPembelian); ?></td>
+                                        <td><?=date('d M Y', strtotime($hp['waktu_masuk'])); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

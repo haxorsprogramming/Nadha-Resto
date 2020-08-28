@@ -61,7 +61,9 @@ class pelanggan extends Route{
     public function detailPelanggan($kdPelanggan)
     {
       $data['kdPelanggan'] = $kdPelanggan;
+      $data['totalTransaksi'] = $this -> state($this -> sn) -> totalTransaksi($kdPelanggan);
       $data['pelanggan'] = $this -> state($this -> sn) -> getDetailPelanggan($kdPelanggan);
+      $data['historyPesanan'] = $this -> state($this -> sn) -> historyPesanan($kdPelanggan);
       $this -> bind('dasbor/pelanggan/detailPelanggan', $data);
     }
 

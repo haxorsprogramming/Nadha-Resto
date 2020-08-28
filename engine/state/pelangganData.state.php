@@ -78,5 +78,18 @@ class pelangganData{
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
-    
+
+    public function historyPesanan($kdPelanggan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pesanan WHERE pelanggan='$kdPelanggan' LIMIT 0, 5;");
+        return $this -> st -> queryAll();
+    }
+
+    public function getNominalPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT total_final FROM tbl_pembayaran WHERE kd_pesanan='$kdPesanan';");
+        $q = $this -> st -> querySingle();
+        return $q['total_final'];
+    }
+
 }
