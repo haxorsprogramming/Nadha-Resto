@@ -1,14 +1,16 @@
-//inisialisasi route 
-var routeToSimpanPesanan = server+"pesanan/buatPesanan";
-var routeToUpdateTempPesanan = server+"pesanan/updateTempPesanan";
-//vue objek div pilih pesanan
+// ROUTE 
+var routeToSimpanPesanan = server + "pesanan/buatPesanan";
+var routeToUpdateTempPesanan = server + "pesanan/updateTempPesanan";
+var routeToGetMenuKategori = server + "pesanan/getMenuKategori";
+
+// VUE OBJECT
 var divPilihPesanan = new Vue({
     el : '#divPilihPesanan',
     data : {
         cap : 'Pilih tipe pesanan'
     }
 });
-//vue objek pesanan dine in
+
 var divPesananDineIn = new Vue({
     el : '#divPesananDineIn',
     data : {
@@ -26,9 +28,8 @@ var divPesananDineIn = new Vue({
         },
         pilihMenuAtc : function()
         {
-            this.jlhTamu = document.getElementById('txtJlhTamu').value;
+            this.jlhTamu = document.querySelector('#txtJlhTamu').value;
             divMenuCheckout.jlhTamu = this.jlhTamu;
-            // divMenuCheckout.meja = this.mejaDipilihCap
             if(this.mejaDipilihId === ''){
                 pesanUmumApp('warning', 'Pilih meja', 'Harap pilih meja!!');
             }else{
@@ -51,7 +52,7 @@ var divPesananDineIn = new Vue({
         }
     }
 });
-//vue objek pesanan take home
+
 var arrTh = [];
 var divPesananTakeHome = new Vue({
     el : '#divPesananTakeHome',
@@ -66,7 +67,7 @@ var divPesananTakeHome = new Vue({
     methods : {
         getMenuThAtc : function()
         {
-            $.post('pesanan/getMenuKategori', {'kdMenu':this.kategoriMenu}, function(data){
+            $.post(routeToGetMenuKategori, {'kdMenu':this.kategoriMenu}, function(data){
                 let obj = JSON.parse(data);
                 let menu = obj.menu;
                 let pic = 'ladun/dasbor/img/menu/';
@@ -249,17 +250,14 @@ var divMenuCheckout = new Vue({
                 arrMenu.splice(li, 1);
                 divMenuCheckout.menuDipilih.splice(li, 1);
             }else{
-
+                
             }
-            // console.log(arrMenu);
         },
         bayarAtc : function()
         {
             if(divMenuCheckout.totalHarga < 1){
                 pesanUmumApp('warning', 'Pilih item', 'Belum ada item dipilih..');
             }else{
-                // let dataSend = { 'pelanggan': divMenuCheckout.kdPelanggan, 'tipe': 'dine_in', 'jlhTamu': divMenuCheckout.jlhTamu, 'mejaId': divMenuCheckout.mejaId }
-                
                 $.post(routeToSimpanPesanan, {'pelanggan':divMenuCheckout.kdPelanggan, 'tipe':'dine_in', 'jlhTamu':divMenuCheckout.jlhTamu, 'mejaId':divMenuCheckout.mejaId}, function(data){
                     let obj = JSON.parse(data);
                     console.log(obj);
@@ -284,7 +282,7 @@ var divMenuCheckout = new Vue({
     }
 });
 
-//inisialisasi 
+// INISIALISASI 
 $('#divPesananDineIn').hide();
 $('#divPesananTakeHome').hide();
 $('#divMenuCheckout').hide();
@@ -306,19 +304,19 @@ document.getElementById('btnTakeHome').addEventListener('click', function(){
 
 function setMenuKategori()
 {
-    divMenuCheckout.kategoriMenu = document.getElementById('txtKategori').value;
+    divMenuCheckout.kategoriMenu = document.querySelector('#txtKategori').value;
     divMenuCheckout.getMenuAtc();
 }
 
 function setMenuTakeHome()
 {
-    divPesananTakeHome.kategoriMenu = document.getElementById('txtKategoriTh').value;
+    divPesananTakeHome.kategoriMenu = document.querySelector('#txtKategoriTh').value;
     divPesananTakeHome.getMenuThAtc();
 }
 
 function setPelanggan()
 {
-   let bahanPelanggan = document.getElementById('txtPelanggan').value;
+   let bahanPelanggan = document.querySelector('#txtPelanggan').value;
    let bp = bahanPelanggan.split("-");
    divPesananDineIn.kdPelanggan = bp[0];
    divPesananDineIn.namaPelanggan = bp[1];

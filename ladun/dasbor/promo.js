@@ -1,3 +1,7 @@
+// ROUTE
+var routeToTambahPromo = server + 'promo/tambahPromo';
+
+// VUE OBJECT 
 var divPromo = new Vue({
     el : '#divPromo',
     data : {
@@ -46,10 +50,11 @@ var divPromo = new Vue({
     }
 });
 
-//inisialisasi
+// INISIALISASI 
 $('#divTambahPromo').hide();
 $('#tblPromo').dataTable();
 
+// FUNCTION 
 function prosesTambah()
 {
     let namaPromo = divPromo.namaPromo;
@@ -60,7 +65,7 @@ function prosesTambah()
     let tanggalExpired = divPromo.tanggalExpired;
     let dataSend = {'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota, 'tanggalExpired':tanggalExpired}
 
-    $.post('promo/tambahPromo', dataSend, function(data){
+    $.post(routeToTambahPromo, dataSend, function(data){
         let obj = JSON.parse(data);
         if(obj.status === 'error_nama_promo'){
             pesanUmumApp('error', 'Error nama promo', 'Nama promo sudah digunakan!!');

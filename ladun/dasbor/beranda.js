@@ -1,8 +1,9 @@
-//inisialisasi route
+// ROUTE 
 var routeGetMenuTerlaris = server+"dasbor/getMenuTerlaris";
 var routeGetTransaksiTerakhir = server+"dasbor/getTransaksiTerakhir";
 var routeGetDataBar = server+"dasbor/getDataBar";
 
+// VUE OBJECT 
 var divBeranda = new Vue({
     el : '#divBeranda',
     data : {

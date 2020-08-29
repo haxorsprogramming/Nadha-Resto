@@ -66,15 +66,14 @@ var divPesanan = new Vue({
     }
 });
 
-//inisialisasi
-// $('#tblDaftarPesanan').dataTable({"order": [[ 4, "desc" ]]});
+// INISIALISASI 
 $('#liPrev').hide();
 
 var pt;
 for(pt = 0; pt < 10; pt++){
     divPesanan.dataPesanan.push({pesanan : '', tipe : '', meja : '', tamu : '', waktu : '', pembayaran : '', pelanggan : '', status : '', operator : '', kdPesananCap : ''});
 }
-//get max pesanan 
+
 $.post('pesanan/getMaxPagePesanan', function(data){
     let obj = JSON.parse(data);
     divPesanan.pageMax = obj.jlhPaginasi;
