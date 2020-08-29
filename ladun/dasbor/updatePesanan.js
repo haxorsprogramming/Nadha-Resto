@@ -1,10 +1,9 @@
-//route 
+// ROUTE
 var routeToGetDataKategori = server+'utility/getDataKategori';
 var routeToUpdateTemp = server+'pesanan/updateTempPesanan';
 var routeToGetDataMenuKategori = server+'utility/getDataMenuKategori';
 
-var dataMenuUpdate = [];
-
+// VUE OBJECT 
 var divUpdatePesanan = new Vue({
     el : '#divUpdatePesanan',
     data : {
@@ -42,12 +41,12 @@ var divUpdatePesanan = new Vue({
     }
 });
 
-//inisialisasi 
+// INISIALISASI
+var dataMenuUpdate = []; 
 divUpdatePesanan.kdPesanan = document.getElementById('txtKdPesanan').innerHTML;
 setTimeout(getDataPesanan, 200);
 setTimeout(getTempMenuFirst, 200);
 
-//get data kategori
 $.post(routeToGetDataKategori, function(data){
     let obj = JSON.parse(data);
     let listKategori = obj.kategori;
@@ -60,6 +59,7 @@ $.post(routeToGetDataKategori, function(data){
     }
 });
 
+// FUNCTION 
 function updateProses()
 {
     let totalHarga = divUpdatePesanan.totalHarga;
@@ -79,9 +79,7 @@ function updateProses()
                 'qt':listPesanan[index].qt, 
                 'total':listPesanan[index].total
             }
-            $.post(routeToUpdateTempPesanan, dataSend, function(){
-
-            });
+            $.post(routeToUpdateTempPesanan, dataSend, function(){});
         }
         pesanUmumApp('success', 'Updated', 'Pesanan di update...');
     }else{

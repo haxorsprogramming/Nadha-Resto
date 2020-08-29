@@ -149,4 +149,10 @@ class utilityData{
         $this -> st -> query("SELECT * FROM tbl_bantuan;");
         return $this -> st -> queryAll();
     }
+    // Kategori bahan baku 
+    public function getDataKategoriBahanBaku()
+    {
+        $kategori = array('Daging', 'Seafood', 'Karbo', 'Sayur', 'Buah', 'Mie Instan', 'Bumbu', 'Fast Food', 'Tepung', 'Lain Lain');
+        return $kategori;
+    }
 }

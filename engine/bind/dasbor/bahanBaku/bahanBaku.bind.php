@@ -57,16 +57,9 @@
                 <div class="form-group">
                     <label>Kategori</label>
                     <select class="form-control" v-model='kategori'>
-                        <option value="Daging">Daging</option>
-                        <option value="Seafood">Seafood</option>
-                        <option value="Karbo">Karbo</option>
-                        <option value="Sayur">Sayur</option>
-                        <option value="Buah">Buah</option>
-                        <option value="Mie Instan">Mie Instan</option>
-                        <option value="Bumbu">Bumbu</option>
-                        <option value="Fast Food">Fast food</option>
-                        <option value="Tepung">Tepung</option>
-                        <option value="lainlain">Lain lain</option>
+                        <?php foreach($data['kategori'] as $dk) : ?>
+                            <option value="<?=$dk; ?>"><?=$dk; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group">

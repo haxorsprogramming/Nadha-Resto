@@ -8,6 +8,7 @@ class bahanBaku extends Route{
     public function index()
     {
         $data['bahanBaku'] = $this -> state($this -> sn) -> getDataBahanBaku();
+        $data['kategori'] = $this -> state($this -> su) -> getDataKategoriBahanBaku();
         $this -> bind('dasbor/bahanBaku/bahanBaku', $data);
     }
 
@@ -34,7 +35,7 @@ class bahanBaku extends Route{
     public function detailBahanBaku($kdBahan)
     {
         $data['bahanBaku'] = $this -> state($this -> sn) -> detailBahanBaku($kdBahan);
-        $data['kategori'] = $this -> state($this -> su) -> getDataKategori();
+        $data['kategori'] = $this -> state($this -> su) -> getDataKategoriBahanBaku();
         $this -> bind('dasbor/bahanBaku/detailBahanBaku', $data);
     }
 
