@@ -1,3 +1,8 @@
+// ROUTE 
+var routeToGetPesanan = server + 'setting/getDataRestoran';
+var routeToUpdateSetting = server + 'setting/updateData';
+
+// VUE OBJECT 
 var divSetting = new Vue({
     el : '#divSetting',
     data : {
@@ -56,7 +61,7 @@ var divSetting = new Vue({
                     pesanUmumApp('warning', 'Isi field!!', 'Harap lengkapi field!!');
                 }else{
                     NProgress.start();
-                    $.post('setting/updateData', dataSend, function(data){
+                    $.post(routeToUpdateSetting, dataSend, function(data){
                         NProgress.done();
                     });
                 }
@@ -68,8 +73,8 @@ var divSetting = new Vue({
     }
 });
 
-//inisialisasi
-$.post('setting/getDataRestoran', function(data){
+//INISIALISASI
+$.post(routeToGetPesanan, function(data){
     let obj = JSON.parse(data);
     divSetting.namaResto = obj.namaResto;
     divSetting.alamatResto = obj.alamatResto;

@@ -1,6 +1,7 @@
-//route 
+// ROUTE
 var routeGetKontributor = 'http://api.haxors.or.id/haxors-product/contributors/getContributors.php';
 
+// VUE OBJECT 
 var divTentangAplikasi = new Vue({
     el : '#divTentangAplikasi',
     data : {
@@ -12,6 +13,7 @@ var divTentangAplikasi = new Vue({
     } 
 });
 
+// INISIALISASI 
 var listKontributor = '* ';
 var statusKoneksi = navigator.onLine;
 $('#divKontributor').hide();

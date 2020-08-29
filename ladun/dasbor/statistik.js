@@ -1,10 +1,12 @@
-//route
+// ROUTE
 var routeGetMenuTerlaris = server+'statistik/getMenuTerlaris';
 var routeGetPemasukanHarian = server+'statistik/getPemasukanHarian';
 
+// INISIALISASI 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+// FUNCTION 
 function drawChart() {
     chartMenuTerlaris();
     chartPemesananTipe();
@@ -41,7 +43,7 @@ function chartGrafikPemasukanHarian()
 
 function chartMenuTerlaris()
 {
-    // Create the data table.
+    // CREATE DATA TABLE
     var dataMenuBar = [];
     var dataBar = new google.visualization.DataTable();
     dataBar.addColumn('string', 'Menu');
@@ -57,9 +59,9 @@ function chartMenuTerlaris()
     });
     setTimeout(function(){
         dataBar.addRows(dataMenuBar);
-        // Set chart options
+        // SET CHART OPTIONS
         var options = {'width': 600,'height': 500};
-        // Instantiate and draw our chart, passing in some options.
+        // DRAW CHART
         var chart = new google.visualization.PieChart(document.getElementById('menuTerlarisChart'));
         chart.draw(dataBar, options);
     }, 500);
@@ -74,9 +76,9 @@ function chartPemesananTipe()
     dataBar.addRows([['Dine in', 20], ['Take Home', 15]]);
     setTimeout(function(){
         dataBar.addRows(dataMenuBar);
-        // Set chart options
+        // SET CHART OPTIONS
         var options = {'width': 600,'height': 500};
-        // Instantiate and draw our chart, passing in some options.
+        // DRAW CHART
         var chart = new google.visualization.PieChart(document.getElementById('tipePemesananChart'));
         chart.draw(dataBar, options);
     }, 200);

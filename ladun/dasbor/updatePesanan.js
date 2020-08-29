@@ -1,7 +1,7 @@
 // ROUTE
-var routeToGetDataKategori = server+'utility/getDataKategori';
-var routeToUpdateTemp = server+'pesanan/updateTempPesanan';
-var routeToGetDataMenuKategori = server+'utility/getDataMenuKategori';
+var routeToGetDataKategori = server + 'utility/getDataKategori';
+var routeToUpdateTemp = server + 'pesanan/updateTempPesanan';
+var routeToGetDataMenuKategori = server + 'utility/getDataMenuKategori';
 
 // VUE OBJECT 
 var divUpdatePesanan = new Vue({
@@ -65,9 +65,9 @@ function updateProses()
     let totalHarga = divUpdatePesanan.totalHarga;
     let listPesanan = divUpdatePesanan.menuFresh;
     let kdPesanan = divUpdatePesanan.kdPesanan;
-    //hapus temp pesanan lama
-    hapusTempLama(kdPesanan); 
-    //update temp pesanan
+    // HAPUS TEMP PESANAN LAMA
+    hapusTempLama(kdPesanan);
+    // UPDATE TEMP PESANAN
     if(totalHarga > 0){
         listPesanan.forEach(renderUpdate);
         function renderUpdate(item, index)
@@ -93,13 +93,13 @@ function updateMenu()
     $.post(routeToGetDataMenuKategori, {'kdKategori':kdKategori}, function(data){
         let obj = JSON.parse(data);
         let md = obj.menu;
-        //clear menu 
+        // CLEAR MENU
         let pjgArray = divUpdatePesanan.dataMenu.length;
         var i;
         for(i = 0; i < pjgArray; i++){
             divUpdatePesanan.dataMenu.splice(0,1);
         }
-        //update menu
+        // UPDATE MENU
         md.forEach(renderMenu);
         function renderMenu(item, index){
             divUpdatePesanan.dataMenu.push({
@@ -140,19 +140,18 @@ function tambahItem(kdMenu, nama, harga)
 {
    let cekArray = dataMenuUpdate.includes(kdMenu);
    if(cekArray === true){
-    //cek harga sekarang 
+    // CEK HARGA SEKARANG
     let arrayKe = dataMenuUpdate.indexOf(kdMenu);
     let hMenuNow = divUpdatePesanan.menuFresh[arrayKe].total;
     let hMenuNext = parseInt(hMenuNow) + parseInt(harga);
     divUpdatePesanan.menuFresh[arrayKe].total = hMenuNext;
-    //update harga total
+    // UPDATE HARGA TOTAL
     let hUpdateNow = parseInt(divUpdatePesanan.totalHarga) + parseInt(harga);
     divUpdatePesanan.totalHarga = hUpdateNow;
-    //update quantity
+    // UPDATE QUANTITY
     let qtNow = divUpdatePesanan.menuFresh[arrayKe].qt;
     let qtUpdate = parseInt(qtNow) + 1;
     divUpdatePesanan.menuFresh[arrayKe].qt = qtUpdate;
-    console.log(hMenuNow);
    }else{
     dataMenuUpdate.push(kdMenu);
     divUpdatePesanan.menuFresh.push({
@@ -162,7 +161,6 @@ function tambahItem(kdMenu, nama, harga)
         total : harga,
         kdMenu : kdMenu
     });
-    // let arrItemBaru = dataMenuUpdate.indexOf(kdMenu);
     let hItemNow = parseInt(divUpdatePesanan.totalHarga) + parseInt(harga);
     divUpdatePesanan.totalHarga = hItemNow;
    }
@@ -190,7 +188,6 @@ function hapusItem(kdMenu)
     if(cekArray === true){
         let cekLetakArray = dataMenuUpdate.indexOf(kdMenu);
         let totalHargaAt = divUpdatePesanan.menuFresh[cekLetakArray].total;
-        // console.log(totalHargaAt);
         let tHargaNow = parseInt(divUpdatePesanan.totalHarga) - parseInt(totalHargaAt);
         divUpdatePesanan.totalHarga = tHargaNow;
         dataMenuUpdate.splice(cekLetakArray, 1);
