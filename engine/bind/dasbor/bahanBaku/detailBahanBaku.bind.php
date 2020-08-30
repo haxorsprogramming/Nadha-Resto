@@ -52,10 +52,66 @@
                 </div>
         </div>
     </div>
-    <!-- HISTORY PEMBELIAN BAHAN BAKU  -->
+    <!-- STATISTIK & HISTORY PEMBELIAN BAHAN BAKU  -->
     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card card-primary">
-            <div class="card-header"><h4>Histori Pembelian</h4></div>
+            <div class="card-header"><h4>Statistik Bahan Baku</h4></div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- TOTAL TRANSAKSI  -->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                    <div class="card-icon bg-primary">
+                                        <i class="fas fa-tags"></i>
+                                    </div>
+                                    <div class="card-wrap">
+                                        <div class="card-header">
+                                            <h4>Total Pembelian</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <?=$data['totalKonsumsi']; ?> <?=$data['bahanBaku']['satuan']; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- NOMINAL TRANSAKSI  -->
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="card card-statistic-1">
+                                    <div class="card-icon bg-primary">
+                                        <i class="fas fa-address-book"></i>
+                                    </div>
+                                    <div class="card-wrap">
+                                        <div class="card-header">
+                                            <h4>Nominal Pembelian Total</h4>
+                                        </div>
+                                        <div class="card-body">
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- HISTORY PEMBELIAN  -->
+                <div style="text-align: center;"><h6>History Pembelian</h6></div>
+                <div class="row">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Kd Pembelian</th><th>Qt</th><th>Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($data['historiPembelian'] as $hp) : ?>
+                                <tr>
+                                    <td><?=strtoupper($hp['kd_pembelian']); ?></td>
+                                    <td><?=$hp['qt']; ?> <?=$data['bahanBaku']['satuan']; ?></td>
+                                    <td></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     </div>

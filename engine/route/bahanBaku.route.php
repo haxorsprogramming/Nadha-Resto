@@ -35,6 +35,8 @@ class bahanBaku extends Route{
     public function detailBahanBaku($kdBahan)
     {
         $data['bahanBaku'] = $this -> state($this -> sn) -> detailBahanBaku($kdBahan);
+        $data['totalKonsumsi'] = $this -> state($this -> sn) -> getTotalKonsumsi($kdBahan);
+        $data['historiPembelian'] = $this -> state($this -> sn) -> getHistoriPembelian($kdBahan);
         $data['kategori'] = $this -> state($this -> su) -> getDataKategoriBahanBaku();
         $this -> bind('dasbor/bahanBaku/detailBahanBaku', $data);
     }

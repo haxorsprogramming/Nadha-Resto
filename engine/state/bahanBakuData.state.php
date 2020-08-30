@@ -53,4 +53,17 @@ class bahanBakuData{
         $this -> st -> queryRun();
     }
 
+    public function getTotalKonsumsi($kdBahan)
+    {
+        $this -> st -> query("SELECT SUM(qt) FROM tbl_temp_pembelian_bahan_baku WHERE kd_item='$kdBahan';");
+        $q = $this -> st -> querySingle();
+        return $q['SUM(qt)'];
+    }
+
+    public function getHistoriPembelian($kdBahan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_pembelian_bahan_baku WHERE kd_item='$kdBahan';");
+        return $this -> st -> queryAll();
+    }
+
 }
