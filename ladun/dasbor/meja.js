@@ -1,6 +1,7 @@
-//inisialisasi route 
+// ROUTE  
 var routeToTambahMeja = server+"meja/prosesTambahMeja";
 
+// VUE OBJECT 
 var divMeja = new Vue({
     el : '#divMeja',
     data : {
@@ -13,27 +14,30 @@ var divMeja = new Vue({
         divJudul.judulForm = "Tambah Meja";
         $('#divTambahMeja').show();
         $('#divDataMeja').hide();
-        document.getElementById('txtNamaMeja').focus();
+        document.querySelector('#txtNamaMeja').focus();
        },
        kembaliAtc : function()
        {
-        renderMenu(meja);
-        divJudul.judulForm = "List Meja";
+        divMenu.mejaAtc();
        },
        prosesSimpan : function()
        {
-           this.namaMeja = document.getElementById('txtNamaMeja').value;
-           this.deks = document.getElementById('txtDeks').value;
+           this.namaMeja = document.querySelector('#txtNamaMeja').value;
+           this.deks = document.querySelector('#txtDeks').value;
            if(this.namaMeja === '' || this.deks === ''){
             pesanUmumApp('error', 'Isi field!!', 'Harap isi semua field!!');
            }else{
                prosesSimpan();
            }
+       },
+       hapusAtc : function(kdMeja)
+       {
+        hapusMeja(kdMeja);
        } 
     }
 });
 
-//inisialisasi
+// INISIALISASI 
 $('#tblMeja').dataTable();
 $('#divTambahMeja').hide();
 
@@ -41,6 +45,7 @@ document.getElementById('btnSimpan').addEventListener('click', function(){
     divMeja.prosesSimpan();
 });
 
+// FUNCTION 
 function prosesSimpan()
 {
     let namaMeja = divMeja.namaMeja;
@@ -55,4 +60,9 @@ function prosesSimpan()
             divMeja.kembaliAtc();
         }
     });
+}
+
+function hapusMeja(kdMeja)
+{
+    console.log(kdMeja);
 }
