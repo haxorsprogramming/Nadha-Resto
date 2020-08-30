@@ -6,11 +6,12 @@
             <div class="card-header"><h4>Detail Bahan Baku</h4></div>
                 <div class="form-group">
                     <label>Nama Bahan Baku</label>
+                    <input type="hidden" id="txtKdBahan" value="<?=$data['bahanBaku']['kd_bahan']; ?>">
                     <input type="text" class="form-control" id="txtNama" value="<?=$data['bahanBaku']['nama']; ?>" placeholder="Nama Bahan Baku" disabled>
                 </div>
                 <div class="form-group">
                     <label>Deksripsi</label>
-                    <textarea class="form-control" style="resize: none;" id="txtDeksripsi" disabled><?=$data['bahanBaku']['deks']; ?></textarea>
+                    <textarea class="form-control" style="resize: none;" id="txtDeks" disabled><?=$data['bahanBaku']['deks']; ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>Kategori</label>

@@ -39,4 +39,17 @@ class bahanBaku extends Route{
         $this -> bind('dasbor/bahanBaku/detailBahanBaku', $data);
     }
 
+    public function updateBahanBaku()
+    {
+        $kdBahan = $this -> inp('kdBahan');
+        $nama = $this -> inp('nama');
+        $deks = $this -> inp('deks');
+        $kategori = $this -> inp('kategori');
+        $satuan = $this -> inp('satuan');
+        $stok = $this -> inp('stok');
+        $this -> state($this -> sn) -> updateBahanBaku($nama, $deks, $kategori, $satuan, $stok, $kdBahan);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }

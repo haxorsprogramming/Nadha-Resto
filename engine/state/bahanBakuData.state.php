@@ -39,4 +39,11 @@ class bahanBakuData{
         return $this -> st -> querySingle();
     }
 
+    public function updateBahanBaku($nama, $deks, $kategori, $satuan, $stok, $kdBahan)
+    {
+        $query = "UPDATE tbl_bahan_baku SET nama='$nama', deks='$deks', kategori='$kategori', satuan='$satuan', stok='$stok' WHERE kd_bahan='$kdBahan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
