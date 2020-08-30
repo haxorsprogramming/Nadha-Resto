@@ -81,7 +81,7 @@
                         <i class='fas fa-save'></i> Simpan
                     </a>&nbsp;&nbsp;
                     <a href='#!' class="btn btn-info btn-icon icon-left" @click='clearAtc'>
-                        <iclass='fas fa-i-cursor'></i> Clear
+                        <i class='fas fa-i-cursor'></i> Clear
                     </a>
                 </div>
             </div>

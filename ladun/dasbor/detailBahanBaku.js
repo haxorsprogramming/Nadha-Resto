@@ -1,5 +1,6 @@
 // ROUTE 
 var routeToUpdate = server + 'bahanBaku/updateBahanBaku';
+var routeToDelete = server + 'bahanBaku/hapusBahanBaku';
 
 // VUE OBJECT 
 var divDetailBahanBaku = new Vue({
@@ -39,6 +40,41 @@ var divDetailBahanBaku = new Vue({
                     });
                 }
             }
-        }        
+        },
+        kembaliAtc : function()
+        {
+            divMenu.bahanBakuAtc();
+        },
+        hapusBahanBaku : function(kdBahan)
+        {
+            hapusBahanBaku(kdBahan);
+        }
     }
 });
+
+// FUNCTION 
+function hapusBahanBaku(kdBahan)
+{
+    Swal.fire({
+        title: "Hapus bahan baku?",
+        text: "Yakin menghapus bahan baku ... ?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.value) {
+           $.post(routeToDelete, {'kdBahan':kdBahan}, function(data){
+               let obj = JSON.parse(data);
+               if(obj.status === 'sukses'){
+                   pesanUmumApp('success', 'Sukses', 'Berhasil menghapus bahan baku..');
+                   divMenu.bahanBakuAtc();
+               }else{
+
+               }
+           });
+        }
+      });
+}

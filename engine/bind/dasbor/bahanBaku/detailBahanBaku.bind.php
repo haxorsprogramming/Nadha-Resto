@@ -39,10 +39,16 @@
                     <label>Stok</label>
                     <input type="text" class="form-control" id="txtStok" value="<?=$data['bahanBaku']['stok']; ?>" placeholder="Stok" disabled>
                 </div>
-                <div style="margin-bottom: 15px;">
+                <div style="margin-bottom: 15px;text-align:center;">
                     <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left" @click='editAtc'>
                         <i :class='btnClass'></i> {{btnCap}}
                     </a>&nbsp;&nbsp;&nbsp;
+                    <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left" @click='hapusBahanBaku("<?=$data['bahanBaku']['kd_bahan']; ?>")'>
+                        <i class='fas fa-trash-alt'></i> Hapus Bahan Baku
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href='#!' class="btn btn-info btn-lg btn-icon icon-left" @click='kembaliAtc'>
+                        <i class='fas fa-reply'></i> Kembali
+                    </a>
                 </div>
         </div>
     </div>

@@ -52,4 +52,12 @@ class bahanBaku extends Route{
         $this -> toJson($data);
     }
 
+    public function hapusBahanBaku()
+    {
+        $kdBahan = $this -> inp('kdBahan');
+        $this -> state($this -> sn) -> hapusBahanBaku($kdBahan);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }

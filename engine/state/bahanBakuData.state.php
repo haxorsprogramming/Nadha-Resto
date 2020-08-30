@@ -46,4 +46,11 @@ class bahanBakuData{
         $this -> st -> queryRun();
     }
 
+    public function hapusBahanBaku($kdBahan)
+    {
+        $query = "DELETE FROM tbl_bahan_baku WHERE kd_bahan='$kdBahan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
