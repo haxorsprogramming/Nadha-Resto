@@ -100,8 +100,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label>Nama Pelanggan</label><br />
-                    <select class="form-control select2" id='txtPelangganTh' onchange="setNamaPelangganTh()"
-                        style="width: 100%;">
+                    <select class="form-control select2" id='txtPelangganTh' onchange="setNamaPelangganTh()" style="width: 100%;">
                         <option value="none" default>-- Pilih pelanggan --</option>
                         <?php foreach($data['pelanggan'] as $dp) :
                             ?>

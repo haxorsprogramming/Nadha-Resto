@@ -28,4 +28,12 @@ class mejaData{
         $this -> st -> queryRun();
     }
 
+    public function hapusMeja($kdMeja)
+    {
+        $query = "DELETE FROM tbl_meja WHERE kd_meja='$kdMeja';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+
 }

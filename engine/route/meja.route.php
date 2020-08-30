@@ -27,4 +27,12 @@ class meja extends Route{
         $this -> toJson($data);
     }
 
+    public function hapusMeja()
+    {
+        $kdMeja = $this -> inp('kdMeja');
+        $this -> state($this -> sn) -> hapusMeja($kdMeja);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }

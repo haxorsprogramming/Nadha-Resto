@@ -1,5 +1,6 @@
 // ROUTE  
 var routeToTambahMeja = server + "meja/prosesTambahMeja";
+var routeToDeleteMeja = server + "meja/hapusMeja";
 
 // VUE OBJECT 
 var divMeja = new Vue({
@@ -30,9 +31,9 @@ var divMeja = new Vue({
                prosesSimpan();
            }
        },
-       hapusAtc : function(kdMeja)
+       hapusAtc : function(kdMeja, namaMeja)
        {
-        hapusMeja(kdMeja);
+        hapusMeja(kdMeja, namaMeja);
        } 
     }
 });
@@ -62,7 +63,28 @@ function prosesSimpan()
     });
 }
 
-function hapusMeja(kdMeja)
+function hapusMeja(kdMeja, namaMeja)
 {
-    console.log(kdMeja);
+    Swal.fire({
+        title: "Hapus meja?",
+        text: "Yakin menghapus meja "+namaMeja+"?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.value) {
+           $.post(routeToDeleteMeja, {'kdMeja':kdMeja}, function(data){
+               let obj = JSON.parse(data);
+               if(obj.status === 'sukses'){
+                   pesanUmumApp('success', 'Sukses', 'Berhasil menghapus meja..');
+                   divMenu.mejaAtc();
+               }else{
+
+               }
+           });
+        }
+      });
 }

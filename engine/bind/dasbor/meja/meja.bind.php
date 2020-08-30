@@ -24,7 +24,7 @@
                         <td><?=$dm['status']; ?></td>
                         <td><?=$dm['last_visit']; ?></td>
                         <td>
-                            <a href='#!' class='btn btn-warning btn-sm btn-icon icon-left' @click='hapusAtc("<?=$dm['kd_meja']; ?>")'>
+                            <a href='#!' class='btn btn-warning btn-sm btn-icon icon-left' @click='hapusAtc("<?=$dm['kd_meja']; ?>", "<?=$dm['nama']; ?>")'>
                                 <i class='fas fa-trash-alt'></i> Hapus
                             </a>
                         </td>
