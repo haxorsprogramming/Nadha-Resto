@@ -1,7 +1,7 @@
 //route
-var routeToGetDataPelanggan = server+"pelanggan/getDataPelanggan";
-var routeToDeletePelanggan = server+"pelanggan/hapusPelanggan";
-var routeToDetailPelanggan = server+"pelanggan/detailPelanggan/";
+var routeToGetDataPelanggan = server + "pelanggan/getDataPelanggan";
+var routeToDeletePelanggan = server + "pelanggan/hapusPelanggan";
+var routeToDetailPelanggan = server + "pelanggan/detailPelanggan/";
 
 var divPelanggan = new Vue({
     el : '#divPelanggan',
@@ -14,7 +14,7 @@ var divPelanggan = new Vue({
             $('#divFormTambahPelanggan').show();
             $('#divPelanggan').hide();
             divJudul.judulForm = "Tambah Pelanggan";
-            document.getElementById('txtNama').focus();
+            document.querySelector('#txtNama').focus();
         },
         kembaliAtc : function()
         {
@@ -102,10 +102,10 @@ document.getElementById('btnKembali').addEventListener("click", function(){
 });
 
 document.getElementById('btnSimpan').addEventListener("click", function(){
-    divFormTambahPelanggan.nama = document.getElementById('txtNama').value;
-    divFormTambahPelanggan.alamat = document.getElementById('txtAlamat').value;
-    divFormTambahPelanggan.email = document.getElementById('txtEmail').value;
-    divFormTambahPelanggan.hp = document.getElementById('txtHp').value;
+    divFormTambahPelanggan.nama = document.querySelector('#txtNama').value;
+    divFormTambahPelanggan.alamat = document.querySelector('#txtAlamat').value;
+    divFormTambahPelanggan.email = document.querySelector('#txtEmail').value;
+    divFormTambahPelanggan.hp = document.querySelector('#txtHp').value;
     divFormTambahPelanggan.prosesTambahPelanggan();
 });
 
@@ -141,11 +141,11 @@ function messageSukses()
 
 function clearForm()
 {
-    document.getElementById('txtNama').value = '';
-    document.getElementById('txtAlamat').value = '';
-    document.getElementById('txtEmail').value = '';
-    document.getElementById('txtHp').value = '';
-    document.getElementById('txtNama').focus();
+    document.querySelector('#txtNama').value = '';
+    document.querySelector('#txtAlamat').value = '';
+    document.querySelector('#txtEmail').value = '';
+    document.querySelector('#txtHp').value = '';
+    document.querySelector('#txtNama').focus();
 }
 
 $('#tblPelanggan').on('click', '.btnDetail', function(){

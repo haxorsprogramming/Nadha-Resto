@@ -2,10 +2,10 @@
     <div id='divDataMeja'>
         <div style='margin-bottom:15px;'>
             <a href='#!' class='btn btn-lg btn-primary  btn-icon icon-left' @click='tambahMejaAtc'>
-                <i class="fas fa-plus-circle"></i> Tambah Meja
+                <i class='fas fa-plus-circle'></i> Tambah Meja
             </a>
         </div>
-        <div class="row" id='' style="padding-left:20px;margin-right:10px;">
+        <div class='row' id='' style='padding-left:20px;margin-right:10px;'>
             <table id='tblMeja' class='table table-hover table-bordered table-stripped'>
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@
                         <td><?=$dm['status']; ?></td>
                         <td><?=$dm['last_visit']; ?></td>
                         <td>
-                            <a href='#!' class="btn btn-warning btn-sm btn-icon icon-left" @click='hapusAtc("<?=$dm['kd_meja']; ?>")'>
+                            <a href='#!' class='btn btn-warning btn-sm btn-icon icon-left' @click='hapusAtc("<?=$dm['kd_meja']; ?>")'>
                                 <i class='fas fa-trash-alt'></i> Hapus
                             </a>
                         </td>
@@ -60,12 +60,12 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Tentang manajemen meja</h4>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-12 mt-3'>
+                <div class='card card-primary'>
+                    <div class='card-header'>
+                        <h4 class='card-title'>Tentang manajemen meja</h4>
                     </div>
-                    <div class="card-body">
+                    <div class='card-body'>
                         <ul></ul>
                     </div>
                 </div>
@@ -74,4 +74,4 @@
     </div>
 </div>
 
-<script src="<?=STYLEBASE; ?>/dasbor/meja.js"></script>
+<script src='<?=STYLEBASE; ?>/dasbor/meja.js'></script>

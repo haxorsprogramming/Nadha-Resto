@@ -1,5 +1,5 @@
 // ROUTE  
-var routeToTambahMeja = server+"meja/prosesTambahMeja";
+var routeToTambahMeja = server + "meja/prosesTambahMeja";
 
 // VUE OBJECT 
 var divMeja = new Vue({

@@ -1,7 +1,8 @@
-//inisialisasi route
-var routeSetLeave = server+"monitoring/setLeave";
-var routeSetActive = server+"monitoring/setActive";
+// ROUTE 
+var routeSetLeave = server + "monitoring/setLeave";
+var routeSetActive = server + "monitoring/setActive";
 
+// VUE OBJECT 
 var divMonitoring = new Vue({
     el : '#divMonitoring',
     data : {
@@ -18,7 +19,8 @@ var divMonitoring = new Vue({
         }
     }
 });
-//inisialisai fungsi 
+
+// FUNCTION  
 function setLeave(kdMeja)
 {
     $.post(routeSetLeave, {'kdMeja':kdMeja}, function(data){
