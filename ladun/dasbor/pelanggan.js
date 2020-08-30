@@ -1,8 +1,9 @@
-//route
+// ROUTE 
 var routeToGetDataPelanggan = server + "pelanggan/getDataPelanggan";
 var routeToDeletePelanggan = server + "pelanggan/hapusPelanggan";
 var routeToDetailPelanggan = server + "pelanggan/detailPelanggan/";
 
+// VUE OBJECT 
 var divPelanggan = new Vue({
     el : '#divPelanggan',
     data : {
@@ -81,7 +82,8 @@ var divFormTambahPelanggan = new Vue({
         }
     }
 });
-//inisialisasi
+
+// INISIALISASI 
 $('#divFormTambahPelanggan').hide();
 
 $('#tblPelanggan').dataTable({
@@ -113,6 +115,7 @@ document.getElementById('btnClearForm').addEventListener("click", function(){
     clearForm();
 });
 
+// FUNCTION 
 function prosesTambahPelanggan()
 {
     const nama = divFormTambahPelanggan.nama;

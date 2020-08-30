@@ -36,7 +36,7 @@ class menu extends Route{
         //remove (.) in text harga input
         $hargaClear         = str_replace(".", "", $harga);
         //set upload folder
-        $destination    = 'ladun/dasbor/img/menu/'.$kdMenu.".".$tipeFile;
+        $destination    = 'ladun/dasbor/img/menu/'.$kdMenu.'.'.$tipeFile;
         //cek apakah nama makanan sudah ada
         $jlhNama        = $this -> state($this -> sn) -> cariNamaMakanan($nama);
         if($jlhNama > 0){

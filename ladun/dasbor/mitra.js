@@ -1,6 +1,7 @@
-//inisialisasi route
-var routeToTambahMitra = server+"mitra/tambahMitra";
+// ROUTE 
+var routeToTambahMitra = server + "mitra/tambahMitra";
 
+// VUE OBJECT 
 var divMitra = new Vue({
     el : '#divMitra',
     data : {
@@ -14,7 +15,7 @@ var divMitra = new Vue({
     methods : {
         detailAtc: function(kdMitra)
         {
-            renderMenu('mitra/detailMitra/'+kdMitra);
+            renderMenu('mitra/detailMitra/' + kdMitra);
             divJudul.judulForm = "Detail Mitra";
         },
         tambahMitraAtc : function()
@@ -36,10 +37,11 @@ var divMitra = new Vue({
     }
 });
 
-//inisialisasi
+// INISIALISASI 
 $('#divTambahMitra').hide();
 $('#tblMitra').dataTable();
 
+// FUNCTION 
 function clear()
 {
     divMitra.nama = '';
@@ -48,7 +50,7 @@ function clear()
     divMitra.alamat = '';
     divMitra.hp = '';
     divMitra.tipe = '';
-    document.getElementById('txtNamaMitra').focus();
+    document.querySelector('#txtNamaMitra').focus();
 }
 
 function simpan() {
@@ -80,7 +82,7 @@ function tambahMitra()
     divJudul.judulForm = "Tambah Mitra";
     $('#divListMitra').hide();
     $('#divTambahMitra').show();
-    document.getElementById('txtNamaMitra').focus();
+    document.querySelector('#txtNamaMitra').focus();
 }
 
 function kembali()

@@ -29,7 +29,7 @@ class frontEndSetting extends Route{
         $idFile = $this -> rnint(5);
         $fileTemp = $this -> getTempFile('txtFoto');
         $sizeFile = $_FILES['txtFoto']['size'];
-        $destination = 'ladun/home/img/slider/'.$idFile.".".$tipeFile;
+        $destination = 'ladun/home/img/slider/'.$idFile.'.'.$tipeFile;
         $picName = $idFile.".".$tipeFile;
         //table data
         $judul = $this -> inp('txtJudul');

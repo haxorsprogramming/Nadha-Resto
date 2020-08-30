@@ -31,7 +31,7 @@ class pembayaran extends Route{
         $data['namaMeja']       = $this -> state($this -> sn) -> getCapMeja($kdMeja);
         $data['namaPelanggan']  = $this -> state($this -> sn) -> getNamaPelanggan($kdPelanggan);
         //data tax 
-        $data['tax'] = $this -> state($this -> sn) -> getTax();
+        $data['tax']            = $this -> state($this -> sn) -> getTax();
         $qTemp                  = $this -> state($this -> sn) -> getDataTempPesanan($kdPesanan);
         $totalHarga             = 0;
         foreach($qTemp as $qt){
