@@ -33,4 +33,10 @@ class mitraData{
         $this -> st -> queryRun();
     }
 
+    public function detailMitra($kdMitra)
+    {
+        $this -> st -> query("SELECT * FROM tbl_mitra where kd_mitra='$kdMitra';");
+        return $this -> st -> querySingle();
+    }
+
 }

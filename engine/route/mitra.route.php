@@ -1,7 +1,7 @@
 <?php
 
 class mitra extends Route{
-    //inisialisasi state
+    // STATE 
     private $sn = 'mitraData';
     private $su = 'utilityData';
     
@@ -14,7 +14,8 @@ class mitra extends Route{
     public function detailMitra($kdMitra)
     {
         $data['kdMitra'] = $kdMitra;
-        $this -> bind('dasbor/mitra/detailMitra');
+        $data['mitra'] = $this -> state($this -> sn) -> detailMitra($kdMitra);
+        $this -> bind('dasbor/mitra/detailMitra', $data);
     }
 
     public function tambahMitra()
