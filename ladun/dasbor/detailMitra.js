@@ -75,7 +75,12 @@ function hapusMitra(kdMitra)
         if (result.value) {
             $.post(routeToHapus, {'kdMitra':kdMitra}, function(data){
                 let obj = JSON.parse(data);
-                console.log(obj);
+                if(obj.status === 'sukses'){
+                    pesanUmumApp('success', 'Sukses', 'Berhasil menghapus mitra ...');
+                    divMenu.mitraAtc();
+                }else{
+
+                }
             });
         }
       });

@@ -52,4 +52,11 @@ class mitraData{
         return $this -> st -> queryAll();
     }
 
+    public function deleteMitra($kdMitra)
+    {
+        $query = "DELETE FROM tbl_mitra WHERE kd_mitra='$kdMitra';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

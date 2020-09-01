@@ -54,7 +54,7 @@ class mitra extends Route{
     public function deleteMitra()
     {
         $kdMitra = $this -> inp('kdMitra');
-        $query = "DELETE FROM tbl_mitra ;";
+        $this -> state($this -> sn) -> deleteMitra($kdMitra);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
