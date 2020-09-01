@@ -28,4 +28,10 @@ class promoData{
          $this -> st -> queryRun();
     }
 
+    public function detailPromo($kdPromo)
+    {
+        $this -> st -> query("SELECT * FROM tbl_promo WHERE kd_promo='$kdPromo';");
+        return $this -> st -> querySingle();
+    }
+
 }

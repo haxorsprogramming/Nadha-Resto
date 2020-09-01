@@ -28,7 +28,7 @@
                         <label>Email</label>
                         <input type="text" class="form-control" id="txtEmail" placeholder="Email" value="<?=$data['pelanggan']['email']; ?>" disabled>
                     </div>
-                    <div>
+                    <div style="text-align: center;">
                         <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left" @click='editAtc'>
                             <i :class='btnClass'></i> {{btnCap}}
                         </a>&nbsp;&nbsp;&nbsp;

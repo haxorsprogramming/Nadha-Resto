@@ -22,16 +22,16 @@ var divPromo = new Vue({
         {
             $('#divDataPromo').hide();
             $('#divTambahPromo').show();
-            document.getElementById('txtNamaPromo').focus();
+            document.querySelector('#txtNamaPromo').focus();
         },
         prosesTambah : function()
         {
-            this.namaPromo = document.getElementById('txtNamaPromo').value;
-            this.deks = document.getElementById('txtDeks').value;
-            this.tipe = document.getElementById('txtTipe').value;
-            this.nilai = document.getElementById('txtNilai').value;
-            this.kuota = document.getElementById('txtKuota').value;
-            this.tanggalExpired = document.getElementById('txtTanggalExpired').value;
+            this.namaPromo = document.querySelector('#txtNamaPromo').value;
+            this.deks = document.querySelector('#txtDeks').value;
+            this.tipe = document.querySelector('#txtTipe').value;
+            this.nilai = document.querySelector('#txtNilai').value;
+            this.kuota = document.querySelector('#txtKuota').value;
+            this.tanggalExpired = document.querySelector('#txtTanggalExpired').value;
             if(this.namaPromo === '' || this.deks === '' || this.tipe === '' || this.nilai === '' || this.kuota === '' || this.tanggalExpired === ''){
                 pesanUmumApp('warning', 'Isi field...', 'Harap isi semua field!!!');
             }else{
@@ -40,7 +40,8 @@ var divPromo = new Vue({
         },
         detailAtc : function(kdPromo)
         {
-            console.log(kdPromo);
+            renderMenu('promo/detailPromo/'+kdPromo);
+            divJudul.judulForm = "Detail Promo";
         },
         kembaliAtc : function()
         {

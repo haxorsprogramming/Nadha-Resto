@@ -33,8 +33,9 @@ class promo extends Route{
 
     public function detailPromo($kdPromo)
     {
-        
-        $this -> bind('dasbor/promo/detailPromo');
+        $data['kdPromo'] = $kdPromo;
+        $data['promo'] = $this -> state($this -> sn) -> detailPromo($kdPromo);
+        $this -> bind('dasbor/promo/detailPromo', $data);
     }
 
 }
