@@ -37,5 +37,18 @@ class mitra extends Route{
         $this -> toJson($data);
     }
 
+    public function updateMitra()
+    {
+        // {'nama':nama, 'deks':deks, 'alamat':alamat, 'pemilik':pemilik, 'noHp':noHp}
+        $kdMitra = $this -> inp('kdMitra');
+        $nama = $this -> inp('nama');
+        $deks = $this -> inp('deks');
+        $alamat = $this -> inp('alamat');
+        $pemilik = $this -> inp('pemilik');
+        $noHp = $this -> inp('noHp');
+        $this -> state($this -> sn) -> updateMitra($nama, $deks, $alamat, $pemilik, $noHp, $kdMitra);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
     
 }

@@ -9,23 +9,24 @@
             <table class="table" style="width: 90%;">
                 <tr>
                     <th>Nama Mitra</th>
-                    <th><input type='text' value="<?=$data['mitra']['nama']; ?>" class="form-control" disabled></th>
+                    <th><input type='text' id='txtNamaMitra' value="<?=$data['mitra']['nama']; ?>" class="form-control" disabled></th>
+                    <input type="hidden" id="txtKdMitra" value="<?=$data['kdMitra']; ?>">
                 </tr>
                 <tr>
                     <th>Deks</th>
-                    <th><input type='text' value="<?=$data['mitra']['deks']; ?>" class="form-control" disabled></th>
+                    <th><input type='text' id='txtDeks' value="<?=$data['mitra']['deks']; ?>" class="form-control" disabled></th>
                 </tr>
                 <tr>
                     <th>Alamat</th>
-                    <th><input type='text' value="<?=$data['mitra']['alamat']; ?>" class="form-control" disabled></th>
+                    <th><input type='text' id='txtAlamat' value="<?=$data['mitra']['alamat']; ?>" class="form-control" disabled></th>
                 </tr>
                 <tr>
                     <th>Pemilik</th>
-                    <th><input type='text' value="<?=$data['mitra']['pemilik']; ?>" class="form-control" disabled></th>
+                    <th><input type='text' id='txtPemilik' value="<?=$data['mitra']['pemilik']; ?>" class="form-control" disabled></th>
                 </tr>
                 <tr>
                     <th>No Hp</th>
-                    <th><input type='text' value="<?=$data['mitra']['hp']; ?>" class="form-control" disabled></th>
+                    <th><input type='text' id='txtNoHp' value="<?=$data['mitra']['hp']; ?>" class="form-control" disabled></th>
                 </tr>
             </table>
             <div style="text-align: center;margin-bottom:12px;">

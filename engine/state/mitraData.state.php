@@ -39,4 +39,11 @@ class mitraData{
         return $this -> st -> querySingle();
     }
 
+    public function updateMitra($nama, $deks, $alamat, $pemilik, $noHp, $kdMitra)
+    {
+        $query = "UPDATE tbl_mitra SET nama='$nama', deks='$deks', alamat='$alamat', pemilik='$pemilik', hp='$noHp' WHERE kd_mitra='$kdMitra';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }
