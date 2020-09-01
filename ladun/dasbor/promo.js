@@ -40,7 +40,7 @@ var divPromo = new Vue({
         },
         detailAtc : function(kdPromo)
         {
-            
+            console.log(kdPromo);
         },
         kembaliAtc : function()
         {
