@@ -33,7 +33,8 @@ class promo extends Route{
 
     public function detailPromo($kdPromo)
     {
-        $xssClear = htmlspecialchars($kdPromo);
+        
+        $this -> bind('dasbor/promo/detailPromo');
     }
 
 }

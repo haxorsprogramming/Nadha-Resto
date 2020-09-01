@@ -19,15 +19,15 @@
                 </thead>
                 <tbody>
                     <?php foreach($data['promo'] as $dp) : 
-                    $tipe = $dp['tipe'];
-                    $nilai = $dp['value'];
+                        $tipe = $dp['tipe'];
+                        $nilai = $dp['value'];
 
-                    if($tipe == 'persen'){
-                        $capTipe = $nilai."%";
-                    }else{
-                        $capTipe = "Rp. ".number_format($nilai);
-                    }
-                ?>
+                        if($tipe == 'persen'){
+                            $capTipe = $nilai."%";
+                        }else{
+                            $capTipe = "Rp. ".number_format($nilai);
+                        }
+                    ?>
                     <tr>
                         <td><a href='#!'><strong><?=$dp['nama']; ?></strong></a></td>
                         <td><?=$dp['deks']; ?></td>
