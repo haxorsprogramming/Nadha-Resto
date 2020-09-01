@@ -87,6 +87,5 @@ function tambahMitra()
 
 function kembali()
 {
-    renderMenu(mitra);
-    divJudul.judulForm = "Daftar Mitra";
+    divMenu.mitraAtc();
 }

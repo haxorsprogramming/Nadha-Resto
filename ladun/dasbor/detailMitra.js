@@ -1,5 +1,6 @@
 // ROUTE 
 var routeToUpdate = server + 'mitra/updateMitra';
+var routeToHapus = server + 'mitra/deleteMitra';
 
 // VUE OBJECT 
 var divDetailMitra = new Vue({
@@ -18,9 +19,15 @@ var divDetailMitra = new Vue({
                 this.btnClass = 'fas fa-save';
             }else{
                 prosesUpdate();
-                
             }
-            
+        },
+        kembaliAtc : function()
+        {
+            divMenu.mitraAtc();
+        },
+        hapusMitraAtc : function(kdMitra)
+        {
+            hapusMitra(kdMitra);
         }
     }
 });
@@ -51,4 +58,26 @@ function prosesUpdate()
             }
         });
     }
+}
+
+function hapusMitra(kdMitra)
+{
+    Swal.fire({
+        title: "Hapus mitra?",
+        text: "Yakin menghapus mitra ... ?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.value) {
+            $.post(routeToHapus, {'kdMitra':kdMitra}, function(data){
+                let obj = JSON.parse(data);
+                console.log(obj);
+            });
+        }
+      });
+   
 }

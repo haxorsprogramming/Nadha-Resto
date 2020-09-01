@@ -46,4 +46,10 @@ class mitraData{
         $this -> st -> queryRun();
     }
 
+    public function historiTransaksi($kdMitra)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pembelian_bahan_baku WHERE mitra='$kdMitra';");
+        return $this -> st -> queryAll();
+    }
+
 }

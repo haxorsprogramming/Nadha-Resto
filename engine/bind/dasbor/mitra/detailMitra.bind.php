@@ -33,13 +33,39 @@
                 <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left" @click='editAtc'>
                     <i :class='btnClass'></i> {{btnCap}}
                 </a>&nbsp;&nbsp;&nbsp;
+                <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left" @click='hapusMitraAtc("<?=$data['kdMitra']; ?>")'>
+                    <i class='fas fa-trash-alt'></i> Hapus Mitra
+                </a>&nbsp;&nbsp;&nbsp;
+                <a href='#!' class="btn btn-info btn-lg btn-icon icon-left" @click='kembaliAtc'>
+                    <i class='fas fa-reply'></i> Kembali
+                </a>
             </div>
         </div>
     </div>
     <!-- STATISTIK & HISTORI MITRA  -->
     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card card-primary">
-            <div class="card-header">Transaksi Mitra</div>
+            <div class="card-header">Histori Transaksi Mitra</div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Kd Transaksi</th>
+                            <th>Total</th>
+                            <th>Waktu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($data['historiTransaksi'] as $ht) : ?>
+                            <tr>
+                                <td><?=$ht['kd_pembelian']; ?></td>
+                                <td>Rp. <?=number_format($ht['total']); ?></td>
+                                <td><?=$ht['waktu']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -15,6 +15,7 @@ class mitra extends Route{
     {
         $data['kdMitra'] = $kdMitra;
         $data['mitra'] = $this -> state($this -> sn) -> detailMitra($kdMitra);
+        $data['historiTransaksi'] = $this -> state($this -> sn) -> historiTransaksi($kdMitra);
         $this -> bind('dasbor/mitra/detailMitra', $data);
     }
 
@@ -39,7 +40,6 @@ class mitra extends Route{
 
     public function updateMitra()
     {
-        // {'nama':nama, 'deks':deks, 'alamat':alamat, 'pemilik':pemilik, 'noHp':noHp}
         $kdMitra = $this -> inp('kdMitra');
         $nama = $this -> inp('nama');
         $deks = $this -> inp('deks');
@@ -47,6 +47,14 @@ class mitra extends Route{
         $pemilik = $this -> inp('pemilik');
         $noHp = $this -> inp('noHp');
         $this -> state($this -> sn) -> updateMitra($nama, $deks, $alamat, $pemilik, $noHp, $kdMitra);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
+    public function deleteMitra()
+    {
+        $kdMitra = $this -> inp('kdMitra');
+        $query = "DELETE FROM tbl_mitra ;";
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
