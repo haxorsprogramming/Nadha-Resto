@@ -95,6 +95,7 @@ function setNGoDelivery()
                     let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
                     $('#btnPesanSekarang').hide();
                     $('#statButtonPesan').show();
+                    $(".form-control").attr("disabled", "disabled");
                     $.post(deliveryOrderProses, dataSend,  function(data){
                         let obj = JSON.parse(data);
                         db.ref('pesanan/'+kdPesanan).set({

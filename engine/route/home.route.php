@@ -140,14 +140,9 @@ class home extends Route{
         echo $kdPemesanan;
     }
 
-    public function invoice()
+    public function konfirmasi()
     {
-
-    }
-
-    public function firebase()
-    {
-        $this ->  bind('/home/firebase');
+        $this -> bind('home/konfirmasi');
     }
 
 }
