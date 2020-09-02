@@ -50,6 +50,9 @@
                     <a href='#!' class="btn btn-primary btn-lg btn-icon icon-left" @click='editAtc'>
                         <i :class='btnClass'></i> {{btnCap}}
                     </a>&nbsp;&nbsp;&nbsp;
+                    <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left" @click='hapusPromoAtc("<?=$data['kdPromo']; ?>")'>
+                        <i class='fas fa-trash-alt'></i> Hapus Promo
+                    </a>&nbsp;&nbsp;&nbsp;
                     <a href='#!' class="btn btn-info btn-lg btn-icon icon-left" @click='kembaliAtc'>
                         <i class='fas fa-reply'></i> Kembali
                     </a>

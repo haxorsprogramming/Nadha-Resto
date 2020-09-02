@@ -69,6 +69,8 @@ function prosesTambah()
         let obj = JSON.parse(data);
         if(obj.status === 'error_nama_promo'){
             pesanUmumApp('error', 'Error nama promo', 'Nama promo sudah digunakan!!');
+        }else if(obj.status === 'error_tanggal'){
+            pesanUmumApp('error', 'Error', 'Pastikan tanggal expired yang diinput benar ... ');
         }else{
             pesanUmumApp('success', 'Sukses', 'Berhasil menambahkan promo..');
             divPromo.kembaliAtc();

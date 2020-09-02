@@ -1,5 +1,6 @@
 // ROUTE 
 var routeToUpdate = server + 'promo/update';
+var routeToDelete = server + 'promo/delete';
 
 // VUE OBJECT 
 var divDetailPromo = new Vue({
@@ -23,6 +24,10 @@ var divDetailPromo = new Vue({
         kembaliAtc : function()
         {
             divMenu.promoAtc();
+        },
+        hapusPromoAtc : function(kdPromo)
+        {
+            hapusPromo(kdPromo);
         }
     }
 });
@@ -59,4 +64,31 @@ function prosesUpdate()
         });
     }
 
+}
+
+function hapusPromo(kdPromo)
+{
+    
+    Swal.fire({
+        title: "Hapus promo?",
+        text: "Yakin menghapus promo ... ?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.value) {
+            $.post(routeToDelete, {'kdPromo':kdPromo}, function(data){
+                let obj = JSON.parse(data);
+                if(obj.status === 'sukses'){
+                    pesanUmumApp('success', 'Sukses', 'Berhasil menghapus promo ...');
+                    divMenu.promoAtc();
+                }else{
+                   
+                }
+            });
+        }
+      });
 }

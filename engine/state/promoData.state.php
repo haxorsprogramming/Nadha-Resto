@@ -41,4 +41,11 @@ class promoData{
         $this -> st -> queryRun();
     }
 
+    public function deletePromo($kdPromo)
+    {
+        $query = "DELETE FROM tbl_promo WHERE kd_promo='$kdPromo';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

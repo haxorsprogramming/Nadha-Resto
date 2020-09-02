@@ -21,7 +21,14 @@
                     <?php foreach($data['promo'] as $dp) : 
                         $tipe = $dp['tipe'];
                         $nilai = $dp['value'];
-
+                        $tglExpired = $dp['tanggal_expired'];
+                        $tglNow = $this -> tanggal();
+                        $cekTanggal = $this -> cekDateCompare($tglExpired, $tglNow);
+                        if($cekTanggal === false){
+                            $cs = 'Expired';
+                        }else{
+                            $cs = 'Aktif';
+                        }   
                         if($tipe == 'persen'){
                             $capTipe = $nilai."%";
                         }else{
@@ -32,7 +39,7 @@
                         <td><a href='#!'><strong><?=$dp['nama']; ?></strong></a></td>
                         <td><?=$dp['deks']; ?></td>
                         <td><?=$capTipe; ?></td>
-                        <td> Status <?=$dp['kuota']; ?></td>
+                        <td> <?=$cs; ?> - <?=$dp['kuota']; ?></td>
                         <td><?=$dp['tanggal_expired']; ?></td>
                         <td>
                             <a href='#!' class="btn btn-primary btn-sm btn-icon ico-left" @click='detailAtc("<?=$dp['kd_promo']; ?>")'>
