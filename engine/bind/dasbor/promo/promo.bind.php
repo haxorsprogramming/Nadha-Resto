@@ -36,7 +36,7 @@
                         <td><?=$dp['tanggal_expired']; ?></td>
                         <td>
                             <a href='#!' class="btn btn-primary btn-sm btn-icon ico-left" @click='detailAtc("<?=$dp['kd_promo']; ?>")'>
-                                <i class='fas fa-info-circle'></i>Detail
+                                <i class='fas fa-info-circle'></i> Detail
                             </a>
                         </td>
                     </tr>

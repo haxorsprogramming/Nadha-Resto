@@ -39,4 +39,18 @@ class promo extends Route{
         $this -> bind('dasbor/promo/detailPromo', $data);
     }
 
+    public function update()
+    {
+        // {'kdPromo':kdPromo, 'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota, 'tanggalExpired':tanggalExpired}
+        $kdPromo = $this -> inp('kdPromo');
+        $nama = $this -> inp('namaPromo');
+        $deks = $this -> inp('deks');
+        $tipe = $this -> inp('tipe');
+        $nilai = $this -> inp('nilai');
+        $kuota = $this -> inp('kuota');
+        $tanggalExpired = $this -> inp('tanggalExpired');
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
 }

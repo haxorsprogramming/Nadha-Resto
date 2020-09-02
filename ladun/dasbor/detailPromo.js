@@ -1,3 +1,6 @@
+// ROUTE 
+var routeToUpdate = server + 'promo/update';
+
 // VUE OBJECT 
 var divDetailPromo = new Vue({
     el : '#divDetailPromo',
@@ -34,5 +37,25 @@ function prosesUpdate()
     let nilai = document.querySelector('#txtNilai').value;
     let kuota = document.querySelector('#txtKuota').value;
     let tanggalExpired = document.querySelector('#txtTanggalExpired').value;
-    console.log(kdPromo+namaPromo+deks+tipe+nilai+kuota+tanggalExpired);
+
+    if(namaPromo === '' || deks === '' || nilai === '' || kuota === '' || kuota <= 0)
+    {
+        pesanUmumApp('warning', 'Isi field!!', 'Isi field dengan benar ..!!');
+    }else{
+        let dataSend = {'kdPromo':kdPromo, 'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota, 'tanggalExpired':tanggalExpired}
+        progStart();
+        $.post(routeToUpdate, dataSend,  function(data){
+            let obj = JSON.parse(data);
+            if(obj.status === 'sukses'){
+                pesanUmumApp('success', 'Sukses', 'Update promo berhasil..');
+                divDetailPromo.btnCap = 'Edit';
+                divDetailPromo.btnClass = 'far fa-edit';
+                $(".form-control").attr("disabled", "disabled");
+            }else{
+
+            }
+            progStop();
+        });
+    }
+
 }

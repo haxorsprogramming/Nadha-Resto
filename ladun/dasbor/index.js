@@ -159,10 +159,10 @@ var divMenu = new Vue({
 });
  
 function renderMenu(halaman) {
-  NProgress.start();
+  progStart();
   $('#divUtama').html("Memuat form ..");
   $('#divUtama').load(server+halaman);
-  NProgress.done();
+  progStop();
 }
 
 function pesanUmumApp(icon, title, text)
@@ -172,4 +172,14 @@ function pesanUmumApp(icon, title, text)
     title : title,
     text : text
   });
+}
+
+function progStart()
+{
+  NProgress.start();
+}
+
+function progStop()
+{
+  NProgress.done();
 }
