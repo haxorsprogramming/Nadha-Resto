@@ -41,7 +41,6 @@ class promo extends Route{
 
     public function update()
     {
-        // {'kdPromo':kdPromo, 'namaPromo':namaPromo, 'deks':deks, 'tipe':tipe, 'nilai':nilai, 'kuota':kuota, 'tanggalExpired':tanggalExpired}
         $kdPromo = $this -> inp('kdPromo');
         $nama = $this -> inp('namaPromo');
         $deks = $this -> inp('deks');
@@ -49,7 +48,16 @@ class promo extends Route{
         $nilai = $this -> inp('nilai');
         $kuota = $this -> inp('kuota');
         $tanggalExpired = $this -> inp('tanggalExpired');
-        $data['status'] = 'sukses';
+        $tanggalNow = $this -> tanggal();
+        $cekTanggal = $this -> cekDateCompare($tanggalExpired, $tanggalNow);
+
+        if($cekTanggal === false){
+            $data['status'] = 'error_tanggal';
+        }else{
+            $this -> state($this -> sn) -> updatePromo($kdPromo, $nama, $deks, $tipe, $nilai, $kuota, $tanggalExpired);
+            $data['status'] = 'sukses';
+        }
+        
         $this -> toJson($data);
     }
 

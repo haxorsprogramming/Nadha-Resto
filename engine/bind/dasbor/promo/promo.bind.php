@@ -32,7 +32,7 @@
                         <td><a href='#!'><strong><?=$dp['nama']; ?></strong></a></td>
                         <td><?=$dp['deks']; ?></td>
                         <td><?=$capTipe; ?></td>
-                        <td><?=$dp['status']; ?> / <?=$dp['kuota']; ?></td>
+                        <td> Status <?=$dp['kuota']; ?></td>
                         <td><?=$dp['tanggal_expired']; ?></td>
                         <td>
                             <a href='#!' class="btn btn-primary btn-sm btn-icon ico-left" @click='detailAtc("<?=$dp['kd_promo']; ?>")'>

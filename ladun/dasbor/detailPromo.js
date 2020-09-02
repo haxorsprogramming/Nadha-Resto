@@ -46,13 +46,14 @@ function prosesUpdate()
         progStart();
         $.post(routeToUpdate, dataSend,  function(data){
             let obj = JSON.parse(data);
-            if(obj.status === 'sukses'){
+            console.log(obj);
+            if(obj.status === 'error_tanggal'){
+                pesanUmumApp('error', 'Error', 'Pastikan tanggal expired yang diinput benar ... ');
+            }else{
                 pesanUmumApp('success', 'Sukses', 'Update promo berhasil..');
                 divDetailPromo.btnCap = 'Edit';
                 divDetailPromo.btnClass = 'far fa-edit';
                 $(".form-control").attr("disabled", "disabled");
-            }else{
-
             }
             progStop();
         });

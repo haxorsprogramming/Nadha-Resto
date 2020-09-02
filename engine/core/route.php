@@ -172,8 +172,7 @@ class Route{
     //fungsi cek apakah tanggal sudah lewat atau tidak (yyyy-mm-dd) - tanggal awal - tanggal sekarang
     function cekDateCompare($tglCompare, $tglSekarang)
     {
-      $selisih = $tglCompare - $tglSekarang;
-      if($selisih < 1){
+      if(strtotime($tglCompare) < strtotime($tglSekarang)){
         return false;
       }else{
         return true;
