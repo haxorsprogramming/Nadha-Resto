@@ -45,8 +45,7 @@ var divPromo = new Vue({
         },
         kembaliAtc : function()
         {
-            renderMenu(promo);
-            divJudul.judulForm = "Promo";
+            divMenu.promoAtc();
         }
     }
 });
