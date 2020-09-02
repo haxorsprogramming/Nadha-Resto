@@ -102,4 +102,10 @@ class homeData{
         }
     }
 
+    public function getDetailPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_self_service WHERE kd_temp='$kdPesanan';");
+        return $this -> st -> queryAll();
+    }
+
 }

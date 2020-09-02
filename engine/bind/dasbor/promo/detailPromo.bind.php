@@ -35,7 +35,18 @@
                     </tr>
                     <tr>
                         <th>Status</th>
-                        <th><?=$data['promo']['status']; ?></th>
+                        <th>
+                            <?php 
+                                $tanggalExpired = $data['promo']['tanggal_expired'];
+                                $tanggalNow = $this -> tanggal();
+                                $cekTanggal = $this -> cekDateCompare($tanggalExpired, $tanggalNow);
+                                if($cekTanggal === false) {
+                                    echo "Expired";
+                                }else{
+                                    echo "Aktif";
+                                }
+                            ?>
+                        </th>
                     </tr>
                     <tr>
                         <th>Kuota</th>
@@ -64,7 +75,7 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
         <div class="card card-primary">
             <div class="card-header">Histori Transaksi</div>
-
+            no data
         </div>
     </div>
 </div>

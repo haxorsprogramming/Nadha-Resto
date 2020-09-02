@@ -11,6 +11,18 @@ class utility extends Route{
       $this -> toJson($data);
     }
     
+    public function tesEmail()
+    {
+      $nama = 'Aditia';
+      $penerima = 'alditha.forum@gmail.com';
+      $judul = 'Tes kirim email dari google';
+      $isi = 'Tes kirim email 3';
+      $emailHost = 'dindananinda@gmail.com';
+      $passwordHost = '3ncoding4sc11A@';
+
+      $this -> kirimEmail($nama, $penerima, $judul, $isi, $emailHost, $passwordHost);
+    }
+
     public function getDataKategori()
     {
       $this -> state($this -> sn) -> csrfCek();

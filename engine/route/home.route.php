@@ -26,7 +26,7 @@ class home extends Route{
     public function getKdTemp()
     {
         $this -> state($this -> su) -> csrfCek();
-        $data['kdTemp'] = $this -> rnstr(15);
+        $data['kdTemp'] = strtoupper($this -> rnstr(15));
         $this -> toJson($data);
     }
 
@@ -96,8 +96,6 @@ class home extends Route{
             $data['kdPelanggan'] = $kdPelanggan;
             //save ke tabel delivery order
             $this -> state($this -> sn) -> createOrder($kdPesanan, $kdPelanggan, $tipePembayaran, $alamat, $waktu);
-            //kode kirim email (phpmailer msh bermasalah)
-            
         }else{
             $idPelanggan = $this -> rnint(8);
             $data['kdPelanggan'] = $idPelanggan;
@@ -106,8 +104,40 @@ class home extends Route{
             //save ke tabel delivery order
             $this -> state($this -> sn) -> createOrder($kdPesanan, $idPelanggan, $tipePembayaran, $alamat, $waktu);
         }
+        //Kirim email ke pelanggan
+        $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $nama = $nama;
+        $penerima = $email;
+        $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
+        $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
+        $judul = 'Informasi pemesanan makanan - '.$namaResto;
+        $isi = 'Halo  '.$nama.', terima kasih telah melakukan pemesanan di resto kami. Berikut ada detail dari pesanan anda : <br/>';
+        $isi .= "<h5>Kode Pesanan : <b>".$kdPesanan."</b></h5><br/>";
+        $isi .= "Nama Pemesan : ".$nama."<br/>";
+        $isi .= "Alamat pengiriman : ".$alamat."<br/>";
+        $isi .= "Waktu pemesanan : ".$waktu."<br/>";
+        $isi .= "Item pesanan <br/>";
+        $isi .= "<table border='1'>";
+        $isi .= "<tr><td>Item</td><td>Harga @</td><td>Qt</td><td>Total</td></tr>";
+        $dataPesanan = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
+        $totalHarga = 0;
+        foreach($dataPesanan as $dp){
+            $namaMenu = $this -> state($this -> su) -> getNamaMenu($dp['kd_item']);
+            $totalHarga = $totalHarga + $dp['total'];
+            $isi .= "<tr><td>".$namaMenu."</td><td>Rp. ".number_format($dp['harga_at'])."</td><td>".$dp['qt']."</td><td>Rp. ".number_format($dp['total'])."</td></tr>";
+        }
+        $isi .= "</table><br/>";
+        $isi .= "Total : Rp. ".number_format($totalHarga)."<br/>";
+        $isi .= "Silahkan cek status pemesanan anda di <a href='".HOMEBASE."home/cekPemesanan/".$kdPesanan."'>Sini</a>";
+        $this -> kirimEmail($nama, $penerima, $judul, $isi, $emailHost, $passwordHost);
+        
         $data['status'] = $cekHp;
         $this -> toJson($data);
+    }
+
+    public function cekPemesanan($kdPemesanan)
+    {
+        echo $kdPemesanan;
     }
 
     public function invoice()

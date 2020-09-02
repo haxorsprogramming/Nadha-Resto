@@ -1,7 +1,8 @@
-//route
-const routeToFirebaseSetting = server+"utility/getFirebaseSetting";
-const deliveryOrderProses = server+"home/deliveryOrderProses";
+// ROUTE 
+const routeToFirebaseSetting = server + "utility/getFirebaseSetting";
+const deliveryOrderProses = server + "home/deliveryOrderProses";
 
+// VUE OBJECT 
 var divCart = new Vue({
     el : '#divCart',
     data : {
@@ -28,7 +29,9 @@ var divCart = new Vue({
         }
     }
 });
-//inisialisasi 
+
+// INISIALISASI
+$('#statButtonPesan').hide();  
 $('#txtDeliveryInfo').hide();
 divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
 
@@ -43,7 +46,7 @@ $.post(routeToFirebaseSetting, function(data){
     divCart.appId = obj.appId;
 });
 
-
+// FUNCTION 
 function setNGoDelivery()
 {
     //firebase inisialisasi
@@ -90,6 +93,8 @@ function setNGoDelivery()
               }).then((result) => {
                 if (result.value) {
                     let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
+                    $('#btnPesanSekarang').hide();
+                    $('#statButtonPesan').show();
                     $.post(deliveryOrderProses, dataSend,  function(data){
                         let obj = JSON.parse(data);
                         db.ref('pesanan/'+kdPesanan).set({
@@ -98,6 +103,7 @@ function setNGoDelivery()
                             alamat : alamat
                           });
                         pesanUmumApp('success','Pemesanan sukses', 'Pemesanan anda telah di proses, silahkan cek email anda untuk mendapatkan informasi pemesanan');
+                        window.location.assign(server+'home/konfirmasi');
                     });
                 }
               });
