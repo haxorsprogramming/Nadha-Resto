@@ -135,6 +135,11 @@ class home extends Route{
         $this -> toJson($data);
     }
 
+    public function booking()
+    {
+        
+    }
+
     public function cekPemesanan($kdPemesanan)
     {
         echo $kdPemesanan;

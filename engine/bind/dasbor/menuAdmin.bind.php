@@ -3,7 +3,8 @@
   <li><a class="nav-link btnDashboard" href="#!" @click='berandaAct'><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
   <li><a class="nav-link btnKartuLaundry" href="#!" @click='monitoringAtc'><i class="far fa-newspaper"></i> <span>Monitoring Restoran</span></a></li>
   <li><a class="nav-link btnLaundryRoom" href="#!" @click='pesananBaruAtc'><i class="fas fa-concierge-bell"></i> <span>Pesanan Baru</span></a></li>
-  <li><a class="nav-link btnKartuLaundry" href="#!" @click='pesananAtc'><i class="fas fa-clipboard"></i> <span>Daftar Pesanan</span></a></li>
+  <li><a class="nav-link btnKartuLaundry" href="#!" @click='pesananAtc'><i class="fas fa-clipboard"></i> <span>Pesanan Resto</span></a></li>
+  <li><a class="nav-link btnKartuLaundry" href="#!" @click=''><i class='fas fa-shipping-fast'></i> <span>Delivery Order</span></a></li>
   <li class="dropdown">
     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-newspaper"></i> <span>Data Master</span></a>
     <ul class="dropdown-menu">

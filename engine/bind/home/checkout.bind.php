@@ -58,8 +58,6 @@
                             </ul>
                         </nav>
                         <div class="module left">
-                            <a href="<?=HOMEBASE;?>home/selfservice"
-                                class="btn btn-outline-secondary"><span>Order</span></a>
                             <a href="<?=HOMEBASE;?>login" class="btn btn-outline-secondary"><span>Login</span></a>
                         </div>
                     </div>
@@ -162,18 +160,20 @@
                                     </ul>
                                 </div>
                             </div>
-                            <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Pembayaran</h4>
-                            <div class="row text-lg">
-                            <div class="form-group col-sm-6">
-                            <div class="select-container">
-                                        <select class="form-control" id="txtTipePembayaran">
-                                            <option value='none'>-- Pilih tipe pembayaran --</option>
-                                            <option value="cash">Cash On Delivery</option>
-                                            <option value="ovo">Ovo</option>
-                                            <option value="gopay">Gopay</option>
-                                        </select>
-                                    </div>
-                            </div>
+                            <div id='divTipePembayaran'>
+                                <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Pembayaran</h4>
+                                <div class="row text-lg">
+                                <div class="form-group col-sm-6">
+                                <div class="select-container">
+                                            <select class="form-control" id="txtTipePembayaran">
+                                                <option value='none'>-- Pilih tipe pembayaran --</option>
+                                                <option value="cash">Cash On Delivery</option>
+                                                <option value="ovo">Ovo</option>
+                                                <option value="gopay">Gopay</option>
+                                            </select>
+                                        </div>
+                                </div>
+                                </div>
                             </div>
                         </div>
                         <div class="text-center">

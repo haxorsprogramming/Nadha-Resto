@@ -1,6 +1,6 @@
 // ROUTE 
-const routeToFirebaseSetting = server + "utility/getFirebaseSetting";
-const deliveryOrderProses = server + "home/deliveryOrderProses";
+var routeToFirebaseSetting = server + "utility/getFirebaseSetting";
+var deliveryOrderProses = server + "home/deliveryOrderProses";
 
 // VUE OBJECT 
 var divCart = new Vue({
@@ -33,6 +33,8 @@ var divCart = new Vue({
 // INISIALISASI
 $('#statButtonPesan').hide();  
 $('#txtDeliveryInfo').hide();
+$('#btnPesanSekarang').hide();
+$('#divTipePembayaran').hide();
 divCart.kdPesanan = document.getElementById('txtKdPesananHidden').value;
 
 $.post(routeToFirebaseSetting, function(data){
@@ -118,11 +120,14 @@ document.getElementById('txtTipePesanan').addEventListener("change", function(){
     if(tipePesanan === 'dinein'){
         cekDiResto(tipePesanan);
     }else if(tipePesanan === 'delivery'){
+        $('#divTipePembayaran').hide();
+        $('#btnPesanSekarang').show();
         $('#txtDeliveryInfo').show();
         document.getElementById('txtNamaLengkapPd').focus();
     }else if(tipePesanan === 'takehome'){
         cekDiResto(tipePesanan);
     }else{
+
         $('#txtDeliveryInfo').hide();
     }
 });
@@ -134,8 +139,9 @@ document.getElementById('txtTipePembayaran').addEventListener("change", function
 
 function cekDiResto(tipePesanan)
 {
+    $('#txtDeliveryInfo').hide();
     Swal.fire({
-        title: "Cek lokasi..",
+        title: "Konfirmasi lokasi..",
         text: "Apakah anda sudah di berada restoran?",
         icon: "info",
         showCancelButton: true,
@@ -145,7 +151,10 @@ function cekDiResto(tipePesanan)
         cancelButtonText: "Tidak",
       }).then((result) => {
         if (result.value) {
-           
+            let kdPesanan = divCart.kdPesanan;
+            console.log(kdPesanan);
+        }else{
+            pesanUmumApp('info', 'Order di resto', 'Silahkan order di restoran untuk memastikan ketersediaan meja ...');
         }
       });
 }

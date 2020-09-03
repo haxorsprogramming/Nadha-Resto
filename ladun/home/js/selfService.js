@@ -1,7 +1,8 @@
-//route
-const routeGetKdTemp = server+"home/getKdtemp";
+// ROUTE 
+var routeGetKdTemp = server + "home/getKdtemp";
+var saveTemp = server + "home/saveTemp";
 
-//vue utama
+// VUE OBJECT 
 var divMenu = new Vue({
     el : '#divMenu',
     data : {
@@ -11,8 +12,9 @@ var divMenu = new Vue({
 
     }
 });
+
 var kdMenuDipesan = [];
-//vue cart 
+
 var cart = new Vue({
     el : '#divCartFinal',
     data : {
@@ -49,7 +51,7 @@ var cart = new Vue({
                         let total = cart.listItem[index].harga;
                        
                         let dataSend = {'kdMenu':kdMenu, 'hargaAt':hargaAt, 'qt':qt, 'total':total, 'kdTemp':kdTemp}
-                        $.post('saveTemp', dataSend, function(data){
+                        $.post(saveTemp, dataSend, function(data){
                             window.location.assign('checkOut/'+kdTemp);
                         });
                     }
@@ -60,7 +62,8 @@ var cart = new Vue({
         }
     }
 });
-//inisialisasi
+
+// FUNCTION 
 function checkOut()
 {
     
@@ -82,7 +85,6 @@ function addMenu(kdMenu, nama, harga)
         cart.listItem.push({nama : nama, harga : harga, qt : 1, hargaAt : harga, kdMenu:kdMenu});
         cart.totalHarga = parseInt(cart.totalHarga) + parseInt(harga);
     }
-    // console.log(kdMenuDipesan);
     let total = new Intl.NumberFormat().format(divMenu.totalHarga);
     document.getElementById('capJumlah').innerHTML = total;
 }
