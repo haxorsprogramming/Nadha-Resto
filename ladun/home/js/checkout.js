@@ -154,7 +154,7 @@ function cekDiResto(tipePesanan)
             let kdPesanan = divCart.kdPesanan;
             console.log(kdPesanan);
         }else{
-            pesanUmumApp('info', 'Order di resto', 'Silahkan order di restoran untuk memastikan ketersediaan meja ...');
+            pesanUmumApp('info', 'Order di resto', 'Silahkan order di restoran untuk memastikan ketersediaan meja/menu ...');
         }
       });
 }

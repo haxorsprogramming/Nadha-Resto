@@ -137,7 +137,7 @@ class home extends Route{
 
     public function booking()
     {
-        
+
     }
 
     public function cekPemesanan($kdPemesanan)
