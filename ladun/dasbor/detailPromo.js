@@ -68,7 +68,6 @@ function prosesUpdate()
 
 function hapusPromo(kdPromo)
 {
-    
     Swal.fire({
         title: "Hapus promo?",
         text: "Yakin menghapus promo ... ?",

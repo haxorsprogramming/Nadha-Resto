@@ -1,6 +1,7 @@
-//route 
+// ROUTE 
 var routeToGetPesanan = server;
 
+// VUE OBJECT 
 var divFormPembayaran = new Vue({
     el : '#divFormPembayaran',
     data : {
@@ -49,10 +50,10 @@ var divFormPembayaran = new Vue({
     }
 });
 
+// INISIALISASI 
 var kdPesananGlobal = document.getElementById('txtKdPesananHidden').value;
 divFormPembayaran.kdPesanan = kdPesananGlobal;
 
-//inisialisasi
 document.getElementById('txtTunai').focus();
 document.getElementById('btnProsesPembayaran').classList.add('disabled');
 

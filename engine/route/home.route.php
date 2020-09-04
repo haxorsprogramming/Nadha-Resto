@@ -17,9 +17,9 @@ class home extends Route{
     public function selfservice()
     {
         $this -> state($this -> su) -> csrfBuild();
-        $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
-        $data['kategoriMenu'] = $this -> state($this -> sn) -> getKategoriMenu();
-        $data['promo'] = $this -> state($this -> sn) -> getPromo();
+        $data['namaResto']      = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $data['kategoriMenu']   = $this -> state($this -> sn) -> getKategoriMenu();
+        $data['promo']          = $this -> state($this -> sn) -> getPromo();
         $this -> bind('home/selfService', $data);
     }
 
@@ -38,7 +38,7 @@ class home extends Route{
         $hargaAt = $this -> inp('hargaAt');
         $qt = $this -> inp('qt');
         $total = $this -> inp('total');
-        //cek apakah status cart
+        // SAVE DATA TO TEMP 
         $this -> state($this -> sn) -> saveTemp($kdTemp, $kdMenu, $qt, $hargaAt, $total);
         $data['status'] = 'sukses';
         $this -> toJson($data);
@@ -80,7 +80,6 @@ class home extends Route{
     public function deliveryOrderProses()
     {
         $this -> state($this -> su) -> csrfCek();
-        // {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran}
         $email = $this -> inp('email');
         $nama = $this -> inp('nama');
         $alamat = $this -> inp('alamat');
