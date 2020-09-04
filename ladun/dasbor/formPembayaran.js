@@ -1,5 +1,8 @@
 // ROUTE 
-var routeToGetPesanan = server;
+var routeToGetPesanan = server + 'routeToGetDataPesanan';
+var routeToCekPromo = server + 'pembayaran/cekPromo';
+var routeToProsesPembayaran = server + 'pembayaran/prosesPembayaran';
+var routeToKosongkanMeja = server + 'pembayaran/kosongkanMeja';
 
 // VUE OBJECT 
 var divFormPembayaran = new Vue({
@@ -57,7 +60,7 @@ divFormPembayaran.kdPesanan = kdPesananGlobal;
 document.getElementById('txtTunai').focus();
 document.getElementById('btnProsesPembayaran').classList.add('disabled');
 
-$.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data){
+$.post(routeToGetPesanan, {'kdPesanan':kdPesananGlobal} ,function(data){
     let obj = JSON.parse(data);
     // console.log(obj);
     let itemPesanan = obj.tempPesanan;
@@ -99,7 +102,7 @@ $.post('pembayaran/getDataPesanan', {'kdPesanan':kdPesananGlobal} ,function(data
 function cekPromo()
 {
     let kdPromo = divFormPembayaran.kdPromo;
-    $.post('pembayaran/cekPromo', {'kdPromo':kdPromo}, function(data){
+    $.post(routeToCekPromo, {'kdPromo':kdPromo}, function(data){
         let obj = JSON.parse(data);
         if(obj.status === 'error_promo_code'){
             pesanUmumApp('error', 'Error kode promo', 'Kode promo tidak valid/berlaku');
@@ -153,7 +156,7 @@ function prosesPembayaran()
     let kembali = divFormPembayaran.kembali;
     let meja = divFormPembayaran.noMeja;
     let dataSend = {'kdPesanan':kdPesanan,'kdInvoice':kdInvoice,'totalHarga':totalHarga,'kdPromo':kdPromo,'diskon':diskon,'tax':tax,'totalFinal':totalFinal,'tunai':tunai,'kembali':kembali,'meja':meja}
-    $.post('pembayaran/prosesPembayaran', dataSend, function(data){
+    $.post(routeToProsesPembayaran, dataSend, function(data){
         let obj = JSON.parse(data);
         if(obj.status === 'sukses'){
             pesanUmumApp('success', 'Sukses', 'Pembayaran berhasil ..');
@@ -177,7 +180,7 @@ function konfirmasiKosongkanMeja(meja)
         cancelButtonText: "Tidak",
       }).then((result) => {
         if (result.value) {
-            $.post('pembayaran/kosongkanMeja', {'meja':meja}, function(data){
+            $.post(routeToKosongkanMeja, {'meja':meja}, function(data){
                 pesanUmumApp('success', 'Sukses', 'Meja berhasil dikosongkan...');
             });
         }

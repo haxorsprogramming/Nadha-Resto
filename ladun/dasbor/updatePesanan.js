@@ -2,6 +2,8 @@
 var routeToGetDataKategori = server + 'utility/getDataKategori';
 var routeToUpdateTemp = server + 'pesanan/updateTempPesanan';
 var routeToGetDataMenuKategori = server + 'utility/getDataMenuKategori';
+var routeToGetTempFirst = server + 'pesanan/getTempFirst';
+var routeToGetDetailPesanan = server + 'pesanan/getDetailPesanan';
 
 // VUE OBJECT 
 var divUpdatePesanan = new Vue({
@@ -115,7 +117,7 @@ function updateMenu()
 
 function getTempMenuFirst()
 {
-    $.post('pesanan/getTempFirst', {'kdPesanan':divUpdatePesanan.kdPesanan}, function(data){
+    $.post(routeToGetTempFirst, {'kdPesanan':divUpdatePesanan.kdPesanan}, function(data){
         let obj = JSON.parse(data);
         let km = obj.pesanan;
         let totalHarga = 0;
@@ -168,7 +170,7 @@ function tambahItem(kdMenu, nama, harga)
 
 function getDataPesanan()
 {
-    $.post('pesanan/getDetailPesanan', {'kdPesanan':divUpdatePesanan.kdPesanan},  function(data){
+    $.post(routeToGetDetailPesanan, {'kdPesanan':divUpdatePesanan.kdPesanan}, function(data){
         let obj = JSON.parse(data);
         divUpdatePesanan.namaPelanggan = obj.namaPelanggan;
         divUpdatePesanan.meja = obj.meja;

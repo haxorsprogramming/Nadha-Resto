@@ -1,7 +1,7 @@
 // ROUTE 
-var routeToSimpanPesanan = server + "pesanan/buatPesanan";
-var routeToUpdateTempPesanan = server + "pesanan/updateTempPesanan";
-var routeToGetMenuKategori = server + "pesanan/getMenuKategori";
+var routeToSimpanPesanan = server + 'pesanan/buatPesanan';
+var routeToUpdateTempPesanan = server + 'pesanan/updateTempPesanan';
+var routeToGetMenuKategori = server + 'pesanan/getMenuKategori';
 
 // VUE OBJECT
 var divPilihPesanan = new Vue({
