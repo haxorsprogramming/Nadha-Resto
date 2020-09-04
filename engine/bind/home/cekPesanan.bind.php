@@ -25,10 +25,10 @@
                     <div class="utility-box-content">
                         <div class="form-group">
                             <label>Kode pemesanan </label>
-                            <input type="text" name="name" class="form-control" required="">
+                            <input type="text" class="form-control" id="txtKdPesanan">
                         </div>
                     </div>
-                    <button class="utility-box-btn btn btn-secondary btn-block btn-lg btn-submit">
+                    <button class="utility-box-btn btn btn-secondary btn-block btn-lg btn-submit" @click="cekPesananAtc">
                         <span class="description">Cek pesanan</span>
                     </button>
 
