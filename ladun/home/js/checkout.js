@@ -123,6 +123,7 @@ document.getElementById('txtTipePesanan').addEventListener("change", function(){
         $('#divTipePembayaran').hide();
         $('#btnPesanSekarang').show();
         $('#txtDeliveryInfo').show();
+        $('#divTipePembayaran').show();
         document.getElementById('txtNamaLengkapPd').focus();
     }else if(tipePesanan === 'takehome'){
         cekDiResto(tipePesanan);

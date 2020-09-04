@@ -125,8 +125,6 @@
                                     <div class="select-container">
                                         <select class="form-control" id="txtTipePesanan">
                                             <option value='none'>-- Pilih tipe pesanan --</option>
-                                            <option value="dinein">Makan di resto (dine in)</option>
-                                            <option value="takehome">Bawa pulang (take home)</option>
                                             <option value="delivery">Pesan antar (Delivery)</option>
                                         </select>
                                     </div>
@@ -168,8 +166,6 @@
                                             <select class="form-control" id="txtTipePembayaran">
                                                 <option value='none'>-- Pilih tipe pembayaran --</option>
                                                 <option value="cash">Cash On Delivery</option>
-                                                <option value="ovo">Ovo</option>
-                                                <option value="gopay">Gopay</option>
                                             </select>
                                         </div>
                                 </div>

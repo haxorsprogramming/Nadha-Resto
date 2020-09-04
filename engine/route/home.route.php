@@ -104,6 +104,7 @@ class home extends Route{
             //save ke tabel delivery order
             $this -> state($this -> sn) -> createOrder($kdPesanan, $idPelanggan, $tipePembayaran, $alamat, $waktu);
         }
+
         //Kirim email ke pelanggan
         $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $nama = $nama;
@@ -140,14 +141,16 @@ class home extends Route{
 
     }
 
-    public function cekPemesanan($kdPemesanan)
+    public function cekPemesanan()
     {
-        echo $kdPemesanan;
+        $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $this -> bind('home/cekPesanan', $data);
     }
 
     public function konfirmasi()
     {
-        $this -> bind('home/konfirmasi');
+        $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $this -> bind('home/konfirmasi', $data);
     }
 
 }
