@@ -1,6 +1,7 @@
-//route 
+// ROUTE 
 var routeToGetDetailPesanan = server+"pesanan/detailPesananData";
 
+// VUE OBJECT 
 var divDetailPesanan = new Vue({
     el : '#divDetailPesanan',
     data : {
@@ -26,7 +27,9 @@ var divDetailPesanan = new Vue({
     }
 });
 
+// INISIALISASI 
 var kdPesanan = document.querySelector('#txtKdPesanan').innerHTML;
+
 $.post(routeToGetDetailPesanan, {'kdPesanan':kdPesanan}, function(data){
     let obj = JSON.parse(data);
     divDetailPesanan.namaPelanggan = obj.namaPelanggan;
@@ -45,5 +48,4 @@ $.post(routeToGetDetailPesanan, {'kdPesanan':kdPesanan}, function(data){
     divDetailPesanan.tunai = obj.tunai;
     divDetailPesanan.kembali = obj.kembali;
     divDetailPesanan.operator = obj.operator;
-    console.log(obj);
 });

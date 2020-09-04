@@ -103,13 +103,7 @@ var divPesananTakeHome = new Vue({
                 this.totalHarga = hUpdate;
             }else{
                 arrTh.push(kdMenu);
-                this.daftarItem.push({
-                    kdMenu : kdMenu,
-                    namaMenu : nama,
-                    harga :  harga,
-                    qt : 1,
-                    total : harga
-                });
+                this.daftarItem.push({kdMenu : kdMenu, namaMenu : nama, harga : harga, qt : 1, total : harga});
                 //update total harga 
                 let hargaUpdate = parseInt(this.totalHarga) + parseInt(harga);
                 this.totalHarga = hargaUpdate;
