@@ -1,7 +1,7 @@
 <?php
-
+// DBMIGRATE ROUTE 
 class dbMigrate extends Route{
-
+    // INISIALISASI STATE 
     private $sn = 'dbMigrateData';
 
     public function index()

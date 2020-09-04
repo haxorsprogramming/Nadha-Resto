@@ -1,7 +1,7 @@
 <?php
-// Import library dompdf
+// IMPORT LIBRARY DOMPDF
 require_once 'lib/dompdf/autoload.inc.php';
-// Import libary escopos (printer thermal)
+// IMPORT LIBRARY ESCOPOS 
 require_once 'lib/escopos/autoload.php';
 
 use Dompdf\Dompdf;
@@ -11,9 +11,9 @@ use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 
-
+// CETAK ROUTE 
 class cetak extends Route{
-    //inisialisasi variabel & state
+    // INISIALISASI VARIABEL & STATE 
     private $sn = 'cetakData';
     private $su = 'utilityData';
     private $connector;
@@ -111,7 +111,7 @@ class cetak extends Route{
 
     public function invoicePemesanan($kdPembelian)
     {
-        //cetak ke printer thermal
+        // CETAK KE PRINTER THERMAL
         $this->connector = new NetworkPrintConnector("127.0.0.1", "3300");
     }
 

@@ -1,7 +1,7 @@
 <?php
-
+// FRONT END SETTING ROUTE 
 class frontEndSetting extends Route{
-    //inisialisasi state
+    // INISIALISASI STATE 
     private $sn = 'frontEndSettingData';
     private $su = 'utilityData';
 
@@ -23,20 +23,20 @@ class frontEndSetting extends Route{
 
     public function prosesTambahSlider()
     {
-        $namaFile = $this -> getNameFile('txtFoto');
-        $tipeGambar = array('png', 'jpg', 'jpeg');
-        $tipeFile = $this -> getTypeFile($namaFile);
-        $idFile = $this -> rnint(5);
-        $fileTemp = $this -> getTempFile('txtFoto');
-        $sizeFile = $_FILES['txtFoto']['size'];
-        $destination = 'ladun/home/img/slider/'.$idFile.'.'.$tipeFile;
-        $picName = $idFile.".".$tipeFile;
+        $namaFile       = $this -> getNameFile('txtFoto');
+        $tipeGambar     = array('png', 'jpg', 'jpeg');
+        $tipeFile       = $this -> getTypeFile($namaFile);
+        $idFile         = $this -> rnint(5);
+        $fileTemp       = $this -> getTempFile('txtFoto');
+        $sizeFile       = $_FILES['txtFoto']['size'];
+        $destination    = 'ladun/home/img/slider/'.$idFile.'.'.$tipeFile;
+        $picName        = $idFile.".".$tipeFile;
         //table data
-        $judul = $this -> inp('txtJudul');
-        $subHeader = $this -> inp('txtSubHeader');
-        $subJudul = $this -> inp('txtSubJudul');
-        $capButton = $this -> inp('txtCaptionButton');
-        $link = $this -> inp('txtLink');
+        $judul          = $this -> inp('txtJudul');
+        $subHeader      = $this -> inp('txtSubHeader');
+        $subJudul       = $this -> inp('txtSubJudul');
+        $capButton      = $this -> inp('txtCaptionButton');
+        $link           = $this -> inp('txtLink');
 
         if(in_array($tipeFile, $tipeGambar)){
             if($sizeFile < 2000){
@@ -55,10 +55,9 @@ class frontEndSetting extends Route{
 
     public function prosesHapusSlider()
     {
-        $idSlider = $this -> inp('id');
-        $imgName = $this -> state($this -> sn) -> getPicName($idSlider);
-        $file = 'ladun/home/img/slider/'.$imgName;
-
+        $idSlider       = $this -> inp('id');
+        $imgName        = $this -> state($this -> sn) -> getPicName($idSlider);
+        $file           = 'ladun/home/img/slider/'.$imgName;
         $this -> state($this -> sn) -> deleteSlider($idSlider);
         unlink($file);
         $data['status'] = 'sukses';
