@@ -11,7 +11,7 @@ class home extends Route{
         $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $data['dataSlider'] = $this -> state($this -> sn) -> getDataSlider();
         $data['dataMenu']   = $this -> state($this -> sn) -> getDataMenu();  
-        $this -> bind('/home/home', $data);   
+        $this -> bind('home/home', $data);   
     }
 
     public function selfservice()
@@ -20,7 +20,7 @@ class home extends Route{
         $data['namaResto'] = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $data['kategoriMenu'] = $this -> state($this -> sn) -> getKategoriMenu();
         $data['promo'] = $this -> state($this -> sn) -> getPromo();
-        $this -> bind('/home/selfService', $data);
+        $this -> bind('home/selfService', $data);
     }
 
     public function getKdTemp()
@@ -73,7 +73,7 @@ class home extends Route{
                 $arrTemp['hargaAt'] = $dt['harga_at'];
                 $data['itemPesanan'][]  = $arrTemp; 
             }
-            $this -> bind('/home/checkout', $data);
+            $this -> bind('home/checkout', $data);
         }
     }
 
