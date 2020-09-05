@@ -2,7 +2,7 @@
 // DELIVERY ORDER ROUTE 
 class deliveryOrder extends Route{
     // INISIALISASI STATE
-    private $sn = 'deliveryOrder';
+    private $sn = 'deliveryOrderData';
     private $su = 'utilityData';
 
     public function index()
