@@ -7,6 +7,7 @@ const meja = 'meja';
 const promo = 'promo';
 const pesanan = 'pesanan/1';
 const pesananBaru = 'pesanan/pesananBaru';
+const deliveryOrder = 'deliveryOrder';
 const pengaturanUmum = 'setting/setting';
 const bahanBaku = 'bahanBaku';
 const pembelianBahanBaku = 'pembelianBahanBaku';
@@ -90,6 +91,11 @@ var divMenu = new Vue({
     {
      renderMenu(pesanan);
      divJudul.judulForm = "Daftar Pesanan"; 
+    },
+    deliveryOrderAtc : function()
+    {
+      renderMenu(deliveryOrder);
+      divJudul.judulForm = "Delivery Order"; 
     },
     pengaturanUmumAtc : function()
     {

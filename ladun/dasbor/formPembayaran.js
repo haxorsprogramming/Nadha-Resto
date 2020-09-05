@@ -1,5 +1,5 @@
 // ROUTE 
-var routeToGetPesanan = server + 'routeToGetDataPesanan';
+var routeToGetPesanan = server + 'pembayaran/getDataPesanan';
 var routeToCekPromo = server + 'pembayaran/cekPromo';
 var routeToProsesPembayaran = server + 'pembayaran/prosesPembayaran';
 var routeToKosongkanMeja = server + 'pembayaran/kosongkanMeja';
