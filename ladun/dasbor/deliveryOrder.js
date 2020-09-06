@@ -11,7 +11,7 @@ var divDeliveryOrder = new Vue({
         detailAtc : function(kdPesanan)
         {
             renderMenu('deliveryOrder/detailPesanan/'+kdPesanan);
-            divJudul.judulForm = "Daftar Pelanggan";
+            divJudul.judulForm = "Detail Pesanan";
         }
     }
 });

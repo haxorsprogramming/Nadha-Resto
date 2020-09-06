@@ -26,14 +26,26 @@ class deliveryOrder extends Route{
             }else{
                 $kurirCap = $kurir;
             }
+            $status = $ds['status'];
+            if($status === 'order_masuk'){
+                $statusCap = 'Pesanan diterima';
+            }else if($status === 'diproses'){
+                $statusCap = 'Orderan di proses';
+            }else if($status === 'dikirim'){
+                $statusCap = 'Orderan di kirim';
+            }else if($status === 'sampai'){
+                $statusCap = 'Orderan selesai';
+            }else{
+                $statusCap = 'Dibatalkan';
+            }
             $total = $this -> state($this -> sn) -> getTotalPesanan($kdPesanan);
             $nestedData = array();
             $nestedData[] = $kdPesanan;
-            $nestedData[] = $ds['status'];
+            $nestedData[] = $statusCap;
             $nestedData[] = "Masuk : <b>".$ds['masuk']."</b>";
             $nestedData[] = $kurirCap;
             $nestedData[] = "Rp. ".number_format($total);
-            $nestedData[] = "<a href='#!' class='btn btn-primary btn-icon icon-left btnDetail' data-id='".$kdPesanan."'><i class='fas fa-info-circle'></i> Detail</a>";
+            $nestedData[] = "<a href='#!' class='btn btn-primary btn-sm btn-icon icon-left btnDetail' data-id='".$kdPesanan."'><i class='fas fa-info-circle'></i> Detail</a>";
             $data[] = $nestedData;
           }
 
@@ -48,7 +60,8 @@ class deliveryOrder extends Route{
 
     public function detailPesanan($kdPesanan)
     {
-        $this -> bind('dasbor/deliveryOrder/detailPesanan');
+        $data['kdPesanan'] = $kdPesanan;
+        $this -> bind('dasbor/deliveryOrder/detailPesanan', $data);
     }
 
 }
