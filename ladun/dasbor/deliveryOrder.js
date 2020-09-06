@@ -1,3 +1,6 @@
+// ROUTE
+var routeToGetDataDeliveryOrder = server + 'deliveryOrder/getDataDeliveryOrder';
+
 // VUE OBJECT 
 var divDeliveryOrder = new Vue({
     el : '#divDeliveryOrder',
@@ -5,6 +8,31 @@ var divDeliveryOrder = new Vue({
 
     },
     methods : {
-        
+        detailAtc : function(kdPesanan)
+        {
+            renderMenu('deliveryOrder/detailPesanan/'+kdPesanan);
+            divJudul.judulForm = "Daftar Pelanggan";
+        }
     }
 });
+
+// INISIALISASI 
+$('#tblDeliveryOrder').dataTable({
+    "searching" : false,
+    "processing" : true,
+    "serverSide": true,
+    "ajax":{
+        url : routeToGetDataDeliveryOrder,
+        type: "post",
+        error: function(){
+            pesanUmumApp('warning', 'Error', 'Error menampilkan data');
+        }
+    }
+});
+
+// FUNCTION 
+$('#tblDeliveryOrder').on('click', '.btnDetail', function(){
+    let kdPesanan = $(this).data('id');
+    divDeliveryOrder.detailAtc(kdPesanan);
+});
+
