@@ -13,16 +13,16 @@
                             <td>Kd Pesanan</td><td><?=$data['kdPesanan']; ?></td>
                         </tr>
                         <tr>
-                            <td>Pelanggan</td><td><?=$data['kdPesanan']; ?></td>
+                            <td>Pelanggan</td><td><?=$data['namaPelanggan']; ?></td>
                         </tr>
                         <tr>
-                            <td>Alamat Pengiriman</td><td><?=$data['kdPesanan']; ?></td>
+                            <td>Alamat Pengiriman</td><td><?=$data['alamatPengiriman']; ?></td>
                         </tr>
                         <tr>
-                            <td>Pesanan Masuk</td><td><?=$data['kdPesanan']; ?></td>
+                            <td>Pesanan Masuk</td><td><?=$data['waktu_order']; ?></td>
                         </tr>
                         <tr>
-                            <td>Status Pesanan</td><td><?=$data['kdPesanan']; ?></td>
+                            <td>Status Pesanan</td><td></td>
                         </tr>
                     </table>
                     <div>

@@ -61,6 +61,10 @@ class deliveryOrder extends Route{
     public function detailPesanan($kdPesanan)
     {
         $data['kdPesanan'] = $kdPesanan;
+        $pesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
+        $data['waktu_order'] = $pesanan['masuk'];
+        $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
+        $data['alamatPengiriman'] = $pesanan['alamat_pengiriman'];
         $this -> bind('dasbor/deliveryOrder/detailPesanan', $data);
     }
 

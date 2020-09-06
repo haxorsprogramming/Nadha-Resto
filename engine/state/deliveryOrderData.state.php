@@ -28,4 +28,10 @@ class deliveryOrderData{
         return $q['SUM(total)'];
     }
 
+    public function detailPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_delivery_order WHERE kd_pesanan='$kdPesanan';");
+        return $this -> st -> querySingle();
+    }
+
 }
