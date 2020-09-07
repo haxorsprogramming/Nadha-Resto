@@ -98,7 +98,7 @@ function setNGoDelivery()
                     $('#btnPesanSekarang').hide();
                     $('#statButtonPesan').show();
                     $(".form-control").attr("disabled", "disabled");
-                    $.post(deliveryOrderProses, dataSend,  function(data){
+                    $.post(deliveryOrderProses, dataSend, function(data){
                         let obj = JSON.parse(data);
                         db.ref('pesanan/'+kdPesanan).set({
                             kd : kdPesanan,
@@ -106,7 +106,9 @@ function setNGoDelivery()
                             alamat : alamat
                           });
                         pesanUmumApp('success','Pemesanan sukses', 'Pemesanan anda telah di proses, silahkan cek email anda untuk mendapatkan informasi pemesanan');
-                        window.location.assign(server+'home/konfirmasi');
+                        setTimeout(function(){
+                            window.location.assign(server+'home/konfirmasi');
+                        }, 1000);
                     });
                 }
               });

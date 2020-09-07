@@ -75,12 +75,21 @@ class deliveryOrder extends Route{
         }else{
             $statusCap = 'Dibatalkan';
         }
+        $totalHarga = $this -> state('homeData') -> getTotalPesanan($kdPesanan);
+        $tax = $this -> state($this -> su) -> getSettingResto('tax');
+        $taxPrice = ($totalHarga * $tax) / 100;
+        $totalFinal = $totalHarga + $taxPrice;
         $data['statusCap'] = $statusCap;
         $data['status'] = $status;
         $data['kurir'] = $kurir;    
         $data['waktu_order'] = $pesanan['masuk'];
         $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
         $data['alamatPengiriman'] = $pesanan['alamat_pengiriman'];
+        $data['itemPesanan'] = $this -> state($this -> sn) -> getItemPesanan($kdPesanan);
+        $data['tax'] = $tax;
+        $data['taxPrice'] = $taxPrice;
+        $data['totalHarga'] = $totalHarga;
+        $data['totalFinal'] = $totalFinal;
         $this -> bind('dasbor/deliveryOrder/detailPesanan', $data);
     }
 
@@ -100,6 +109,11 @@ class deliveryOrder extends Route{
         $this -> state($this -> sn) -> kirimPesanan($kurir, $waktu, $kdPesanan);
         $data['status'] = 'sukses';
         $this -> toJson($data);
+    }
+
+    public function setSelesai()
+    {
+        
     }
 
     public function batalkanPesanan()

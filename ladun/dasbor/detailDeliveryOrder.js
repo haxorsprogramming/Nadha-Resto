@@ -2,6 +2,7 @@
 var routeToBatalkanPesanan = server + 'deliveryOrder/batalkanPesanan';
 var routeToProsesPesanan = server + 'deliveryOrder/prosesPesanan';
 var routeToKirimPesanan = server + 'deliveryOrder/kirimPesanan';
+var routeToSetSelesai = server + 'deliveryOrder/setSelesai';
 
 // VUE OBJECT 
 var divDetailPesanan = new Vue({
@@ -25,6 +26,10 @@ var divDetailPesanan = new Vue({
                 kirimPesanan(kdPesanan);
             }
         },
+        setSelesai : function(kdPesanan)
+        {
+            setSelesai(kdPesanan);
+        },
         batalkanPesananAtc : function(kdPesanan)
         {
             batalkanPesanan(kdPesanan);
@@ -39,7 +44,11 @@ var divDetailPesanan = new Vue({
 // INISIALISASI 
 $(".select2").select2();
 
-// FUNCTION 
+// FUNCTION
+function setSelesai(kdPesanan)
+{
+    
+}
 function kirimPesanan(kdPesanan)
 {
     let kurir = document.querySelector('#txtKurir').value;

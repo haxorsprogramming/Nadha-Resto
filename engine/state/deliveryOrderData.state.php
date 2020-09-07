@@ -34,6 +34,12 @@ class deliveryOrderData{
         return $this -> st -> querySingle();
     }
 
+    public function getItemPesanan($kdPesanan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_temp_self_service WHERE kd_temp='$kdPesanan';");
+        return $this -> st -> queryAll();
+    }
+
     public function hapusPesanan($kdPesanan)
     {
         $query = "DELETE FROM tbl_delivery_order WHERE kd_pesanan='$kdPesanan';";
@@ -66,6 +72,12 @@ class deliveryOrderData{
     {
         $this -> st -> query("SELECT * FROM tbl_user WHERE tipe='kurir';");
         return $this -> st -> queryAll();
+    }
+
+    public function getDetailMenu($kdMenu)
+    {
+        $this -> st -> query("SELECT * FROM tbl_menu WHERE kd_menu='$kdMenu';");
+        return $this -> st -> querySingle();
     }
 
 }

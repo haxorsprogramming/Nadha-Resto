@@ -51,7 +51,7 @@
                             <i class='fas fa-shipping-fast'></i> {{btnCapKirimPesanan}}
                         </a>&nbsp;&nbsp;&nbsp;
                     <?php } else{ ?> 
-                        <a href='#!' class='btn btn-primary btn-lg btn-icon icon-left'>
+                        <a href='#!' class='btn btn-primary btn-lg btn-icon icon-left' @click='setSelesai("<?=$data['kdPesanan']; ?>")'>
                             <i class='fas fa-clipboard-check'></i> Set Pesanan Selesai
                         </a>&nbsp;&nbsp;&nbsp;
                     <?php } ?>
@@ -73,7 +73,40 @@
                     <h4>Item Pesanan</h4>
                 </div>
                 <div class="card-body">
-
+                     <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Item</th><th>Harga (@)</th><th>Qt</th><th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($data['itemPesanan'] as $ip) : ?>
+                            <?php
+                                $menu = $ip['kd_item'];
+                                //cari nama menu
+                                $detailMenu = $this -> state('deliveryOrderData') -> getDetailMenu($menu);
+                                $namaMenu = $detailMenu['nama'];
+                            ?>
+                            <tr>
+                                <td style='padding-top:8px;padding-bottom:15px;'>
+                                    <img src='<?=STYLEBASE; ?>/dasbor/img/menu/<?=$menu; ?>.jpg' style='width: 120px;border-radius:12px;'><br/>
+                                    <b><?=$namaMenu; ?></b>
+                                </td>
+                                <td>Rp. <?=number_format($detailMenu['harga']); ?></td>
+                                <td><?=$ip['qt']; ?></td>
+                                <td>Rp. <?=number_format($ip['total']); ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                     </table>
+                     <div>
+                        <address>
+                          <strong>Detail Harga</strong><br>
+                          Harga Item : Rp. <?=number_format($data['totalHarga']); ?><br>
+                          Tax : (<?=$data['tax']; ?> %) Rp. <?=number_format($data['taxPrice']); ?><br>
+                          Total Final : <b>Rp. <?=number_format($data['totalFinal']); ?></b>
+                        </address>
+                     </div>   
                 </div>
             </div>
         </div>
