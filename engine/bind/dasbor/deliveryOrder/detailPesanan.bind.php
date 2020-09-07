@@ -10,23 +10,36 @@
                 <div class="card-body">
                     <table class="table">
                         <tr>
-                            <td>Kd Pesanan</td><td><?=$data['kdPesanan']; ?></td>
+                            <td>Kd Pesanan</td>
+                            <td><?=$data['kdPesanan']; ?></td>
                         </tr>
                         <tr>
-                            <td>Pelanggan</td><td><?=$data['namaPelanggan']; ?></td>
+                            <td>Pelanggan</td>
+                            <td><?=$data['namaPelanggan']; ?></td>
                         </tr>
                         <tr>
-                            <td>Alamat Pengiriman</td><td><?=$data['alamatPengiriman']; ?></td>
+                            <td>Alamat Pengiriman</td>
+                            <td><?=$data['alamatPengiriman']; ?></td>
                         </tr>
                         <tr>
-                            <td>Pesanan Masuk</td><td><?=$data['waktu_order']; ?></td>
+                            <td>Pesanan Masuk</td>
+                            <td><?=$data['waktu_order']; ?></td>
                         </tr>
                         <tr>
-                            <td>Status Pesanan</td><td></td>
+                            <td>Status Pesanan</td>
+                            <td></td>
                         </tr>
                     </table>
-                    <div>
-                        <a href='#!' class='btn btn-primary btn-icon icon-left'><i class='fas fa-sign-in-alt'></i> Proses Pesanan</a>
+                    <div style="text-align: center;">
+                        <a href='#!' class='btn btn-primary btn-lg btn-icon icon-left' @click='prosesPesanan("<?=$data['kdPesanan']; ?>")'>
+                            <i class='fas fa-sign-in-alt'></i> Proses Pesanan
+                        </a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left" @click='batalkanPesananAtc("<?=$data['kdPesanan']; ?>")'>
+                            <i class='fas fa-times-circle'></i> Batalkan Pesanan
+                        </a>&nbsp;&nbsp;&nbsp;
+                        <a href='#!' class="btn btn-info btn-lg btn-icon icon-left" @click='kembaliAtc'>
+                            <i class='fas fa-reply'></i> Kembali
+                        </a>
                     </div>
                 </div>
             </div>

@@ -42,7 +42,7 @@ var divPelanggan = new Vue({
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Ya",
                 cancelButtonText: "Tidak",
-              }).then((result) => {
+            }).then((result) => {
                 if (result.value) {
                    $.post(routeToDeletePelanggan, {'kdPelanggan':kdPel}, function(data){
                        let obj = JSON.parse(data);
@@ -52,7 +52,8 @@ var divPelanggan = new Vue({
                        }
                    });
                 }
-              });
+            });
+            
         }
     }
 });
