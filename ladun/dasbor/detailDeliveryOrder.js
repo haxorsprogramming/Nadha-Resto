@@ -1,21 +1,29 @@
 // ROUTE 
 var routeToBatalkanPesanan = server + 'deliveryOrder/batalkanPesanan';
 var routeToProsesPesanan = server + 'deliveryOrder/prosesPesanan';
+var routeToKirimPesanan = server + 'deliveryOrder/kirimPesanan';
 
 // VUE OBJECT 
 var divDetailPesanan = new Vue({
     el : '#divDetailPesanan',
     data : {
-
+        btnCapKirimPesanan : 'Kirim Pesanan (pilih kurir)',
+        statBtnKirim : false
     },
     methods : {
         prosesPesanan : function(kdPesanan)
         {
             prosesPesanan(kdPesanan);
         },
-        kirimPesanan : function()
+        kirimPesanan : function(kdPesanan)
         {
-            $('#divKurir').show();
+            if(this.statBtnKirim === false){
+                $('#divKurir').show();
+                this.btnCapKirimPesanan = 'Kirim pesanan';
+                this.statBtnKirim = true;
+            }else{
+                kirimPesanan(kdPesanan);
+            }
         },
         batalkanPesananAtc : function(kdPesanan)
         {
@@ -31,7 +39,39 @@ var divDetailPesanan = new Vue({
 // INISIALISASI 
 $(".select2").select2();
 
-// FUCTION 
+// FUNCTION 
+function kirimPesanan(kdPesanan)
+{
+    let kurir = document.querySelector('#txtKurir').value;
+    if(kurir === 'none'){
+        pesanUmumApp('warning', 'Pilih kurir', 'Pilih kurir pengantar pesanan ...');
+    }else{
+        Swal.fire({
+            title: "Proses?",
+            text: "Kirim pesanan ke pelanggan ... ?",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+        }).then((result) => {
+            if (result.value) {
+                $.post(routeToKirimPesanan, {'kdPesanan':kdPesanan, 'kurir':kurir}, function(data){
+                    let obj = JSON.parse(data);
+                    if(obj.status === 'sukses'){
+                        pesanUmumApp('success', 'Sukses', 'Berhasil mengubah status pesanan ...');
+                        renderMenu('deliveryOrder/detailPesanan/'+kdPesanan);
+                        divJudul.judulForm = "Detail Pesanan";
+                    }else{
+
+                    }
+                });
+            }
+        });
+    }
+}
+
 function prosesPesanan(kdPesanan)
 {
     Swal.fire({

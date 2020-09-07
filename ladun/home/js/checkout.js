@@ -51,21 +51,6 @@ $.post(routeToFirebaseSetting, function(data){
 // FUNCTION 
 function setNGoDelivery()
 {
-    //firebase inisialisasi
-    var firebaseConfig = {
-        apiKey: divCart.apiKey,
-        authDomain: divCart.authDomain,
-        databaseURL: divCart.databaseURL,
-        projectId: divCart.projectId,
-        storageBucket: divCart.storageBucket,
-        messagingSenderId: divCart.messagingSenderId,
-        appId: divCart.appId
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.database();
-    var pesananCol = db.ref('pesanan'); 
-
     divCart.pd[0].email = document.getElementById('txtEmailPd').value;
     divCart.pd[0].nama = document.getElementById('txtNamaLengkapPd').value;
     divCart.pd[0].alamat = document.getElementById('txtAlamatPd').value;
@@ -94,6 +79,21 @@ function setNGoDelivery()
                 cancelButtonText: "Tidak",
               }).then((result) => {
                 if (result.value) {
+                    //firebase inisialisasi
+                    var firebaseConfig = {
+                        apiKey: divCart.apiKey,
+                        authDomain: divCart.authDomain,
+                        databaseURL: divCart.databaseURL,
+                        projectId: divCart.projectId,
+                        storageBucket: divCart.storageBucket,
+                        messagingSenderId: divCart.messagingSenderId,
+                        appId: divCart.appId
+                    };
+                    // Initialize Firebase
+                    firebase.initializeApp(firebaseConfig);
+                    var db = firebase.database();
+                    var pesananCol = db.ref('pesanan'); 
+
                     let dataSend = {'email':email, 'nama':nama, 'alamat':alamat, 'hp':hp, 'tipePembayaran':tipePembayaran, 'kdPesanan':kdPesanan}
                     $('#btnPesanSekarang').hide();
                     $('#statButtonPesan').show();

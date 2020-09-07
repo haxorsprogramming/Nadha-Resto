@@ -87,8 +87,17 @@ class deliveryOrder extends Route{
     public function prosesPesanan()
     {
         $kdPesanan = $this -> inp('kdPesanan');
-        $waktu = $this -> waktu();
         $this -> state($this -> sn) -> prosesPesanan($kdPesanan);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
+    public function kirimPesanan()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $kurir = $this -> inp('kurir');
+        $waktu = $this -> waktu();
+        $this -> state($this -> sn) -> kirimPesanan($kurir, $waktu, $kdPesanan);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

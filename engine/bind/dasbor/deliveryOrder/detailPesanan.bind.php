@@ -32,9 +32,10 @@
                         <tr style="display: none;" id='divKurir'>
                             <td>Kurir</td>
                             <td>
-                                <select class='form-control select2' style="width: 100%;">
+                                <select class='form-control select2' style="width: 100%;" id='txtKurir'>
+                                    <option value="none">--- Pilih kurir ---</option>
                                     <?php foreach($data['kurir'] as $dk) : ?>
-                                        <option><?=$dk['nama']; ?></option>      
+                                        <option value="<?=$dk['username']; ?>"><?=$dk['nama']; ?></option>      
                                     <?php endforeach; ?>
                                 </select>
                             </td>
@@ -46,8 +47,12 @@
                             <i class='fas fa-sign-in-alt'></i> Proses Pesanan
                         </a>&nbsp;&nbsp;&nbsp;
                     <?php  } elseif($data['status'] === 'diproses') { ?> 
-                        <a href='#!' class='btn btn-success btn-lg btn-icon icon-left' @click='kirimPesanan'>
-                            <i class='fas fa-shipping-fast'></i> Kirim Pesanan
+                        <a href='#!' class='btn btn-success btn-lg btn-icon icon-left' @click='kirimPesanan("<?=$data['kdPesanan']; ?>")'>
+                            <i class='fas fa-shipping-fast'></i> {{btnCapKirimPesanan}}
+                        </a>&nbsp;&nbsp;&nbsp;
+                    <?php } else{ ?> 
+                        <a href='#!' class='btn btn-primary btn-lg btn-icon icon-left'>
+                            <i class='fas fa-clipboard-check'></i> Set Pesanan Selesai
                         </a>&nbsp;&nbsp;&nbsp;
                     <?php } ?>
                         

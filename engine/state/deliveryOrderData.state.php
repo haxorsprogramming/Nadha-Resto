@@ -50,7 +50,14 @@ class deliveryOrderData{
 
     public function prosesPesanan($kdPesanan)
     {
-        $query = "UPDATE tbl_delivery_order SET status='diproses' WHERE kd_pesanan='$kdPesanan';";
+        $query = "UPDATE tbl_delivery_order SET status='diproses', dikirim='0000-00-00 00:00:00' WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function kirimPesanan($kurir, $waktu, $kdPesanan)
+    {
+        $query = "UPDATE tbl_delivery_order SET kurir='$kurir', status='dikirim', dikirim='$waktu' WHERE kd_pesanan='$kdPesanan';";
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }
