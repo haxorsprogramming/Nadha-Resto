@@ -132,7 +132,7 @@ class deliveryOrder extends Route{
         $isi .= "<a href='".HOMEBASE."home/pesanan/".$kdPesanan."'>Sini</a><br/><br/><br/>Salam<br/>".$namaResto;
         $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
         //set selesai 
-        
+        $this -> state($this -> sn) -> setSelesai($waktu, $kdPesanan);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

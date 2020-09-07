@@ -30,9 +30,11 @@ $('#tblDeliveryOrder').dataTable({
     },
     "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
         if (aData[1] == "Orderan di proses") {
-          $('td', nRow).css('background-color', '#c3def7');
+          $('td', nRow).css('background-color', '#f7b7b8');
         }else if(aData[1] == 'Orderan di kirim'){
-          $('td', nRow).css('background-color', '#dbffdf');
+          $('td', nRow).css('background-color', '#b7e1f7');
+        }else if(aData[1] == 'Orderan selesai'){
+            $('td', nRow).css('background-color', '#dbffdf');
         }
       }
 });
