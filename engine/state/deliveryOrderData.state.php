@@ -34,4 +34,31 @@ class deliveryOrderData{
         return $this -> st -> querySingle();
     }
 
+    public function hapusPesanan($kdPesanan)
+    {
+        $query = "DELETE FROM tbl_delivery_order WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function hapusTemp($kdPesanan)
+    {
+        $query = "DELETE FROM tbl_temp_self_service WHERE kd_temp='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function prosesPesanan($kdPesanan)
+    {
+        $query = "UPDATE tbl_delivery_order SET status='diproses' WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function getKurir()
+    {
+        $this -> st -> query("SELECT * FROM tbl_user WHERE tipe='kurir';");
+        return $this -> st -> queryAll();
+    }
+
 }

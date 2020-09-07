@@ -62,11 +62,44 @@ class deliveryOrder extends Route{
     {
         $data['kdPesanan'] = $kdPesanan;
         $pesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
+        $kurir = $this -> state($this -> sn) -> getKurir();
         $status = $pesanan['status'];
+        if($status === 'order_masuk'){
+            $statusCap = 'Pesanan diterima';
+        }else if($status === 'diproses'){
+            $statusCap = 'Orderan di proses';
+        }else if($status === 'dikirim'){
+            $statusCap = 'Orderan di kirim';
+        }else if($status === 'sampai'){
+            $statusCap = 'Orderan selesai';
+        }else{
+            $statusCap = 'Dibatalkan';
+        }
+        $data['statusCap'] = $statusCap;
+        $data['status'] = $status;
+        $data['kurir'] = $kurir;    
         $data['waktu_order'] = $pesanan['masuk'];
         $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
         $data['alamatPengiriman'] = $pesanan['alamat_pengiriman'];
         $this -> bind('dasbor/deliveryOrder/detailPesanan', $data);
+    }
+
+    public function prosesPesanan()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $waktu = $this -> waktu();
+        $this -> state($this -> sn) -> prosesPesanan($kdPesanan);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
+    }
+
+    public function batalkanPesanan()
+    {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $this -> state($this -> sn) -> hapusTemp($kdPesanan);
+        $this -> state($this -> sn) -> hapusPesanan($kdPesanan);
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
     }
 
 }

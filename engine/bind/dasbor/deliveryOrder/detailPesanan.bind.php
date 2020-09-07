@@ -27,13 +27,30 @@
                         </tr>
                         <tr>
                             <td>Status Pesanan</td>
-                            <td></td>
+                            <td><?=$data['statusCap']; ?></td>
+                        </tr>
+                        <tr style="display: none;" id='divKurir'>
+                            <td>Kurir</td>
+                            <td>
+                                <select class='form-control select2' style="width: 100%;">
+                                    <?php foreach($data['kurir'] as $dk) : ?>
+                                        <option><?=$dk['nama']; ?></option>      
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
                         </tr>
                     </table>
                     <div style="text-align: center;">
+                    <?php if($data['status'] === 'order_masuk') { ?>
                         <a href='#!' class='btn btn-primary btn-lg btn-icon icon-left' @click='prosesPesanan("<?=$data['kdPesanan']; ?>")'>
                             <i class='fas fa-sign-in-alt'></i> Proses Pesanan
                         </a>&nbsp;&nbsp;&nbsp;
+                    <?php  } elseif($data['status'] === 'diproses') { ?> 
+                        <a href='#!' class='btn btn-success btn-lg btn-icon icon-left' @click='kirimPesanan'>
+                            <i class='fas fa-shipping-fast'></i> Kirim Pesanan
+                        </a>&nbsp;&nbsp;&nbsp;
+                    <?php } ?>
+                        
                         <a href='#!' class="btn btn-warning btn-lg btn-icon icon-left" @click='batalkanPesananAtc("<?=$data['kdPesanan']; ?>")'>
                             <i class='fas fa-times-circle'></i> Batalkan Pesanan
                         </a>&nbsp;&nbsp;&nbsp;
