@@ -47,7 +47,32 @@ $(".select2").select2();
 // FUNCTION
 function setSelesai(kdPesanan)
 {
-    
+    Swal.fire({
+        title: "Proses?",
+        text: "Set status pesanan ke selesai ... ?, pastikan kurir telah menerima pembayaran...",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya",
+        cancelButtonText: "Tidak",
+    }).then((result) => {
+        if (result.value) {
+            $('.btn').addClass('disabled');
+            progStart();
+            $.post(routeToSetSelesai, {'kdPesanan':kdPesanan}, function(data){
+                let obj = JSON.parse(data);
+                if(obj.status === 'sukses'){
+                    progStop();
+                    pesanUmumApp('success', 'Sukses', 'Pesanan telah selesai ...');
+                    setTimeout(function(){
+                        renderMenu('deliveryOrder/detailPesanan/'+kdPesanan);
+                        divJudul.judulForm = "Detail Pesanan";
+                    }, 1000);
+                }
+            });
+        }
+    });
 }
 function kirimPesanan(kdPesanan)
 {

@@ -80,4 +80,17 @@ class deliveryOrderData{
         return $this -> st -> querySingle();
     }
 
+    public function getDetailPelanggan($kdPelanggan)
+    {
+        $this -> st -> query("SELECT * FROM tbl_pelanggan WHERE id_pelanggan='$kdPelanggan';");
+        return $this -> st -> querySingle();
+    }
+
+    public function setSelesai($waktu, $kdPesanan)
+    {
+        $query = "UPDATE tbl_delivery_order SET status='sampai', diterima='$waktu' WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
 }

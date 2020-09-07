@@ -107,13 +107,34 @@ class deliveryOrder extends Route{
         $kurir = $this -> inp('kurir');
         $waktu = $this -> waktu();
         $this -> state($this -> sn) -> kirimPesanan($kurir, $waktu, $kdPesanan);
+        //kirim email notifikasi 
+        
+
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
 
     public function setSelesai()
     {
+        $kdPesanan = $this -> inp('kdPesanan');
+        $waktu = $this -> waktu();
+        //kirim email notifikasi 
+        $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
+        $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
+        $detailPesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
+        $detailPelanggan = $this -> state($this -> sn) -> getDetailPelanggan($detailPesanan['pelanggan']);
+        $namaPelanggan = $detailPelanggan['nama'];
+        $penerima = $detailPelanggan['email'];
+        $judul = "Pesanan Selesai - ".$namaResto;
+        $isi = "Halo ".$namaPelanggan.", terima kasih telah melakukan pemesanan di resto kami. <br/>";
+        $isi .= "Pesanan anda telah selesai, cek detail pesanan anda di ";
+        $isi .= "<a href='".HOMEBASE."home/pesanan/".$kdPesanan."'>Sini</a><br/><br/><br/>Salam<br/>".$namaResto;
+        $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
+        //set selesai 
         
+        $data['status'] = 'sukses';
+        $this -> toJson($data);
     }
 
     public function batalkanPesanan()
