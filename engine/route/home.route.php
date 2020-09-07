@@ -111,6 +111,7 @@ class home extends Route{
         $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
         $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
         $judul = 'Informasi pemesanan makanan - '.$namaResto;
+        $link = "90122-".$kdPesanan."-NRST-ADNRS-SPELLBEE";
         $isi = 'Halo  '.$nama.', terima kasih telah melakukan pemesanan di resto kami. Berikut ada detail dari pesanan anda : <br/>';
         $isi .= "<h5>Kode Pesanan : <b>".$kdPesanan."</b></h5><br/>";
         $isi .= "Nama Pemesan : ".$nama."<br/>";
@@ -128,16 +129,18 @@ class home extends Route{
         }
         $isi .= "</table><br/>";
         $isi .= "Total : Rp. ".number_format($totalHarga)."<br/>";
-        $isi .= "Silahkan cek status pemesanan anda di <a href='".HOMEBASE."home/cekPemesanan/".$kdPesanan."'>Sini</a>";
+        $isi .= "Silahkan cek status pemesanan anda di <a href='".HOMEBASE."home/pesanan/".$link."'>sini</a>";
         $this -> kirimEmail($nama, $penerima, $judul, $isi, $emailHost, $passwordHost);
         
         $data['status'] = $cekHp;
         $this -> toJson($data);
     }
 
-    public function pesanan()
+    public function pesanan($kdPesanan)
     {
-
+        $pEx = explode("-", $kdPesanan);
+        $kdFin = $pEx[1];
+        echo $kdFin;
     }
 
     public function cekPemesanan()

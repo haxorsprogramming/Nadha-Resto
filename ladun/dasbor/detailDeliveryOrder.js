@@ -91,12 +91,17 @@ function kirimPesanan(kdPesanan)
             cancelButtonText: "Tidak",
         }).then((result) => {
             if (result.value) {
+                $('.btn').addClass('disabled');
+                progStart();
                 $.post(routeToKirimPesanan, {'kdPesanan':kdPesanan, 'kurir':kurir}, function(data){
                     let obj = JSON.parse(data);
                     if(obj.status === 'sukses'){
+                        progStop();
                         pesanUmumApp('success', 'Sukses', 'Berhasil mengubah status pesanan ...');
-                        renderMenu('deliveryOrder/detailPesanan/'+kdPesanan);
-                        divJudul.judulForm = "Detail Pesanan";
+                        setTimeout(function(){
+                            renderMenu('deliveryOrder/detailPesanan/'+kdPesanan);
+                            divJudul.judulForm = "Detail Pesanan";
+                        }, 1000);
                     }else{
 
                     }

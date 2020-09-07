@@ -86,9 +86,23 @@ class deliveryOrderData{
         return $this -> st -> querySingle();
     }
 
+    public function savePembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $taxPrice, $totalFinal, $operator)
+    {
+        $query = "INSERT INTO tbl_pembayaran VALUES(null,'$kdInvoice','$kdPesanan','$waktu','$totalHarga','','','$taxPrice','$totalFinal','$totalFinal','0','$operator');";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
     public function setSelesai($waktu, $kdPesanan)
     {
         $query = "UPDATE tbl_delivery_order SET status='sampai', diterima='$waktu' WHERE kd_pesanan='$kdPesanan';";
+        $this -> st -> query($query);
+        $this -> st -> queryRun();
+    }
+
+    public function saveArusKas($kdPesanan, $totalFinal, $waktu, $operator)
+    {
+        $query = "INSERT INTO tbl_arus_kas VALUES(null,'$kdPesanan','Pembayaran Kasir','masuk','$totalFinal','$waktu','$operator');";
         $this -> st -> query($query);
         $this -> st -> queryRun();
     }

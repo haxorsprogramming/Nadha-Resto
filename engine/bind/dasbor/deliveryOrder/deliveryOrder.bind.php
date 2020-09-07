@@ -2,7 +2,7 @@
 
     <div class="row" style="padding-left:20px;margin-right:10px;">
 
-        <table id='tblDeliveryOrder' class='table table-hover table-bordered table-stripped'>
+        <table id='tblDeliveryOrder' class='table hover table-bordered table-stripped'>
             <thead>
                 <tr>
                     <th>Pesanan</th>

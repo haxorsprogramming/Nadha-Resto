@@ -42,7 +42,7 @@ class deliveryOrder extends Route{
             $nestedData = array();
             $nestedData[] = $kdPesanan;
             $nestedData[] = $statusCap;
-            $nestedData[] = "Masuk : <b>".$ds['masuk']."</b>";
+            $nestedData[] = "Masuk : <b>".$ds['masuk']."</b><br/>Dikirim : <b>".$ds['dikirim']."</b><br/>Diterima : <b>".$ds['diterima']."</b>";
             $nestedData[] = $kurirCap;
             $nestedData[] = "Rp. ".number_format($total);
             $nestedData[] = "<a href='#!' class='btn btn-primary btn-sm btn-icon icon-left btnDetail' data-id='".$kdPesanan."'><i class='fas fa-info-circle'></i> Detail</a>";
@@ -108,8 +108,19 @@ class deliveryOrder extends Route{
         $waktu = $this -> waktu();
         $this -> state($this -> sn) -> kirimPesanan($kurir, $waktu, $kdPesanan);
         //kirim email notifikasi 
-        
-
+        $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
+        $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
+        $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
+        $detailPesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
+        $detailPelanggan = $this -> state($this -> sn) -> getDetailPelanggan($detailPesanan['pelanggan']);
+        $namaPelanggan = $detailPelanggan['nama'];
+        $penerima = $detailPelanggan['email'];
+        $judul = "Pesanan Sedang Dikirim - ".$namaResto;
+        $link = "90122-".$kdPesanan."-NRST-ADNRS-SPELLBEE";
+        $isi = "Halo ".$namaPelanggan.", terima kasih telah melakukan pemesanan di resto kami. <br/>";
+        $isi .= "Pesanan anda telah dikirim, pastikan telepon anda aktif agar kurir dapat menghubungi anda. Cek detail pesanan anda di ";
+        $isi .= "<a href='".HOMEBASE."home/pesanan/".$link."'>sini</a><br/><br/><br/>Salam<br/>".$namaResto;
+        $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
@@ -118,6 +129,16 @@ class deliveryOrder extends Route{
     {
         $kdPesanan = $this -> inp('kdPesanan');
         $waktu = $this -> waktu();
+        //save ke pembayaran 
+        $kdInvoice = date('m')."-".date('d')."-".date('Y')."-".substr($kdPesanan, 0, 4);
+        $totalHarga = $this -> state('homeData') -> getTotalPesanan($kdPesanan);
+        $tax = $this -> state($this -> su) -> getSettingResto('tax');
+        $taxPrice = ($totalHarga * $tax) / 100;
+        $totalFinal = $totalHarga + $taxPrice;
+        $operator = $this -> getses('userSes');
+        $this -> state($this -> sn) -> savePembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $taxPrice, $totalFinal, $operator);
+        //save arus kas 
+        $this -> state($this -> sn) -> saveArusKas($kdPesanan, $totalFinal, $waktu, $operator);
         //kirim email notifikasi 
         $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
@@ -127,9 +148,10 @@ class deliveryOrder extends Route{
         $namaPelanggan = $detailPelanggan['nama'];
         $penerima = $detailPelanggan['email'];
         $judul = "Pesanan Selesai - ".$namaResto;
+        $link = "90122-".$kdPesanan."-NRST-ADNRS-SPELLBEE";
         $isi = "Halo ".$namaPelanggan.", terima kasih telah melakukan pemesanan di resto kami. <br/>";
         $isi .= "Pesanan anda telah selesai, cek detail pesanan anda di ";
-        $isi .= "<a href='".HOMEBASE."home/pesanan/".$kdPesanan."'>Sini</a><br/><br/><br/>Salam<br/>".$namaResto;
+        $isi .= "<a href='".HOMEBASE."home/pesanan/".$link."'>sini</a><br/><br/><br/>Salam<br/>".$namaResto;
         $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
         //set selesai 
         $this -> state($this -> sn) -> setSelesai($waktu, $kdPesanan);
