@@ -77,6 +77,12 @@ class utilityData{
         $q = $this -> st -> querySingle();
         return $q['pelanggan'];
     }
+    public function getPelangganFromDevOrder($kdPesanan)
+    {
+        $this -> st -> query("SELECT pelanggan FROM tbl_delivery_order WHERE kd_pesanan='$kdPesanan';");
+        $q = $this -> st -> querySingle();
+        return $q['pelanggan'];
+    }
     //fungsi ambil nama bahan baku 
     public function getBahanBakuData($kdBahan)
     {

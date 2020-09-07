@@ -140,13 +140,32 @@ class home extends Route{
     {
         $pEx = explode("-", $kdPesanan);
         $kdFin = $pEx[1];
-        echo $kdFin;
-    }
-
-    public function cekPemesanan()
-    {
+        $pesanan = $this -> state('deliveryOrderData') -> detailPesanan($kdFin);
+        $status = $pesanan['status'];
+        if($status === 'order_masuk'){
+            $statusCap = 'Pesanan diterima';
+        }else if($status === 'diproses'){
+            $statusCap = 'Orderan di proses';
+        }else if($status === 'dikirim'){
+            $statusCap = 'Orderan di kirim';
+        }else if($status === 'sampai'){
+            $statusCap = 'Orderan selesai';
+        }else{
+            $statusCap = 'Dibatalkan';
+        }
+        $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
         $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
-        $this -> bind('home/cekPesanan', $data);
+        $data['kdPesanan'] = $kdFin;
+        $data['waktuPesanan'] = $pesanan['masuk'];
+        $data['itemPesanan'] =  $this -> state('deliveryOrderData') -> getItemPesanan($kdFin);
+        $data['statusCap'] = $statusCap;
+        //cek apakah kode pesanan ada 
+        $cekPesanan = $this -> state($this -> sn) -> cekPesanan($kdFin);
+        if($cekPesanan === true){
+            $this -> bind('home/pesanan', $data);
+        }else{
+            echo "<pre>Kode pesanan tidak valid..!!</pre>";
+        }
     }
 
     public function konfirmasi()

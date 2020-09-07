@@ -46,6 +46,10 @@ class dasbor extends Route{
             // AMBIL DATA CUSTOMER 
             $kdPelanggan = $this -> state('utilityData') -> getPelangganFromPesanan($kdPesanan);
             $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
+            if($namaPelanggan === null){
+                $kdPelanggan = $this -> state('utilityData') -> getPelangganFromDevOrder($kdPesanan);
+                $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
+            }
             $arrTemp['namaPelanggan'] = $namaPelanggan;
             $arrTemp['total'] = $gt['total_final'];
             $arrTemp['waktu'] = $gt['waktu'];
