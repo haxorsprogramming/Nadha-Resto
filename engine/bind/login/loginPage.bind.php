@@ -62,6 +62,9 @@
         </div>
     </div>
     <!-- Custom js  -->
+    <script>
+        const server = "<?=HOMEBASE; ?>";
+    </script>
     <script src="<?=STYLEBASE; ?>/login/js/login.js"></script>
     <script src="<?=STYLEBASE; ?>/login/js/template.js"></script>
 </body>

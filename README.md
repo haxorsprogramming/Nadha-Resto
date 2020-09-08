@@ -36,7 +36,6 @@
 <b>Fitur</b>
 <ul>
 <li>Monitoring Aktivitas Restoran</li>
-<li>Sistem Pemesanan Mandiri (Lewat front end)</li>
 <li>Sistem Delivery Order</li>
 <li>Manajemen Pesanan</li>
 <li>Manajemen Pelanggan</li>
@@ -46,6 +45,8 @@
 <li>Manajemen Bahan Baku</li>
 <li>Manajemen Promo & Diskon</li>
 <li>Manajemen Pembukuan Restoran</li>
+<li>Notifikasi Pesanan Email & Whatsapp (Terintegrasi dengan API WooWa)</li>
+<li>Setting Front End Customer Page</li>
 </ul>
 <br/>
 <b>Development Team</b>

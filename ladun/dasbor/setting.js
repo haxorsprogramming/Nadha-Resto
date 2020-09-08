@@ -17,7 +17,7 @@ var divSetting = new Vue({
         ipAddressPrintOther : '',
         emailResto : '',
         awalPembukuan : '',
-        apiWaResponder : '',
+        apiWooWa : '',
         saldoAwal : '',
         nomorHandphone : '',
         koneksiPrinter : '',
@@ -50,14 +50,14 @@ var divSetting = new Vue({
                     'ipAddressPrintOther' : this.ipAddressPrintOther,
                     'emailResto' : this.emailResto,
                     'awalPembukuan' : this.awalPembukuan,
-                    'apiWaResponder': this.apiWaResponder,
+                    'apiWooWa': this.apiWooWa,
                     'saldoAwal' : this.saldoAwal,
                     'nomorHandphone' : this.nomorHandphone,
                     'koneksiPrinter' : this.koneksiPrinter,
                     'emailHost' : this.emailHost,
                     'emailHostPassword' : this.emailHostPassword
                 }
-                if(this.namaResto == '' || this.alamatResto == '' || this.namaResto == '' || this.tax == '' || this.ipAddressPrintKasir == '' || this.ipAddressPrintKichen == '' || this.ipAddressPrintOther == '' || this.emailResto == '' || this.awalPembukuan == '' || this.apiWaResponder == '' || this.saldoAwal == '' || this.nomorHandphone == '' || this.koneksiPrinter == '' || this.emailHost == '' || this.emailHostPassword == ''){
+                if(this.namaResto == '' || this.alamatResto == '' || this.namaResto == '' || this.tax == '' || this.ipAddressPrintKasir == '' || this.ipAddressPrintKichen == '' || this.ipAddressPrintOther == '' || this.emailResto == '' || this.awalPembukuan == '' || this.apiWooWa == '' || this.saldoAwal == '' || this.nomorHandphone == '' || this.koneksiPrinter == '' || this.emailHost == '' || this.emailHostPassword == ''){
                     pesanUmumApp('warning', 'Isi field!!', 'Harap lengkapi field!!');
                 }else{
                     NProgress.start();
@@ -85,7 +85,7 @@ $.post(routeToGetPesanan, function(data){
     divSetting.ipAddressPrintOther = obj.ipAddressPrintOther;
     divSetting.emailResto = obj.emailResto;
     divSetting.awalPembukuan = obj.awalPembukuan;
-    divSetting.apiWaResponder = obj.apiWaResponder;
+    divSetting.apiWooWa = obj.apiWooWa;
     divSetting.saldoAwal = obj.saldoAwal;
     divSetting.nomorHandphone = obj.nomorHandphone;
     divSetting.koneksiPrinter = obj.koneksiPrinter;

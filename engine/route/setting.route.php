@@ -21,7 +21,7 @@ class setting extends Route{
         $data['ipAddressPrintOther']    = $this -> state($this -> sn) -> getSettingData('ip_address_print_other');
         $data['emailResto']             = $this -> state($this -> sn) -> getSettingData('email_resto');
         $data['awalPembukuan']          = $this -> state($this -> sn) -> getSettingData('awal_pembukuan');
-        $data['apiWaResponder']         = $this -> state($this -> sn) -> getSettingData('api_wa_responder');
+        $data['apiWooWa']               = $this -> state($this -> sn) -> getSettingData('api_woo_wa');
         $data['saldoAwal']              = $this -> state($this -> sn) -> getSettingData('saldo_awal');
         $data['nomorHandphone']         = $this -> state($this -> sn) -> getSettingData('nomor_handphone');
         $data['koneksiPrinter']         = $this -> state($this -> sn) -> getSettingData('koneksi_printer');
@@ -48,7 +48,7 @@ class setting extends Route{
         $this -> state($this -> sn) -> updateData('nama_owner', $this -> inp('namaOwner'));
         $this -> state($this -> sn) -> updateData('email_resto', $this -> inp('emailResto'));
         $this -> state($this -> sn) -> updateData('awal_pembukuan', $this -> inp('awalPembukuan'));
-        $this -> state($this -> sn) -> updateData('api_wa_responder', $this -> inp('apiWaResponder'));
+        $this -> state($this -> sn) -> updateData('api_woo_wa', $this -> inp('apiWooWa'));
         $this -> state($this -> sn) -> updateData('saldo_awal', $this -> inp('saldoAwal'));
         $this -> state($this -> sn) -> updateData('nomor_handphone', $this -> inp('nomorHandphone'));
         $this -> state($this -> sn) -> updateData('koneksi_printer', $this -> inp('koneksiPrinter'));

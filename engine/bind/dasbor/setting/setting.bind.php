@@ -65,9 +65,9 @@
                             <input type="text" class="form-control" id='txtPasswordEmailHost' v-model='emailHostPassword' disabled>
                         </div>
                         <div class="form-group">
-                            <label>API Key Waresponder </label><small>(API Key dari wa responder untuk aktifkan
+                            <label>API Key WooWa </label><small>(API Key dari WooWa untuk aktifkan
                                 notifikasi via whatsapp)</small>
-                            <input type="text" class="form-control" id='txtApiKey' v-model='apiWaResponder' disabled>
+                            <input type="text" class="form-control" id='txtApiKey' v-model='apiWooWa' disabled>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -175,7 +175,7 @@
                     <td>Email Host</td><td style="text-align: left;">{{emailHost}}</td>
                 </tr>
                 <tr>
-                    <td>API Key Wa</td><td style="text-align: left;">{{apiWaResponder}}</td>
+                    <td>API Key WooWa</td><td style="text-align: left;">{{apiWooWa}}</td>
                 </tr>
                 <tr>
                     <td>Tahun Pembukuan Awal</td><td style="text-align: left;">{{awalPembukuan}}</td>

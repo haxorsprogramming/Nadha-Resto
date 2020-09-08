@@ -1,8 +1,7 @@
-//alamat server, ganti sesuai dengan konfigurasi alamat server anda
-const server = "http://localhost/Nadha-Resto/";
-//inisialisasi variabel lokal
-const routeToLogin = server+"login/prosesLogin/";
+// ROUTE 
+const routeToLogin = server + 'login/prosesLogin/';
 
+// VUE OBJECT 
 var loginForm = new Vue({
   el: "#login-app",
   data: {
@@ -25,6 +24,7 @@ var loginForm = new Vue({
   }
 });
 
+// FUNCTION 
 function suksesLogin() {
   iziToast.info({
     title: "Sukses",
