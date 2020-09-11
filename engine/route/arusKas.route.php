@@ -1,7 +1,7 @@
 <?php
-// ARUS KAS ROUTE 
+// Arus kas route  
 class arusKas extends Route{
-    // INISIALISASI STATE 
+    // Inisialisasi route  
     private $sn = 'arusKasData';
     private $su = 'utilityData';
 
@@ -39,7 +39,7 @@ class arusKas extends Route{
 
     public function detailArusKas($kdTransaksi)
     {
-        // CEK TIPE ARUS KAS  
+        // Cek tipe arus kas   
         $tipeArus = $this -> state($this -> sn) -> cekTipeArus($kdTransaksi);
 
         if($tipeArus === 'Pembelian bahan baku resto'){

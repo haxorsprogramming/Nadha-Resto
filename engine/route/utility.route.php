@@ -19,7 +19,6 @@ class utility extends Route{
       $isi = 'Tes kirim email 3';
       $emailHost = 'dindananinda@gmail.com';
       $passwordHost = '3ncoding4sc11A@';
-
       $this -> kirimEmail($nama, $penerima, $judul, $isi, $emailHost, $passwordHost);
     }
 

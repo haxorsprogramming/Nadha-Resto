@@ -131,8 +131,10 @@ class home extends Route{
         $isi .= "Total : Rp. ".number_format($totalHarga)."<br/>";
         $isi .= "Silahkan cek status pemesanan anda di <a href='".HOMEBASE."home/pesanan/".$link."'>sini</a>";
         $this -> kirimEmail($nama, $penerima, $judul, $isi, $emailHost, $passwordHost);
-        // kirim kesan ke whatsapp pelanggan 
+        // kirim kesan ke whatsapp pelanggan
         $key = $this -> state($this -> su) -> getSettingResto('api_woo_wa');
+        $message = "Informasi pemesanan makanan /n Halo, ".$nama."Terima kasih telah melakukan pemesanan di ".$namaResto;
+        $message .= "";
         $this -> sendWaNotif($key, $hp, $message);
         $data['status'] = $cekHp;
         $this -> toJson($data);

@@ -1,7 +1,7 @@
 <?php
-// DELIVERY ORDER ROUTE 
+// Delivery order route  
 class deliveryOrder extends Route{
-    // INISIALISASI STATE
+    // Inisialisasi state 
     private $sn = 'deliveryOrderData';
     private $su = 'utilityData';
 
@@ -19,8 +19,8 @@ class deliveryOrder extends Route{
 
         foreach($dataPesanan as $ds){
             $kdPesanan = $ds['kd_pesanan'];
-            // PREPARE DATA 
             $kurir = $ds['kurir'];
+
             if($kurir === ''){
                 $kurirCap = '-';
             }else{
@@ -38,6 +38,7 @@ class deliveryOrder extends Route{
             }else{
                 $statusCap = 'Dibatalkan';
             }
+
             $total = $this -> state($this -> sn) -> getTotalPesanan($kdPesanan);
             $nestedData = array();
             $nestedData[] = $kdPesanan;
@@ -64,6 +65,7 @@ class deliveryOrder extends Route{
         $pesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
         $kurir = $this -> state($this -> sn) -> getKurir();
         $status = $pesanan['status'];
+
         if($status === 'order_masuk'){
             $statusCap = 'Pesanan diterima';
         }else if($status === 'diproses'){
@@ -75,6 +77,7 @@ class deliveryOrder extends Route{
         }else{
             $statusCap = 'Dibatalkan';
         }
+        
         $totalHarga = $this -> state('homeData') -> getTotalPesanan($kdPesanan);
         $tax = $this -> state($this -> su) -> getSettingResto('tax');
         $taxPrice = ($totalHarga * $tax) / 100;
@@ -107,7 +110,7 @@ class deliveryOrder extends Route{
         $kurir = $this -> inp('kurir');
         $waktu = $this -> waktu();
         $this -> state($this -> sn) -> kirimPesanan($kurir, $waktu, $kdPesanan);
-        //kirim email notifikasi 
+        // Kirim email notifikasi 
         $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
         $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
@@ -129,7 +132,7 @@ class deliveryOrder extends Route{
     {
         $kdPesanan = $this -> inp('kdPesanan');
         $waktu = $this -> waktu();
-        //save ke pembayaran 
+        // Save ke pembayaran 
         $kdInvoice = date('m')."-".date('d')."-".date('Y')."-".substr($kdPesanan, 0, 4);
         $totalHarga = $this -> state('homeData') -> getTotalPesanan($kdPesanan);
         $tax = $this -> state($this -> su) -> getSettingResto('tax');
@@ -137,9 +140,9 @@ class deliveryOrder extends Route{
         $totalFinal = $totalHarga + $taxPrice;
         $operator = $this -> getses('userSes');
         $this -> state($this -> sn) -> savePembayaran($kdInvoice, $kdPesanan, $waktu, $totalHarga, $taxPrice, $totalFinal, $operator);
-        //save arus kas 
+        // Save arus kas 
         $this -> state($this -> sn) -> saveArusKas($kdPesanan, $totalFinal, $waktu, $operator);
-        //kirim email notifikasi 
+        // Kirim email notifikasi 
         $namaResto = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $emailHost = $this -> state($this -> su) -> getSettingResto('email_host');
         $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
@@ -153,7 +156,7 @@ class deliveryOrder extends Route{
         $isi .= "Pesanan anda telah selesai, cek detail pesanan anda di ";
         $isi .= "<a href='".HOMEBASE."home/pesanan/".$link."'>sini</a><br/><br/><br/>Salam<br/>".$namaResto;
         $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
-        //set selesai 
+        // Set selesai 
         $this -> state($this -> sn) -> setSelesai($waktu, $kdPesanan);
         $data['status'] = 'sukses';
         $this -> toJson($data);
