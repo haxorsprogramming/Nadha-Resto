@@ -47,7 +47,7 @@ var divNavbar = new Vue({
     },
     lihatNotifikasiAllAtc : function()
     {
-      console.log("Hayyy");
+      divMenu.deliveryOrderAtc();
     }
   }
 });
@@ -207,7 +207,15 @@ $.post(routeToFirebaseSetting, function(data){
 
 $.post(routeToGetPesanan, function(data){
   let obj = JSON.parse(data);
-  console.log(obj);
+  let pesanan = obj.pesanan;
+  pesanan.forEach(renderPesanan);
+  function renderPesanan(item, index){
+    divNavbar.pesanan.push({
+      title : 'Pesanan baru ('+pesanan[index].kd_pesanan+')',
+      status : pesanan[index].status,
+      masuk : pesanan[index].masuk
+    });
+  }
 });
 
 setTimeout(function(){
@@ -230,7 +238,7 @@ setTimeout(function(){
     $('#capNotif').addClass('beep');
   });
 
-}, 500);
+}, 100);
 
 // FUNCTION
 function renderMenu(halaman) {

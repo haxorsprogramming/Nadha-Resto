@@ -44,19 +44,15 @@
          <li class="dropdown dropdown-list-toggle">
            <a href="#!" @click='lihatNotifAtc' data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep" id='capNotif'><i class="far fa-bell"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Notifikasi Resto
-                <div class="float-right">
-                  <a href="#!">Lihat semua notifikasi</a>
-                </div>
-              </div>
+              <div class="dropdown-header">Notifikasi Resto</div>
               <div class="dropdown-list-content dropdown-list-icons">
-                <a href="#" class="dropdown-item dropdown-item-unread" v-for='ps in pesanan'>
+                <a href="#!" @click='lihatNotifikasiAllAtc' class="dropdown-item dropdown-item-unread" v-for='ps in pesanan'>
                   <div class="dropdown-item-icon bg-primary text-white">
                     <i class="fas fa-clipboard-check"></i>
                   </div>
                   <div class="dropdown-item-desc">
                     {{ps.title}}
-                    <div class="time text-primary">2 Min Ago</div>
+                    <div class="time text-primary">{{ps.status}} - {{ps.masuk}}</div>
                   </div>
                 </a>
               </div>
