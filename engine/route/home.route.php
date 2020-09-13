@@ -133,8 +133,8 @@ class home extends Route{
         $this -> kirimEmail($nama, $penerima, $judul, $isi, $emailHost, $passwordHost);
         // kirim kesan ke whatsapp pelanggan
         $key = $this -> state($this -> su) -> getSettingResto('api_woo_wa');
-        $message = "Informasi pemesanan makanan /n Halo, ".$nama."Terima kasih telah melakukan pemesanan di ".$namaResto;
-        $message .= "";
+        $message = "Informasi pemesanan makanan. Halo, ".$nama."Terima kasih telah melakukan pemesanan di ".$namaResto;
+        $message .= ". Kode pesanan anda adalah : ".$kdPesanan." Silahkan cek status pemesanan di email anda.";
         $this -> sendWaNotif($key, $hp, $message);
         $data['status'] = $cekHp;
         $this -> toJson($data);
