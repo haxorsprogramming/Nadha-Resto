@@ -103,7 +103,7 @@ class pembelianBahanBaku extends Route{
         $waktu = $this -> waktu();
         $mitra = $this -> inp('mitra');
         $nominal = $this -> inp('nominal');
-        $operator = $this -> getses('userSes');
+        $operator = $this -> getses('userSession');
         $nominalClear = str_replace('.','',$nominal);
         $this -> state($this -> sn) -> prosesPembelian($kdPembelian, $mitra, $waktu, $nominalClear, $operator);
         //simpan ke arus kas

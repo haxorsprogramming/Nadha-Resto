@@ -91,7 +91,7 @@ class pembayaran extends Route{
         $totalFinal = $this -> inp('totalFinal');
         $tunai      = $this -> inp('tunai');
         $kembali    = $this -> inp('kembali');
-        $operator   = $this -> getses('userSes');
+        $operator   = $this -> getses('userSession');
         $waktu      = $this -> waktu();
         $meja       = $this -> inp('meja');
         //simpan data pembayaran

@@ -127,7 +127,7 @@ class pesanan extends Route{
         $jlhTamu            = $this -> inp('jlhTamu');
         $kdPesanan          = $this -> rnstr(15);
         $waktuMasuk         = $this -> waktu();
-        $operator           = $this -> getses('userSes');
+        $operator           = $this -> getses('userSession');
         $meja               = $this -> inp('mejaId');
         //simpan ke tabel pesanan
         $this -> state($this -> sn) -> buatPesanan($kdPesanan, $kdPelanggan, $tipe, $jlhTamu, $waktuMasuk, $operator, $meja);
@@ -145,7 +145,7 @@ class pesanan extends Route{
         $kdPelanggan        = $this -> inp('kdPelanggan');
         $kdPesanan          = $this -> rnstr(15);
         $waktu              = $this -> waktu();
-        $operator           = $this -> getses('userSes');
+        $operator           = $this -> getses('userSession');
         //buat pesanan 
         $this -> state($this -> sn) -> buatPesananTakeHome($kdPesanan, $kdPelanggan, $waktu, $operator);
         $data['status']     = 'sukses';
