@@ -4,10 +4,8 @@ $this -> bind('layout/home_header', $data);
 ?>
     <!-- Content -->
     <div id="content">
-
         <!-- Section - Main -->
         <section class="section section-main section-main-2 bg-dark dark">
-
             <div id="section-main-2-slider" class="section-slider inner-controls">
                 <!-- Slide -->
                 <?php foreach($data['dataSlider'] as $ds) : ?>
@@ -22,16 +20,12 @@ $this -> bind('layout/home_header', $data);
                 </div>
                 <?php endforeach; ?>
             </div>
-
         </section>
-
         <!-- Section - About -->
         <section class="section section-bg-edge" style="margin-top: 20px;">
-
             <div class="image left col-md-6">
                 <div class="bg-image"><img src="<?=STYLEBASE; ?>/home/img/chef.jpg" alt=""></div>
             </div>
-
             <div class="container">
                 <div class="col-lg-5 col-lg-offset-7 col-md-9 offset-md-6">
                     <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
@@ -65,9 +59,7 @@ $this -> bind('layout/home_header', $data);
                     </div>
                 </div>
             </div>
-
         </section>
-
         <!-- Section - Steps -->
         <section class="section section-extended center dark bg-dark" style="margin-top: 20px;">
 
@@ -105,61 +97,30 @@ $this -> bind('layout/home_header', $data);
                     </div>
                 </div>
             </div>
-
         </section>
-
         <!-- Section - Offers -->
         <section class="section bg-light">
-
             <div class="container">
                 <h1 class="text-center mb-6">Special offers</h1>
                 <div class="carousel" data-slick='{"dots": true}'>
+                    <?php foreach($data['dataPromo'] as $dp) : ?>
                     <!-- Special Offer -->
                     <div class="special-offer">
                         <img src="http://assets.suelo.pl/soup/img/photos/special-burger.jpg" alt="" class="special-offer-image">
                         <div class="special-offer-content">
-                            <h2 class="mb-2">Free Burger</h2>
-                            <h5 class="text-muted mb-5">Get free burger from orders higher that $40!</h5>
+                            <h2 class="mb-2"><?=$dp['nama']; ?></h2>
+                            <h5 class="text-muted mb-5"><?=$dp['deks']; ?></h5>
                             <ul class="list-check text-lg mb-0">
-                                <li>Only on Tuesdays</li>
-                                <li class="false">Order higher that $40</li>
-                                <li>Unless one burger ordered</li>
+                                <li>Expired on <?=$dp['tanggal_expired']; ?></li>
                             </ul>
                         </div>
                     </div>
-                    <!-- Special Offer -->
-                    <div class="special-offer">
-                        <img src="http://assets.suelo.pl/soup/img/photos/special-pizza.jpg" alt="" class="special-offer-image">
-                        <div class="special-offer-content">
-                            <h2 class="mb-2">Free Small Pizza</h2>
-                            <h5 class="text-muted mb-5">Get free burger from orders higher that $40!</h5>
-                            <ul class="list-check text-lg mb-0">
-                                <li>Only on Weekends</li>
-                                <li class="false">Order higher that $40</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Special Offer -->
-                    <div class="special-offer">
-                        <img src="http://assets.suelo.pl/soup/img/photos/special-dish.jpg" alt="" class="special-offer-image">
-                        <div class="special-offer-content">
-                            <h2 class="mb-2">Chip Friday</h2>
-                            <h5 class="text-muted mb-5">10% Off for all dishes!</h5>
-                            <ul class="list-check text-lg mb-0">
-                                <li>Only on Friday</li>
-                                <li>All products</li>
-                                <li>Online order</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-
         </section>
-
         <!-- Section - Menu -->
         <section class="section pb-0">
-
             <div class="container">
                 <h1 class="mb-6">Our menu</h1>
             </div>
@@ -196,7 +157,6 @@ $this -> bind('layout/home_header', $data);
                 </div>
             <?php endforeach; ?>
             </div>
-
         </section>
 <?php 
 $data['jsFile'] = 'home';

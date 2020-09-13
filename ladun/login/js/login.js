@@ -5,21 +5,29 @@ const routeToLogin = server + 'login/prosesLogin/';
 var loginForm = new Vue({
   el: "#login-app",
   data: {
-    userInput: '',
-    passwordInput: ''
+
   },
   methods: {
-    klikSaya: function() {
-      $('#btnMasuk').addClass('disabled');
-      $.post(routeToLogin, {username : 'admin', password : 'admin'}, function(data){
-        let obj = JSON.parse(data);
-        if(obj.status_login === 'sukses'){
-          suksesLogin();
-        }else{
-          gagalLogin();
-          $('#btnMasuk').removeClass('disabled'); 
-        }
-      });
+    klikSaya: function(){
+      let username = document.querySelector('#txtUsername').value;
+      let password = document.querySelector('#txtPassword').value;
+
+      if(username === '' || password === ''){
+        isiField();
+      }else{
+        $('#btnMasuk').addClass('disabled');
+        let dataSend = {username : username, password : password};
+        $.post(routeToLogin, dataSend, function(data){
+          let obj = JSON.parse(data);
+          if(obj.status_login === 'sukses'){
+            suksesLogin();
+          }else{
+            gagalLogin();
+            $('#btnMasuk').removeClass('disabled'); 
+          }
+        });
+      }
+      
     }
   }
 });
@@ -65,7 +73,7 @@ function isiField() {
 }
 
 function clearForm() {
-  document.getElementById("txtUsername").value = "";
-  document.getElementById("txtPassword").value = "";
-  document.getElementById("txtUsername").focus();
+  document.querySelector("#txtUsername").value = "";
+  document.querySelector("#txtPassword").value = "";
+  document.querySelector("#txtUsername").focus();
 }

@@ -61,7 +61,7 @@ class dasbor extends Route{
 
     public function logOut()
     {
-        $this -> destses();
+        session_destroy();
         $this -> goto('login');
     }
 

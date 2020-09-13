@@ -23,7 +23,7 @@ class login extends Route{
         $checkPassword  = $this -> verifPassword($password, $userPasswordDb);
 
         if($checkPassword === true){
-            $this -> setses('userSes', $user);
+            $_SESSION['userSession'] = $user;
             $this -> state($this -> sn) -> updateLogin($waktu, $user);
             $data['status_login'] = 'sukses';
         }else{

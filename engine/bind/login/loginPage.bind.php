@@ -37,10 +37,10 @@
                                     <div>
                                         <div class="pt-3">
                                             <div class="form-group">
-                                                <input v-model='userInput' type='text' class='form-control' autofocus id='txtUsername' placeholder='Username'>
+                                                <input type="text" class="form-control" autofocus id="txtUsername" placeholder="Username">
                                             </div>
                                             <div class="form-group">
-                                                <input v-model='passwordInput' class="form-control" type='password' id="txtPassword" placeholder="Password">
+                                                <input class="form-control" type="password" id="txtPassword" placeholder="Password">
                                             </div>
                                             <div class="mt-3">
                                                 <a id='btnMasuk' v-on:click='klikSaya' class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="#!">Masuk</a>

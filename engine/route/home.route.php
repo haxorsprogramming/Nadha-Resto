@@ -10,7 +10,8 @@ class home extends Route{
         $this -> state($this -> su) -> csrfBuild();
         $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $data['dataSlider'] = $this -> state($this -> sn) -> getDataSlider();
-        $data['dataMenu']   = $this -> state($this -> sn) -> getDataMenu();  
+        $data['dataMenu']   = $this -> state($this -> sn) -> getDataMenu();
+        $data['dataPromo'] = $this -> state($this -> sn) -> getPromo();  
         $this -> bind('home/home', $data);   
     }
 
