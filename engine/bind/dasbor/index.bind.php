@@ -32,7 +32,7 @@
    <div id="app">
      <div class="main-wrapper">
        <div class="navbar-bg"  style='background-color:#2c3e50;'></div>
-       <nav class="navbar navbar-expand-lg main-navbar">
+       <nav class="navbar navbar-expand-lg main-navbar" id='divNavbar'>
          <form class="form-inline mr-auto">
            <ul class="navbar-nav mr-3">
              <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
@@ -42,7 +42,7 @@
          </form>
          <ul class="navbar-nav navbar-right">
          <li class="dropdown dropdown-list-toggle">
-           <a href="#!" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep" id='capNotif'><i class="far fa-bell"></i></a>
+           <a href="#!" @click='lihatNotifAtc' data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep" id='capNotif'><i class="far fa-bell"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
               <div class="dropdown-header">Notifikasi Resto
                 <div class="float-right">
@@ -50,18 +50,18 @@
                 </div>
               </div>
               <div class="dropdown-list-content dropdown-list-icons">
-                <a href="#" class="dropdown-item dropdown-item-unread">
+                <a href="#" class="dropdown-item dropdown-item-unread" v-for='ps in pesanan'>
                   <div class="dropdown-item-icon bg-primary text-white">
-                    <i class="fas fa-code"></i>
+                    <i class="fas fa-clipboard-check"></i>
                   </div>
                   <div class="dropdown-item-desc">
-                    Template update is available now!
+                    {{ps.title}}
                     <div class="time text-primary">2 Min Ago</div>
                   </div>
                 </a>
               </div>
               <div class="dropdown-footer text-center">
-                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                <a href="#!" @click='lihatNotifikasiAllAtc'>Lihat semua <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
           </li>
@@ -87,7 +87,11 @@
               <a href="#!">NL</a>
             </div>
             <?php
-            $this -> bind('dasbor/menuAdmin');
+              if($data['userTipe'] === 'admin'){
+                $this -> bind('dasbor/menuAdmin');
+              }elseif($data['userTipe'] === 'kasir'){
+                $this -> bind('dasbor/menuKasir');
+              }
             ?>
           </aside>
        </div>
@@ -123,6 +127,12 @@
      <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <!-- Firebase  -->
+      <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-database.js"></script>
+
      <!-- Template JS File -->
    
    <script src="<?=STYLEBASE; ?>/dasbor/stisla/js/scripts.js"></script>

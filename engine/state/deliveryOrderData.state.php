@@ -107,4 +107,10 @@ class deliveryOrderData{
         $this -> st -> queryRun();
     }
 
+    public function getPesananTerbaru()
+    {
+        $this -> st -> query("SELECT * FROM tbl_delivery_order ORDER BY masuk ASC LIMIT 0, 5");
+        return $this -> st -> queryAll();
+    }
+
 }

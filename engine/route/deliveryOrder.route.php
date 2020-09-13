@@ -177,4 +177,10 @@ class deliveryOrder extends Route{
         $this -> toJson($data);
     }
 
+    public function getPesananTerbaru()
+    {
+        $data['pesanan'] = $this -> state($this -> sn) -> getPesananTerbaru();
+        $this -> toJson($data);
+    }
+
 }

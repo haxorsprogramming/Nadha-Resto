@@ -20,16 +20,38 @@ const bantuan = 'bantuan';
 const manajemenUser = 'manajemenUser';
 const tentangAplikasi = 'tentangAplikasi';
 const frontEndSetting = 'frontEndSetting';
-
+var routeToFirebaseSetting = server + 'utility/getFirebaseSetting';
+var routeToGetPesanan = server + 'deliveryOrder/getPesananTerbaru';
 const d = new Date();
 const tahun = d.getFullYear();
 var halaman;
 NProgress.configure({ showSpinner: false });
 
-// INISIALISASI 
-renderMenu(beranda);
-
 // VUE OBJECT 
+var divNavbar = new Vue({
+  el : '#divNavbar',
+  data : {
+    apiKey : '',
+    authDomain : '',
+    databaseURL : '',
+    projectId : '',
+    storageBucket : '',
+    messagingSenderId : '',
+    appId : '',
+    pesanan : []
+  },
+  methods : {
+    lihatNotifAtc : function()
+    {
+      $('#capNotif').removeClass('beep');
+    },
+    lihatNotifikasiAllAtc : function()
+    {
+      console.log("Hayyy");
+    }
+  }
+});
+
 var divFooter = new Vue({
   el: '#divFooter',
   data: {
@@ -168,12 +190,49 @@ var divMenu = new Vue({
     }
   }
 });
- 
-// FUNCTION
-document.querySelector('#capNotif').addEventListener('click', function(){
-  $('#capNotif').removeClass('beep');
+
+// INISIALISASI 
+renderMenu(beranda);
+
+$.post(routeToFirebaseSetting, function(data){
+  let obj = JSON.parse(data);
+  divNavbar.apiKey = obj.apiKey;
+  divNavbar.authDomain = obj.authDomain;
+  divNavbar.databaseURL = obj.databaseURL;
+  divNavbar.projectId = obj.projectId;
+  divNavbar.storageBucket = obj.storageBucket;
+  divNavbar.messagingSenderId = obj.messagingSenderId;
+  divNavbar.appId = obj.appId;
 });
 
+$.post(routeToGetPesanan, function(data){
+  let obj = JSON.parse(data);
+  console.log(obj);
+});
+
+setTimeout(function(){
+  var firebaseConfig = {
+    apiKey: divNavbar.apiKey,
+    authDomain: divNavbar.authDomain,
+    databaseURL: divNavbar.databaseURL,
+    projectId: divNavbar.projectId,
+    storageBucket: divNavbar.storageBucket,
+    messagingSenderId: divNavbar.messagingSenderId,
+    appId: divNavbar.appId
+  };
+  
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.database();
+  var pesanan = db.ref('pesanan'); 
+
+  pesanan.on('child_added', function(renderData){
+    pesanUmumApp('info', 'Pesanan baru', 'Ada pesanan baru masuk .. cek sekarang .. ');  
+    $('#capNotif').addClass('beep');
+  });
+
+}, 500);
+
+// FUNCTION
 function renderMenu(halaman) {
   progStart();
   $('#divUtama').html("Memuat form ..");
