@@ -35,29 +35,31 @@ $this -> bind('layout/home_header', $data);
             <div class="container">
                 <div class="col-lg-5 col-lg-offset-7 col-md-9 offset-md-6">
                     <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
-                    <h1>The best food in London!</h1>
-                    <p class="lead text-muted mb-5">Donec a eros metus. Vivamus volutpat leo dictum risus ullamcorper condimentum. Cras sollicitudin varius condimentum. Praesent a dolor sem....</p>
+                    <h1>Cooking and service with love ..</h1>
+                    <p class="lead text-muted mb-5">
+                        Kami memberikan pelayanan & penyajian yang terbaik untuk anda
+                    </p>
                     <div class="blockquotes">
                         <!-- Blockquote -->
                         <blockquote class="blockquote light animated" data-animation="fadeInLeft">
                             <div class="blockquote-content">
                                 <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
-                                <p>It’ was amazing feeling for my belly!</p>
+                                <p>Makanannya enak, waiters ramah .. love it.. :-)</p>
                             </div>
                             <footer>
-                                <img src="http://assets.suelo.pl/soup/img/avatars/avatar02.jpg" alt="">
-                                <span class="name">Mark Johnson<span class="text-muted">, Google</span></span>
+                                <img src="<?=STYLEBASE; ?>/home/img/cus.jpg" alt="">
+                                <span class="name">Dinda Syafatira<span class="text-muted">, dinda8911@gmail.com</span></span>
                             </footer>
                         </blockquote>
                         <!-- Blockquote -->
                         <blockquote class="blockquote animated" data-animation="fadeInRight" data-animation-delay="300">
                             <div class="blockquote-content dark">
                                 <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
-                                <p>Great food and great atmosphere!</p>
+                                <p>Tempat makan yang nyaman, instagrammable ...</p>
                             </div>
                             <footer>
-                                <img src="http://assets.suelo.pl/soup/img/avatars/avatar01.jpg" alt="">
-                                <span class="name">Kate Hudson<span class="text-muted">, LinkedIn</span></span>
+                            <img src="<?=STYLEBASE; ?>/home/img/cus.jpg" alt="">    
+                                <span class="name">Nurul Pratiwi<span class="text-muted">, nrlprtw@gmail.com</span></span>
                             </footer>
                         </blockquote>
                     </div>
@@ -76,8 +78,8 @@ $this -> bind('layout/home_header', $data);
                         <div class="feature feature-1 mb-md-0">
                             <div class="feature-icon icon icon-primary"><i class="ti ti-shopping-cart"></i></div>
                             <div class="feature-content">
-                                <h4 class="mb-2"><a href="#!">Pick a dish</a></h4>
-                                <p class="text-muted mb-0">Vivamus volutpat leo dictum risus ullamcorper condimentum.</p>
+                                <h4 class="mb-2"><a href="#!">Pilih menu</a></h4>
+                                <p class="text-muted mb-0">Silahkan pilih menu yang ada & beragam di resto kami.</p>
                             </div>
                         </div>
                     </div>
@@ -86,8 +88,8 @@ $this -> bind('layout/home_header', $data);
                         <div class="feature feature-1 mb-md-0">
                             <div class="feature-icon icon icon-primary"><i class="ti ti-wallet"></i></div>
                             <div class="feature-content">
-                                <h4 class="mb-2">Make a payment</h4>
-                                <p class="text-muted mb-0">Vivamus volutpat leo dictum risus ullamcorper condimentum.</p>
+                                <h4 class="mb-2">Lakukan pemesanan</h4>
+                                <p class="text-muted mb-0">Lakukan pemesanan, isi data dengan benar.</p>
                             </div>
                         </div>
                     </div>
@@ -96,8 +98,8 @@ $this -> bind('layout/home_header', $data);
                         <div class="feature feature-1 mb-md-0">
                             <div class="feature-icon icon icon-primary"><i class="ti ti-package"></i></div>
                             <div class="feature-content">
-                                <h4 class="mb-2">Recieve your food!</h4>
-                                <p class="text-muted mb-3">Vivamus volutpat leo dictum risus ullamcorper condimentum.</p>
+                                <h4 class="mb-2">Nikmati makananmu</h4>
+                                <p class="text-muted mb-3">Yeah, makananmu sampai. Nikmati mudahnya pesanan di resto kami.</p>
                             </div>
                         </div>
                     </div>

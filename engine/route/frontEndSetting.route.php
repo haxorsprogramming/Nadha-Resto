@@ -64,4 +64,9 @@ class frontEndSetting extends Route{
         $this -> toJson($data);
     }
 
+    public function specialOffer()
+    {
+        echo "aaa";
+    }
+
 }

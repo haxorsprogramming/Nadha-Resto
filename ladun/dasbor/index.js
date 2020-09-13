@@ -160,6 +160,11 @@ var divMenu = new Vue({
     {
       renderMenu(frontEndSetting+'/sliderUtama');
       divJudul.judulForm = "Setting Slider Utama";
+    },
+    specialOfferAtc : function()
+    {
+      renderMenu(frontEndSetting+'/specialOffer');
+      divJudul.judulForm = "Special Offers";
     }
   }
 });

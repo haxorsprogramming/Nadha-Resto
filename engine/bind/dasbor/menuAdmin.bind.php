@@ -42,8 +42,7 @@
         <a href="#!" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-chalkboard"></i> <span>Setting Front End</span></a>
         <ul class="dropdown-menu">
             <li><a class="nav-link" href="#!" @click='sliderUtamaSettingAtc'>Slider Utama</a></li>
-            <li><a class="nav-link" href="#!" @click='sliderUtamaSettingAtc'>Special Offer</a></li>
-            <li><a class="nav-link" href="#!" @click='sliderUtamaSettingAtc'>Testimoni</a></li>
+            <li><a class="nav-link" href="#!" @click='specialOfferAtc'>Special Offer</a></li>
         </ul>
     </li>
     <li><a class="nav-link" id='btnBantuan' href='#!' @click='bantuanAtc'><i class="fas fa-info-circle"></i> <span>Bantuan</span></a></li>
