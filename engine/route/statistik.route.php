@@ -7,6 +7,7 @@ class statistik extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $bulan = date('m');
         $data['bulanIndo'] = $this -> bulanIndo($bulan);
         $this -> bind('dasbor/statistik/statistik', $data);
@@ -14,6 +15,7 @@ class statistik extends Route{
 
     public function getMenuTerlaris()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['menuData'] = $this -> state($this -> sn) -> getMenuTerlaris();
         $this -> toJson($data);
     }

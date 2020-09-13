@@ -128,6 +128,7 @@ class pembayaranData{
     {
         $this -> st -> query("SELECT * FROM tbl_pesanan WHERE kd_pesanan='$kdPesanan';");
         $qPesanan = $this -> st -> queryAll();
+        return $qPesanan;
     }
 
     public function updateTransaksi($tokenTransaksi, $kdPesanan, $arus, $totalFinal, $waktu, $operator)

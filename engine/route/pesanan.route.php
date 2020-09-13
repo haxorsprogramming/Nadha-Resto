@@ -7,6 +7,7 @@ class pesanan extends Route{
 
     public function index($page)
     {
+        $this -> state($this -> su) -> csrfCek();
         $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
         $jlhPaginasi = ceil($jlhPesanan / 10);
         $data['jlhPesanan'] = $jlhPesanan;
@@ -17,6 +18,7 @@ class pesanan extends Route{
 
     public function getPesanan($page)
     {
+        $this -> state($this -> su) -> csrfCek();
         $pesanan = $this -> state($this -> sn) -> getDataPesanan($page);
         $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
         if($jlhPesanan < 1){
@@ -42,6 +44,7 @@ class pesanan extends Route{
 
     public function getMaxPagePesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
         $jlhPaginasi = ceil($jlhPesanan / 10);
         $data['jlhPaginasi'] = $jlhPaginasi;
@@ -50,6 +53,7 @@ class pesanan extends Route{
 
     public function cariPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $char = $this -> inp('char');
         //cek kd pesanan 
         $jlhPesanan = $this -> state($this -> sn) -> cariPesanan($char);
@@ -77,6 +81,7 @@ class pesanan extends Route{
 
     public function detailPesanan($kdPesanan)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdPesanan'] = $kdPesanan;
         $data['pesanan'] = $this -> state($this -> sn) -> getPesananData($kdPesanan);
         $this -> bind('dasbor/pesanan/detailPesanan', $data);
@@ -84,6 +89,7 @@ class pesanan extends Route{
 
     public function detailPesananData()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan = $this -> inp('kdPesanan');
         $data['kdPesanan'] = $kdPesanan;
         $pesanan = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
@@ -107,6 +113,7 @@ class pesanan extends Route{
 
     public function pesananBaru()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['meja']       = $this -> state($this -> sn) -> getDataMeja();
         $data['pelanggan']  = $this -> state($this -> sn) -> getDataPelanggan();
         $data['kategori']   = $this -> state($this -> sn) -> getDataKategori();
@@ -115,6 +122,7 @@ class pesanan extends Route{
 
     public function getMenuKategori()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdKategori     = $this -> inp('kdMenu');
         $data['menu']   = $this -> state($this -> sn) -> getMenuWithKategori($kdKategori);
         $this -> toJson($data);
@@ -122,6 +130,7 @@ class pesanan extends Route{
 
     public function buatPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPelanggan        = $this -> inp('pelanggan');
         $tipe               = $this -> inp('tipe');
         $jlhTamu            = $this -> inp('jlhTamu');
@@ -142,6 +151,7 @@ class pesanan extends Route{
 
     public function buatPesananTakeHome()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPelanggan        = $this -> inp('kdPelanggan');
         $kdPesanan          = $this -> rnstr(15);
         $waktu              = $this -> waktu();
@@ -155,12 +165,14 @@ class pesanan extends Route{
 
     public function updatePesanan($kdPesanan)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdPesanan'] = $kdPesanan;
         $this -> bind('dasbor/pesanan/updatePesanan', $data);
     }
 
     public function updateTempPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMenu     = $this -> inp('kdMenu');
         $kdPesanan  = $this -> inp('kdPesanan');
         $hargaAt    = $this -> inp('hargaAt');
@@ -172,6 +184,7 @@ class pesanan extends Route{
 
     public function getDetailPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan              = $this -> inp('kdPesanan');
         $dp                     = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
         $data['jlhTamu']        = $dp['jumlah_tamu'];
@@ -182,6 +195,7 @@ class pesanan extends Route{
 
     public function getTempFirst()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan  = $this -> inp('kdPesanan');
         $dtp        = $this -> state($this -> sn) -> getTempFirst($kdPesanan);
         foreach($dtp as $dp) {
@@ -197,6 +211,7 @@ class pesanan extends Route{
 
     public function hapusTempLama()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan      = $this -> inp('kdPesanan');
         $this -> state($this -> sn) -> hapusTempLama($kdPesanan);
         $data['status'] = 'sukses';
@@ -205,6 +220,7 @@ class pesanan extends Route{
 
     public function batalkanPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan = $this -> inp('kdPesanan');
         //bersihkan temp data 
         $this -> state($this -> sn) -> hapusTempLama($kdPesanan);

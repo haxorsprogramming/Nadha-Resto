@@ -7,12 +7,14 @@ class promo extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['promo'] = $this -> state($this -> sn) -> getPromoData();
         $this -> bind('dasbor/promo/promo', $data);
     }
 
     public function tambahPromo()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPromo            = $this -> rnint(6);
         $namaPromo          = $this -> inp('namaPromo');
         $deks               = $this -> inp('deks');
@@ -40,6 +42,7 @@ class promo extends Route{
 
     public function detailPromo($kdPromo)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdPromo'] = $kdPromo;
         $data['tipe'] = array('persen', 'total_harga');
         $data['promo'] = $this -> state($this -> sn) -> detailPromo($kdPromo);
@@ -48,6 +51,7 @@ class promo extends Route{
 
     public function update()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPromo = $this -> inp('kdPromo');
         $nama = $this -> inp('namaPromo');
         $deks = $this -> inp('deks');
@@ -69,6 +73,7 @@ class promo extends Route{
 
     public function delete()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPromo = $this -> inp('kdPromo');
         $this -> state($this -> sn) -> deletePromo($kdPromo);
         $data['status'] = 'sukses';

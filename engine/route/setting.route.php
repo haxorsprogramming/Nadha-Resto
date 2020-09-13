@@ -12,6 +12,7 @@ class setting extends Route{
 
     public function getDataRestoran()
     {
+        $this -> state($this -> sn) -> csrfCek();
         $data['namaResto']              = $this -> state($this -> sn) -> getSettingData('nama_resto');
         $data['alamatResto']            = $this -> state($this -> sn) -> getSettingData('alamat_resto');
         $data['namaOwner']              = $this -> state($this -> sn) -> getSettingData('nama_owner');
@@ -40,6 +41,7 @@ class setting extends Route{
     
     public function updateData()
     {
+        $this -> state($this -> sn) -> csrfCek();
         $this -> state($this -> sn) -> updateData('tax', $this -> inp('tax'));
         $this -> state($this -> sn) -> updateData('nama_resto', $this -> inp('namaResto'));
         $this -> state($this -> sn) -> updateData('ip_address_print_kasir', $this -> inp('ipAddressPrintKasir'));
