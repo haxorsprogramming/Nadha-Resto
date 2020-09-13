@@ -1,4 +1,4 @@
-//inisialisasi variabel lokal
+// ROUTE 
 const beranda = 'dasbor/beranda';
 const monitoring = 'monitoring';
 const menu = 'menu';
@@ -26,10 +26,10 @@ const tahun = d.getFullYear();
 var halaman;
 NProgress.configure({ showSpinner: false });
 
-// fungsi pertama kali dijalankan
+// INISIALISASI 
 renderMenu(beranda);
 
-//objek vue footer
+// VUE OBJECT 
 var divFooter = new Vue({
   el: '#divFooter',
   data: {
@@ -45,7 +45,7 @@ var divJudul = new Vue({
   }
 });
 
-//objek vue menu
+
 var divMenu = new Vue({
   el: '#divMenu',
   data: {
@@ -169,6 +169,11 @@ var divMenu = new Vue({
   }
 });
  
+// FUNCTION
+document.querySelector('#capNotif').addEventListener('click', function(){
+  $('#capNotif').removeClass('beep');
+});
+
 function renderMenu(halaman) {
   progStart();
   $('#divUtama').html("Memuat form ..");

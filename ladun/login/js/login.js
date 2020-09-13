@@ -15,6 +15,7 @@ var loginForm = new Vue({
       if(username === '' || password === ''){
         isiField();
       }else{
+        
         $('#btnMasuk').addClass('disabled');
         let dataSend = {username : username, password : password};
         $.post(routeToLogin, dataSend, function(data){
@@ -27,7 +28,7 @@ var loginForm = new Vue({
           }
         });
       }
-      
+
     }
   }
 });

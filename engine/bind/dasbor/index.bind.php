@@ -41,11 +41,12 @@
 
          </form>
          <ul class="navbar-nav navbar-right">
-         <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg" id='capNotif'><i class="far fa-bell"></i></a>
+         <li class="dropdown dropdown-list-toggle">
+           <a href="#!" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep" id='capNotif'><i class="far fa-bell"></i></a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
-              <div class="dropdown-header">Notifications
+              <div class="dropdown-header">Notifikasi Resto
                 <div class="float-right">
-                  <a href="#">Mark All As Read</a>
+                  <a href="#!">Lihat semua notifikasi</a>
                 </div>
               </div>
               <div class="dropdown-list-content dropdown-list-icons">
@@ -66,7 +67,7 @@
           </li>
            <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
              <img alt="image" src="<?=STYLEBASE; ?>/dasbor/img/avatar-1.png" class="rounded-circle mr-1">
-             <div class="d-sm-none d-lg-inline-block">Hi, <?=$_SESSION['userSession']; ?></div></a>
+             <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['username']; ?> (<?=$data['userTipe']; ?>)</div></a>
              <div class="dropdown-menu dropdown-menu-right">
                <a href="#!" id='btnLogOutTop' class="dropdown-item has-icon text-danger">
                  <i class="fas fa-sign-out-alt"></i> Logout

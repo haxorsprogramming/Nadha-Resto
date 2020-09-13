@@ -11,8 +11,12 @@ class dasbor extends Route{
     }
 
     public function index()
-    {     
-        $this -> bind('dasbor/index');   
+    {   
+        $userLogin = $this -> getses('userSession');
+        $userData = $this -> state($this -> sn) -> getUserData($userLogin);
+        $data['userTipe'] = $userData['tipe'];
+        $data['username'] = $userLogin;
+        $this -> bind('dasbor/index', $data);   
     }
 
     public function beranda()
