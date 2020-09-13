@@ -146,6 +146,7 @@ class home extends Route{
         $kdFin = $pEx[1];
         $pesanan = $this -> state('deliveryOrderData') -> detailPesanan($kdFin);
         $status = $pesanan['status'];
+
         if($status === 'order_masuk'){
             $statusCap = 'Pesanan diterima';
         }else if($status === 'diproses'){
@@ -157,6 +158,7 @@ class home extends Route{
         }else{
             $statusCap = 'Dibatalkan';
         }
+        
         $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
         $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $data['kdPesanan'] = $kdFin;

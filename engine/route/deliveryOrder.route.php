@@ -124,11 +124,6 @@ class deliveryOrder extends Route{
         $isi .= "Pesanan anda telah dikirim, pastikan telepon anda aktif agar kurir dapat menghubungi anda. Cek detail pesanan anda di ";
         $isi .= "<a href='".HOMEBASE."home/pesanan/".$link."'>sini</a><br/><br/><br/>Salam<br/>".$namaResto;
         $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
-        // kirim notifikasi whatsapp
-        $key = $this -> state($this -> su) -> getSettingResto('api_woo_wa');
-        $hp = '';
-        $message = '';
-        $this -> sendWaNotif($key, $hp, $message);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }
@@ -153,6 +148,7 @@ class deliveryOrder extends Route{
         $passwordHost = $this -> state($this -> su) -> getSettingResto('email_host_password');
         $detailPesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
         $detailPelanggan = $this -> state($this -> sn) -> getDetailPelanggan($detailPesanan['pelanggan']);
+
         $namaPelanggan = $detailPelanggan['nama'];
         $penerima = $detailPelanggan['email'];
         $judul = "Pesanan Selesai - ".$namaResto;
@@ -163,6 +159,11 @@ class deliveryOrder extends Route{
         $this -> kirimEmail($namaPelanggan, $penerima, $judul, $isi, $emailHost, $passwordHost);
         // Set selesai 
         $this -> state($this -> sn) -> setSelesai($waktu, $kdPesanan);
+        // Send notifkasi whatsapp 
+        $key = $this -> state($this -> su) -> getSettingResto('api_woo_wa');
+        $hp = $detailPelanggan['no_hp'];
+        $message = "Pesanan anda telah selesai. Kode pesanan : ".$kdPesanan." - Terima kasih telah melakukan transaksi di resto kami. Salam -".$namaResto;
+        $this -> sendWaNotif($key, $hp, $message);
         $data['status'] = 'sukses';
         $this -> toJson($data);
     }

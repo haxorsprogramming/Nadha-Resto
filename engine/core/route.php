@@ -371,8 +371,7 @@ class Route{
         'Content-Type: application/json',
         'Content-Length: ' . strlen($data_string))
       );
-      echo $res = curl_exec($ch);
-      curl_close($ch);
+      curl_exec($ch);
     }
 
 }

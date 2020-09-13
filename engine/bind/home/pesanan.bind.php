@@ -61,6 +61,9 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <div>
+                        <b>Silahkan cek detail pesanan di email anda</b>
+                        </div>
                     </div>
                 </div>
             </div>
