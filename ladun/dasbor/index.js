@@ -38,12 +38,34 @@ var divNavbar = new Vue({
     storageBucket : '',
     messagingSenderId : '',
     appId : '',
-    pesanan : []
+    pesanan : [],
+    capFlash : ''
   },
   methods : {
     lihatNotifAtc : function()
     {
       $('#capNotif').removeClass('beep');
+      this.capFlash = "(Memuat pesanan ...)";
+      let pjgArray = 5;
+      var i;
+      for(i = 0; i < pjgArray; i++){
+        this.pesanan.splice(0,1);
+      }
+      setTimeout(function(){
+        $.post(routeToGetPesanan, function(data){
+          let obj = JSON.parse(data);
+          let pesanan = obj.pesanan;
+          pesanan.forEach(renderPesanan);
+          function renderPesanan(item, index){
+            divNavbar.pesanan.push({
+              title : 'Pesanan baru ('+pesanan[index].kd_pesanan+')',
+              status : pesanan[index].status,
+              masuk : pesanan[index].masuk
+            });
+          }
+        });        
+      }, 200);
+      this.capFlash = "";
     },
     lihatNotifikasiAllAtc : function()
     {

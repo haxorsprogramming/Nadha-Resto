@@ -13,6 +13,11 @@ class dasbor extends Route{
     public function index()
     {   
         $this -> state($this -> su) -> csrfCek();
+        if(!isset($_SESSION['userSession'])) {
+            session_destroy();
+            $this -> goto('login');
+            die();
+        }
         $userLogin = $this -> getses('userSession');
         $userData = $this -> state($this -> sn) -> getUserData($userLogin);
         $data['userTipe'] = $userData['tipe'];
