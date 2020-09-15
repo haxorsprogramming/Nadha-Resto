@@ -56,6 +56,12 @@
 <li> Muhammad Rizky : Microservice</li>
 </ul>
 
+<h3>Tampilan Aplikasi</h3>
+
+>> Data menu
+
+<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/menu.jpeg' width='100%'>
+
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
 
 Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 
