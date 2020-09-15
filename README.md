@@ -174,6 +174,7 @@
 <h4><b>Persiapan sebelum menggunakan aplikasi</b></h4>
 
 <ul>
+<li> Pastikan yang di download/clone adalah versi release dari aplikasi ini</li>
 <li> Konfigurasi path server di file <code>engine/rule/base.php</code></li>
 <li> Konfigurasi database di file <code>engine/rule/database.php</code></li>
 <li> Untuk database, silahkan buka halaman <code>path-to-app/dbMigrate</code>. Namun pastikan settingan path server & konfigurasi database sudah benar.</li>
@@ -183,9 +184,12 @@
 <li> Untuk mengaktifkan pemesanan delivery order membutukan service firebase, silahkan buat akun firebase & setting di menu aplikasi</li>
 </ul>
 
-Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 
-<h3><a href='https://t.me/haxorsupdate'>Channel Telegram Haxorsprogramming</a></h3>
+<p>Jika mengalami masalah dalam instalasi, ataupun operasional dari aplikasinya, silahkan hubungi kami di whatsapp (082272177022) atau email alditha.forum@gmail.com. Aplikasi ini kami beri lisensi opensource (MIT) jadi teman teman bebas untuk menggunakan & mengembangkannya kembali. Apabila teman" menemukan bug yang ada di aplikasi ini,
+kami berharap dapat membantu pemgembangan aplikasi ini untuk lebih bagus lagi.</p>
+
+<p>Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 
+<h3><a href='https://t.me/haxorsupdate'>Channel Telegram Haxorsprogramming</a></h3></p>
 
 <p align='justify'>
-Ingin berkontribusi untuk pengembangan club programming ini? bantu kami melalui donasi lewat saweria di <h2><a href='https://saweria.co/donate/haxorsprogramming'>Saweria Haxorsprogramming</a></h2>sedikit banyaknya donasi dapat memberi kontribusi yang positif bagi perkembangan club ini. Terima kasih, salam koding .. ^_^
+Ingin berkontribusi untuk pengembangan club programming ini? atau anda meraasa terbantu dengan aplikasi ini? bantu kami melalui donasi lewat saweria di <h2><a href='https://saweria.co/donate/haxorsprogramming'>Saweria Haxorsprogramming</a></h2>sedikit banyaknya donasi dapat memberi kontribusi yang positif bagi perkembangan club ini. Terima kasih, salam koding .. ^_^
 </p>
