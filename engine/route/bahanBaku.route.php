@@ -7,6 +7,7 @@ class bahanBaku extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['bahanBaku']  = $this -> state($this -> sn) -> getDataBahanBaku();
         $data['kategori']   = $this -> state($this -> su) -> getDataKategoriBahanBaku();
         $this -> bind('dasbor/bahanBaku/bahanBaku', $data);
@@ -14,6 +15,7 @@ class bahanBaku extends Route{
 
     public function tambahBahanBaku()
     {
+        $this -> state($this -> su) -> csrfCek();
         $nama       = $this -> inp('nama');
         $deks       = $this -> inp('deks');
         $satuan     = $this -> inp('satuan');
@@ -34,6 +36,7 @@ class bahanBaku extends Route{
 
     public function detailBahanBaku($kdBahan)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['bahanBaku']          = $this -> state($this -> sn) -> detailBahanBaku($kdBahan);
         $data['totalKonsumsi']      = $this -> state($this -> sn) -> getTotalKonsumsi($kdBahan);
         $data['historiPembelian']   = $this -> state($this -> sn) -> getHistoriPembelian($kdBahan);
@@ -43,6 +46,7 @@ class bahanBaku extends Route{
 
     public function updateBahanBaku()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdBahan        = $this -> inp('kdBahan');
         $nama           = $this -> inp('nama');
         $deks           = $this -> inp('deks');
@@ -56,6 +60,7 @@ class bahanBaku extends Route{
 
     public function hapusBahanBaku()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdBahan        = $this -> inp('kdBahan');
         $this -> state($this -> sn) -> hapusBahanBaku($kdBahan);
         $data['status'] = 'sukses';

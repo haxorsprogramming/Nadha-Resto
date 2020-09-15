@@ -7,11 +7,13 @@ class arusKas extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $this -> bind('dasbor/arusKas/arusKas');
     }
 
     public function getArusKas()
     {
+        $this -> state($this -> su) -> csrfCek();
         $requestData    = $_REQUEST;
         $totalArusKas   = $this -> state($this -> sn) ->  getJlhArusKas();
         $arusKasData    = $this -> state($this -> sn) ->  getDataArusKas($requestData);
@@ -39,6 +41,7 @@ class arusKas extends Route{
 
     public function detailArusKas($kdTransaksi)
     {
+        $this -> state($this -> su) -> csrfCek();
         // Cek tipe arus kas   
         $tipeArus = $this -> state($this -> sn) -> cekTipeArus($kdTransaksi);
 
