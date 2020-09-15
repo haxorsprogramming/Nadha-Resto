@@ -36,6 +36,6 @@ define('SITENAME', $siteName);
 define('AUTHOR', $author);
 define('MAINROUTE', $mainRoute);
 define('STYLEBASE', $styleBase);
-define('IMGBASE', $imgBase);
+
 
 

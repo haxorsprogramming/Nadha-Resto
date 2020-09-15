@@ -34,7 +34,7 @@ class Route{
     //membuat string random dengan parameter(jumlah)
     public function rnstr($length)
     {
-        $bahan  = 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNMqwertyuioplkjhgfdsazxcvbnm';
+        $bahan  = 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNMqwertyuioplkjhgfdsazxcvbnm1234567890987654321';
         $acak   = str_shuffle($bahan);
         $hasil  = substr($acak,0,$length);
         return $hasil;
@@ -42,7 +42,7 @@ class Route{
     //membuat int random dengan parameter(jumlah)
     public function rnint($length)
     {
-      $bahan  = '123456789012345678901234567890123456780';
+      $bahan  = '123456789012345678901234567890123456780123456789012345678901234567890123456780123456789012345678901234567890123456780';
       $acak   = str_shuffle($bahan);
       $hasil  = substr($acak, 0, $length);
       return $hasil;
@@ -55,8 +55,7 @@ class Route{
     //verify password 
     public function verifPassword($pass_1, $pass_2)
     {
-        //pass 1 = string awal
-        //pass 2 = string hash
+        //pass 1 = string awal, pass 2 = string hash
         if (password_verify($pass_1, $pass_2)) {
           return true;
         } else {
@@ -151,7 +150,6 @@ class Route{
       if(!ISSET($_SESSION[$ses])){
         header("Location:".HOMEBASE.$page);
         die();
-      }else{
       }
     }
     //fungsi hapus hapus csrf token
@@ -193,7 +191,7 @@ class Route{
     public function ambilHari($bulan)
     {
       $tahun = date('Y');
-      return cal_days_in_month(CAL_GREGORIAN,$bulan,2019);
+      return cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
     }
     //array bulan normal
     public function getListBulanInt()
