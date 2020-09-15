@@ -7,18 +7,21 @@ class menu extends Route{
     
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['menu'] = $this -> state($this -> sn) -> getMenu(); 
         $this -> bind('dasbor/menu/menu', $data);
     }
 
     public function tambahMenu()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kategori'] = $this -> state($this -> sn) -> getKategori();
         $this -> bind('/dasbor/menu/formTambahMenu', $data);
     }
 
     public function prosesTambahMenu()
     {
+        $this -> state($this -> su) -> csrfCek();
         //about img operation
         $sourcePath     = $this -> getTempFile('txtFoto');
         $tipeGambar     = array('png', 'jpg', 'jpeg');
@@ -61,6 +64,7 @@ class menu extends Route{
 
     public function detailMenu($kdMenu)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['satuan'] = array('porsi', 'paket', 'pcs');
         $data['kdMenu'] = $kdMenu;
         $data['historyPemesanan'] = $this -> state($this -> sn) -> getPembelianMenu($kdMenu);
@@ -71,6 +75,7 @@ class menu extends Route{
 
     public function hapusMenu()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMenu = $this -> inp('kdMenu');
         $dataMenu = $this -> state($this -> sn) -> getDetailMenu($kdMenu);
         $pic = $dataMenu['pic'];
@@ -83,6 +88,7 @@ class menu extends Route{
 
     public function updateMenu()
     {
+        $this -> state($this -> su) -> csrfCek();
         $foto = $this -> getNameFile('txtFotoSrc');
         $sourcePath = $this -> getTempFile('txtFotoSrc');
         $kdMenu = $this -> inp('txtKdMenuHidden');

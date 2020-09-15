@@ -12,6 +12,7 @@ class meja extends Route{
 
     public function prosesTambahMeja()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMeja     = $this -> rnint(4);
         $nama       = $this -> inp('namaMeja');
         $deks       = $this -> inp('deks');
@@ -29,6 +30,7 @@ class meja extends Route{
 
     public function hapusMeja()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMeja = $this -> inp('kdMeja');
         $this -> state($this -> sn) -> hapusMeja($kdMeja);
         $data['status'] = 'sukses';

@@ -1,18 +1,20 @@
 <?php
 
 class mitra extends Route{
-    // STATE 
+    
     private $sn = 'mitraData';
     private $su = 'utilityData';
     
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['mitra'] = $this -> state($this -> sn) -> getMitra();
         $this -> bind('dasbor/mitra/mitra', $data);
     }
 
     public function detailMitra($kdMitra)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdMitra'] = $kdMitra;
         $data['mitra'] = $this -> state($this -> sn) -> detailMitra($kdMitra);
         $data['historiTransaksi'] = $this -> state($this -> sn) -> historiTransaksi($kdMitra);
@@ -21,6 +23,7 @@ class mitra extends Route{
 
     public function tambahMitra()
     {
+        $this -> state($this -> su) -> csrfCek();
         $nama       = $this -> inp('nama');
         $deks       = $this -> inp('deks');
         $pemilik    = $this -> inp('pemilik');
@@ -40,6 +43,7 @@ class mitra extends Route{
 
     public function updateMitra()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMitra = $this -> inp('kdMitra');
         $nama = $this -> inp('nama');
         $deks = $this -> inp('deks');
@@ -53,6 +57,7 @@ class mitra extends Route{
 
     public function deleteMitra()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMitra = $this -> inp('kdMitra');
         $this -> state($this -> sn) -> deleteMitra($kdMitra);
         $data['status'] = 'sukses';

@@ -7,11 +7,13 @@ class pelanggan extends Route{
 
     public function index()
     {
+      $this -> state($this -> su) -> csrfCek();
       $this -> bind('dasbor/pelanggan/pelanggan');
     }
 
     public function getDataPelanggan()
     {
+      $this -> state($this -> su) -> csrfCek();
       $requestData = $_REQUEST;
       $totalPelanggan = $this -> state($this -> sn) -> getJlhPelanggan();
       $dataPelanggan = $this -> state($this -> sn) -> getDataPelanggan($requestData);
@@ -19,7 +21,6 @@ class pelanggan extends Route{
 
       foreach($dataPelanggan as $dp){
         $btnDetail = '<a href="#!" class="btn btn-sm btn-primary btnDetail" data-id='.$dp['id_pelanggan'].'><i class="fas fa-info-circle"></i> Detail</a>';
-        $btnHapus = "<a href='#!' class='btn btn-sm btn-warning btnHapus' data-id='".$dp['id_pelanggan']."|".$dp['nama']."'><i class='fas fa-trash-alt'></i> Hapus</a>";
         $nestedData = array();
         $nestedData[] = $dp['nama'];
         $nestedData[] = $dp['alamat'];
@@ -36,11 +37,12 @@ class pelanggan extends Route{
         "recordsFiltered" => intval( $totalPelanggan ), 
         "data"            => $data );
 
-      echo json_encode($json_data);
+      $this -> toJson($json_data);
     }
 
     public function prosesTambahPelanggan()
     {
+      $this -> state($this -> su) -> csrfCek();
       $nama           = $this -> inp('nama');
       $alamat         = $this -> inp('alamat');
       $email          = $this -> inp('email');
@@ -60,6 +62,7 @@ class pelanggan extends Route{
 
     public function detailPelanggan($kdPelanggan)
     {
+      $this -> state($this -> su) -> csrfCek();
       $data['kdPelanggan'] = $kdPelanggan;
       $data['totalTransaksi'] = $this -> state($this -> sn) -> totalTransaksi($kdPelanggan);
       $data['pelanggan'] = $this -> state($this -> sn) -> getDetailPelanggan($kdPelanggan);
@@ -69,6 +72,7 @@ class pelanggan extends Route{
 
     public function updatePelanggan()
     {
+      $this -> state($this -> su) -> csrfCek();
       $kdPelanggan = $this -> inp('kdPelanggan');
       $nama = $this -> inp('nama');
       $alamat = $this -> inp('alamat');
@@ -81,6 +85,7 @@ class pelanggan extends Route{
 
     public function hapusPelanggan()
     {
+      $this -> state($this -> su) -> csrfCek();
       $kdPelanggan = $this -> inp('kdPelanggan');
       $this -> state($this -> sn) -> hapusPelanggan($kdPelanggan);
       $data['status'] = 'sukses';
