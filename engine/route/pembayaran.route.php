@@ -12,12 +12,14 @@ class pembayaran extends Route{
 
     public function formPembayaran($kdPesanan)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdPesanan'] = $kdPesanan;
         $this -> bind('dasbor/pembayaran/formPembayaran', $data);
     }
 
     public function getDataPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan              = $this -> inp('kdPesanan');
         $kdCaps                 = strtoupper($kdPesanan);
         //buat invoice 
@@ -54,6 +56,7 @@ class pembayaran extends Route{
 
     public function cekPromo()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPromo    = $this -> inp('kdPromo');
         $tglNow     = date('d-m-Y');
         $promoCek   = $this -> state($this -> sn) -> cekPromoValid($kdPromo);
@@ -82,6 +85,7 @@ class pembayaran extends Route{
 
     public function prosesPembayaran()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdInvoice  = $this -> inp('kdInvoice');
         $kdPesanan  = $this -> inp('kdPesanan');
         $totalHarga = $this -> inp('totalHarga');
@@ -115,6 +119,7 @@ class pembayaran extends Route{
 
     public function kosongkanMeja()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdMeja = $this -> inp('meja');
         $this -> state($this -> sn) -> kosongkanMeja($kdMeja);
         $this -> state($this -> sn) -> updateMeja($kdMeja);

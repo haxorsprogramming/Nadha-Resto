@@ -11,9 +11,8 @@ use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 
-// CETAK ROUTE 
 class cetak extends Route{
-    // INISIALISASI VARIABEL & STATE 
+
     private $sn = 'cetakData';
     private $su = 'utilityData';
     private $connector;

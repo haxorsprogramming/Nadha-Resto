@@ -7,12 +7,14 @@ class pembelianBahanBaku extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['mitra'] = $this -> state($this -> sn) -> getMitra();
         $this -> bind('dasbor/pembelianBahanBaku/pembelianBahanBaku', $data);
     }
 
     public function getDataPembelianBahanBaku()
     {
+        $this -> state($this -> su) -> csrfCek();
         $requestData = $_REQUEST;
         $totalPembelian = $this -> state($this -> sn) -> getTotalPembelianBahanBaku();
         $dataPembelianBahanBaku = $this -> state($this -> sn) -> getDataPembelianBahanBaku($requestData);
@@ -40,6 +42,7 @@ class pembelianBahanBaku extends Route{
 
     public function getDetailPembelian()
     {
+        $this -> state($this -> su) -> csrfCek();
         //ambil kode pembelian dari method post
         $kdPembelian = $this -> inp('kdPembelian');
         //ambil query data pembelian
@@ -69,6 +72,7 @@ class pembelianBahanBaku extends Route{
 
     public function getItemPembelian()
     {
+        $this -> state($this -> su) -> csrfCek();
          //ambil kode pembelian dari method post
          $kdPembelian = $this -> inp('kdPembelian');
          $qItemPembelian = $this -> state($this -> sn) -> getItemPembelian($kdPembelian);
@@ -86,12 +90,14 @@ class pembelianBahanBaku extends Route{
 
     public function detailPembelian($kdPembelian)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdPembelian'] = $kdPembelian;
         $this -> bind('dasbor/pembelianBahanBaku/detailPembelianBahanBaku', $data);
     }
 
     public function getDataBahanBakuKategori()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kategori           = $this -> inp('kategori');
         $data['bahanBaku']  = $this -> state($this -> sn) -> getDataBahanBakuKategori($kategori);
         $this -> toJson($data);
@@ -99,6 +105,7 @@ class pembelianBahanBaku extends Route{
 
     public function prosesPembelian()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPembelian = $this -> rnstr(15);
         $waktu = $this -> waktu();
         $mitra = $this -> inp('mitra');
@@ -114,6 +121,7 @@ class pembelianBahanBaku extends Route{
 
     public function updateTempPembelian()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdTemp = $this -> rnstr(20);
         $kdPembelian = $this -> inp('kdPembelian');
         $kdItem = $this -> inp('kdItem');

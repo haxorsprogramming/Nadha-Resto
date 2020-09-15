@@ -2,7 +2,7 @@
 
 class tentangAplikasi extends Route{
 
-    private $sn = 'tentangAplikasi';
+    private $sn = 'tentangAplikasiData';
     private $su = 'utilityData';
 
     public function index()

@@ -7,11 +7,13 @@ class pengeluaran extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $this -> bind('dasbor/pengeluaran/pengeluaran');
     }
 
     public function getDataPengeluaran()
     {
+        $this -> state($this -> su) -> csrfCek();
         $requestData = $_REQUEST;
         $totalPengeluaran = $this -> state($this -> sn) ->  totalPengeluaran();
         $dataPengeluaran = $this -> state($this -> sn) -> getDataPengeluaran($requestData);
@@ -40,6 +42,7 @@ class pengeluaran extends Route{
 
     public function prosesPengeluaran()
     {
+        $this -> state($this -> su) -> csrfCek();
         //buat kode pengeluaran
         $kdPengeluaran  = $this -> rnstr(20);
         //ambil post data dari form
@@ -61,6 +64,7 @@ class pengeluaran extends Route{
 
     public function detailPengeluaran($kdTransaksi)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['pengeluaran'] = $this -> state($this -> sn) -> getDetailPengeluaran($kdTransaksi);
         $data['kdTransaksi'] = $kdTransaksi;
         $this -> bind('dasbor/pengeluaran/detailPengeluaran', $data);

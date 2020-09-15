@@ -1,7 +1,7 @@
 <?php
-// BAHAN BAKU ROUTE 
+
 class bahanBaku extends Route{
-    // INISIALISASI STATE 
+
     private $sn = 'bahanBakuData';
     private $su = 'utilityData';
 

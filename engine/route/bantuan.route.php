@@ -1,7 +1,7 @@
 <?php
-// BANTUAN ROUTE 
+
 class bantuan extends Route{
-    // INISIALISASI STATE
+
     private $su = 'utilityData';
 
     public function index()
