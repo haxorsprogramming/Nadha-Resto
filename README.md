@@ -58,9 +58,18 @@
 
 <h3>Tampilan Aplikasi</h3>
 
->> Data menu
-
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/menu.jpeg' width='100%'>
+<table>
+<tr>
+<td>
+<small>Home (Halaman Depan)</small>
+<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/home.jpg' width='100%'>
+</td>
+<td>
+<small>Menu Order</small>
+<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/menu_order_1.jpg' width='100%'>
+</td>
+</tr>
+</table>
 
 <h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
 
