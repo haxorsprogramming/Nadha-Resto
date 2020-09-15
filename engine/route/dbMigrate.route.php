@@ -3,7 +3,8 @@
 class dbMigrate extends Route{
     // INISIALISASI STATE 
     private $sn = 'dbMigrateData';
-
+    private $su = 'utilityData';
+    
     public function index()
     {
         echo "<pre><h3>Database migrate - NadhaResto Apps</h3><br/>";
@@ -19,7 +20,7 @@ class dbMigrate extends Route{
 
     public function startMigrate()
     {
-        
+        $this -> state($this -> su) -> csrfCek();
         $this -> state($this -> sn) -> create_tbl_arus_kas();
         $this -> state($this -> sn) -> create_tbl_bahan_baku();
         // $this -> goto('home');

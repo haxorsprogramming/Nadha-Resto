@@ -7,12 +7,14 @@ class manajemenUser extends Route{
 
     public function index()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['user'] = $this -> state($this -> sn) -> getUser();
         $this -> bind('dasbor/manajemenUser/manajemenUser', $data);
     }
 
     public function tambahUser()
     {
+        $this -> state($this -> su) -> csrfCek();
         $username = $this -> inp('username');
         $password = $this -> inp('password');
         $nama = $this -> inp('nama');
@@ -31,6 +33,7 @@ class manajemenUser extends Route{
 
     public function getUser()
     {
+        $this -> state($this -> su) -> csrfCek();
         $username = $this -> inp('username');
         $data['user'] = $this -> state($this -> sn) -> getDataUser($username);
         $this -> toJson($data);
@@ -38,6 +41,7 @@ class manajemenUser extends Route{
 
     public function updateUserProses()
     {
+        $this -> state($this -> su) -> csrfCek();
         $username = $this -> inp('username');
         $password = $this -> inp('password');
         $tipe = $this -> inp('tipe');
@@ -50,6 +54,7 @@ class manajemenUser extends Route{
 
     public function hapusUser()
     {
+        $this -> state($this -> su) -> csrfCek();
         $username = $this -> inp('username');
         if($username === 'admin'){
             $data['status'] = 'error';

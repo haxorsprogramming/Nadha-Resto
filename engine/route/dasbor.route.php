@@ -12,6 +12,7 @@ class dasbor extends Route{
 
     public function index()
     {   
+        $this -> state($this -> su) -> csrfCek();
         $userLogin = $this -> getses('userSession');
         $userData = $this -> state($this -> sn) -> getUserData($userLogin);
         $data['userTipe'] = $userData['tipe'];
@@ -21,6 +22,7 @@ class dasbor extends Route{
 
     public function beranda()
     {
+        $this -> state($this -> su) -> csrfCek();
         $this -> bind('dasbor/beranda');   
     }
 

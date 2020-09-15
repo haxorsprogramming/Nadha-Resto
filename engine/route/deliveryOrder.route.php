@@ -12,6 +12,7 @@ class deliveryOrder extends Route{
 
     public function getDataDeliveryOrder()
     {
+        $this -> state($this -> su) -> csrfCek();
         $requestData = $_REQUEST;
         $totalPesanan = $this -> state($this -> sn) -> getJlhPesanan();
         $dataPesanan = $this -> state($this -> sn) -> getDataPesanan($requestData);
@@ -61,6 +62,7 @@ class deliveryOrder extends Route{
 
     public function detailPesanan($kdPesanan)
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['kdPesanan'] = $kdPesanan;
         $pesanan = $this -> state($this -> sn) -> detailPesanan($kdPesanan);
         $kurir = $this -> state($this -> sn) -> getKurir();
@@ -98,6 +100,7 @@ class deliveryOrder extends Route{
 
     public function prosesPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan = $this -> inp('kdPesanan');
         $this -> state($this -> sn) -> prosesPesanan($kdPesanan);
         $data['status'] = 'sukses';
@@ -106,6 +109,7 @@ class deliveryOrder extends Route{
 
     public function kirimPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan = $this -> inp('kdPesanan');
         $kurir = $this -> inp('kurir');
         $waktu = $this -> waktu();
@@ -130,6 +134,7 @@ class deliveryOrder extends Route{
 
     public function setSelesai()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan = $this -> inp('kdPesanan');
         $waktu = $this -> waktu();
         // Save ke pembayaran 
@@ -170,6 +175,7 @@ class deliveryOrder extends Route{
 
     public function batalkanPesanan()
     {
+        $this -> state($this -> su) -> csrfCek();
         $kdPesanan = $this -> inp('kdPesanan');
         $this -> state($this -> sn) -> hapusTemp($kdPesanan);
         $this -> state($this -> sn) -> hapusPesanan($kdPesanan);
@@ -179,6 +185,7 @@ class deliveryOrder extends Route{
 
     public function getPesananTerbaru()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['pesanan'] = $this -> state($this -> sn) -> getPesananTerbaru();
         $this -> toJson($data);
     }

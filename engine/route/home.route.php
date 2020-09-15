@@ -143,6 +143,7 @@ class home extends Route{
 
     public function pesanan($kdPesanan)
     {
+        $this -> state($this -> su) -> csrfCek();
         $pEx = explode("-", $kdPesanan);
         $kdFin = $pEx[1];
         $pesanan = $this -> state('deliveryOrderData') -> detailPesanan($kdFin);
@@ -177,6 +178,7 @@ class home extends Route{
 
     public function konfirmasi()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['namaResto']  = $this -> state($this -> su) -> getSettingResto('nama_resto');
         $this -> bind('home/konfirmasi', $data);
     }

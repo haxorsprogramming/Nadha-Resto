@@ -17,12 +17,14 @@ class frontEndSetting extends Route{
 
     public function sliderUtama()
     {
+        $this -> state($this -> su) -> csrfCek();
         $data['slider'] = $this -> state($this -> sn) -> getDataSlider();
         $this -> bind('dasbor/frontEndSetting/sliderUtama', $data);
     }
 
     public function prosesTambahSlider()
     {
+        $this -> state($this -> su) -> csrfCek();
         $namaFile       = $this -> getNameFile('txtFoto');
         $tipeGambar     = array('png', 'jpg', 'jpeg');
         $tipeFile       = $this -> getTypeFile($namaFile);
@@ -55,6 +57,7 @@ class frontEndSetting extends Route{
 
     public function prosesHapusSlider()
     {
+        $this -> state($this -> su) -> csrfCek();
         $idSlider       = $this -> inp('id');
         $imgName        = $this -> state($this -> sn) -> getPicName($idSlider);
         $file           = 'ladun/home/img/slider/'.$imgName;
@@ -66,7 +69,7 @@ class frontEndSetting extends Route{
 
     public function specialOffer()
     {
-        echo "aaa";
+        
     }
 
 }
