@@ -19,7 +19,6 @@
 <li>Backend : Uinsu Web Framework - Base php MVC tutorial pak Sandhika Galih(Web Programming Unpas)</li>
 <li>Javascript : Vue JS, Native Javascript, & Jquery</li>
 <li>Bootstrap Theme By <a href='https://demo.getstisla.com/index.html'>[Stisla]</a></li>
-<li>Node Js</li>
 <li>Cloud Serverless & Realtime Event : Firebase</li>
 </ul>
 <br/>
@@ -89,7 +88,7 @@
 </td>
 <td>
 <small>Notifikasi Email</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/notifikasi_email.jpg' width='100%'>
+<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/email.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
@@ -118,7 +117,7 @@
 <tr>
 <td>
 <small>Data Menu</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/data_menu.jpg' width='100%'>
+<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/data_menu.jpeg' width='100%'>
 </td>
 <td>
 <small>Form Tambah Menu</small>
@@ -172,7 +171,17 @@
 <!-- row -->
 </table>
 
-<h3><b>Aplikasi ini sedang dalam pengembangan, akan kami update jika sudah rilis</b></h3>
+<h4><b>Persiapan sebelum menggunakan aplikasi</b></h4>
+
+<ul>
+<li> Konfigurasi path server di file <code>engine/rule/base.php</code></li>
+<li> Konfigurasi database di file <code>engine/rule/database.php</code></li>
+<li> Untuk database, silahkan buka halaman <code>path-to-app/dbMigrate</code>. Namun pastikan settingan path server & konfigurasi database sudah benar.</li>
+<li> Untuk printer cetak struk, tipe yang disarankan adalah (Epson TM-T82, Thermal Printer GP-5890XIII, Epson T-88IIIP, MiniPOS MP-RP58L), atau tipe lain yang mendukung sdk escopos</li>
+<li> Untuk notifikasi ke whatsapp pelanggan, kami mengintegrasikan ke layanan woowa, silahkan berlangganan untuk mendapatkan key & mengaktifkan di aplikasi ini.</li>
+<li> Konfigurasi pengaturan restoran sebelum menggunakan aplikasi ini</li>
+<li> Untuk mengaktifkan pemesanan delivery order membutukan service firebase, silahkan buat akun firebase & setting di menu aplikasi</li>
+</ul>
 
 Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 
 <h3><a href='https://t.me/haxorsupdate'>Channel Telegram Haxorsprogramming</a></h3>
