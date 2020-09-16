@@ -1,7 +1,7 @@
 <?php
-// Delivery order route  
+ 
 class deliveryOrder extends Route{
-    // Inisialisasi state 
+
     private $sn = 'deliveryOrderData';
     private $su = 'utilityData';
 

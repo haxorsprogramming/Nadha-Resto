@@ -1,7 +1,7 @@
 <?php
-// FRONT END SETTING ROUTE 
+
 class frontEndSetting extends Route{
-    // INISIALISASI STATE 
+
     private $sn = 'frontEndSettingData';
     private $su = 'utilityData';
 

@@ -1,7 +1,7 @@
 <?php
-// DASBOR ROUTE 
+
 class dasbor extends Route{
-    // INISIALISASI STATE 
+
     private $sn = 'dasborData';
     private $su = 'utilityData';
 
@@ -55,8 +55,8 @@ class dasbor extends Route{
         foreach($gtt as $gt){
             $kdPesanan = $gt['kd_pesanan'];
             // AMBIL DATA CUSTOMER 
-            $kdPelanggan = $this -> state('utilityData') -> getPelangganFromPesanan($kdPesanan);
-            $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
+            $kdPelanggan    = $this -> state('utilityData') -> getPelangganFromPesanan($kdPesanan);
+            $namaPelanggan  = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
             if($namaPelanggan === null){
                 $kdPelanggan = $this -> state('utilityData') -> getPelangganFromDevOrder($kdPesanan);
                 $namaPelanggan = $this -> state('utilityData') -> getNamaPelanggan($kdPelanggan);
