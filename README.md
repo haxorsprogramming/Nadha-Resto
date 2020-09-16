@@ -184,7 +184,7 @@
 <li> Untuk mengaktifkan pemesanan delivery order membutukan service firebase, silahkan buat akun firebase & setting di menu aplikasi</li>
 </ul>
 
-<p>Jika mengalami masalah dalam instalasi, ataupun operasional dari aplikasinya, silahkan hubungi kami di whatsapp (082272177022) atau email alditha.forum@gmail.com. Aplikasi ini kami beri lisensi opensource (MIT) jadi teman teman bebas untuk menggunakan & mengembangkannya kembali. Apabila teman" menemukan bug yang ada di aplikasi ini,
+<p>Jika mengalami masalah dalam instalasi, ataupun operasional dari aplikasinya, silahkan hubungi kami di whatsapp <b>(082272177022)</b> atau email <b>alditha.forum@gmail.com</b>. Aplikasi ini kami beri lisensi opensource (MIT) jadi teman teman bebas untuk menggunakan & mengembangkannya kembali. Apabila teman" menemukan bug yang ada di aplikasi ini,
 kami berharap dapat membantu pemgembangan aplikasi ini untuk lebih bagus lagi.</p>
 
 <p>Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 

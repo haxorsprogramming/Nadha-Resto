@@ -41,23 +41,11 @@ class utility extends Route{
 
     public function getWorkers()
     {
-        $waktu = $this -> waktu();
-         // nama laundry
-         $data['namaLaundry']       = $this -> state($this -> sn) -> getSettingResto('laundry_name');
-         //alamat
-         $data['alamatLaundry']     = $this -> state($this -> sn) -> getSettingResto('address');
-         //kota 
-         $data['kotaLaundry']       = $this -> state($this -> sn) -> getSettingResto('kota');
-         //kabupaten 
-         $data['kabupatenLaundry']  = $this -> state($this -> sn) -> getSettingResto('kabupaten');
-         //provinsi 
-         $data['provinsiLaundry']   = $this -> state($this -> sn) -> getSettingResto('provinsi');
-         //email
-         $data['email']             = $this -> state($this -> sn) -> getSettingResto('email');
-         //hp 
-         $hp = $this -> state($this -> sn) -> getLaundryData('hp');
-         $data['hp']                = $hp;
-         $this -> toJson($data);
+        $data['nama']       = $this -> state($this -> sn) -> getSettingResto('nama_resto');
+        $data['alamat']     = $this -> state($this -> sn) -> getSettingResto('alamat_resto');
+        $data['email']      = $this -> state($this -> sn) -> getSettingResto('email_resto');
+        $data['hp']         = $this -> state($this -> sn) -> getSettingResto('nomor_handphone');
+        $this -> toJson($data);
     }
 
     
