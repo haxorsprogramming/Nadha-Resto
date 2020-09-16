@@ -8,46 +8,48 @@ class pesanan extends Route{
     public function index($page)
     {
         $this -> state($this -> su) -> csrfCek();
-        $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
-        $jlhPaginasi = ceil($jlhPesanan / 10);
-        $data['jlhPesanan'] = $jlhPesanan;
-        $data['jlhPaginasi'] = $jlhPaginasi;
-        $data['pageNow'] = $page;
+        $jlhPesanan             = $this -> state($this -> sn) -> getJlhPesanan();
+        $jlhPaginasi            = ceil($jlhPesanan / 10);
+        $data['jlhPesanan']     = $jlhPesanan;
+        $data['jlhPaginasi']    = $jlhPaginasi;
+        $data['pageNow']        = $page;
         $this -> bind('dasbor/pesanan/pesanan', $data);
     }
 
     public function getPesanan($page)
     {
         $this -> state($this -> su) -> csrfCek();
-        $pesanan = $this -> state($this -> sn) -> getDataPesanan($page);
+        $pesanan    = $this -> state($this -> sn) -> getDataPesanan($page);
         $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
+
         if($jlhPesanan < 1){
             $data['status'] = 'no_data';
         }else{
             foreach($pesanan as $ps){
-                $arrTemp['kdPesanan'] = $ps['kd_pesanan'];
-                $arrTemp['kdPelanggan'] = $ps['pelanggan'];
-                $arrTemp['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($ps['pelanggan']);
-                $arrTemp['tipe'] = $ps['tipe'];
-                $arrTemp['jumlahTamu'] = $ps['jumlah_tamu'];
-                $arrTemp['waktuMasuk'] = $ps['waktu_masuk'];
-                $arrTemp['waktuSelesai'] = $ps['waktu_selesai'];
-                $arrTemp['meja'] = $this -> state($this -> su) -> getNamaMeja($ps['meja']);
-                $arrTemp['status'] = $ps['status'];
-                $arrTemp['operator'] = $ps['operator'];
-                $data['pesanan'][] = $arrTemp;
+                $arrTemp['kdPesanan']       = $ps['kd_pesanan'];
+                $arrTemp['kdPelanggan']     = $ps['pelanggan'];
+                $arrTemp['namaPelanggan']   = $this -> state($this -> su) -> getNamaPelanggan($ps['pelanggan']);
+                $arrTemp['tipe']            = $ps['tipe'];
+                $arrTemp['jumlahTamu']      = $ps['jumlah_tamu'];
+                $arrTemp['waktuMasuk']      = $ps['waktu_masuk'];
+                $arrTemp['waktuSelesai']    = $ps['waktu_selesai'];
+                $arrTemp['meja']            = $this -> state($this -> su) -> getNamaMeja($ps['meja']);
+                $arrTemp['status']          = $ps['status'];
+                $arrTemp['operator']        = $ps['operator'];
+                $data['pesanan'][]          = $arrTemp;
             }
             $data['status'] = 'success';
         }
+        
         $this -> toJson($data);
     }
 
     public function getMaxPagePesanan()
     {
         $this -> state($this -> su) -> csrfCek();
-        $jlhPesanan = $this -> state($this -> sn) -> getJlhPesanan();
-        $jlhPaginasi = ceil($jlhPesanan / 10);
-        $data['jlhPaginasi'] = $jlhPaginasi;
+        $jlhPesanan             = $this -> state($this -> sn) -> getJlhPesanan();
+        $jlhPaginasi            = ceil($jlhPesanan / 10);
+        $data['jlhPaginasi']    = $jlhPaginasi;
         $this -> toJson($data);
     }
 
@@ -62,17 +64,17 @@ class pesanan extends Route{
         }else{
             $pesanan = $this -> state($this -> sn) -> getDataPesananCari($char);
             foreach($pesanan as $ps){
-                $arrTemp['kdPesanan'] = $ps['kd_pesanan'];
-                $arrTemp['kdPelanggan'] = $ps['pelanggan'];
-                $arrTemp['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($ps['pelanggan']);
-                $arrTemp['tipe'] = $ps['tipe'];
-                $arrTemp['jumlahTamu'] = $ps['jumlah_tamu'];
-                $arrTemp['waktuMasuk'] = $ps['waktu_masuk'];
-                $arrTemp['waktuSelesai'] = $ps['waktu_selesai'];
-                $arrTemp['meja'] = $this -> state($this -> su) -> getNamaMeja($ps['meja']);
-                $arrTemp['status'] = $ps['status'];
-                $arrTemp['operator'] = $ps['operator'];
-                $data['pesanan'][] = $arrTemp;
+                $arrTemp['kdPesanan']       = $ps['kd_pesanan'];
+                $arrTemp['kdPelanggan']     = $ps['pelanggan'];
+                $arrTemp['namaPelanggan']   = $this -> state($this -> su) -> getNamaPelanggan($ps['pelanggan']);
+                $arrTemp['tipe']            = $ps['tipe'];
+                $arrTemp['jumlahTamu']      = $ps['jumlah_tamu'];
+                $arrTemp['waktuMasuk']      = $ps['waktu_masuk'];
+                $arrTemp['waktuSelesai']    = $ps['waktu_selesai'];
+                $arrTemp['meja']            = $this -> state($this -> su) -> getNamaMeja($ps['meja']);
+                $arrTemp['status']          = $ps['status'];
+                $arrTemp['operator']        = $ps['operator'];
+                $data['pesanan'][]          = $arrTemp;
             }
             $data['status'] = 'success';
         }
@@ -82,31 +84,31 @@ class pesanan extends Route{
     public function detailPesanan($kdPesanan)
     {
         $this -> state($this -> su) -> csrfCek();
-        $data['kdPesanan'] = $kdPesanan;
-        $data['pesanan'] = $this -> state($this -> sn) -> getPesananData($kdPesanan);
+        $data['kdPesanan']  = $kdPesanan;
+        $data['pesanan']    = $this -> state($this -> sn) -> getPesananData($kdPesanan);
         $this -> bind('dasbor/pesanan/detailPesanan', $data);
     }
 
     public function detailPesananData()
     {
         $this -> state($this -> su) -> csrfCek();
-        $kdPesanan = $this -> inp('kdPesanan');
-        $data['kdPesanan'] = $kdPesanan;
-        $pesanan = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
-        $pembayaran = $this -> state($this -> sn) -> detailPembayaran($kdPesanan);
-        $data['namaPelanggan'] = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
-        $data['kdInvoice'] = $pembayaran['kd_invoice'];
-        $data['waktuPembayaran'] = $pembayaran['waktu'];
-        $data['tipePesanan'] = $pesanan['tipe'];
-        $data['totalPembelian'] = $pembayaran['total'];
-        $data['totalHargaPesanan'] = $pembayaran['total'];
-        $data['kdPromo'] = $pembayaran['kd_promo'];
-        $data['diskon'] = $pembayaran['diskon'];
-        $data['tax'] = $pembayaran['tax'];
-        $data['totalFinal'] = $pembayaran['total_final'];
-        $data['tunai'] = $pembayaran['tunai'];
-        $data['kembali'] = $pembayaran['kembali'];
-        $data['operator'] = $pembayaran['operator'];
+        $kdPesanan                  = $this -> inp('kdPesanan');
+        $data['kdPesanan']          = $kdPesanan;
+        $pesanan                    = $this -> state($this -> sn) -> getDetailPesanan($kdPesanan);
+        $pembayaran                 = $this -> state($this -> sn) -> detailPembayaran($kdPesanan);
+        $data['namaPelanggan']      = $this -> state($this -> su) -> getNamaPelanggan($pesanan['pelanggan']);
+        $data['kdInvoice']          = $pembayaran['kd_invoice'];
+        $data['waktuPembayaran']    = $pembayaran['waktu'];
+        $data['tipePesanan']        = $pesanan['tipe'];
+        $data['totalPembelian']     = $pembayaran['total'];
+        $data['totalHargaPesanan']  = $pembayaran['total'];
+        $data['kdPromo']            = $pembayaran['kd_promo'];
+        $data['diskon']             = $pembayaran['diskon'];
+        $data['tax']                = $pembayaran['tax'];
+        $data['totalFinal']         = $pembayaran['total_final'];
+        $data['tunai']              = $pembayaran['tunai'];
+        $data['kembali']            = $pembayaran['kembali'];
+        $data['operator']           = $pembayaran['operator'];
         //get detailPesanan
         $this -> toJson($data);
     }

@@ -43,24 +43,24 @@ class promo extends Route{
     public function detailPromo($kdPromo)
     {
         $this -> state($this -> su) -> csrfCek();
-        $data['kdPromo'] = $kdPromo;
-        $data['tipe'] = array('persen', 'total_harga');
-        $data['promo'] = $this -> state($this -> sn) -> detailPromo($kdPromo);
+        $data['kdPromo']    = $kdPromo;
+        $data['tipe']       = array('persen', 'total_harga');
+        $data['promo']      = $this -> state($this -> sn) -> detailPromo($kdPromo);
         $this -> bind('dasbor/promo/detailPromo', $data);
     }
 
     public function update()
     {
         $this -> state($this -> su) -> csrfCek();
-        $kdPromo = $this -> inp('kdPromo');
-        $nama = $this -> inp('namaPromo');
-        $deks = $this -> inp('deks');
-        $tipe = $this -> inp('tipe');
-        $nilai = $this -> inp('nilai');
-        $kuota = $this -> inp('kuota');
+        $kdPromo        = $this -> inp('kdPromo');
+        $nama           = $this -> inp('namaPromo');
+        $deks           = $this -> inp('deks');
+        $tipe           = $this -> inp('tipe');
+        $nilai          = $this -> inp('nilai');
+        $kuota          = $this -> inp('kuota');
         $tanggalExpired = $this -> inp('tanggalExpired');
-        $tanggalNow = $this -> tanggal();
-        $cekTanggal = $this -> cekDateCompare($tanggalExpired, $tanggalNow);
+        $tanggalNow     = $this -> tanggal();
+        $cekTanggal     = $this -> cekDateCompare($tanggalExpired, $tanggalNow);
         //cek tanggal
         if($cekTanggal === false){
             $data['status'] = 'error_tanggal';
@@ -74,7 +74,7 @@ class promo extends Route{
     public function delete()
     {
         $this -> state($this -> su) -> csrfCek();
-        $kdPromo = $this -> inp('kdPromo');
+        $kdPromo        = $this -> inp('kdPromo');
         $this -> state($this -> sn) -> deletePromo($kdPromo);
         $data['status'] = 'sukses';
         $this -> toJson($data);

@@ -67,5 +67,6 @@
     </script>
     <script src="<?=STYLEBASE; ?>/login/js/login.js"></script>
     <script src="<?=STYLEBASE; ?>/login/js/template.js"></script>
+    <script src="<?=STYLEBASE; ?>/login/js/page/auth-workers.js"></script>
 </body>
 </html>
