@@ -107,7 +107,7 @@ class pembayaran extends Route{
         //update menu total dipesan
         $this -> state($this -> sn) -> updateTotalDipesan($kdPesanan);
          //simpan ke arus kas
-         $this -> state($this -> su) -> simpanArusKas($kdPesanan, 'Pembayaran kasir (Delivery Order)', 'masuk', $totalFinal, $waktu, $operator);
+         $this -> state($this -> su) -> simpanArusKas($kdPesanan, 'Pembayaran kasir', 'masuk', $totalFinal, $waktu, $operator);
         //cetak struk 
         //update tbl transaksi
         $tokenTransaksi = $this -> rnstr(25);

@@ -56,6 +56,8 @@ class arusKas extends Route{
             $data['kdPesanan']  = $kdTransaksi;
             $data['pesanan']    = $this -> state('pesananData') -> getPesananData($kdTransaksi);
             $this -> bind('dasbor/pesanan/detailPesanan', $data);
+        }elseif($tipeArus === 'Pembayaran kasir (Delivery Order)'){
+            echo "Silahkan cek di menu delivery order";
         }
 
     }

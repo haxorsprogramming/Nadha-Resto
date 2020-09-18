@@ -1,5 +1,5 @@
 // ROUTE 
-var routeToGetDataArusKas = server+'arusKas/getArusKas';
+var routeToGetDataArusKas = server + 'arusKas/getArusKas';
 
 // VUE OBJECT 
 var divArusKas = new Vue({
