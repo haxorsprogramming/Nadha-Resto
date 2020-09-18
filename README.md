@@ -184,6 +184,11 @@
 <li> Untuk mengaktifkan pemesanan delivery order membutukan service firebase, silahkan buat akun firebase & setting di menu aplikasi</li>
 </ul>
 
+<h5><a href='https://www.youtube.com/watch?v=aPx-HhC87-0'>Demo (Youtube) </a></h5>
+<h5><a href='http://demo.haxors.or.id/Nadha-Resto/'>Demo Website </a></h5>
+
+<i><small>Kami nonaktifkan beberapa fungsi untuk menghindari form bomb dari pengakses demo</small></i>
+
 <p>Jika mengalami masalah dalam instalasi, ataupun operasional dari aplikasinya, silahkan hubungi kami di whatsapp <b>(082272177022)</b> atau email <b>alditha.forum@gmail.com</b>. Aplikasi ini kami beri lisensi opensource (MIT) jadi teman teman bebas untuk menggunakan & mengembangkannya kembali. Apabila teman" menemukan bug yang ada di aplikasi ini,
 kami berharap dapat membantu pemgembangan aplikasi ini untuk lebih bagus lagi.</p>
 
