@@ -1,5 +1,5 @@
 <p align="center">
-<img src='https://github.com/haxorsprogramming/Haxors-Contributors/blob/master/haxors_project/nadha_resto.png?raw=true' width='500px'>
+<img src='http://asset.justhasnah.my.id/screenshoot/Logo_Project/nadha_resto.png' width='500px'>
 </p>
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
