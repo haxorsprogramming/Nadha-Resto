@@ -14,7 +14,4 @@ if(statusKoneksi === true){
             console.log(obj);
         });
     });
-}else{
-
 }
-
