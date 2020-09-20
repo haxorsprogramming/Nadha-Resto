@@ -42,7 +42,6 @@ class setting extends Route{
     public function updateData()
     {
         $this -> state($this -> su) -> csrfCek();
-        $this -> state($this -> sn) -> csrfCek();
         $this -> state($this -> sn) -> updateData('tax', $this -> inp('tax'));
         $this -> state($this -> sn) -> updateData('nama_resto', $this -> inp('namaResto'));
         $this -> state($this -> sn) -> updateData('ip_address_print_kasir', $this -> inp('ipAddressPrintKasir'));
