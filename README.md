@@ -1,5 +1,5 @@
 <p align="center">
-<img src='http://asset.justhasnah.my.id/screenshoot/Logo_Project/nadha_resto.png' width='500px'>
+<img src="https://ik.imagekit.io/ebunga/haxors/Logo_Project/nadha_resto_0LCfAdNMFkvJ.png" width="500px">
 </p>
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
