@@ -185,7 +185,7 @@
 </ul>
 
 <h5><a href='https://www.youtube.com/watch?v=aPx-HhC87-0'>Demo (Youtube) </a></h5>
-<h5><a href='http://demo.haxors.or.id/Nadha-Resto/'>Demo Website </a></h5>
+<h5><a href='http://122.248.199.21/Nadha-Resto/'>Demo Website </a></h5>
 
 <i><small>Kami nonaktifkan beberapa fungsi untuk menghindari form bomb dari pengakses demo</small></i>
 
