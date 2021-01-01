@@ -110,7 +110,7 @@
 </td>
 <td>
 <small>Pembayaran</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/form_pembayaran.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_pembayaran.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
