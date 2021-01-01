@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://ik.imagekit.io/ebunga/haxors/Logo_Project/nadha_resto_0LCfAdNMFkvJ.png" width="500px">
+<img src="https://s3-id-jkt-1.kilatstorage.id/nadhamedia/logo/nadha_resto.png" width="500px">
 </p>
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
@@ -62,7 +62,7 @@
 <tr>
 <td>
 <small>Home (Halaman Depan)</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/home.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/home.jpg' width='100%'>
 </td>
 <td>
 <small>Menu Order</small>
