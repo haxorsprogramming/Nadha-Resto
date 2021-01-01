@@ -66,40 +66,40 @@
 </td>
 <td>
 <small>Menu Order</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/menu_order_1.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/menu_order_1.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Menu List</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/menu_order_2.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/menu_order_2.jpg' width='100%'>
 </td>
 <td>
 <small>Cart</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/menu_order_3.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/menu_order_3.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Checkout</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/checkout.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/checkout.jpg' width='100%'>
 </td>
 <td>
 <small>Notifikasi Email</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/email.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/email.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Beranda</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/beranda.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/beranda.jpg' width='100%'>
 </td>
 <td>
 <small>Form Pesanan</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/form_pesanan.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_pesanan.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
@@ -117,55 +117,55 @@
 <tr>
 <td>
 <small>Data Menu</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/data_menu.jpeg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/data_menu.jpeg' width='100%'>
 </td>
 <td>
 <small>Form Tambah Menu</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/form_tambah_menu.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_tambah_menu.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Data Pelanggan</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/data_pelanggan.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/data_pelanggan.jpg' width='100%'>
 </td>
 <td>
 <small>Pembelian Bahan Baku</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/pembelian_bahan_baku.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/pembelian_bahan_baku.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Form Pembelian Bahan Baku</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/form_pembelian_bahan_baku.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_pembelian_bahan_baku.jpg' width='100%'>
 </td>
 <td>
 <small>Laporan Transaksi</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/laporan_transaksi.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/laporan_transaksi.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Arus Kas</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/arus_kas.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/arus_kas.jpg' width='100%'>
 </td>
 <td>
 <small>Statistik</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/statistik.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/statistik.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Setting Resto</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/form_pilih_menu.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/setting.jpg' width='100%'>
 </td>
 <td>
 <small>Setting Front End</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/setting_slider_utama.jpg' width='100%'>
+<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/setting_slider_utama.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
