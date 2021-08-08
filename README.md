@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://s3-id-jkt-1.kilatstorage.id/nadhamedia/logo/nadha_resto.png" width="500px">
+<img src="https://media.publit.io/file/cloudladun/NadhaResto/nadha_resto.png" width="500px">
 </p>
 
 <h1 align="center">Aplikasi Manajemen Restoran</h1>
