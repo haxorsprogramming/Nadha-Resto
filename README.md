@@ -62,7 +62,7 @@
 <tr>
 <td>
 <small>Home (Halaman Depan)</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/home.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/beranda.jpg' width='100%'>
 </td>
 <td>
 <small>Menu Order</small>
@@ -73,99 +73,99 @@
 <tr>
 <td>
 <small>Menu List</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/menu_order_2.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/menu_order_1.jpg' width='100%'>
 </td>
 <td>
 <small>Cart</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/menu_order_3.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/menu_order_3.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Checkout</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/checkout.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/checkout.jpg' width='100%'>
 </td>
 <td>
 <small>Notifikasi Email</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/email.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/email.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Beranda</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/beranda.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/beranda.jpg' width='100%'>
 </td>
 <td>
 <small>Form Pesanan</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_pesanan.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/form_pesanan.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Pilih Menu</small>
-<img src='http://asset.justhasnah.my.id/screenshoot/Nadha_Resto/form_pilih_menu.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/form_pilih_menu.jpg' width='100%'>
 </td>
 <td>
 <small>Pembayaran</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_pembayaran.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/form_pembayaran.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Data Menu</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/data_menu.jpeg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/data_menu.jpeg' width='100%'>
 </td>
 <td>
 <small>Form Tambah Menu</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_tambah_menu.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/form_tambah_menu.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Data Pelanggan</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/data_pelanggan.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/data_pelanggan.jpg' width='100%'>
 </td>
 <td>
 <small>Pembelian Bahan Baku</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/pembelian_bahan_baku.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/pembelian_bahan_baku.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Form Pembelian Bahan Baku</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/form_pembelian_bahan_baku.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/form_pembelian_bahan_baku.jpg' width='100%'>
 </td>
 <td>
 <small>Laporan Transaksi</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/laporan_transaksi.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/laporan_transaksi.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Arus Kas</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/arus_kas.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/arus_kas.jpg' width='100%'>
 </td>
 <td>
 <small>Statistik</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/statistik.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/statistik.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
 <tr>
 <td>
 <small>Setting Resto</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/setting.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/setting.jpg' width='100%'>
 </td>
 <td>
 <small>Setting Front End</small>
-<img src='https://s3-id-jkt-1.kilatstorage.id/nadhamedia/screenshoot/Nadha-Resto/setting_slider_utama.jpg' width='100%'>
+<img src='https://media.publit.io/file/cloudladun/NadhaResto/setting_slider_utama.jpg' width='100%'>
 </td>
 </tr>
 <!-- row -->
@@ -189,7 +189,7 @@
 
 <i><small>Kami nonaktifkan beberapa fungsi untuk menghindari form bomb dari pengakses demo</small></i>
 
-<p>Jika mengalami masalah dalam instalasi, ataupun operasional dari aplikasinya, silahkan hubungi kami di whatsapp <b>(082272177022)</b> atau email <b>alditha.forum@gmail.com</b>. Aplikasi ini kami beri lisensi opensource (MIT) jadi teman teman bebas untuk menggunakan & mengembangkannya kembali. Apabila teman" menemukan bug yang ada di aplikasi ini,
+<p>Jika mengalami masalah dalam instalasi, ataupun operasional dari aplikasinya, silahkan hubungi kami di email <b>alditha.forum@gmail.com</b>. Aplikasi ini kami beri lisensi opensource (MIT) jadi teman teman bebas untuk menggunakan & mengembangkannya kembali. Apabila teman" menemukan bug yang ada di aplikasi ini,
 kami berharap dapat membantu pemgembangan aplikasi ini untuk lebih bagus lagi.</p>
 
 <p>Silahkan subs channel Haxors Update di telegram untuk mendapatkan informasi terbaru seputar perkembangan aplikasi" yang sedang dikembangkan oleh haxorsprogramming : 
