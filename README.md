@@ -185,7 +185,7 @@
 </ul>
 
 <h5><a href='https://www.youtube.com/watch?v=aPx-HhC87-0'>Demo (Youtube) </a></h5>
-<h5><a href='www.project.justhasnah.me/nadha-resto/'>Demo Website </a></h5>
+<h5><a href='https://www.project.justhasnah.me/nadha-resto/'>Demo Website </a></h5>
 
 <i><small>Kami nonaktifkan beberapa fungsi untuk menghindari form bomb dari pengakses demo</small></i>
 
