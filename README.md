@@ -16,7 +16,7 @@
 <b>Teknologi yang digunakan</b>
 <ul>
 <li>Front End : HTML, Bootstrap</li>
-<li>Backend : Uinsu Web Framework - Base php MVC tutorial pak Sandhika Galih(Web Programming Unpas)</li>
+<li>Backend : Uinsu Web Framework</li>
 <li>Javascript : Vue JS, Native Javascript, & Jquery</li>
 <li>Bootstrap Theme By <a href='https://demo.getstisla.com/index.html'>[Stisla]</a></li>
 <li>Cloud Serverless & Realtime Event : Firebase</li>
